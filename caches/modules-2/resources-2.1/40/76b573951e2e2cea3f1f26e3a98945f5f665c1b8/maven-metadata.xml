@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>org.apache.fineract.cn</groupId>
+  <artifactId>async</artifactId>
+  <version>0.1.x-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20191018.174301</timestamp>
+      <buildNumber>3</buildNumber>
+    </snapshot>
+    <lastUpdated>20191018174343</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>0.1.x-20191018.174301-3</value>
+        <updated>20191018174301</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>0.1.x-20191018.174301-3</value>
+        <updated>20191018174301</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
