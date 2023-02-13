@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.*;
@@ -971,5 +953,48 @@ public class PGFunctionProcedureService {
             throw new DatabaseOperationError("Call Procedure fn_comparativeprogressreportsdata(?,?,?,?,?,?) Failed!");
         }
         return compReList;
+    }
+
+    public List<BlockSaturationResponse> fn_blocksaturation(String location_type, String date_to, String date_from, String state_id, String district_id,
+                                                                                      String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<BlockSaturationResponse> blockSaturationList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_blocksaturation(?,?,?,?,?)}");
+            stmt.setString(1, location_type);
+            stmt.setString(2, date_to);
+            stmt.setString(3, date_from);
+            stmt.setString(4, state_id);
+            stmt.setString(5, district_id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                BlockSaturationResponse blockSaturation =new BlockSaturationResponse();
+                blockSaturation.setState_id(rs.getString("state_id"));
+                blockSaturation.setState_name(rs.getString("state_name"));
+                blockSaturation.setDistrict_id(rs.getString("district_id"));
+                blockSaturation.setDistrict_name(rs.getString("district_name"));
+                blockSaturation.setZeroto3(rs.getString("zeroto3"));
+                blockSaturation.setThreeto6(rs.getString("threeto6"));
+                blockSaturation.setSixto10(rs.getString("sixto10"));
+                blockSaturation.setTenplus(rs.getString("tenplus"));
+                blockSaturation.setTotal1(rs.getString("total1"));
+                blockSaturation.setZeroto3(rs.getString("zeroto3_2"));
+                blockSaturation.setThreeto6_2(rs.getString("threeto6_2"));
+                blockSaturation.setSixto10_2(rs.getString("sixto10_2"));
+                blockSaturation.setTenplus_2(rs.getString("tenplus_2"));
+                blockSaturation.setTotal2(rs.getString("total2"));
+                blockSaturationList.add(blockSaturation);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_blocksaturation(?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_blocksaturation(?,?,?,?,?,?) Failed!");
+        }
+        return blockSaturationList;
     }
 }
