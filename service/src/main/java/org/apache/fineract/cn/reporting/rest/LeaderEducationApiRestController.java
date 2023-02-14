@@ -33,6 +33,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -61,8 +62,9 @@ public class LeaderEducationApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<LeaderEducationResponse>> getLeaderEducationData(@RequestBody LeaderEducationRequest request,
-                                                                @RequestHeader Map<String, String> headers) {
-        if(headers.get("X-Tenant-Identifier")==null){
+                                                                         HttpServletRequest headerRequest) {
+
+        if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -72,7 +74,7 @@ public class LeaderEducationApiRestController {
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.leaderEducationApiService.getLeaderEducationData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier));
     }
@@ -87,8 +89,9 @@ public class LeaderEducationApiRestController {
         public
         @ResponseBody
         ResponseEntity<List<LeaderLiveliHoodResponse>> getLeaderData(@RequestBody LeaderLiveliHoodRequest request,
-                                                                  @RequestHeader Map<String, String> headers) {
-            if(headers.get("X-Tenant-Identifier")==null){
+                                                                     HttpServletRequest headerRequest) {
+
+            if(headerRequest.getHeader("X-Tenant-Identifier")==null){
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             }
@@ -98,7 +101,7 @@ public class LeaderEducationApiRestController {
             String state_id = request.getState_id();
             String district_id = request.getDistrict_id();
             String block_id = request.getBlock_id();
-            String tenantIdentifier = headers.get("X-Tenant-Identifier");
+            String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
             return ResponseEntity.ok(
                     this.leaderEducationApiService.getLeaderData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier));
         }

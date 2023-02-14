@@ -18,6 +18,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -44,8 +45,8 @@ import java.util.Map;
     public
     @ResponseBody
     ResponseEntity<List<BlockSaturationResponse>> getBlockSaturationeData(@RequestBody BlockSaturationRequest request,
-                                                                       @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                                          HttpServletRequest headerRequest) {
+        if (headerRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -54,7 +55,7 @@ import java.util.Map;
         String date_from = request.getDate_from();
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.blockSaturationApiService.getBlockSaturationData(location_type, date_to, date_from, state_id, district_id, tenantIdentifier));
     }

@@ -32,6 +32,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -61,8 +62,8 @@ public class NumberOfAccountDataController {
     public
     @ResponseBody
     ResponseEntity<List<AccountDataResponse>> getGeoData(@RequestBody NumberOfAccountDataRequest request,
-                                                                 @RequestHeader Map<String, String> headers) {
-        if(headers.get("X-Tenant-Identifier")==null){
+                                                         HttpServletRequest headerRequest) {
+        if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -70,7 +71,7 @@ public class NumberOfAccountDataController {
         String state_id=request.getState_id();
         String district_id=request.getDistrict_id();
         String block_id=request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.numberOfAccountDataServiceClass.getnumberofaccountdata(locationtype,state_id,district_id,block_id,tenantIdentifier));
     }

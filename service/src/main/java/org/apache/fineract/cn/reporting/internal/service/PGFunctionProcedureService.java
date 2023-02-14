@@ -95,7 +95,8 @@ public class PGFunctionProcedureService {
             logger.info("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!", e.getMessage());
             throw new DatabaseOperationError("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!");
         }
-        return geographicalCoverageList;
+        logger.info("Call Procedure");
+        return  geographicalCoverageList;
     }
     public List<CboPromotedResponse> fn_getcbopromoteddata(String loctype, String dto, String dfrom, String sid, String did, String bid, String db_name) {
         Connection con;
