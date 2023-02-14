@@ -19,6 +19,7 @@
 package org.apache.fineract.cn.reporting.rest;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
@@ -36,6 +37,8 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -66,11 +69,9 @@ public class GeographicalCoverageApiRestController {
   public
   @ResponseBody
   ResponseEntity<List<GeographicalCoverage>> getGeoData(@RequestBody GeographicalCoverageRequest request,
-                                                        @RequestHeader Map<String, String> headers) {
+                                                        HttpServletRequest headerRequest) {
 
-
-
-    if(headers.get("X-Tenant-Identifier")==null){
+   if(headerRequest.getHeader("X-Tenant-Identifier")==null){
       this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
       throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
     }
@@ -81,7 +82,7 @@ public class GeographicalCoverageApiRestController {
     String did=request.getDid();
     String bid=request.getBid();
     String pid=request.getPid();
-    String tenantIdentifier = headers.get("X-Tenant-Identifier");
+    String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
     return ResponseEntity.ok(
             this.geographicalCoverageApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,pid,tenantIdentifier));
   }
