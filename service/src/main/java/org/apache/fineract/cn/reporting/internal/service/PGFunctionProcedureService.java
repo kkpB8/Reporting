@@ -1024,7 +1024,7 @@ public class PGFunctionProcedureService {
         return BankNameDatalist;
     }
 
-    public List<BankBranchNameResponse> fn_getbankbranchnamedata(String bank_code, String db_name) {
+    public List<BankBranchNameResponse> fn_getbankbranchnamedata(String bank_code,String cbo_id, String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -1032,13 +1032,12 @@ public class PGFunctionProcedureService {
         try {
             con = DriverManager.getConnection(url_sp, user_sp, password_sp);
             logger.info("Connected to the PostgreSQL server successfully.");
-            stmt = con.prepareCall("{call fn_branchnamedata(?)}");
+            stmt = con.prepareCall("{call fn_branchnamedata(?,?)}");
             stmt.setString(1,bank_code);
+            stmt.setString(2,cbo_id);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 BankBranchNameResponse bankNameDataResponse = new BankBranchNameResponse();
-                bankNameDataResponse.setBank_code(rs.getString("bank_code"));
-                bankNameDataResponse.setBank_name(rs.getString("bank_name"));
                 bankNameDataResponse.setBank_branch_code(rs.getString("bank_branch_code"));
                 bankNameDataResponse.setBank_branch_name(rs.getString("bank_branch_name"));
                 BankBranchNameDatalist.add(bankNameDataResponse);

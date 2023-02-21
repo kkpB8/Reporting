@@ -27,7 +27,7 @@ public class BankNameDataService {
         return pgFunctionProcedureService.fn_getbanknamedata(tenantIdentifier);
     }
 
-    public List<BankBranchNameResponse> getBankBranchNameData(String bank_code, String tenantIdentifier) {
-        return pgFunctionProcedureService.fn_getbankbranchnamedata(bank_code,tenantIdentifier);
+    public List<BankBranchNameResponse> getBankBranchNameData(String bank_code, String cbo_Id, String tenantIdentifier) {
+        return pgFunctionProcedureService.fn_getbankbranchnamedata(bank_code,cbo_Id,tenantIdentifier);
     }
 }
