@@ -998,4 +998,57 @@ public class PGFunctionProcedureService {
         }
         return blockSaturationList;
     }
+
+    public List<BankNameDataResponse> fn_getbanknamedata(String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<BankNameDataResponse> BankNameDatalist = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_banknamedata()}");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                BankNameDataResponse bankNameDataResponse = new BankNameDataResponse();
+                bankNameDataResponse.setBank_code(rs.getString("bank_code"));
+                bankNameDataResponse.setBank_name(rs.getString("bank_name"));
+                BankNameDatalist.add(bankNameDataResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_banknamedata() Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_banknamedata() Failed!");
+        }
+        return BankNameDatalist;
+    }
+
+    public List<BankBranchNameResponse> fn_getbankbranchnamedata(String bank_code, String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<BankBranchNameResponse> BankBranchNameDatalist = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_branchnamedata(?)}");
+            stmt.setString(1,bank_code);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                BankBranchNameResponse bankNameDataResponse = new BankBranchNameResponse();
+                bankNameDataResponse.setBank_code(rs.getString("bank_code"));
+                bankNameDataResponse.setBank_name(rs.getString("bank_name"));
+                bankNameDataResponse.setBank_branch_code(rs.getString("bank_branch_code"));
+                bankNameDataResponse.setBank_branch_name(rs.getString("bank_branch_name"));
+                BankBranchNameDatalist.add(bankNameDataResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_branchnamedata(?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_branchnamedata(?) Failed!");
+        }
+        return BankBranchNameDatalist;
+    }
 }

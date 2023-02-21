@@ -33,7 +33,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -62,8 +61,8 @@ public class CboPromotedController {
     public
     @ResponseBody
     ResponseEntity<List<CboPromotedResponse>> getGeoData(@RequestBody Cbo_PromotedRequest request,
-                                                         HttpServletRequest headerRequest) {
-        if(headerRequest.getHeader("X-Tenant-Identifier")==null){
+                                                         @RequestHeader Map<String, String> headers) {
+        if(headers.get("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -73,7 +72,7 @@ public class CboPromotedController {
         String sid=request.getSid();
         String did=request.getDid();
         String bid=request.getBid();
-        String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
+        String tenantIdentifier = headers.get("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.cboPromotedApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier));
     }
