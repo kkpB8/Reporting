@@ -742,7 +742,7 @@ public class PGFunctionProcedureService {
         try {
             con = DriverManager.getConnection(url_sp, user_sp, password_sp);
             logger.info("Connected to the PostgreSQL server successfully.");
-            stmt = con.prepareCall("{call fn_leaderlivelihoodactivity(?,?,?,?,?,?)}");
+            stmt = con.prepareCall("{call fn_leaderlivelihoodactivity_new(?,?,?,?,?,?)}");
             stmt.setString(1, location_type);
             stmt.setString(2, date_to);
             stmt.setString(3, date_from);
@@ -761,23 +761,16 @@ public class PGFunctionProcedureService {
                 leaderLiveliHoodActi.setNoofshg(rs.getString("noofshg"));
                 leaderLiveliHoodActi.setNoofleaders(rs.getString("noofleaders"));
                 leaderLiveliHoodActi.setAgriactivity(rs.getString("agriactivity"));
-                leaderLiveliHoodActi.setHortactivity(rs.getString("hortactivity"));
-                leaderLiveliHoodActi.setLivestockrearing(rs.getString("livestockrearing"));
-                leaderLiveliHoodActi.setFisheryactivity(rs.getString("fisheryactivity"));
-                leaderLiveliHoodActi.setNtfpcollection(rs.getString("ntfpcollection"));
-                leaderLiveliHoodActi.setManufctrng(rs.getString("manufctrng"));
-                leaderLiveliHoodActi.setTrading(rs.getString("trading"));
-                leaderLiveliHoodActi.setServics(rs.getString("servics"));
-                leaderLiveliHoodActi.setCustomhiringcenter(rs.getString("customhiringcenter"));
-                leaderLiveliHoodActi.setAggregation(rs.getString("aggregation"));
-                leaderLiveliHoodActi.setOthers(rs.getString("others"));
+                leaderLiveliHoodActi.setLivestock_fisheries(rs.getString("livestock_fisheries"));
+                leaderLiveliHoodActi.setNtfp(rs.getString("ntfp"));
+                leaderLiveliHoodActi.setNon_farm(rs.getString("non_farm"));
                 leaderLiveliHoodList.add(leaderLiveliHoodActi);
             }
             stmt.close();
             con.close();
         } catch (SQLException e) {
-            logger.info("Call Procedure fn_leaderlivelihoodactivity(?,?,?,?,?,?) Failed!", e.getMessage());
-            throw new DatabaseOperationError("Call Procedure fn_leaderlivelihoodactivity(?,?,?,?,?,?) Failed!");
+            logger.info("Call Procedure fn_leaderlivelihoodactivity_new(?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_leaderlivelihoodactivity_new(?,?,?,?,?,?) Failed!");
         }
         return leaderLiveliHoodList;
     }
