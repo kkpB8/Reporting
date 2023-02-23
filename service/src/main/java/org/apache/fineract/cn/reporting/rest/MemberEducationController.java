@@ -36,6 +36,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -64,8 +65,8 @@ public class MemberEducationController {
     public
     @ResponseBody
     ResponseEntity<List<MemberEducationReponse>> getGeoData(@RequestBody MemberEducationRequest request,
-                                                            @RequestHeader Map<String, String> headers) {
-        if(headers.get("X-Tenant-Identifier")==null){
+                                                            HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -73,7 +74,7 @@ public class MemberEducationController {
         String dto=request.getState_id();
         String dfrom =request.getDistrict_id();
         String sid=request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.memberEducationService.getmembereducation(loctype,dto,dfrom,sid,tenantIdentifier));
     }

@@ -36,6 +36,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -65,8 +66,8 @@ public class InactiveCosController {
     public
     @ResponseBody
     ResponseEntity<List<InactiveCbosResponse>> getGeoData(@RequestBody InactiveCbosRequest request,
-                                                          @RequestHeader Map<String, String> headers) {
-        if(headers.get("X-Tenant-Identifier")==null){
+                                                          HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -76,7 +77,7 @@ public class InactiveCosController {
         String sid=request.getSid();
         String did=request.getDid();
         String bid=request.getBid();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.inactiveCboServiceClass.getinactivedata(loctype,dto,dfrom,sid,did,bid,tenantIdentifier));
     }

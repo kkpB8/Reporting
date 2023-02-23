@@ -34,6 +34,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 
@@ -64,8 +65,8 @@ import java.util.Map;
         public
         @ResponseBody
         ResponseEntity<List<SocialMoblizationResponse>> getSocialMoblizationData(@RequestBody SocialMobilizationRequest request,
-                                                                                 @RequestHeader Map<String, String> headers) {
-            if(headers.get("X-Tenant-Identifier")==null){
+                                                                                 HttpServletRequest headers) {
+            if (headers.getHeader("X-Tenant-Identifier") == null) {
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             }
@@ -75,7 +76,7 @@ import java.util.Map;
             String sid = request.getSid();
             String did = request.getDid();
             String bid = request.getBid();
-            String tenantIdentifier = headers.get("X-Tenant-Identifier");
+            String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
             return ResponseEntity.ok(
                     this.socialMobilizationApiService.getSocialMoblizationData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier));
         }

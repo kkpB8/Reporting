@@ -33,6 +33,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Map;
 @RestController
@@ -60,8 +61,8 @@ public class ShgLivelyHoodApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<ShgLivelyHoodDetailsResponse>> getShgLivelyHoodData(@RequestBody ShgLivelyHoodDetailsRequest request,
-                                                                            @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                                            HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -69,7 +70,7 @@ public class ShgLivelyHoodApiRestController {
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.shgLivelyHoodDetailsApiService.getShgLivelyHoodData(location_type, state_id, district_id, block_id, tenantIdentifier));
     }
@@ -84,8 +85,8 @@ public class ShgLivelyHoodApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<MemberLivelyHoodResponse>> getMemberLivelyHoodData(@RequestBody MemberLivelyHoodRequest request,
-                                                                           @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                                           HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -93,7 +94,7 @@ public class ShgLivelyHoodApiRestController {
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.shgLivelyHoodDetailsApiService.getMemberLivelyHoodData(location_type, state_id, district_id, block_id, tenantIdentifier));
     }
@@ -108,8 +109,8 @@ public class ShgLivelyHoodApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<ShgByEachTypeResponse>> getShgByEachTypeData(@RequestBody ShgByEachTypeRequest request,
-                                                                     @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                                     HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -119,7 +120,7 @@ public class ShgLivelyHoodApiRestController {
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.shgLivelyHoodDetailsApiService.getShgByEachTypeData(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier));
     }
@@ -134,8 +135,8 @@ public class ShgLivelyHoodApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<ShgBySocialCategoryResponse>> getShgBySocialCategoryData(@RequestBody ShgBySocialCategoryRequest request,
-                                                                                 @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                                                 HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -150,9 +151,8 @@ public class ShgLivelyHoodApiRestController {
         String v_id = request.getV_id();
         String clf_id = request.getClf_id();
         String vo_id = request.getVo_id();
-        ;
         String shg_id = request.getShg_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.shgLivelyHoodDetailsApiService.getShgBySocialCategoryData(category, location_type, date_to, date_from, state_id,
                         district_id, block_id, p_id, v_id, clf_id, vo_id, shg_id, tenantIdentifier));
@@ -168,8 +168,8 @@ public class ShgLivelyHoodApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<ShgInitiativeResponse>> getShgInitiativeData(@RequestBody ShgInitiativeRequest request,
-                                                                     @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                                     HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -179,7 +179,7 @@ public class ShgLivelyHoodApiRestController {
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.shgLivelyHoodDetailsApiService.getShgInitiativeData(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier));
     }
@@ -194,8 +194,8 @@ public class ShgLivelyHoodApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<ShgByDateResponse>> getShgByDateData(@RequestBody ShgByDateRequest request,
-                                                             @RequestHeader Map<String, String> headers) {
-        if (headers.get("X-Tenant-Identifier") == null) {
+                                                             HttpServletRequest headers) {
+        if (headers.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
@@ -205,7 +205,7 @@ public class ShgLivelyHoodApiRestController {
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
-        String tenantIdentifier = headers.get("X-Tenant-Identifier");
+        String tenantIdentifier = headers.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
                 this.shgLivelyHoodDetailsApiService.getShgByDateData(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier));
 
