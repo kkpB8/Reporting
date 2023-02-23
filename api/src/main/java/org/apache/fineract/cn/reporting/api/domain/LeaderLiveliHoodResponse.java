@@ -29,16 +29,34 @@ public class LeaderLiveliHoodResponse {
     private String noofshg;
     private String noofleaders;
     private String agriactivity;
-    private String hortactivity;
-    private String livestockrearing;
-    private String fisheryactivity;
-    private String ntfpcollection;
-    private String manufctrng;
-    private String trading;
-    private String servics;
-    private String customhiringcenter;
-    private String aggregation;
-    private String others;
+
+    public String getLivestock_fisheries() {
+        return livestock_fisheries;
+    }
+
+    public void setLivestock_fisheries(String livestock_fisheries) {
+        this.livestock_fisheries = livestock_fisheries;
+    }
+
+    public String getNtfp() {
+        return ntfp;
+    }
+
+    public void setNtfp(String ntfp) {
+        this.ntfp = ntfp;
+    }
+
+    public String getNon_farm() {
+        return non_farm;
+    }
+
+    public void setNon_farm(String non_farm) {
+        this.non_farm = non_farm;
+    }
+
+    private String livestock_fisheries;
+    private String ntfp;
+    private String non_farm;
     public String getState_id() {
         return state_id;
     }
@@ -111,83 +129,4 @@ public class LeaderLiveliHoodResponse {
         this.agriactivity = agriactivity;
     }
 
-    public String getHortactivity() {
-        return hortactivity;
-    }
-
-    public void setHortactivity(String hortactivity) {
-        this.hortactivity = hortactivity;
-    }
-
-    public String getLivestockrearing() {
-        return livestockrearing;
-    }
-
-    public void setLivestockrearing(String livestockrearing) {
-        this.livestockrearing = livestockrearing;
-    }
-
-    public String getFisheryactivity() {
-        return fisheryactivity;
-    }
-
-    public void setFisheryactivity(String fisheryactivity) {
-        this.fisheryactivity = fisheryactivity;
-    }
-
-    public String getNtfpcollection() {
-        return ntfpcollection;
-    }
-
-    public void setNtfpcollection(String ntfpcollection) {
-        this.ntfpcollection = ntfpcollection;
-    }
-
-    public String getManufctrng() {
-        return manufctrng;
-    }
-
-    public void setManufctrng(String manufctrng) {
-        this.manufctrng = manufctrng;
-    }
-
-    public String getTrading() {
-        return trading;
-    }
-
-    public void setTrading(String trading) {
-        this.trading = trading;
-    }
-
-    public String getServics() {
-        return servics;
-    }
-
-    public void setServics(String servics) {
-        this.servics = servics;
-    }
-
-    public String getCustomhiringcenter() {
-        return customhiringcenter;
-    }
-
-    public void setCustomhiringcenter(String customhiringcenter) {
-        this.customhiringcenter = customhiringcenter;
-    }
-
-    public String getAggregation() {
-        return aggregation;
-    }
-
-    public void setAggregation(String aggregation) {
-        this.aggregation = aggregation;
-    }
-
-    public String getOthers() {
-        return others;
-    }
-
-    public void setOthers(String others) {
-        this.others = others;
-    }
 }

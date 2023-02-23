@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.*;
@@ -23,7 +5,6 @@ import org.apache.fineract.cn.reporting.api.domain.*;
 import org.apache.fineract.cn.reporting.internal.Error.*;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.*;
 
 import java.sql.*;
@@ -114,7 +95,8 @@ public class PGFunctionProcedureService {
             logger.info("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!", e.getMessage());
             throw new DatabaseOperationError("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!");
         }
-        return geographicalCoverageList;
+        logger.info("Call Procedure");
+        return  geographicalCoverageList;
     }
     public List<CboPromotedResponse> fn_getcbopromoteddata(String loctype, String dto, String dfrom, String sid, String did, String bid, String db_name) {
         Connection con;
@@ -760,7 +742,7 @@ public class PGFunctionProcedureService {
         try {
             con = DriverManager.getConnection(url_sp, user_sp, password_sp);
             logger.info("Connected to the PostgreSQL server successfully.");
-            stmt = con.prepareCall("{call fn_leaderlivelihoodactivity(?,?,?,?,?,?)}");
+            stmt = con.prepareCall("{call fn_leaderlivelihoodactivity_new(?,?,?,?,?,?)}");
             stmt.setString(1, location_type);
             stmt.setString(2, date_to);
             stmt.setString(3, date_from);
@@ -779,23 +761,16 @@ public class PGFunctionProcedureService {
                 leaderLiveliHoodActi.setNoofshg(rs.getString("noofshg"));
                 leaderLiveliHoodActi.setNoofleaders(rs.getString("noofleaders"));
                 leaderLiveliHoodActi.setAgriactivity(rs.getString("agriactivity"));
-                leaderLiveliHoodActi.setHortactivity(rs.getString("hortactivity"));
-                leaderLiveliHoodActi.setLivestockrearing(rs.getString("livestockrearing"));
-                leaderLiveliHoodActi.setFisheryactivity(rs.getString("fisheryactivity"));
-                leaderLiveliHoodActi.setNtfpcollection(rs.getString("ntfpcollection"));
-                leaderLiveliHoodActi.setManufctrng(rs.getString("manufctrng"));
-                leaderLiveliHoodActi.setTrading(rs.getString("trading"));
-                leaderLiveliHoodActi.setServics(rs.getString("servics"));
-                leaderLiveliHoodActi.setCustomhiringcenter(rs.getString("customhiringcenter"));
-                leaderLiveliHoodActi.setAggregation(rs.getString("aggregation"));
-                leaderLiveliHoodActi.setOthers(rs.getString("others"));
+                leaderLiveliHoodActi.setLivestock_fisheries(rs.getString("livestock_fisheries"));
+                leaderLiveliHoodActi.setNtfp(rs.getString("ntfp"));
+                leaderLiveliHoodActi.setNon_farm(rs.getString("non_farm"));
                 leaderLiveliHoodList.add(leaderLiveliHoodActi);
             }
             stmt.close();
             con.close();
         } catch (SQLException e) {
-            logger.info("Call Procedure fn_leaderlivelihoodactivity(?,?,?,?,?,?) Failed!", e.getMessage());
-            throw new DatabaseOperationError("Call Procedure fn_leaderlivelihoodactivity(?,?,?,?,?,?) Failed!");
+            logger.info("Call Procedure fn_leaderlivelihoodactivity_new(?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_leaderlivelihoodactivity_new(?,?,?,?,?,?) Failed!");
         }
         return leaderLiveliHoodList;
     }
@@ -973,48 +948,99 @@ public class PGFunctionProcedureService {
         }
         return compReList;
     }
-    public int fn_table_summary(Integer geo_flag, String groupby,
-                          String wherestr,String insertstr, String yrmn,String db_name){
+
+    public List<BlockSaturationResponse> fn_blocksaturation(String location_type, String date_to, String date_from, String state_id, String district_id,
+                                                                                      String db_name) {
         Connection con;
         CallableStatement stmt = null;
-        try {
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
-        con = DriverManager.getConnection(url_sp, user_sp, password_sp);
-        logger.info("Connected to the PostgreSQL server successfully."+url_sp);
-        stmt = con.prepareCall("{call fn_tbl_summary(?,?,?,?,?)}");
-            stmt.setInt(1, geo_flag);
-            stmt.setString(2, groupby);
-            stmt.setString(3, wherestr);
-            stmt.setString(4, insertstr);
-            stmt.setString(5, yrmn);
+        List<BlockSaturationResponse> blockSaturationList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_blocksaturation(?,?,?,?,?)}");
+            stmt.setString(1, location_type);
+            stmt.setString(2, date_to);
+            stmt.setString(3, date_from);
+            stmt.setString(4, state_id);
+            stmt.setString(5, district_id);
             ResultSet rs = stmt.executeQuery();
-           return 1;
-        }catch (Exception ex){
-            logger.info("Call Procedure fn_tbl_summary(?,?,?,?,?,?) Failed!", ex.getMessage());
-            throw new DatabaseOperationError("Call Procedure fn_tbl_summary(?,?,?,?,?,?) Failed!");
+            while (rs.next()) {
+                BlockSaturationResponse blockSaturation =new BlockSaturationResponse();
+                blockSaturation.setState_id(rs.getString("state_id"));
+                blockSaturation.setState_name(rs.getString("state_name"));
+                blockSaturation.setDistrict_id(rs.getString("district_id"));
+                blockSaturation.setDistrict_name(rs.getString("district_name"));
+                blockSaturation.setZeroto3(rs.getString("zeroto3"));
+                blockSaturation.setThreeto6(rs.getString("threeto6"));
+                blockSaturation.setSixto10(rs.getString("sixto10"));
+                blockSaturation.setTenplus(rs.getString("tenplus"));
+                blockSaturation.setTotal1(rs.getString("total1"));
+                blockSaturation.setZeroto3(rs.getString("zeroto3_2"));
+                blockSaturation.setThreeto6_2(rs.getString("threeto6_2"));
+                blockSaturation.setSixto10_2(rs.getString("sixto10_2"));
+                blockSaturation.setTenplus_2(rs.getString("tenplus_2"));
+                blockSaturation.setTotal2(rs.getString("total2"));
+                blockSaturationList.add(blockSaturation);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_blocksaturation(?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_blocksaturation(?,?,?,?,?,?) Failed!");
         }
+        return blockSaturationList;
     }
 
-    public int fn_table_summary_user(Integer geo_flag, String groupby,
-                          String wherestr,String insertstr, String yrmn,String db_name){
+    public List<BankNameDataResponse> fn_getbanknamedata(String db_name) {
         Connection con;
         CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<BankNameDataResponse> BankNameDatalist = new ArrayList<>();
         try {
-            String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
             con = DriverManager.getConnection(url_sp, user_sp, password_sp);
-            logger.info("Connected to the PostgreSQL server successfully."+url_sp);
-            stmt = con.prepareCall("{call fn_tbl_summary_users(?,?,?,?,?)}");
-            stmt.setInt(1, geo_flag);
-            stmt.setString(2, groupby);
-            stmt.setString(3, wherestr);
-            stmt.setString(4, insertstr);
-            stmt.setString(5, yrmn);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_banknamedata()}");
             ResultSet rs = stmt.executeQuery();
-            return 1;
-        }catch (Exception ex){
-            logger.info("Call Procedure fn_tbl_summary_users(?,?,?,?,?,?) Failed!", ex.getMessage());
-            throw new DatabaseOperationError("Call Procedure fn_tbl_summary_users(?,?,?,?,?,?) Failed!");
+            while (rs.next()) {
+                BankNameDataResponse bankNameDataResponse = new BankNameDataResponse();
+                bankNameDataResponse.setBank_code(rs.getString("bank_code"));
+                bankNameDataResponse.setBank_name(rs.getString("bank_name"));
+                BankNameDatalist.add(bankNameDataResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_banknamedata() Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_banknamedata() Failed!");
         }
+        return BankNameDatalist;
     }
 
+    public List<BankBranchNameResponse> fn_getbankbranchnamedata(String bank_code, String cbo_id, String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<BankBranchNameResponse> BankBranchNameDatalist = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_branchnamedata(?,?)}");
+            stmt.setString(1,bank_code);
+            stmt.setString(2,cbo_id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                BankBranchNameResponse bankNameDataResponse = new BankBranchNameResponse();
+                bankNameDataResponse.setBank_branch_code(rs.getString("bank_branch_code"));
+                bankNameDataResponse.setBank_branch_name(rs.getString("bank_branch_name"));
+                BankBranchNameDatalist.add(bankNameDataResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_branchnamedata(?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_branchnamedata(?) Failed!");
+        }
+        return BankBranchNameDatalist;
+    }
 }
