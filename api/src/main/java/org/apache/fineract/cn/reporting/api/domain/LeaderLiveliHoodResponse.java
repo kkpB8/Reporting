@@ -29,6 +29,8 @@ public class LeaderLiveliHoodResponse {
     private String noofshg;
     private String noofleaders;
     private String agriactivity;
+    private String livestock_fisheries;
+    private String ntfp;
 
     public String getLivestock_fisheries() {
         return livestock_fisheries;
@@ -54,9 +56,8 @@ public class LeaderLiveliHoodResponse {
         this.non_farm = non_farm;
     }
 
-    private String livestock_fisheries;
-    private String ntfp;
     private String non_farm;
+
     public String getState_id() {
         return state_id;
     }

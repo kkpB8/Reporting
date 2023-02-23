@@ -19,7 +19,6 @@
 package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.ServiceConstants;
-import org.apache.fineract.cn.reporting.api.domain.GeographicalCoverage;
 import org.apache.fineract.cn.reporting.api.domain.LeaderEducationResponse;
 import org.apache.fineract.cn.reporting.api.domain.LeaderLiveliHoodResponse;
 import org.slf4j.Logger;
