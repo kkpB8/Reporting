@@ -23,6 +23,7 @@ import org.apache.fineract.cn.reporting.api.domain.*;
 import org.apache.fineract.cn.reporting.internal.Error.*;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.*;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.*;
 
 import java.sql.*;
@@ -972,4 +973,48 @@ public class PGFunctionProcedureService {
         }
         return compReList;
     }
+    public int fn_table_summary(Integer geo_flag, String groupby,
+                          String wherestr,String insertstr, String yrmn,String db_name){
+        Connection con;
+        CallableStatement stmt = null;
+        try {
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+        logger.info("Connected to the PostgreSQL server successfully."+url_sp);
+        stmt = con.prepareCall("{call fn_tbl_summary(?,?,?,?,?)}");
+            stmt.setInt(1, geo_flag);
+            stmt.setString(2, groupby);
+            stmt.setString(3, wherestr);
+            stmt.setString(4, insertstr);
+            stmt.setString(5, yrmn);
+            ResultSet rs = stmt.executeQuery();
+           return 1;
+        }catch (Exception ex){
+            logger.info("Call Procedure fn_tbl_summary(?,?,?,?,?,?) Failed!", ex.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_tbl_summary(?,?,?,?,?,?) Failed!");
+        }
+    }
+
+    public int fn_table_summary_user(Integer geo_flag, String groupby,
+                          String wherestr,String insertstr, String yrmn,String db_name){
+        Connection con;
+        CallableStatement stmt = null;
+        try {
+            String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully."+url_sp);
+            stmt = con.prepareCall("{call fn_tbl_summary_users(?,?,?,?,?)}");
+            stmt.setInt(1, geo_flag);
+            stmt.setString(2, groupby);
+            stmt.setString(3, wherestr);
+            stmt.setString(4, insertstr);
+            stmt.setString(5, yrmn);
+            ResultSet rs = stmt.executeQuery();
+            return 1;
+        }catch (Exception ex){
+            logger.info("Call Procedure fn_tbl_summary_users(?,?,?,?,?,?) Failed!", ex.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_tbl_summary_users(?,?,?,?,?,?) Failed!");
+        }
+    }
+
 }
