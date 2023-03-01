@@ -20,10 +20,17 @@ package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.CboPromotedResponse;
+import org.apache.fineract.cn.reporting.api.domain.Cbo_PromotedRequest;
+import org.apache.fineract.cn.reporting.api.domain.ProfileReportRequest;
+import org.apache.fineract.cn.reporting.api.domain.ProfileReportResponse;
+import org.apache.fineract.cn.reporting.internal.mapper.CommonApiMapper;
+import org.apache.fineract.cn.reporting.internal.repository.ProfileReportEntity;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 @Service
 public class CboPromotedApiService {
@@ -41,5 +48,7 @@ public class CboPromotedApiService {
                                                     String bid, String tenantIdentifier) {
             return pgCboPromotedFunction.fn_getcbopromoteddata(loctype, dto, dfrom, sid, did, bid, tenantIdentifier);
         }
+
+
 
     }

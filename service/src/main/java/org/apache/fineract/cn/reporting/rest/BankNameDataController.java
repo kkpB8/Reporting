@@ -65,7 +65,7 @@ public class BankNameDataController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<BankBranchNameResponse>> getBankbranchnamedata(@RequestParam String bank_code, @RequestParam String cbo_id, HttpServletRequest httpServletRequest) {
+    ResponseEntity<List<BankBranchNameResponse>> getBankbranchnamedata(@RequestParam String bank_code, @RequestParam String stateId, HttpServletRequest httpServletRequest) {
         if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -73,6 +73,6 @@ public class BankNameDataController {
 //        String bank_code = httpServletRequest.getHeader("bank_code");
         String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
-                this.bankNameDataService.getBankBranchNameData(bank_code,cbo_id,tenantIdentifier));
+                this.bankNameDataService.getBankBranchNameData(bank_code,stateId,tenantIdentifier));
     }
 }

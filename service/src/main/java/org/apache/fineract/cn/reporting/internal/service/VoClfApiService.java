@@ -19,9 +19,7 @@
 package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.ServiceConstants;
-import org.apache.fineract.cn.reporting.api.domain.ClfSubCommityResponse;
-import org.apache.fineract.cn.reporting.api.domain.ShgByDateResponse;
-import org.apache.fineract.cn.reporting.api.domain.VoSubCommityResponse;
+import org.apache.fineract.cn.reporting.api.domain.*;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -49,5 +47,12 @@ public class VoClfApiService {
 
     public List<VoSubCommityResponse> getVoSCData(String location_type, String date_to, String date_from, String state_id, String district_id, String block_id, String tenantIdentifier) {
         return pgFunctionProcedureService.fn_vosubcommitydata(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier);
+    }
+    public List<VosddResponse> getVosbbData(String cbo_id, String tenantIdentifier) {
+        return pgFunctionProcedureService.fn_vosdd(cbo_id, tenantIdentifier);
+    }
+
+    public List<ClfsddResponse> getClfsbbData(String stateId, String districtId, String blockId, String tenantIdentifier) {
+        return pgFunctionProcedureService.fn_clfdd(stateId, districtId, blockId, tenantIdentifier);
     }
 }

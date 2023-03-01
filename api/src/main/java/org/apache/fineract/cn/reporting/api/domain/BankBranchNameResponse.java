@@ -1,9 +1,9 @@
 package org.apache.fineract.cn.reporting.api.domain;
 
 public class BankBranchNameResponse {
+
     private String bank_branch_code;
     private String bank_branch_name;
-
     public String getBank_branch_code() {
         return bank_branch_code;
     }

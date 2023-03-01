@@ -1017,7 +1017,7 @@ public class PGFunctionProcedureService {
         return BankNameDatalist;
     }
 
-    public List<BankBranchNameResponse> fn_getbankbranchnamedata(String bank_code, String cbo_id, String db_name) {
+    public List<BankBranchNameResponse> fn_getbankbranchnamedata(String bank_code,String stateId, String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -1027,7 +1027,7 @@ public class PGFunctionProcedureService {
             logger.info("Connected to the PostgreSQL server successfully.");
             stmt = con.prepareCall("{call fn_branchnamedata(?,?)}");
             stmt.setString(1,bank_code);
-            stmt.setString(2,cbo_id);
+            stmt.setString(2,stateId);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 BankBranchNameResponse bankNameDataResponse = new BankBranchNameResponse();
@@ -1042,5 +1042,59 @@ public class PGFunctionProcedureService {
             throw new DatabaseOperationError("Call Procedure fn_branchnamedata(?) Failed!");
         }
         return BankBranchNameDatalist;
+    }
+
+    public List<VosddResponse> fn_vosdd(String cbo_id, String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<VosddResponse> VoDatalist = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_vosdd(?)}");
+            stmt.setString(1,cbo_id);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                VosddResponse vosddResponse = new VosddResponse();
+                vosddResponse.setCbo_child_id(rs.getString("cbo_child_id"));
+                vosddResponse.setFederation_name(rs.getString("federation_name"));
+                VoDatalist.add(vosddResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_vosdd(?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_vosdd(?) Failed!");
+        }
+        return VoDatalist;
+    }
+
+    public List<ClfsddResponse> fn_clfdd(String stateId, String districtId, String blockId, String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<ClfsddResponse> clfDatalist = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_clfdd(?,?,?)}");
+            stmt.setString(1,stateId);
+            stmt.setString(2,districtId);
+            stmt.setString(3,blockId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ClfsddResponse clfsddResponse = new ClfsddResponse();
+                clfsddResponse.setFederation_id(rs.getString("federation_id"));
+                clfsddResponse.setFederation_name(rs.getString("federation_name"));
+                clfDatalist.add(clfsddResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_clfdd(?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_clfdd(?,?,?) Failed!");
+        }
+        return clfDatalist;
     }
 }
