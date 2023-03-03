@@ -1097,4 +1097,111 @@ public class PGFunctionProcedureService {
         }
         return clfDatalist;
     }
+    public List<TblSummaryResponse> fn_gettblsummarydata(String reportName, String locationType, String dateTo, String dateFrom, String stateId, String districtId,
+                                                         String blockId, String panchayatId, String villageId, String bankTypeId, String bankType, String bankCode, String branchCode, String clf, String vo, String shg, String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<TblSummaryResponse> tbl_summarylist = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_tbl_summary_getreport(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}");
+            stmt.setString(1, reportName);
+            stmt.setString(2, locationType);
+            stmt.setString(3, dateTo);
+            stmt.setString(4, dateFrom);
+            stmt.setString(5, stateId);
+            stmt.setString(6, districtId);
+            stmt.setString(7, blockId);
+            stmt.setString(8,panchayatId);
+            stmt.setString(9,villageId);
+            stmt.setString(10,bankTypeId);
+            stmt.setString(11,bankType);
+            stmt.setString(12,bankCode);
+            stmt.setString(13,branchCode);
+            stmt.setString(14,clf);
+            stmt.setString(15,vo);
+            stmt.setString(16,shg);
+
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                TblSummaryResponse geographicalCoverage =new TblSummaryResponse();
+                geographicalCoverage.setGeographical_flag(rs.getString("geographical_flag"));
+                geographicalCoverage.setState_id(rs.getString("state_id"));
+                geographicalCoverage.setDistrict_id(rs.getString("district_id"));
+                geographicalCoverage.setBlock_id(rs.getString("block_id"));
+                geographicalCoverage.setPanchayat_id(rs.getString("panchayat_id"));
+                geographicalCoverage.setVillage_id(rs.getString("village_id"));
+                geographicalCoverage.setState_name(rs.getString("state_name"));
+                geographicalCoverage.setDistrict_name(rs.getString("district_name"));
+                geographicalCoverage.setBlock_name(rs.getString("block_name"));
+                geographicalCoverage.setPanchayat_name(rs.getString("panchayat_name"));
+                geographicalCoverage.setVillage_name(rs.getString("village_name"));
+                geographicalCoverage.setYear_month(rs.getString("year_month"));
+                geographicalCoverage.setTotaldistrict(rs.getString("totaldistrict"));
+                geographicalCoverage.setTotalblock(rs.getString("totalblock"));
+                geographicalCoverage.setTotalvillage(rs.getString("totalvillage"));
+                geographicalCoverage.setTotalpanchayat(rs.getString("totalpanchayat"));
+                geographicalCoverage.setCoveragedistrict(rs.getString("coveragedistrict"));
+                geographicalCoverage.setCoverageblock(rs.getString("coverageblock"));
+                geographicalCoverage.setCoveragevillage(rs.getString("coveragevillage"));
+                geographicalCoverage.setCoveragepanchayat(rs.getString("coveragepanchayat"));
+                geographicalCoverage.setPerdistrict(rs.getString("perdistrict"));
+                geographicalCoverage.setPerblock(rs.getString("perblock"));
+                geographicalCoverage.setPerpanchayat(rs.getString("perpanchayat"));
+                geographicalCoverage.setPervillage(rs.getString("pervillage"));
+                geographicalCoverage.setApproved_shg(rs.getString("approved_shg"));
+                geographicalCoverage.setInactive_shg(rs.getString("inactive_shg"));
+                geographicalCoverage.setInactive_shg_members(rs.getString("inactive_shg_members"));
+                geographicalCoverage.setApproved_vo(rs.getString("approved_vo"));
+                geographicalCoverage.setInactive_vo(rs.getString("inactive_vo"));
+                geographicalCoverage.setApproved_clf(rs.getString("approved_clf"));
+                geographicalCoverage.setInactive_clf(rs.getString("inactive_clf"));
+                geographicalCoverage.setNovos(rs.getString("novos"));
+                geographicalCoverage.setBanklinkage(rs.getString("banklinkage"));
+                geographicalCoverage.setAssestver(rs.getString("assestver"));
+                geographicalCoverage.setLivlihoodprom(rs.getString("livlihoodprom"));
+                geographicalCoverage.setMonitoring(rs.getString("monitoring"));
+                geographicalCoverage.setSocialaction(rs.getString("socialaction"));
+                geographicalCoverage.setSpecial(rs.getString("special"));
+                geographicalCoverage.setTotal(rs.getString("total"));
+                geographicalCoverage.setTotal_shg(rs.getString("total_shg"));
+                geographicalCoverage.setTarget_shg_members(rs.getString("target_shg_members"));
+                geographicalCoverage.setTotal_vo(rs.getString("total_vo"));
+                geographicalCoverage.setTotal_vo_shg(rs.getString("total_vo_shg"));
+                geographicalCoverage.setTotal_vo_members(rs.getString("total_vo_members"));
+                geographicalCoverage.setTotal_clf(rs.getString("total_clf"));
+                geographicalCoverage.setTotal_clf_vo(rs.getString("total_clf_vo"));
+                geographicalCoverage.setTotal_clf_shg(rs.getString("total_clf_shg"));
+                geographicalCoverage.setTotal_clf_members(rs.getString("total_clf_members"));
+                geographicalCoverage.setNoclfs(rs.getString("noclfs"));
+                geographicalCoverage.setBanklinkage_clf(rs.getString("banklinkage_clf"));
+                geographicalCoverage.setAssestver_clf(rs.getString("assestver_clf"));
+                geographicalCoverage.setLivlihoodprom_clf(rs.getString("livlihoodprom_clf"));
+                geographicalCoverage.setMonitoring_clf(rs.getString("monitoring_clf"));
+                geographicalCoverage.setSocialaction_clf(rs.getString("socialaction_clf"));
+                geographicalCoverage.setSpecial_clf(rs.getString("special_clf"));
+                geographicalCoverage.setClf_total(rs.getString("clf_total"));
+                geographicalCoverage.setNoofshg_les(rs.getString("noofshg_les"));
+                geographicalCoverage.setNoofleaders(rs.getString("noofleaders"));
+                geographicalCoverage.setIlliterate(rs.getString("illiterate"));
+                geographicalCoverage.setFunctionallit(rs.getString("functionallit"));
+                geographicalCoverage.setPrimaryupto5(rs.getString("primaryupto5"));
+                geographicalCoverage.setMiddleupto8(rs.getString("middleupto8"));
+                geographicalCoverage.setSrsec12(rs.getString("srsec12"));
+                geographicalCoverage.setVoctraining(rs.getString("voctraining"));
+                geographicalCoverage.setOthers(rs.getString("others"));
+                tbl_summarylist.add(geographicalCoverage);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!");
+        }
+        logger.info("Call Procedure");
+        return  tbl_summarylist;
+    }
 }
+
