@@ -57,6 +57,95 @@ public class TblSummaryResponse {
     private Integer socialaction_clf;
     private Integer special_clf;
     private Integer clf_total;
+    private Integer total_shg_init;
+    private Integer total_members_init;
+    private Integer cumlshg;
+    private Integer cumlmember;
+    private Integer noofshg_age;
+    private Integer thrshg;
+    private Integer sixshg;
+    private Integer nineshg;
+    private Integer oneshg;
+    private Integer moreoneshg;
+    public Integer getNoofshg_age() {
+        return noofshg_age;
+    }
+
+    public void setNoofshg_age(Integer noofshg_age) {
+        this.noofshg_age = noofshg_age;
+    }
+
+    public Integer getThrshg() {
+        return thrshg;
+    }
+
+    public void setThrshg(Integer thrshg) {
+        this.thrshg = thrshg;
+    }
+
+    public Integer getSixshg() {
+        return sixshg;
+    }
+
+    public void setSixshg(Integer sixshg) {
+        this.sixshg = sixshg;
+    }
+
+    public Integer getNineshg() {
+        return nineshg;
+    }
+
+    public void setNineshg(Integer nineshg) {
+        this.nineshg = nineshg;
+    }
+
+    public Integer getOneshg() {
+        return oneshg;
+    }
+
+    public void setOneshg(Integer oneshg) {
+        this.oneshg = oneshg;
+    }
+
+    public Integer getMoreoneshg() {
+        return moreoneshg;
+    }
+
+    public void setMoreoneshg(Integer moreoneshg) {
+        this.moreoneshg = moreoneshg;
+    }
+
+    public Integer getTotal_shg_init() {
+        return total_shg_init;
+    }
+
+    public void setTotal_shg_init(Integer total_shg_init) {
+        this.total_shg_init = total_shg_init;
+    }
+
+    public Integer getTotal_members_init() {
+        return total_members_init;
+    }
+
+    public void setTotal_members_init(Integer total_members_init) {
+        this.total_members_init = total_members_init;
+    }
+
+    public Integer getCumlshg() {
+        return cumlshg;
+    }
+
+    public void setCumlshg(Integer cumlshg) {
+        this.cumlshg = cumlshg;
+    }
+
+    public Integer getCumlmember() {
+        return cumlmember;
+    }
+
+    public void setCumlmember(Integer cumlmember) {
+        this.cumlmember = cumlmember;
+    }
     public String getGeographical_flag() {
         return geographical_flag;
     }
@@ -524,15 +613,5 @@ public class TblSummaryResponse {
 //    private Integer premembers;
 //    private Integer currentshg;
 //    private Integer currentmember;
-//    private Integer noofshg_age;
-//    private Integer thrshg;
-//    private Integer sixshg;
-//    private Integer nineshg;
-//    private Integer oneshg;
-//    private Integer moreoneshg;
-//    private Integer total_shg_init;
-//    private Integer total_members_init;
-//    private Integer cumlshg;
-//    private Integer cumlmember;
 
 }
