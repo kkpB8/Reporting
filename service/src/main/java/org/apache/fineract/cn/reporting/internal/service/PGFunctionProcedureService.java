@@ -1183,6 +1183,10 @@ public class PGFunctionProcedureService {
                 geographicalCoverage.setSocialaction_clf(rs.getInt("socialaction_clf"));
                 geographicalCoverage.setSpecial_clf(rs.getInt("special_clf"));
                 geographicalCoverage.setClf_total(rs.getInt("clf_total"));
+                geographicalCoverage.setTotal_shg_init(rs.getInt("total_shg_init"));
+                geographicalCoverage.setTotal_members_init(rs.getInt("total_members_init"));
+                geographicalCoverage.setCumlshg(rs.getInt("cumlshg"));
+                geographicalCoverage.setCumlmember(rs.getInt("cumlmember"));
 //                geographicalCoverage.setNoofshg_les(rs.getString("noofshg_les"));
 //                geographicalCoverage.setNoofleaders(rs.getString("noofleaders"));
 //                geographicalCoverage.setIlliterate(rs.getString("illiterate"));
@@ -1202,16 +1206,12 @@ public class PGFunctionProcedureService {
 //                geographicalCoverage.setPremembers(rs.getInt("premembers"));
 //                geographicalCoverage.setCurrentshg(rs.getInt("currentshg"));
 //                geographicalCoverage.setCurrentmember(rs.getInt("currentmember"));
-//                geographicalCoverage.setNoofshg_age(rs.getInt("noofshg_age"));
-//                geographicalCoverage.setThrshg(rs.getInt("thrshg"));
-//                geographicalCoverage.setSixshg(rs.getInt("sixshg"));
-//                geographicalCoverage.setNineshg(rs.getInt("nineshg"));
-//                geographicalCoverage.setOneshg(rs.getInt("oneshg"));
-//                geographicalCoverage.setMoreoneshg(rs.getInt("moreoneshg"));
-//                geographicalCoverage.setTotal_shg_init(rs.getInt("total_shg_init"));
-//                geographicalCoverage.setTotal_members_init(rs.getInt("total_members_init"));
-//                geographicalCoverage.setCumlshg(rs.getInt("cumlshg"));
-//                geographicalCoverage.setCumlmember(rs.getInt("cumlmember"));
+                geographicalCoverage.setNoofshg_age(rs.getInt("noofshg_age"));
+                geographicalCoverage.setThrshg(rs.getInt("thrshg"));
+                geographicalCoverage.setSixshg(rs.getInt("sixshg"));
+                geographicalCoverage.setNineshg(rs.getInt("nineshg"));
+                geographicalCoverage.setOneshg(rs.getInt("oneshg"));
+                geographicalCoverage.setMoreoneshg(rs.getInt("moreoneshg"));
                 tbl_summarylist.add(geographicalCoverage);
             }
             stmt.close();
