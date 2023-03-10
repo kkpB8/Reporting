@@ -67,114 +67,6 @@ public class TblSummaryResponse {
     private Integer nineshg;
     private Integer oneshg;
     private Integer moreoneshg;
-//    private Integer total_shg_mel;
-//    private Integer total_shg_members;
-//    private Integer illiterate;
-//    private Integer functional;
-//    private Integer primary5;
-//    private Integer middle8;
-//    private Integer secondary12;
-//    private Integer vocationaltraining;
-//    private Integer other;
-    private Integer total_rural_households;
-    private Integer target_rural_households;
-    private  Integer household_mobilized;
-    public Integer getTotal_rural_households() {
-        return total_rural_households;
-    }
-
-    public void setTotal_rural_households(Integer total_rural_households) {
-        this.total_rural_households = total_rural_households;
-    }
-
-    public Integer getTarget_rural_households() {
-        return target_rural_households;
-    }
-
-    public void setTarget_rural_households(Integer target_rural_households) {
-        this.target_rural_households = target_rural_households;
-    }
-
-    public Integer getHousehold_mobilized() {
-        return household_mobilized;
-    }
-
-    public void setHousehold_mobilized(Integer household_mobilized) {
-        this.household_mobilized = household_mobilized;
-    }
-
-//    public Integer getTotal_shg_mel() {
-//        return total_shg_mel;
-//    }
-//
-//    public void setTotal_shg_mel(Integer total_shg_mel) {
-//        this.total_shg_mel = total_shg_mel;
-//    }
-//
-//    public Integer getTotal_shg_members() {
-//        return total_shg_members;
-//    }
-//
-//    public void setTotal_shg_members(Integer total_shg_members) {
-//        this.total_shg_members = total_shg_members;
-//    }
-//
-//    public Integer getIlliterate() {
-//        return illiterate;
-//    }
-//
-//    public void setIlliterate(Integer illiterate) {
-//        this.illiterate = illiterate;
-//    }
-//
-//    public Integer getFunctional() {
-//        return functional;
-//    }
-//
-//    public void setFunctional(Integer functional) {
-//        this.functional = functional;
-//    }
-//
-//    public Integer getPrimary5() {
-//        return primary5;
-//    }
-//
-//    public void setPrimary5(Integer primary5) {
-//        this.primary5 = primary5;
-//    }
-//
-//    public Integer getMiddle8() {
-//        return middle8;
-//    }
-//
-//    public void setMiddle8(Integer middle8) {
-//        this.middle8 = middle8;
-//    }
-//
-//    public Integer getSecondary12() {
-//        return secondary12;
-//    }
-//
-//    public void setSecondary12(Integer secondary12) {
-//        this.secondary12 = secondary12;
-//    }
-//
-//    public Integer getVocationaltraining() {
-//        return vocationaltraining;
-//    }
-//
-//    public void setVocationaltraining(Integer vocationaltraining) {
-//        this.vocationaltraining = vocationaltraining;
-//    }
-//
-//    public Integer getOther() {
-//        return other;
-//    }
-//
-//    public void setOther(Integer other) {
-//        this.other = other;
-//    }
-
     public Integer getNoofshg_age() {
         return noofshg_age;
     }
@@ -701,5 +593,25 @@ public class TblSummaryResponse {
     public void setClf_total(Integer clf_total) {
         this.clf_total = clf_total;
     }
+
+//    private String noofshg_les;
+//    private String noofleaders;
+//    private String illiterate;
+//    private String functionallit;
+//    private String primaryupto5;
+//    private String middleupto8;
+//    private String srsec12;
+//    private String voctraining;
+//    private String others;
+//    private Integer noofshg_la;
+//    private Integer noofleaders_la;
+//    private Integer agriactivity;
+//    private Integer livestock_fisheries;
+//    private Integer ntfp;
+//    private Integer non_farm;
+//    private Integer preshg;
+//    private Integer premembers;
+//    private Integer currentshg;
+//    private Integer currentmember;
 
 }
