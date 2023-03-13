@@ -693,5 +693,95 @@ public class TblSummaryResponse {
     private Integer targetRuralHouseholds;
     @Column(name = "household_mobilized")
     private  Integer houseHoldMobilized;
+    @Column(name = "noofshg_les")
+    private Integer noofShgLes;
+    @Column(name = "noofleaders")
+    private Integer noofLeaders;
 
+    public Integer getNoofShgLes() {
+        return noofShgLes;
+    }
+
+    public void setNoofShgLes(Integer noofShgLes) {
+        this.noofShgLes = noofShgLes;
+    }
+
+    public Integer getNoofLeaders() {
+        return noofLeaders;
+    }
+
+    public void setNoofLeaders(Integer noofLeaders) {
+        this.noofLeaders = noofLeaders;
+    }
+
+    public Integer getIlleTerate() {
+        return illeTerate;
+    }
+
+    public void setIlleTerate(Integer illeTerate) {
+        this.illeTerate = illeTerate;
+    }
+
+    public Integer getFunctionalLit() {
+        return functionalLit;
+    }
+
+    public void setFunctionalLit(Integer functionalLit) {
+        this.functionalLit = functionalLit;
+    }
+
+    public Integer getPrimaryUpto5() {
+        return primaryUpto5;
+    }
+
+    public void setPrimaryUpto5(Integer primaryUpto5) {
+        this.primaryUpto5 = primaryUpto5;
+    }
+
+    public Integer getMiddleUpto8() {
+        return middleUpto8;
+    }
+
+    public void setMiddleUpto8(Integer middleUpto8) {
+        this.middleUpto8 = middleUpto8;
+    }
+
+    public Integer getSrSec12() {
+        return srSec12;
+    }
+
+    public void setSrSec12(Integer srSec12) {
+        this.srSec12 = srSec12;
+    }
+
+    public Integer getVocTraining() {
+        return vocTraining;
+    }
+
+    public void setVocTraining(Integer vocTraining) {
+        this.vocTraining = vocTraining;
+    }
+
+    public Integer getoThers() {
+        return oThers;
+    }
+
+    public void setoThers(Integer oThers) {
+        this.oThers = oThers;
+    }
+
+    @Column(name ="illeterate")
+    private Integer illeTerate;
+    @Column(name = "functionallit")
+    private Integer functionalLit;
+    @Column(name = "primaryupto5")
+    private Integer primaryUpto5;
+    @Column(name = "middleupto8")
+    private Integer middleUpto8;
+    @Column(name = "srsec12")
+    private Integer srSec12;
+    @Column(name = "voctraining")
+    private Integer vocTraining;
+    @Column(name = "others")
+    private Integer oThers;
 }

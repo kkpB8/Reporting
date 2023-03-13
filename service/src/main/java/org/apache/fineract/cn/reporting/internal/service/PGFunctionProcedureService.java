@@ -1196,6 +1196,15 @@ public class PGFunctionProcedureService {
                 geographicalCoverage.setTotalRuralHouseholds(rs.getInt("total_rural_households"));
                 geographicalCoverage.setTargetRuralHouseholds(rs.getInt("target_rural_households"));
                 geographicalCoverage.setHouseHoldMobilized(rs.getInt("household_mobilized"));
+                geographicalCoverage.setNoofShgLes(rs.getInt("noofleaders"));
+                geographicalCoverage.setNoofLeaders(rs.getInt("noofleaders"));
+                geographicalCoverage.setIlleTerate(rs.getInt("illeterate"));
+                geographicalCoverage.setFunctionalLit(rs.getInt("functionallit"));
+                geographicalCoverage.setPrimaryUpto5(rs.getInt("primaryupto5"));
+                geographicalCoverage.setMiddleUpto8(rs.getInt("middleupto8"));
+                geographicalCoverage.setSrSec12(rs.getInt("srsec12"));
+                geographicalCoverage.setVocTraining(rs.getInt("voctraining"));
+                geographicalCoverage.setoThers(rs.getInt("others"));
                 tbl_summarylist.add(geographicalCoverage);
             }
             stmt.close();
