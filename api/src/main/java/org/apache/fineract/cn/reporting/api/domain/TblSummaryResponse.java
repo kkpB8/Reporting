@@ -1,705 +1,767 @@
 package org.apache.fineract.cn.reporting.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.Column;
+
 public class TblSummaryResponse {
-    private String geographical_flag;
-    private String state_id;
-    private String district_id;
-    private String block_id;
-    private String panchayat_id;
-    private String village_id;
-    private String state_name;
-    private String district_name;
-    private String block_name;
-    private String panchayat_name;
-    private String village_name;
-    private String year_month;
-    private Integer totaldistrict;
-    private Integer totalblock;
-    private Integer totalvillage;
-    private Integer totalpanchayat;
-    private Integer coveragedistrict;
-    private Integer coverageblock;
-    private Integer coveragevillage;
-    private Integer coveragepanchayat;
-    private Integer perdistrict;
-    private Integer perblock;
-    private Integer perpanchayat;
-    private Integer pervillage;
-    private Integer approved_shg;
-    private Integer inactive_shg;
-    private Integer inactive_shg_members;
-    private Integer approved_vo;
-    private Integer inactive_vo;
-    private Integer approved_clf;
-    private Integer inactive_clf;
-    private Integer novos;
-    private Integer banklinkage;
-    private Integer assestver;
-    private Integer livlihoodprom;
-    private Integer monitoring;
-    private Integer socialaction;
-    private Integer special;
-    private Integer total;
-    private Integer total_shg;
-    private Integer target_shg_members;
-    private Integer total_vo;
-    private Integer total_vo_shg;
-    private Integer total_vo_members;
-    private Integer total_clf;
-    private Integer total_clf_vo;
-    private Integer total_clf_shg;
-    private Integer total_clf_members;
-    private Integer noclfs;
-    private Integer banklinkage_clf;
-    private Integer assestver_clf;
-    private Integer livlihoodprom_clf;
-    private Integer monitoring_clf;
-    private Integer socialaction_clf;
-    private Integer special_clf;
-    private Integer clf_total;
-    private Integer total_shg_init;
-    private Integer total_members_init;
-    private Integer cumlshg;
-    private Integer cumlmember;
-    private Integer noofshg_age;
-    private Integer thrshg;
-    private Integer sixshg;
-    private Integer nineshg;
-    private Integer oneshg;
-    private Integer moreoneshg;
-//    private Integer total_shg_mel;
-//    private Integer total_shg_members;
-//    private Integer illiterate;
-//    private Integer functional;
-//    private Integer primary5;
-//    private Integer middle8;
-//    private Integer secondary12;
-//    private Integer vocationaltraining;
-//    private Integer other;
-    private Integer total_rural_households;
-    private Integer target_rural_households;
-    private  Integer household_mobilized;
-    public Integer getTotal_rural_households() {
-        return total_rural_households;
-    }
-
-    public void setTotal_rural_households(Integer total_rural_households) {
-        this.total_rural_households = total_rural_households;
-    }
-
-    public Integer getTarget_rural_households() {
-        return target_rural_households;
-    }
-
-    public void setTarget_rural_households(Integer target_rural_households) {
-        this.target_rural_households = target_rural_households;
-    }
-
-    public Integer getHousehold_mobilized() {
-        return household_mobilized;
-    }
-
-    public void setHousehold_mobilized(Integer household_mobilized) {
-        this.household_mobilized = household_mobilized;
-    }
+    private String geographicalFlag;
+    private String stateId;
+    private String districtId;
+    private String blockId;
+    private String panchayatId;
+    private String villageId;
+    private String stateName;
+    private String districtName;
+    private String blockName;
+    private String panchayatName;
+    private String villageName;
 
-//    public Integer getTotal_shg_mel() {
-//        return total_shg_mel;
-//    }
-//
-//    public void setTotal_shg_mel(Integer total_shg_mel) {
-//        this.total_shg_mel = total_shg_mel;
-//    }
-//
-//    public Integer getTotal_shg_members() {
-//        return total_shg_members;
-//    }
-//
-//    public void setTotal_shg_members(Integer total_shg_members) {
-//        this.total_shg_members = total_shg_members;
-//    }
-//
-//    public Integer getIlliterate() {
-//        return illiterate;
-//    }
-//
-//    public void setIlliterate(Integer illiterate) {
-//        this.illiterate = illiterate;
-//    }
-//
-//    public Integer getFunctional() {
-//        return functional;
-//    }
-//
-//    public void setFunctional(Integer functional) {
-//        this.functional = functional;
-//    }
-//
-//    public Integer getPrimary5() {
-//        return primary5;
-//    }
-//
-//    public void setPrimary5(Integer primary5) {
-//        this.primary5 = primary5;
-//    }
-//
-//    public Integer getMiddle8() {
-//        return middle8;
-//    }
-//
-//    public void setMiddle8(Integer middle8) {
-//        this.middle8 = middle8;
-//    }
-//
-//    public Integer getSecondary12() {
-//        return secondary12;
-//    }
-//
-//    public void setSecondary12(Integer secondary12) {
-//        this.secondary12 = secondary12;
-//    }
-//
-//    public Integer getVocationaltraining() {
-//        return vocationaltraining;
-//    }
-//
-//    public void setVocationaltraining(Integer vocationaltraining) {
-//        this.vocationaltraining = vocationaltraining;
-//    }
-//
-//    public Integer getOther() {
-//        return other;
-//    }
-//
-//    public void setOther(Integer other) {
-//        this.other = other;
-//    }
+    public String getGeographicalFlag() {
+        return geographicalFlag;
+    }
+
+    public void setGeographicalFlag(String geographicalFlag) {
+        this.geographicalFlag = geographicalFlag;
+    }
+
+    public String getStateId() {
+        return stateId;
+    }
+
+    public void setStateId(String stateId) {
+        this.stateId = stateId;
+    }
+
+    public String getDistrictId() {
+        return districtId;
+    }
+
+    public void setDistrictId(String districtId) {
+        this.districtId = districtId;
+    }
+
+    public String getBlockId() {
+        return blockId;
+    }
+
+    public void setBlockId(String blockId) {
+        this.blockId = blockId;
+    }
+
+    public String getPanchayatId() {
+        return panchayatId;
+    }
+
+    public void setPanchayatId(String panchayatId) {
+        this.panchayatId = panchayatId;
+    }
+
+    public String getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(String villageId) {
+        this.villageId = villageId;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public String getBlockName() {
+        return blockName;
+    }
+
+    public void setBlockName(String blockName) {
+        this.blockName = blockName;
+    }
+
+    public String getPanchayatName() {
+        return panchayatName;
+    }
 
-    public Integer getNoofshg_age() {
-        return noofshg_age;
+    public void setPanchayatName(String panchayatName) {
+        this.panchayatName = panchayatName;
     }
 
-    public void setNoofshg_age(Integer noofshg_age) {
-        this.noofshg_age = noofshg_age;
+    public String getVillageName() {
+        return villageName;
     }
 
-    public Integer getThrshg() {
-        return thrshg;
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
     }
 
-    public void setThrshg(Integer thrshg) {
-        this.thrshg = thrshg;
+    public String getYearMonth() {
+        return yearMonth;
     }
 
-    public Integer getSixshg() {
-        return sixshg;
+    public void setYearMonth(String yearMonth) {
+        this.yearMonth = yearMonth;
     }
 
-    public void setSixshg(Integer sixshg) {
-        this.sixshg = sixshg;
+    public Integer getTotalDistrict() {
+        return totalDistrict;
     }
 
-    public Integer getNineshg() {
-        return nineshg;
+    public void setTotalDistrict(Integer totalDistrict) {
+        this.totalDistrict = totalDistrict;
     }
 
-    public void setNineshg(Integer nineshg) {
-        this.nineshg = nineshg;
+    public Integer getTotalBlock() {
+        return totalBlock;
     }
 
-    public Integer getOneshg() {
-        return oneshg;
+    public void setTotalBlock(Integer totalBlock) {
+        this.totalBlock = totalBlock;
     }
 
-    public void setOneshg(Integer oneshg) {
-        this.oneshg = oneshg;
+    public Integer getTotalVillage() {
+        return totalVillage;
     }
 
-    public Integer getMoreoneshg() {
-        return moreoneshg;
+    public void setTotalVillage(Integer totalVillage) {
+        this.totalVillage = totalVillage;
     }
 
-    public void setMoreoneshg(Integer moreoneshg) {
-        this.moreoneshg = moreoneshg;
+    public Integer getTotalPanchayat() {
+        return totalPanchayat;
     }
 
-    public Integer getTotal_shg_init() {
-        return total_shg_init;
+    public void setTotalPanchayat(Integer totalPanchayat) {
+        this.totalPanchayat = totalPanchayat;
     }
 
-    public void setTotal_shg_init(Integer total_shg_init) {
-        this.total_shg_init = total_shg_init;
+    public Integer getCoverageDistrict() {
+        return coverageDistrict;
     }
 
-    public Integer getTotal_members_init() {
-        return total_members_init;
+    public void setCoverageDistrict(Integer coverageDistrict) {
+        this.coverageDistrict = coverageDistrict;
     }
 
-    public void setTotal_members_init(Integer total_members_init) {
-        this.total_members_init = total_members_init;
+    public Integer getCoverageBlock() {
+        return coverageBlock;
     }
 
-    public Integer getCumlshg() {
-        return cumlshg;
+    public void setCoverageBlock(Integer coverageBlock) {
+        this.coverageBlock = coverageBlock;
     }
 
-    public void setCumlshg(Integer cumlshg) {
-        this.cumlshg = cumlshg;
+    public Integer getCoverageVillage() {
+        return coverageVillage;
     }
 
-    public Integer getCumlmember() {
-        return cumlmember;
+    public void setCoverageVillage(Integer coverageVillage) {
+        this.coverageVillage = coverageVillage;
     }
 
-    public void setCumlmember(Integer cumlmember) {
-        this.cumlmember = cumlmember;
+    public Integer getCoveragePanchayat() {
+        return coveragePanchayat;
     }
-    public String getGeographical_flag() {
-        return geographical_flag;
+
+    public void setCoveragePanchayat(Integer coveragePanchayat) {
+        this.coveragePanchayat = coveragePanchayat;
+    }
+
+    public Integer getPerDistrict() {
+        return perDistrict;
+    }
+
+    public void setPerDistrict(Integer perDistrict) {
+        this.perDistrict = perDistrict;
+    }
+
+    public Integer getPerBlock() {
+        return perBlock;
+    }
+
+    public void setPerBlock(Integer perBlock) {
+        this.perBlock = perBlock;
+    }
+
+    public Integer getPerPanchayat() {
+        return perPanchayat;
+    }
+
+    public void setPerPanchayat(Integer perPanchayat) {
+        this.perPanchayat = perPanchayat;
+    }
+
+    public Integer getPerVillage() {
+        return perVillage;
+    }
+
+    public void setPerVillage(Integer perVillage) {
+        this.perVillage = perVillage;
+    }
+
+    public Integer getApprovedShg() {
+        return approvedShg;
+    }
+
+    public void setApprovedShg(Integer approvedShg) {
+        this.approvedShg = approvedShg;
+    }
+
+    public Integer getInactiveShg() {
+        return inactiveShg;
+    }
+
+    public void setInactiveShg(Integer inactiveShg) {
+        this.inactiveShg = inactiveShg;
+    }
+
+    public Integer getInactiveShgMembers() {
+        return inactiveShgMembers;
     }
 
-    public void setGeographical_flag(String geographical_flag) {
-        this.geographical_flag = geographical_flag;
+    public void setInactiveShgMembers(Integer inactiveShgMembers) {
+        this.inactiveShgMembers = inactiveShgMembers;
     }
 
-    public String getState_id() {
-        return state_id;
+    public Integer getApprovedVo() {
+        return approvedVo;
     }
 
-    public void setState_id(String state_id) {
-        this.state_id = state_id;
+    public void setApprovedVo(Integer approvedVo) {
+        this.approvedVo = approvedVo;
     }
 
-    public String getDistrict_id() {
-        return district_id;
+    public Integer getInactiveVo() {
+        return inactiveVo;
     }
 
-    public void setDistrict_id(String district_id) {
-        this.district_id = district_id;
+    public void setInactiveVo(Integer inactiveVo) {
+        this.inactiveVo = inactiveVo;
     }
 
-    public String getBlock_id() {
-        return block_id;
+    public Integer getApprovedClf() {
+        return approvedClf;
     }
 
-    public void setBlock_id(String block_id) {
-        this.block_id = block_id;
+    public void setApprovedClf(Integer approvedClf) {
+        this.approvedClf = approvedClf;
     }
 
-    public String getPanchayat_id() {
-        return panchayat_id;
+    public Integer getInactiveClf() {
+        return inactiveClf;
     }
 
-    public void setPanchayat_id(String panchayat_id) {
-        this.panchayat_id = panchayat_id;
+    public void setInactiveClf(Integer inactiveClf) {
+        this.inactiveClf = inactiveClf;
     }
 
-    public String getVillage_id() {
-        return village_id;
+    public Integer getNoVos() {
+        return noVos;
     }
 
-    public void setVillage_id(String village_id) {
-        this.village_id = village_id;
+    public void setNoVos(Integer noVos) {
+        this.noVos = noVos;
     }
 
-    public String getState_name() {
-        return state_name;
+    public Integer getBankLinkage() {
+        return bankLinkage;
     }
 
-    public void setState_name(String state_name) {
-        this.state_name = state_name;
+    public void setBankLinkage(Integer bankLinkage) {
+        this.bankLinkage = bankLinkage;
     }
 
-    public String getDistrict_name() {
-        return district_name;
+    public Integer getAssesTver() {
+        return assesTver;
     }
 
-    public void setDistrict_name(String district_name) {
-        this.district_name = district_name;
+    public void setAssesTver(Integer assesTver) {
+        this.assesTver = assesTver;
     }
 
-    public String getBlock_name() {
-        return block_name;
+    public Integer getLivliHoodProm() {
+        return livliHoodProm;
     }
 
-    public void setBlock_name(String block_name) {
-        this.block_name = block_name;
+    public void setLivliHoodProm(Integer livliHoodProm) {
+        this.livliHoodProm = livliHoodProm;
     }
 
-    public String getPanchayat_name() {
-        return panchayat_name;
+    public Integer getMoniToring() {
+        return moniToring;
     }
 
-    public void setPanchayat_name(String panchayat_name) {
-        this.panchayat_name = panchayat_name;
+    public void setMoniToring(Integer moniToring) {
+        this.moniToring = moniToring;
     }
 
-    public String getVillage_name() {
-        return village_name;
+    public Integer getSocialAction() {
+        return socialAction;
     }
 
-    public void setVillage_name(String village_name) {
-        this.village_name = village_name;
+    public void setSocialAction(Integer socialAction) {
+        this.socialAction = socialAction;
     }
 
-    public String getYear_month() {
-        return year_month;
+    public Integer getSpeCial() {
+        return speCial;
     }
 
-    public void setYear_month(String year_month) {
-        this.year_month = year_month;
+    public void setSpeCial(Integer speCial) {
+        this.speCial = speCial;
     }
 
-    public Integer getTotaldistrict() {
-        return totaldistrict;
+    public Integer getToTal() {
+        return toTal;
     }
 
-    public void setTotaldistrict(Integer totaldistrict) {
-        this.totaldistrict = totaldistrict;
+    public void setToTal(Integer toTal) {
+        this.toTal = toTal;
     }
 
-    public Integer getTotalblock() {
-        return totalblock;
+    public Integer getTotalShg() {
+        return totalShg;
     }
 
-    public void setTotalblock(Integer totalblock) {
-        this.totalblock = totalblock;
+    public void setTotalShg(Integer totalShg) {
+        this.totalShg = totalShg;
     }
 
-    public Integer getTotalvillage() {
-        return totalvillage;
+    public Integer getTargetShgMembers() {
+        return targetShgMembers;
     }
 
-    public void setTotalvillage(Integer totalvillage) {
-        this.totalvillage = totalvillage;
+    public void setTargetShgMembers(Integer targetShgMembers) {
+        this.targetShgMembers = targetShgMembers;
     }
 
-    public Integer getTotalpanchayat() {
-        return totalpanchayat;
+    public Integer getTotalVo() {
+        return totalVo;
     }
 
-    public void setTotalpanchayat(Integer totalpanchayat) {
-        this.totalpanchayat = totalpanchayat;
+    public void setTotalVo(Integer totalVo) {
+        this.totalVo = totalVo;
     }
 
-    public Integer getCoveragedistrict() {
-        return coveragedistrict;
+    public Integer getTotalVoShg() {
+        return totalVoShg;
     }
 
-    public void setCoveragedistrict(Integer coveragedistrict) {
-        this.coveragedistrict = coveragedistrict;
+    public void setTotalVoShg(Integer totalVoShg) {
+        this.totalVoShg = totalVoShg;
     }
 
-    public Integer getCoverageblock() {
-        return coverageblock;
+    public Integer getTotalVoMembers() {
+        return totalVoMembers;
     }
 
-    public void setCoverageblock(Integer coverageblock) {
-        this.coverageblock = coverageblock;
+    public void setTotalVoMembers(Integer totalVoMembers) {
+        this.totalVoMembers = totalVoMembers;
     }
 
-    public Integer getCoveragevillage() {
-        return coveragevillage;
+    public Integer getTotalClf() {
+        return totalClf;
     }
 
-    public void setCoveragevillage(Integer coveragevillage) {
-        this.coveragevillage = coveragevillage;
+    public void setTotalClf(Integer totalClf) {
+        this.totalClf = totalClf;
     }
 
-    public Integer getCoveragepanchayat() {
-        return coveragepanchayat;
+    public Integer getTotalClfVo() {
+        return totalClfVo;
     }
 
-    public void setCoveragepanchayat(Integer coveragepanchayat) {
-        this.coveragepanchayat = coveragepanchayat;
+    public void setTotalClfVo(Integer totalClfVo) {
+        this.totalClfVo = totalClfVo;
     }
 
-    public Integer getPerdistrict() {
-        return perdistrict;
+    public Integer getTotalClfShg() {
+        return totalClfShg;
     }
 
-    public void setPerdistrict(Integer perdistrict) {
-        this.perdistrict = perdistrict;
+    public void setTotalClfShg(Integer totalClfShg) {
+        this.totalClfShg = totalClfShg;
     }
 
-    public Integer getPerblock() {
-        return perblock;
+    public Integer getTotalClfMembers() {
+        return totalClfMembers;
     }
 
-    public void setPerblock(Integer perblock) {
-        this.perblock = perblock;
+    public void setTotalClfMembers(Integer totalClfMembers) {
+        this.totalClfMembers = totalClfMembers;
     }
 
-    public Integer getPerpanchayat() {
-        return perpanchayat;
+    public Integer getNoClfs() {
+        return noClfs;
     }
 
-    public void setPerpanchayat(Integer perpanchayat) {
-        this.perpanchayat = perpanchayat;
+    public void setNoClfs(Integer noClfs) {
+        this.noClfs = noClfs;
     }
 
-    public Integer getPervillage() {
-        return pervillage;
+    public Integer getBankLinkageClf() {
+        return bankLinkageClf;
     }
 
-    public void setPervillage(Integer pervillage) {
-        this.pervillage = pervillage;
+    public void setBankLinkageClf(Integer bankLinkageClf) {
+        this.bankLinkageClf = bankLinkageClf;
     }
 
-    public Integer getApproved_shg() {
-        return approved_shg;
+    public Integer getAssesTverClf() {
+        return assesTverClf;
     }
 
-    public void setApproved_shg(Integer approved_shg) {
-        this.approved_shg = approved_shg;
+    public void setAssesTverClf(Integer assesTverClf) {
+        this.assesTverClf = assesTverClf;
     }
 
-    public Integer getInactive_shg() {
-        return inactive_shg;
+    public Integer getLivliHoodPromClf() {
+        return livliHoodPromClf;
     }
 
-    public void setInactive_shg(Integer inactive_shg) {
-        this.inactive_shg = inactive_shg;
+    public void setLivliHoodPromClf(Integer livliHoodPromClf) {
+        this.livliHoodPromClf = livliHoodPromClf;
     }
 
-    public Integer getInactive_shg_members() {
-        return inactive_shg_members;
+    public Integer getMonitoringClf() {
+        return monitoringClf;
     }
 
-    public void setInactive_shg_members(Integer inactive_shg_members) {
-        this.inactive_shg_members = inactive_shg_members;
+    public void setMonitoringClf(Integer monitoringClf) {
+        this.monitoringClf = monitoringClf;
     }
 
-    public Integer getApproved_vo() {
-        return approved_vo;
+    public Integer getSocialactionClf() {
+        return socialactionClf;
     }
 
-    public void setApproved_vo(Integer approved_vo) {
-        this.approved_vo = approved_vo;
+    public void setSocialactionClf(Integer socialactionClf) {
+        this.socialactionClf = socialactionClf;
     }
 
-    public Integer getInactive_vo() {
-        return inactive_vo;
+    public Integer getSpecialClf() {
+        return specialClf;
     }
 
-    public void setInactive_vo(Integer inactive_vo) {
-        this.inactive_vo = inactive_vo;
+    public void setSpecialClf(Integer specialClf) {
+        this.specialClf = specialClf;
     }
 
-    public Integer getApproved_clf() {
-        return approved_clf;
+    public Integer getClfTotal() {
+        return clfTotal;
     }
 
-    public void setApproved_clf(Integer approved_clf) {
-        this.approved_clf = approved_clf;
+    public void setClfTotal(Integer clfTotal) {
+        this.clfTotal = clfTotal;
     }
 
-    public Integer getInactive_clf() {
-        return inactive_clf;
+    public Integer getTotalShgInit() {
+        return totalShgInit;
     }
 
-    public void setInactive_clf(Integer inactive_clf) {
-        this.inactive_clf = inactive_clf;
+    public void setTotalShgInit(Integer totalShgInit) {
+        this.totalShgInit = totalShgInit;
     }
 
-    public Integer getNovos() {
-        return novos;
+    public Integer getTotalMembersInit() {
+        return totalMembersInit;
     }
 
-    public void setNovos(Integer novos) {
-        this.novos = novos;
+    public void setTotalMembersInit(Integer totalMembersInit) {
+        this.totalMembersInit = totalMembersInit;
     }
 
-    public Integer getBanklinkage() {
-        return banklinkage;
+    public Integer getCumlShg() {
+        return cumlShg;
     }
 
-    public void setBanklinkage(Integer banklinkage) {
-        this.banklinkage = banklinkage;
+    public void setCumlShg(Integer cumlShg) {
+        this.cumlShg = cumlShg;
     }
 
-    public Integer getAssestver() {
-        return assestver;
+    public Integer getCumlMember() {
+        return cumlMember;
     }
 
-    public void setAssestver(Integer assestver) {
-        this.assestver = assestver;
+    public void setCumlMember(Integer cumlMember) {
+        this.cumlMember = cumlMember;
     }
 
-    public Integer getLivlihoodprom() {
-        return livlihoodprom;
+    public Integer getNoofShgAge() {
+        return noofShgAge;
     }
 
-    public void setLivlihoodprom(Integer livlihoodprom) {
-        this.livlihoodprom = livlihoodprom;
+    public void setNoofShgAge(Integer noofShgAge) {
+        this.noofShgAge = noofShgAge;
     }
 
-    public Integer getMonitoring() {
-        return monitoring;
+    public Integer getThrShg() {
+        return thrShg;
     }
 
-    public void setMonitoring(Integer monitoring) {
-        this.monitoring = monitoring;
+    public void setThrShg(Integer thrShg) {
+        this.thrShg = thrShg;
     }
 
-    public Integer getSocialaction() {
-        return socialaction;
+    public Integer getSixShg() {
+        return sixShg;
     }
 
-    public void setSocialaction(Integer socialaction) {
-        this.socialaction = socialaction;
+    public void setSixShg(Integer sixShg) {
+        this.sixShg = sixShg;
     }
 
-    public Integer getSpecial() {
-        return special;
+    public Integer getNineShg() {
+        return nineShg;
     }
 
-    public void setSpecial(Integer special) {
-        this.special = special;
+    public void setNineShg(Integer nineShg) {
+        this.nineShg = nineShg;
     }
 
-    public Integer getTotal() {
-        return total;
+    public Integer getOneShg() {
+        return oneShg;
     }
 
-    public void setTotal(Integer total) {
-        this.total = total;
+    public void setOneShg(Integer oneShg) {
+        this.oneShg = oneShg;
     }
 
-    public Integer getTotal_shg() {
-        return total_shg;
+    public Integer getMoreOneShg() {
+        return moreOneShg;
     }
 
-    public void setTotal_shg(Integer total_shg) {
-        this.total_shg = total_shg;
+    public void setMoreOneShg(Integer moreOneShg) {
+        this.moreOneShg = moreOneShg;
     }
 
-    public Integer getTarget_shg_members() {
-        return target_shg_members;
+    public Integer getTotalRuralHouseholds() {
+        return totalRuralHouseholds;
     }
 
-    public void setTarget_shg_members(Integer target_shg_members) {
-        this.target_shg_members = target_shg_members;
+    public void setTotalRuralHouseholds(Integer totalRuralHouseholds) {
+        this.totalRuralHouseholds = totalRuralHouseholds;
     }
 
-    public Integer getTotal_vo() {
-        return total_vo;
+    public Integer getTargetRuralHouseholds() {
+        return targetRuralHouseholds;
     }
 
-    public void setTotal_vo(Integer total_vo) {
-        this.total_vo = total_vo;
+    public void setTargetRuralHouseholds(Integer targetRuralHouseholds) {
+        this.targetRuralHouseholds = targetRuralHouseholds;
     }
 
-    public Integer getTotal_vo_shg() {
-        return total_vo_shg;
+    public Integer getHouseHoldMobilized() {
+        return houseHoldMobilized;
     }
 
-    public void setTotal_vo_shg(Integer total_vo_shg) {
-        this.total_vo_shg = total_vo_shg;
+    public void setHouseHoldMobilized(Integer houseHoldMobilized) {
+        this.houseHoldMobilized = houseHoldMobilized;
     }
 
-    public Integer getTotal_vo_members() {
-        return total_vo_members;
+    private String yearMonth;
+    private Integer totalDistrict;
+    private Integer totalBlock;
+    private Integer totalVillage;
+    private Integer totalPanchayat;
+    private Integer coverageDistrict;
+    private Integer coverageBlock;
+    private Integer coverageVillage;
+    private Integer coveragePanchayat;
+    private Integer perDistrict;
+    private Integer perBlock;
+    private Integer perPanchayat;
+    private Integer perVillage;
+    private Integer approvedShg;
+    private Integer inactiveShg;
+    private Integer inactiveShgMembers;
+    private Integer approvedVo;
+    private Integer inactiveVo;
+    private Integer approvedClf;
+    private Integer inactiveClf;
+    private Integer noVos;
+    private Integer bankLinkage;
+    private Integer assesTver;
+    private Integer livliHoodProm;
+    private Integer moniToring;
+    private Integer socialAction;
+    private Integer speCial;
+    private Integer toTal;
+    private Integer totalShg;
+    private Integer targetShgMembers;
+    private Integer totalVo;
+    private Integer totalVoShg;
+    private Integer totalVoMembers;
+    private Integer totalClf;
+    private Integer totalClfVo;
+    private Integer totalClfShg;
+    private Integer totalClfMembers;
+    private Integer noClfs;
+    private Integer bankLinkageClf;
+    private Integer assesTverClf;
+    private Integer livliHoodPromClf;
+    private Integer monitoringClf;
+    private Integer socialactionClf;
+    private Integer specialClf;
+    private Integer clfTotal;
+    private Integer totalShgInit;
+    private Integer totalMembersInit;
+    private Integer cumlShg;
+    private Integer cumlMember;
+    private Integer noofShgAge;
+    private Integer thrShg;
+    private Integer sixShg;
+    private Integer nineShg;
+    private Integer oneShg;
+    private Integer moreOneShg;
+    private Integer totalRuralHouseholds;
+    private Integer targetRuralHouseholds;
+    private  Integer houseHoldMobilized;
+    private Integer noofShgLes;
+    private Integer noofLeaders;
+
+    public Integer getNoofShgLes() {
+        return noofShgLes;
+    }
+
+    public void setNoofShgLes(Integer noofShgLes) {
+        this.noofShgLes = noofShgLes;
+    }
+
+    public Integer getNoofLeaders() {
+        return noofLeaders;
     }
 
-    public void setTotal_vo_members(Integer total_vo_members) {
-        this.total_vo_members = total_vo_members;
+    public void setNoofLeaders(Integer noofLeaders) {
+        this.noofLeaders = noofLeaders;
     }
 
-    public Integer getTotal_clf() {
-        return total_clf;
+    public Integer getIlleTerate() {
+        return illeTerate;
     }
 
-    public void setTotal_clf(Integer total_clf) {
-        this.total_clf = total_clf;
+    public void setIlleTerate(Integer illeTerate) {
+        this.illeTerate = illeTerate;
     }
 
-    public Integer getTotal_clf_vo() {
-        return total_clf_vo;
+    public Integer getFunctionalLit() {
+        return functionalLit;
     }
 
-    public void setTotal_clf_vo(Integer total_clf_vo) {
-        this.total_clf_vo = total_clf_vo;
+    public void setFunctionalLit(Integer functionalLit) {
+        this.functionalLit = functionalLit;
     }
 
-    public Integer getTotal_clf_shg() {
-        return total_clf_shg;
+    public Integer getPrimaryUpto5() {
+        return primaryUpto5;
     }
 
-    public void setTotal_clf_shg(Integer total_clf_shg) {
-        this.total_clf_shg = total_clf_shg;
+    public void setPrimaryUpto5(Integer primaryUpto5) {
+        this.primaryUpto5 = primaryUpto5;
     }
 
-    public Integer getTotal_clf_members() {
-        return total_clf_members;
+    public Integer getMiddleUpto8() {
+        return middleUpto8;
     }
 
-    public void setTotal_clf_members(Integer total_clf_members) {
-        this.total_clf_members = total_clf_members;
+    public void setMiddleUpto8(Integer middleUpto8) {
+        this.middleUpto8 = middleUpto8;
     }
 
-    public Integer getNoclfs() {
-        return noclfs;
+    public Integer getSrSec12() {
+        return srSec12;
     }
 
-    public void setNoclfs(Integer noclfs) {
-        this.noclfs = noclfs;
+    public void setSrSec12(Integer srSec12) {
+        this.srSec12 = srSec12;
     }
 
-    public Integer getBanklinkage_clf() {
-        return banklinkage_clf;
+    public Integer getVocTraining() {
+        return vocTraining;
     }
 
-    public void setBanklinkage_clf(Integer banklinkage_clf) {
-        this.banklinkage_clf = banklinkage_clf;
+    public void setVocTraining(Integer vocTraining) {
+        this.vocTraining = vocTraining;
     }
+
+    public Integer getoThers() {
+        return oThers;
+    }
+
+    public void setoThers(Integer oThers) {
+        this.oThers = oThers;
+    }
+
+    private Integer illeTerate;
+    private Integer functionalLit;
+    private Integer primaryUpto5;
+    private Integer middleUpto8;
+    private Integer srSec12;
+    private Integer vocTraining;
+    private Integer oThers;
+    private Integer noofShgLa;
+    private Integer noofLeadersLa;
 
-    public Integer getAssestver_clf() {
-        return assestver_clf;
+    public Integer getNoofShgLa() {
+        return noofShgLa;
     }
 
-    public void setAssestver_clf(Integer assestver_clf) {
-        this.assestver_clf = assestver_clf;
+    public void setNoofShgLa(Integer noofShgLa) {
+        this.noofShgLa = noofShgLa;
     }
 
-    public Integer getLivlihoodprom_clf() {
-        return livlihoodprom_clf;
+    public Integer getNoofLeadersLa() {
+        return noofLeadersLa;
     }
 
-    public void setLivlihoodprom_clf(Integer livlihoodprom_clf) {
-        this.livlihoodprom_clf = livlihoodprom_clf;
+    public void setNoofLeadersLa(Integer noofLeadersLa) {
+        this.noofLeadersLa = noofLeadersLa;
     }
 
-    public Integer getMonitoring_clf() {
-        return monitoring_clf;
+    public Integer getAgriActivity() {
+        return agriActivity;
     }
 
-    public void setMonitoring_clf(Integer monitoring_clf) {
-        this.monitoring_clf = monitoring_clf;
+    public void setAgriActivity(Integer agriActivity) {
+        this.agriActivity = agriActivity;
     }
 
-    public Integer getSocialaction_clf() {
-        return socialaction_clf;
+    public Integer getLivestockFisheries() {
+        return livestockFisheries;
     }
 
-    public void setSocialaction_clf(Integer socialaction_clf) {
-        this.socialaction_clf = socialaction_clf;
+    public void setLivestockFisheries(Integer livestockFisheries) {
+        this.livestockFisheries = livestockFisheries;
     }
 
-    public Integer getSpecial_clf() {
-        return special_clf;
+    public Integer getNtFp() {
+        return ntFp;
     }
 
-    public void setSpecial_clf(Integer special_clf) {
-        this.special_clf = special_clf;
+    public void setNtFp(Integer ntFp) {
+        this.ntFp = ntFp;
     }
 
-    public Integer getClf_total() {
-        return clf_total;
+    public Integer getNonFarm() {
+        return nonFarm;
     }
 
-    public void setClf_total(Integer clf_total) {
-        this.clf_total = clf_total;
+    public void setNonFarm(Integer nonFarm) {
+        this.nonFarm = nonFarm;
     }
 
+    private Integer agriActivity;
+    private Integer livestockFisheries;
+    private Integer ntFp;
+    private Integer nonFarm;
 }
