@@ -1205,6 +1205,12 @@ public class PGFunctionProcedureService {
                 geographicalCoverage.setSrSec12(rs.getInt("srsec12"));
                 geographicalCoverage.setVocTraining(rs.getInt("voctraining"));
                 geographicalCoverage.setoThers(rs.getInt("others"));
+                geographicalCoverage.setNoofShgLa(rs.getInt("noofshg_la"));
+                geographicalCoverage.setNoofLeadersLa(rs.getInt("noofleaders_la"));
+                geographicalCoverage.setAgriActivity(rs.getInt("agriactivity"));
+                geographicalCoverage.setLivestockFisheries(rs.getInt("livestock_fisheries"));
+                geographicalCoverage.setNtFp(rs.getInt("ntfp"));
+                geographicalCoverage.setNonFarm(rs.getInt("non_farm"));
                 tbl_summarylist.add(geographicalCoverage);
             }
             stmt.close();

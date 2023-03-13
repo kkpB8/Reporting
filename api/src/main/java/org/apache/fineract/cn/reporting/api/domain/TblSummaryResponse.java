@@ -1,28 +1,20 @@
 package org.apache.fineract.cn.reporting.api.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Column;
 
 public class TblSummaryResponse {
-    @Column(name = "geographical_flag")
     private String geographicalFlag;
     private String stateId;
-    @Column(name = "district_id")
     private String districtId;
-    @Column(name = "block_id")
     private String blockId;
-    @Column(name = "panchayat_id")
     private String panchayatId;
-    @Column(name = "village_id")
     private String villageId;
-    @Column(name = "state_name")
     private String stateName;
-    @Column(name = "district_name")
     private String districtName;
-    @Column(name = "block_name")
     private String blockName;
-    @Column(name = "panchayat_name")
     private String panchayatName;
-    @Column(name = "village_name")
     private String villageName;
 
     public String getGeographicalFlag() {
@@ -577,125 +569,65 @@ public class TblSummaryResponse {
         this.houseHoldMobilized = houseHoldMobilized;
     }
 
-    @Column(name = "year_month")
     private String yearMonth;
-    @Column(name = "totaldistrict")
     private Integer totalDistrict;
-    @Column(name = "totalblock")
     private Integer totalBlock;
-    @Column(name = "totalvillage")
     private Integer totalVillage;
-    @Column(name = "totalpanchayat")
     private Integer totalPanchayat;
-    @Column(name = "coveragedistrict")
     private Integer coverageDistrict;
-    @Column(name = "coverageblock")
     private Integer coverageBlock;
-    @Column(name = "coveragevillage")
     private Integer coverageVillage;
-    @Column(name = "coveragepanchayat")
     private Integer coveragePanchayat;
-    @Column(name = "perdistrict")
     private Integer perDistrict;
-    @Column(name = "perblock")
     private Integer perBlock;
-    @Column(name = "perpanchayat")
     private Integer perPanchayat;
-    @Column(name = "pervillage")
     private Integer perVillage;
-    @Column(name = "approved_shg")
     private Integer approvedShg;
-    @Column(name = "inactive_shg")
     private Integer inactiveShg;
-    @Column(name = "inactive_shg_members")
     private Integer inactiveShgMembers;
-    @Column(name = "approved_vo")
     private Integer approvedVo;
-    @Column(name = "inactive_vo")
     private Integer inactiveVo;
-    @Column(name = "approved_clf")
     private Integer approvedClf;
-    @Column(name = "inactive_clf")
     private Integer inactiveClf;
-    @Column(name = "novos")
     private Integer noVos;
-    @Column(name = "banklinkage")
     private Integer bankLinkage;
-    @Column(name = "assestver")
     private Integer assesTver;
-    @Column(name = "livlihoodprom")
     private Integer livliHoodProm;
-    @Column(name = "monitoring")
     private Integer moniToring;
-    @Column(name = "socialaction")
     private Integer socialAction;
-    @Column(name = "special")
     private Integer speCial;
-    @Column(name = "total")
     private Integer toTal;
-    @Column(name = "total_shg")
     private Integer totalShg;
-    @Column(name = "target_shg_members")
     private Integer targetShgMembers;
-    @Column(name = "total_vo")
     private Integer totalVo;
-    @Column(name = "total_vo_shg")
     private Integer totalVoShg;
-    @Column(name = "total_vo_members")
     private Integer totalVoMembers;
-    @Column(name = "total_clf")
     private Integer totalClf;
-    @Column(name = "total_clf_vo")
     private Integer totalClfVo;
-    @Column(name = "total_clf_shg")
     private Integer totalClfShg;
-    @Column(name = "total_clf_members")
     private Integer totalClfMembers;
-    @Column(name = "noclfs")
     private Integer noClfs;
-    @Column(name = "banklinkage_clf")
     private Integer bankLinkageClf;
-    @Column(name = "assestver_clf")
     private Integer assesTverClf;
-    @Column(name = "livlihoodprom_clf")
     private Integer livliHoodPromClf;
-    @Column(name = "monitoring_clf")
     private Integer monitoringClf;
-    @Column(name = "socialaction_clf")
     private Integer socialactionClf;
-    @Column(name = "special_clf")
     private Integer specialClf;
-    @Column(name = "clf_total")
     private Integer clfTotal;
-    @Column(name = "total_shg_init")
     private Integer totalShgInit;
-    @Column(name = "total_members_init")
     private Integer totalMembersInit;
-    @Column(name = "cumlshg")
     private Integer cumlShg;
-    @Column(name = "cumlmember")
     private Integer cumlMember;
-    @Column(name = "noofshg_age")
     private Integer noofShgAge;
-    @Column(name = "thrshg")
     private Integer thrShg;
-    @Column(name = "sixshg")
     private Integer sixShg;
-    @Column(name = "nineshg")
     private Integer nineShg;
-    @Column(name = "oneshg")
     private Integer oneShg;
-    @Column(name = "moreoneshg")
     private Integer moreOneShg;
-    @Column(name = "total_rural_households")
     private Integer totalRuralHouseholds;
-    @Column(name = "target_rural_households")
     private Integer targetRuralHouseholds;
-    @Column(name = "household_mobilized")
     private  Integer houseHoldMobilized;
-    @Column(name = "noofshg_les")
     private Integer noofShgLes;
-    @Column(name = "noofleaders")
     private Integer noofLeaders;
 
     public Integer getNoofShgLes() {
@@ -770,18 +702,66 @@ public class TblSummaryResponse {
         this.oThers = oThers;
     }
 
-    @Column(name ="illeterate")
     private Integer illeTerate;
-    @Column(name = "functionallit")
     private Integer functionalLit;
-    @Column(name = "primaryupto5")
     private Integer primaryUpto5;
-    @Column(name = "middleupto8")
     private Integer middleUpto8;
-    @Column(name = "srsec12")
     private Integer srSec12;
-    @Column(name = "voctraining")
     private Integer vocTraining;
-    @Column(name = "others")
     private Integer oThers;
+    private Integer noofShgLa;
+    private Integer noofLeadersLa;
+
+    public Integer getNoofShgLa() {
+        return noofShgLa;
+    }
+
+    public void setNoofShgLa(Integer noofShgLa) {
+        this.noofShgLa = noofShgLa;
+    }
+
+    public Integer getNoofLeadersLa() {
+        return noofLeadersLa;
+    }
+
+    public void setNoofLeadersLa(Integer noofLeadersLa) {
+        this.noofLeadersLa = noofLeadersLa;
+    }
+
+    public Integer getAgriActivity() {
+        return agriActivity;
+    }
+
+    public void setAgriActivity(Integer agriActivity) {
+        this.agriActivity = agriActivity;
+    }
+
+    public Integer getLivestockFisheries() {
+        return livestockFisheries;
+    }
+
+    public void setLivestockFisheries(Integer livestockFisheries) {
+        this.livestockFisheries = livestockFisheries;
+    }
+
+    public Integer getNtFp() {
+        return ntFp;
+    }
+
+    public void setNtFp(Integer ntFp) {
+        this.ntFp = ntFp;
+    }
+
+    public Integer getNonFarm() {
+        return nonFarm;
+    }
+
+    public void setNonFarm(Integer nonFarm) {
+        this.nonFarm = nonFarm;
+    }
+
+    private Integer agriActivity;
+    private Integer livestockFisheries;
+    private Integer ntFp;
+    private Integer nonFarm;
 }
