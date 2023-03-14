@@ -764,4 +764,311 @@ public class TblSummaryResponse {
     private Integer livestockFisheries;
     private Integer ntFp;
     private Integer nonFarm;
+    private Integer zeroTo3;
+    private Integer threeTo6;
+    private Integer sixTo10;
+    private Integer tenPlus;
+    private Integer total1;
+    private Integer zeroTo3_2;
+    private Integer threeTo6_2;
+    private Integer sixTo10_2;
+    private Integer tenPlus_2;
+    private Integer total2;
+    private Integer noofShgNum;
+    private Integer noofShgWithBank;
+    private Integer oneAc;
+    private Integer twoAc;
+    private Integer moreAc;
+
+    public Integer getNoofShgNum() {
+        return noofShgNum;
+    }
+
+    public void setNoofShgNum(Integer noofShgNum) {
+        this.noofShgNum = noofShgNum;
+    }
+
+    public Integer getNoofShgWithBank() {
+        return noofShgWithBank;
+    }
+
+    public void setNoofShgWithBank(Integer noofShgWithBank) {
+        this.noofShgWithBank = noofShgWithBank;
+    }
+
+    public Integer getOneAc() {
+        return oneAc;
+    }
+
+    public void setOneAc(Integer oneAc) {
+        this.oneAc = oneAc;
+    }
+
+    public Integer getTwoAc() {
+        return twoAc;
+    }
+
+    public void setTwoAc(Integer twoAc) {
+        this.twoAc = twoAc;
+    }
+
+    public Integer getMoreAc() {
+        return moreAc;
+    }
+
+    public void setMoreAc(Integer moreAc) {
+        this.moreAc = moreAc;
+    }
+
+    public Integer getTotalMember() {
+        return totalMember;
+    }
+
+    public void setTotalMember(Integer totalMember) {
+        this.totalMember = totalMember;
+    }
+
+    public Integer getTotalMembersAccount() {
+        return totalMembersAccount;
+    }
+
+    public void setTotalMembersAccount(Integer totalMembersAccount) {
+        this.totalMembersAccount = totalMembersAccount;
+    }
+
+    public Integer getPerMembersAccount() {
+        return perMembersAccount;
+    }
+
+    public void setPerMembersAccount(Integer perMembersAccount) {
+        this.perMembersAccount = perMembersAccount;
+    }
+
+    public Integer getTotalMembersAdhar() {
+        return totalMembersAdhar;
+    }
+
+    public void setTotalMembersAdhar(Integer totalMembersAdhar) {
+        this.totalMembersAdhar = totalMembersAdhar;
+    }
+
+    public Integer getPerMembersAdhar() {
+        return perMembersAdhar;
+    }
+
+    public void setPerMembersAdhar(Integer perMembersAdhar) {
+        this.perMembersAdhar = perMembersAdhar;
+    }
+
+    public Integer getTotalMembersSecc() {
+        return totalMembersSecc;
+    }
+
+    public void setTotalMembersSecc(Integer totalMembersSecc) {
+        this.totalMembersSecc = totalMembersSecc;
+    }
+
+    public Integer getPerMembersSecc() {
+        return perMembersSecc;
+    }
+
+    public void setPerMembersSecc(Integer perMembersSecc) {
+        this.perMembersSecc = perMembersSecc;
+    }
+
+    public Integer getNoofShgbb() {
+        return noofShgbb;
+    }
+
+    public void setNoofShgbb(Integer noofShgbb) {
+        this.noofShgbb = noofShgbb;
+    }
+
+    public Integer getNoofVobb() {
+        return noofVobb;
+    }
+
+    public void setNoofVobb(Integer noofVobb) {
+        this.noofVobb = noofVobb;
+    }
+
+    public Integer getNoofClfbb() {
+        return noofClfbb;
+    }
+
+    public void setNoofClfbb(Integer noofClfbb) {
+        this.noofClfbb = noofClfbb;
+    }
+
+    public Integer getTotalShgMel() {
+        return totalShgMel;
+    }
+
+    public void setTotalShgMel(Integer totalShgMel) {
+        this.totalShgMel = totalShgMel;
+    }
+
+    public Integer getTotalShgMembers() {
+        return totalShgMembers;
+    }
+
+    public void setTotalShgMembers(Integer totalShgMembers) {
+        this.totalShgMembers = totalShgMembers;
+    }
+
+    public Integer getIlliterate() {
+        return illiterate;
+    }
+
+    public void setIlliterate(Integer illiterate) {
+        this.illiterate = illiterate;
+    }
+
+    public Integer getFunctional() {
+        return functional;
+    }
+
+    public void setFunctional(Integer functional) {
+        this.functional = functional;
+    }
+
+    public Integer getPrimary5() {
+        return primary5;
+    }
+
+    public void setPrimary5(Integer primary5) {
+        this.primary5 = primary5;
+    }
+
+    public Integer getMiddle8() {
+        return middle8;
+    }
+
+    public void setMiddle8(Integer middle8) {
+        this.middle8 = middle8;
+    }
+
+    public Integer getSecondary12() {
+        return secondary12;
+    }
+
+    public void setSecondary12(Integer secondary12) {
+        this.secondary12 = secondary12;
+    }
+
+    public Integer getVocationalTraining() {
+        return vocationalTraining;
+    }
+
+    public void setVocationalTraining(Integer vocationalTraining) {
+        this.vocationalTraining = vocationalTraining;
+    }
+
+    public Integer getOther() {
+        return other;
+    }
+
+    public void setOther(Integer other) {
+        this.other = other;
+    }
+
+    private Integer totalMember;
+    private Integer totalMembersAccount;
+    private Integer perMembersAccount;
+    private Integer totalMembersAdhar;
+    private Integer perMembersAdhar;
+    private Integer totalMembersSecc;
+    private Integer perMembersSecc;
+    private Integer noofShgbb;
+    private Integer noofVobb;
+    private Integer noofClfbb;
+    private Integer totalShgMel;
+    private Integer totalShgMembers;
+    private Integer illiterate;
+    private Integer functional;
+    private Integer primary5;
+    private Integer middle8;
+    private Integer secondary12;
+    private Integer vocationalTraining;
+    private Integer other;
+    public Integer getZeroTo3() {
+        return zeroTo3;
+    }
+
+    public void setZeroTo3(Integer zeroTo3) {
+        this.zeroTo3 = zeroTo3;
+    }
+
+    public Integer getThreeTo6() {
+        return threeTo6;
+    }
+
+    public void setThreeTo6(Integer threeTo6) {
+        this.threeTo6 = threeTo6;
+    }
+
+    public Integer getSixTo10() {
+        return sixTo10;
+    }
+
+    public void setSixTo10(Integer sixTo10) {
+        this.sixTo10 = sixTo10;
+    }
+
+    public Integer getTenPlus() {
+        return tenPlus;
+    }
+
+    public void setTenPlus(Integer tenPlus) {
+        this.tenPlus = tenPlus;
+    }
+
+    public Integer getTotal1() {
+        return total1;
+    }
+
+    public void setTotal1(Integer total1) {
+        this.total1 = total1;
+    }
+
+    public Integer getZeroTo3_2() {
+        return zeroTo3_2;
+    }
+
+    public void setZeroTo3_2(Integer zeroTo3_2) {
+        this.zeroTo3_2 = zeroTo3_2;
+    }
+
+    public Integer getThreeTo6_2() {
+        return threeTo6_2;
+    }
+
+    public void setThreeTo6_2(Integer threeTo6_2) {
+        this.threeTo6_2 = threeTo6_2;
+    }
+
+    public Integer getSixTo10_2() {
+        return sixTo10_2;
+    }
+
+    public void setSixTo10_2(Integer sixTo10_2) {
+        this.sixTo10_2 = sixTo10_2;
+    }
+
+    public Integer getTenPlus_2() {
+        return tenPlus_2;
+    }
+
+    public void setTenPlus_2(Integer tenPlus_2) {
+        this.tenPlus_2 = tenPlus_2;
+    }
+
+    public Integer getTotal2() {
+        return total2;
+    }
+
+    public void setTotal2(Integer total2) {
+        this.total2 = total2;
+    }
+
 }
