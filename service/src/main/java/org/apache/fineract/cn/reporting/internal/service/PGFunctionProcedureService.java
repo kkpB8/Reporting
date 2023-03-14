@@ -1245,15 +1245,37 @@ public class PGFunctionProcedureService {
                 geographicalCoverage.setSecondary12(rs.getInt("secondary12"));
                 geographicalCoverage.setVocationalTraining(rs.getInt("vocationaltraining"));
                 geographicalCoverage.setOther(rs.getInt("other"));
+                geographicalCoverage.setTotalShgSld(rs.getInt("total_shg_sld"));
+                geographicalCoverage.setTotalShgLivelthoodSld(rs.getInt("totalshglivelthood_sld"));
+                geographicalCoverage.setTotalShgLivestockSld(rs.getInt("totalshglivestock_sld"));
+                geographicalCoverage.setTotalShgntfpSld(rs.getInt("totalshgntfp_sld"));
+                geographicalCoverage.setTotalShgAgricultureSld(rs.getInt("totalshgagriculture_sld"));
+                geographicalCoverage.setNonFarmSld(rs.getInt("nonfarm_sld"));
+                geographicalCoverage.setTotalShgMem(rs.getInt("total_shg_mem"));
+                geographicalCoverage.setTotalShgLivelthood(rs.getInt("totalshglivelthood"));
+                geographicalCoverage.setTotalShgLivestock(rs.getInt("totalshglivestock"));
+                geographicalCoverage.setTotalShgntfp(rs.getInt("totalshgntfp"));
+                geographicalCoverage.setTotalShgAgriculture(rs.getInt("totalshgagriculture"));
+                geographicalCoverage.setNonFarm(rs.getInt("nonfarm"));
+                geographicalCoverage.setNoofShgEach(rs.getInt("noofshg_each"));
+                geographicalCoverage.setNoofWomanShg(rs.getInt("noofwomanshg"));
+                geographicalCoverage.setNoofPvtg(rs.getInt("noofpvtg"));
+                geographicalCoverage.setNoofPwd(rs.getInt("noofpwd"));
+                geographicalCoverage.setNoofElderly(rs.getInt("noofelderly"));
+                geographicalCoverage.setNoofOthers(rs.getInt("noofothers"));
+                geographicalCoverage.setTotalEach(rs.getInt("total_each"));
+                geographicalCoverage.setPreShg(rs.getInt("preshg"));
+                geographicalCoverage.setPreMembers(rs.getInt("premembers"));
+                geographicalCoverage.setCurrentShg(rs.getInt("currentshg"));
+                geographicalCoverage.setCurrentMember(rs.getInt("currentmember"));
                 tbl_summarylist.add(geographicalCoverage);
             }
             stmt.close();
             con.close();
         } catch (SQLException e) {
-            logger.info("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!", e.getMessage());
-            throw new DatabaseOperationError("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!");
+            logger.info("Call Procedure fn_tbl_summary_getreport(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_tbl_summary_getreport(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) Failed!");
         }
-        logger.info("Call Procedure");
         return  tbl_summarylist;
     }
 }

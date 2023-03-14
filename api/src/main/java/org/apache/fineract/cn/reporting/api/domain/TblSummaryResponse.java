@@ -16,6 +16,139 @@ public class TblSummaryResponse {
     private String blockName;
     private String panchayatName;
     private String villageName;
+    private String yearMonth;
+    private Integer totalDistrict;
+    private Integer totalBlock;
+    private Integer totalVillage;
+    private Integer totalPanchayat;
+    private Integer coverageDistrict;
+    private Integer coverageBlock;
+    private Integer coverageVillage;
+    private Integer coveragePanchayat;
+    private Integer perDistrict;
+    private Integer perBlock;
+    private Integer perPanchayat;
+    private Integer perVillage;
+    private Integer approvedShg;
+    private Integer inactiveShg;
+    private Integer inactiveShgMembers;
+    private Integer approvedVo;
+    private Integer inactiveVo;
+    private Integer approvedClf;
+    private Integer inactiveClf;
+    private Integer noVos;
+    private Integer bankLinkage;
+    private Integer assesTver;
+    private Integer livliHoodProm;
+    private Integer moniToring;
+    private Integer socialAction;
+    private Integer speCial;
+    private Integer toTal;
+    private Integer totalShg;
+    private Integer targetShgMembers;
+    private Integer totalVo;
+    private Integer totalVoShg;
+    private Integer totalVoMembers;
+    private Integer totalClf;
+    private Integer totalClfVo;
+    private Integer totalClfShg;
+    private Integer totalClfMembers;
+    private Integer noClfs;
+    private Integer bankLinkageClf;
+    private Integer assesTverClf;
+    private Integer livliHoodPromClf;
+    private Integer monitoringClf;
+    private Integer socialactionClf;
+    private Integer specialClf;
+    private Integer clfTotal;
+    private Integer totalShgInit;
+    private Integer totalMembersInit;
+    private Integer cumlShg;
+    private Integer cumlMember;
+    private Integer noofShgAge;
+    private Integer thrShg;
+    private Integer sixShg;
+    private Integer nineShg;
+    private Integer oneShg;
+    private Integer moreOneShg;
+    private Integer totalRuralHouseholds;
+    private Integer targetRuralHouseholds;
+    private  Integer houseHoldMobilized;
+    private Integer noofShgLes;
+    private Integer noofLeaders;
+    private Integer illeTerate;
+    private Integer functionalLit;
+    private Integer primaryUpto5;
+    private Integer middleUpto8;
+    private Integer srSec12;
+    private Integer vocTraining;
+    private Integer oThers;
+    private Integer noofShgLa;
+    private Integer noofLeadersLa;
+    private Integer agriActivity;
+    private Integer livestockFisheries;
+    private Integer ntFp;
+    private Integer nonFarm;
+    private Integer zeroTo3;
+    private Integer threeTo6;
+    private Integer sixTo10;
+    private Integer tenPlus;
+    private Integer total1;
+    private Integer zeroTo3_2;
+    private Integer threeTo6_2;
+    private Integer sixTo10_2;
+    private Integer tenPlus_2;
+    private Integer total2;
+    private Integer noofShgNum;
+    private Integer noofShgWithBank;
+    private Integer oneAc;
+    private Integer twoAc;
+    private Integer moreAc;
+    private Integer totalMember;
+    private Integer totalMembersAccount;
+    private Integer perMembersAccount;
+    private Integer totalMembersAdhar;
+    private Integer perMembersAdhar;
+    private Integer totalMembersSecc;
+    private Integer perMembersSecc;
+    private Integer noofShgbb;
+    private Integer noofVobb;
+    private Integer noofClfbb;
+    private Integer totalShgMel;
+    private Integer totalShgMembers;
+    private Integer illiterate;
+    private Integer functional;
+    private Integer primary5;
+    private Integer middle8;
+    private Integer secondary12;
+    private Integer vocationalTraining;
+    private Integer other;
+    private Integer totalShgSld;
+    private Integer totalShgLivelthoodSld;
+    private Integer totalShgLivestockSld;
+    private Integer totalShgntfpSld;
+    private Integer totalShgAgricultureSld;
+    private Integer nonFarmSld;
+    private Integer totalShgMem;
+    private Integer totalShgLivelthood;
+    private Integer totalShgLivestock;
+    private Integer totalShgntfp;
+    private Integer totalShgAgriculture;
+    private Integer nonFarmMld;
+    private Integer noofShgEach;
+    private Integer noofWomanShg;
+    private Integer noofPvtg;
+    private Integer noofPwd;
+    private Integer noofElderly;
+    private Integer noofOthers;
+    private Integer totalEach;
+    private Integer preShg;
+    private Integer preMembers;
+    private Integer currentShg;
+    private Integer currentMember;
+    public Integer getNoofShgNum() {
+        return noofShgNum;
+    }
 
     public String getGeographicalFlag() {
         return geographicalFlag;
@@ -569,67 +702,6 @@ public class TblSummaryResponse {
         this.houseHoldMobilized = houseHoldMobilized;
     }
 
-    private String yearMonth;
-    private Integer totalDistrict;
-    private Integer totalBlock;
-    private Integer totalVillage;
-    private Integer totalPanchayat;
-    private Integer coverageDistrict;
-    private Integer coverageBlock;
-    private Integer coverageVillage;
-    private Integer coveragePanchayat;
-    private Integer perDistrict;
-    private Integer perBlock;
-    private Integer perPanchayat;
-    private Integer perVillage;
-    private Integer approvedShg;
-    private Integer inactiveShg;
-    private Integer inactiveShgMembers;
-    private Integer approvedVo;
-    private Integer inactiveVo;
-    private Integer approvedClf;
-    private Integer inactiveClf;
-    private Integer noVos;
-    private Integer bankLinkage;
-    private Integer assesTver;
-    private Integer livliHoodProm;
-    private Integer moniToring;
-    private Integer socialAction;
-    private Integer speCial;
-    private Integer toTal;
-    private Integer totalShg;
-    private Integer targetShgMembers;
-    private Integer totalVo;
-    private Integer totalVoShg;
-    private Integer totalVoMembers;
-    private Integer totalClf;
-    private Integer totalClfVo;
-    private Integer totalClfShg;
-    private Integer totalClfMembers;
-    private Integer noClfs;
-    private Integer bankLinkageClf;
-    private Integer assesTverClf;
-    private Integer livliHoodPromClf;
-    private Integer monitoringClf;
-    private Integer socialactionClf;
-    private Integer specialClf;
-    private Integer clfTotal;
-    private Integer totalShgInit;
-    private Integer totalMembersInit;
-    private Integer cumlShg;
-    private Integer cumlMember;
-    private Integer noofShgAge;
-    private Integer thrShg;
-    private Integer sixShg;
-    private Integer nineShg;
-    private Integer oneShg;
-    private Integer moreOneShg;
-    private Integer totalRuralHouseholds;
-    private Integer targetRuralHouseholds;
-    private  Integer houseHoldMobilized;
-    private Integer noofShgLes;
-    private Integer noofLeaders;
-
     public Integer getNoofShgLes() {
         return noofShgLes;
     }
@@ -702,16 +774,6 @@ public class TblSummaryResponse {
         this.oThers = oThers;
     }
 
-    private Integer illeTerate;
-    private Integer functionalLit;
-    private Integer primaryUpto5;
-    private Integer middleUpto8;
-    private Integer srSec12;
-    private Integer vocTraining;
-    private Integer oThers;
-    private Integer noofShgLa;
-    private Integer noofLeadersLa;
-
     public Integer getNoofShgLa() {
         return noofShgLa;
     }
@@ -759,31 +821,6 @@ public class TblSummaryResponse {
     public void setNonFarm(Integer nonFarm) {
         this.nonFarm = nonFarm;
     }
-
-    private Integer agriActivity;
-    private Integer livestockFisheries;
-    private Integer ntFp;
-    private Integer nonFarm;
-    private Integer zeroTo3;
-    private Integer threeTo6;
-    private Integer sixTo10;
-    private Integer tenPlus;
-    private Integer total1;
-    private Integer zeroTo3_2;
-    private Integer threeTo6_2;
-    private Integer sixTo10_2;
-    private Integer tenPlus_2;
-    private Integer total2;
-    private Integer noofShgNum;
-    private Integer noofShgWithBank;
-    private Integer oneAc;
-    private Integer twoAc;
-    private Integer moreAc;
-
-    public Integer getNoofShgNum() {
-        return noofShgNum;
-    }
-
     public void setNoofShgNum(Integer noofShgNum) {
         this.noofShgNum = noofShgNum;
     }
@@ -972,25 +1009,6 @@ public class TblSummaryResponse {
         this.other = other;
     }
 
-    private Integer totalMember;
-    private Integer totalMembersAccount;
-    private Integer perMembersAccount;
-    private Integer totalMembersAdhar;
-    private Integer perMembersAdhar;
-    private Integer totalMembersSecc;
-    private Integer perMembersSecc;
-    private Integer noofShgbb;
-    private Integer noofVobb;
-    private Integer noofClfbb;
-    private Integer totalShgMel;
-    private Integer totalShgMembers;
-    private Integer illiterate;
-    private Integer functional;
-    private Integer primary5;
-    private Integer middle8;
-    private Integer secondary12;
-    private Integer vocationalTraining;
-    private Integer other;
     public Integer getZeroTo3() {
         return zeroTo3;
     }
@@ -1069,6 +1087,190 @@ public class TblSummaryResponse {
 
     public void setTotal2(Integer total2) {
         this.total2 = total2;
+    }
+
+    public Integer getTotalShgSld() {
+        return totalShgSld;
+    }
+
+    public void setTotalShgSld(Integer totalShgSld) {
+        this.totalShgSld = totalShgSld;
+    }
+
+    public Integer getTotalShgLivelthoodSld() {
+        return totalShgLivelthoodSld;
+    }
+
+    public void setTotalShgLivelthoodSld(Integer totalShgLivelthoodSld) {
+        this.totalShgLivelthoodSld = totalShgLivelthoodSld;
+    }
+
+    public Integer getTotalShgLivestockSld() {
+        return totalShgLivestockSld;
+    }
+
+    public void setTotalShgLivestockSld(Integer totalShgLivestockSld) {
+        this.totalShgLivestockSld = totalShgLivestockSld;
+    }
+
+    public Integer getTotalShgntfpSld() {
+        return totalShgntfpSld;
+    }
+
+    public void setTotalShgntfpSld(Integer totalShgntfpSld) {
+        this.totalShgntfpSld = totalShgntfpSld;
+    }
+
+    public Integer getTotalShgAgricultureSld() {
+        return totalShgAgricultureSld;
+    }
+
+    public void setTotalShgAgricultureSld(Integer totalShgAgricultureSld) {
+        this.totalShgAgricultureSld = totalShgAgricultureSld;
+    }
+
+    public Integer getNonFarmSld() {
+        return nonFarmSld;
+    }
+
+    public void setNonFarmSld(Integer nonFarmSld) {
+        this.nonFarmSld = nonFarmSld;
+    }
+
+    public Integer getTotalShgMem() {
+        return totalShgMem;
+    }
+
+    public void setTotalShgMem(Integer totalShgMem) {
+        this.totalShgMem = totalShgMem;
+    }
+
+    public Integer getTotalShgLivelthood() {
+        return totalShgLivelthood;
+    }
+
+    public void setTotalShgLivelthood(Integer totalShgLivelthood) {
+        this.totalShgLivelthood = totalShgLivelthood;
+    }
+
+    public Integer getTotalShgLivestock() {
+        return totalShgLivestock;
+    }
+
+    public void setTotalShgLivestock(Integer totalShgLivestock) {
+        this.totalShgLivestock = totalShgLivestock;
+    }
+
+    public Integer getTotalShgntfp() {
+        return totalShgntfp;
+    }
+
+    public void setTotalShgntfp(Integer totalShgntfp) {
+        this.totalShgntfp = totalShgntfp;
+    }
+
+    public Integer getTotalShgAgriculture() {
+        return totalShgAgriculture;
+    }
+
+    public void setTotalShgAgriculture(Integer totalShgAgriculture) {
+        this.totalShgAgriculture = totalShgAgriculture;
+    }
+
+    public Integer getNonFarmMld() {
+        return nonFarmMld;
+    }
+
+    public void setNonFarmMld(Integer nonFarmMld) {
+        this.nonFarmMld = nonFarmMld;
+    }
+
+    public Integer getNoofShgEach() {
+        return noofShgEach;
+    }
+
+    public void setNoofShgEach(Integer noofShgEach) {
+        this.noofShgEach = noofShgEach;
+    }
+
+    public Integer getNoofWomanShg() {
+        return noofWomanShg;
+    }
+
+    public void setNoofWomanShg(Integer noofWomanShg) {
+        this.noofWomanShg = noofWomanShg;
+    }
+
+    public Integer getNoofPvtg() {
+        return noofPvtg;
+    }
+
+    public void setNoofPvtg(Integer noofPvtg) {
+        this.noofPvtg = noofPvtg;
+    }
+
+    public Integer getNoofPwd() {
+        return noofPwd;
+    }
+
+    public void setNoofPwd(Integer noofPwd) {
+        this.noofPwd = noofPwd;
+    }
+
+    public Integer getNoofElderly() {
+        return noofElderly;
+    }
+
+    public void setNoofElderly(Integer noofElderly) {
+        this.noofElderly = noofElderly;
+    }
+
+    public Integer getNoofOthers() {
+        return noofOthers;
+    }
+
+    public void setNoofOthers(Integer noofOthers) {
+        this.noofOthers = noofOthers;
+    }
+
+    public Integer getTotalEach() {
+        return totalEach;
+    }
+
+    public void setTotalEach(Integer totalEach) {
+        this.totalEach = totalEach;
+    }
+
+    public Integer getPreShg() {
+        return preShg;
+    }
+
+    public void setPreShg(Integer preShg) {
+        this.preShg = preShg;
+    }
+
+    public Integer getPreMembers() {
+        return preMembers;
+    }
+
+    public void setPreMembers(Integer preMembers) {
+        this.preMembers = preMembers;
+    }
+
+    public Integer getCurrentShg() {
+        return currentShg;
+    }
+
+    public void setCurrentShg(Integer currentShg) {
+        this.currentShg = currentShg;
+    }
+
+    public Integer getCurrentMember() {
+        return currentMember;
+    }
+
+    public void setCurrentMember(Integer currentMember) {
+        this.currentMember = currentMember;
     }
 
 }
