@@ -31,13 +31,14 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.util.NestedServletException;
 
+import javax.transaction.Transactional;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@org.springframework.transaction.annotation.Transactional
 public class ProfileReportService<profileReportEntity> {
     private final Logger logger;
     private final ProfileReportRepository profileReportRepository;
@@ -89,10 +90,15 @@ public class ProfileReportService<profileReportEntity> {
         });
         return profileReportResponseList;
     }
-
     public List<ResponseMissionUnitLevel> fetchStateWiseMissionLevelReportList(Integer stateId) {
         List<ResponseMissionUnitLevel> responseMissionUnitLevelList = new ArrayList<>();
-        List<Object[]> objectList =     profileReportRepository.fetchStateWiseMissionLevelReport(stateId);
+    List<Object[]> objectList =objectList = profileReportRepository.fetchStateWiseMissionLevelReport(stateId);
+       /* try {*/
+
+      /* }catch (Exception ex){
+            System.out.println("---------------------------------------------------------------------------exception on this line --------------------------------------------------------------------------");
+            objectList = profileReportRepository.fetchStateWiseMissionLevelReport(stateId);
+        }*/
         if(objectList != null){
             for(Object[] object :objectList) {
                 ResponseMissionUnitLevel responseMissionUnitLevel = new ResponseMissionUnitLevel();
@@ -172,28 +178,29 @@ public class ProfileReportService<profileReportEntity> {
                     responseMissionUnitLevel.setStateId(new Integer (object[2].toString()));
                 }
                 if (object[3] != null) {
-                    responseMissionUnitLevel.setDistrictAdmin(new BigInteger(object[3].toString()));
+                    responseMissionUnitLevel.setDistrictId(new Integer (object[3].toString()));
                 }
                 if (object[4] != null) {
-                    responseMissionUnitLevel.setDistrictManager(new BigInteger (object[4].toString()));
+                    responseMissionUnitLevel.setDistrictAdmin(new BigInteger(object[4].toString()));
                 }
                 if (object[5] != null) {
-                    responseMissionUnitLevel.setDistrictThematicUser(new BigInteger (object[5].toString()));
+                    responseMissionUnitLevel.setDistrictManager(new BigInteger (object[5].toString()));
                 }
                 if (object[6] != null) {
-                    responseMissionUnitLevel.setBlockCount(new BigInteger(object[6].toString()));
+                    responseMissionUnitLevel.setDistrictThematicUser(new BigInteger (object[6].toString()));
                 }
                 if (object[7] != null) {
-                    responseMissionUnitLevel.setDistrictId(new Integer (object[7].toString()));
+                    responseMissionUnitLevel.setBlockCount(new BigInteger(object[7].toString()));
                 }
+
                 if (object[8] != null) {
-                    responseMissionUnitLevel.setBlockAdmin(new BigInteger (object[8].toString()));
-                }
-                if (object[9] != null) {
-                    responseMissionUnitLevel.setBlockManager(new BigInteger(object[9].toString()));
+                    responseMissionUnitLevel.setBlockAdmin(new BigInteger (object[9].toString()));
                 }
                 if (object[10] != null) {
-                    responseMissionUnitLevel.setBlockThematicUser(new BigInteger (object[10].toString()));
+                    responseMissionUnitLevel.setBlockManager(new BigInteger(object[10].toString()));
+                }
+                if (object[11] != null) {
+                    responseMissionUnitLevel.setBlockThematicUser(new BigInteger (object[11].toString()));
                 }
                responseMissionUnitLevelList.add(responseMissionUnitLevel);
             }
