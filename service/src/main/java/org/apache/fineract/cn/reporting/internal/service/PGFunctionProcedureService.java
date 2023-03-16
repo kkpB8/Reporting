@@ -1,21 +1,3 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.*;
@@ -116,7 +98,7 @@ public class PGFunctionProcedureService {
         logger.info("Call Procedure");
         return  geographicalCoverageList;
     }
-    public List<CboPromotedResponse> fn_getcbopromoteddata(String loctype, String dto, String dfrom, String sid, String did, String bid, String db_name) {
+    public List<CboPromotedResponse> fn_getcbopromoteddata(String loctype, String dto, String dfrom, String sid, String did, String bid, String pid, String vid, String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -124,13 +106,15 @@ public class PGFunctionProcedureService {
         try {
             con = DriverManager.getConnection(url_sp, user_sp, password_sp);
             logger.info("Connected to the PostgreSQL server successfully.");
-            stmt = con.prepareCall("{call fn_getcbopromoteddata(?,?,?,?,?,?)}");
+            stmt = con.prepareCall("{call fn_getcbopromoteddata(?,?,?,?,?,?,?,?)}");
             stmt.setString(1, loctype);
             stmt.setString(2, dto);
             stmt.setString(3, dfrom);
             stmt.setString(4, sid);
             stmt.setString(5, did);
             stmt.setString(6, bid);
+            stmt.setString(7,pid);
+            stmt.setString(8,vid);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 CboPromotedResponse cbopromoteddata =new CboPromotedResponse();
@@ -141,7 +125,12 @@ public class PGFunctionProcedureService {
                 cbopromoteddata.setDistrict_name(rs.getString("district_name"));
                 cbopromoteddata.setBlock_id(rs.getString("block_id"));
                 cbopromoteddata.setBlock_name(rs.getString("block_name"));
+                cbopromoteddata.setPanchayatId(rs.getString("panchayat_id"));
+                cbopromoteddata.setPanchayatNameEn(rs.getString("panchayat_name_en"));
+                cbopromoteddata.setVillageId(rs.getString("village_id"));
+                cbopromoteddata.setVillageName(rs.getString("village_name"));
                 cbopromoteddata.setTotal_clf(rs.getString("total_clf"));
+                cbopromoteddata.setTotalClfVo(rs.getString("total_clf_vo"));
                 cbopromoteddata.setTotal_clf_shg(rs.getString("total_clf_shg"));
                 cbopromoteddata.setTotal_clf_memebers(rs.getString("total_clf_members"));
                 cbopromoteddata.setTotal_shg(rs.getString("total_shg"));;
@@ -240,7 +229,7 @@ public class PGFunctionProcedureService {
         return socialMoblizationList;
     }
     public List<AccountDataResponse> fn_Numberofaccount(String locationtype,String state_id, String district_id,
-                                                                           String block_id, String db_name) {
+                                                        String block_id, String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -320,7 +309,7 @@ public class PGFunctionProcedureService {
         return bankAccountDetailsList;
     }
     public List<BankWiseCboDataResponse> fn_bankwisecboadata(String location_type, String state_id, String district_id,
-                                                                      String block_id, String bank_id,String branch_id,String db_name) {
+                                                             String block_id, String bank_id,String branch_id,String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -348,7 +337,7 @@ public class PGFunctionProcedureService {
                 bankwisecbo.setNoofshg(rs.getString("noofshg"));
                 bankwisecbo.setNoofvo(rs.getString("noofvo"));
                 bankwisecbo.setNoofclf(rs.getString("noofclf"));
-               bankwisedataList.add(bankwisecbo);
+                bankwisedataList.add(bankwisecbo);
             }
             stmt.close();
             con.close();
@@ -400,7 +389,7 @@ public class PGFunctionProcedureService {
         return memberBankAccountDetailsList;
     }
     public List<MemberEducationReponse> fn_getmembereducation(String location_type, String state_id, String district_id,
-                                                                                     String block_id, String db_name) {
+                                                              String block_id, String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -968,7 +957,7 @@ public class PGFunctionProcedureService {
     }
 
     public List<BlockSaturationResponse> fn_blocksaturation(String location_type, String date_to, String date_from, String state_id, String district_id,
-                                                                                      String db_name) {
+                                                            String db_name) {
         Connection con;
         CallableStatement stmt = null;
         String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
@@ -1229,15 +1218,71 @@ public class PGFunctionProcedureService {
                 geographicalCoverage.setLivestockFisheries(rs.getInt("livestock_fisheries"));
                 geographicalCoverage.setNtFp(rs.getInt("ntfp"));
                 geographicalCoverage.setNonFarm(rs.getInt("non_farm"));
+                geographicalCoverage.setZeroTo3(rs.getInt("zeroto3"));
+                geographicalCoverage.setThreeTo6(rs.getInt("threeto6"));
+                geographicalCoverage.setSixTo10(rs.getInt("sixTo10"));
+                geographicalCoverage.setTenPlus(rs.getInt("tenplus"));
+                geographicalCoverage.setTotal1(rs.getInt("total1"));
+                geographicalCoverage.setZeroTo3_2(rs.getInt("zeroto3_2"));
+                geographicalCoverage.setThreeTo6_2(rs.getInt("threeto6_2"));
+                geographicalCoverage.setSixTo10_2(rs.getInt("sixto10_2"));
+                geographicalCoverage.setTenPlus_2(rs.getInt("tenplus_2"));
+                geographicalCoverage.setTotal2(rs.getInt("total2"));
+                geographicalCoverage.setNoofShgNum(rs.getInt("noofshg_num"));
+                geographicalCoverage.setNoofShgWithBank(rs.getInt("noofshgwithbank"));
+                geographicalCoverage.setOneAc(rs.getInt("oneac"));
+                geographicalCoverage.setTwoAc(rs.getInt("twoac"));
+                geographicalCoverage.setMoreAc(rs.getInt("moreac"));
+                geographicalCoverage.setTotalMember(rs.getInt("total_member"));
+                geographicalCoverage.setTotalMembersAccount(rs.getInt("total_members_account"));
+                geographicalCoverage.setPerMembersAccount(rs.getInt("per_members_account"));
+                geographicalCoverage.setTotalMembersAdhar(rs.getInt("total_members_adhar"));
+                geographicalCoverage.setPerMembersAdhar(rs.getInt("per_members_adhar"));
+                geographicalCoverage.setTotalMembersSecc(rs.getInt("total_members_secc"));
+                geographicalCoverage.setPerMembersSecc(rs.getInt("per_members_secc"));
+                geographicalCoverage.setNoofShgbb(rs.getInt("noofshg_bb"));
+                geographicalCoverage.setNoofVobb(rs.getInt("noofvo_bb"));
+                geographicalCoverage.setNoofClfbb(rs.getInt("noofclf_bb"));
+                geographicalCoverage.setTotalShgMel(rs.getInt("total_shg_mel"));
+                geographicalCoverage.setTotalShgMembers(rs.getInt("total_shg_members"));
+                geographicalCoverage.setIlliterate(rs.getInt("illiterate"));
+                geographicalCoverage.setFunctional(rs.getInt("functional"));
+                geographicalCoverage.setPrimary5(rs.getInt("primary5"));
+                geographicalCoverage.setMiddle8(rs.getInt("middle8"));
+                geographicalCoverage.setSecondary12(rs.getInt("secondary12"));
+                geographicalCoverage.setVocationalTraining(rs.getInt("vocationaltraining"));
+                geographicalCoverage.setOther(rs.getInt("other"));
+                geographicalCoverage.setTotalShgSld(rs.getInt("total_shg_sld"));
+                geographicalCoverage.setTotalShgLivelthoodSld(rs.getInt("totalshglivelthood_sld"));
+                geographicalCoverage.setTotalShgLivestockSld(rs.getInt("totalshglivestock_sld"));
+                geographicalCoverage.setTotalShgntfpSld(rs.getInt("totalshgntfp_sld"));
+                geographicalCoverage.setTotalShgAgricultureSld(rs.getInt("totalshgagriculture_sld"));
+                geographicalCoverage.setNonFarmSld(rs.getInt("nonfarm_sld"));
+                geographicalCoverage.setTotalShgMem(rs.getInt("total_shg_mem"));
+                geographicalCoverage.setTotalShgLivelthood(rs.getInt("totalshglivelthood"));
+                geographicalCoverage.setTotalShgLivestock(rs.getInt("totalshglivestock"));
+                geographicalCoverage.setTotalShgntfp(rs.getInt("totalshgntfp"));
+                geographicalCoverage.setTotalShgAgriculture(rs.getInt("totalshgagriculture"));
+                geographicalCoverage.setNonFarm(rs.getInt("nonfarm"));
+                geographicalCoverage.setNoofShgEach(rs.getInt("noofshg_each"));
+                geographicalCoverage.setNoofWomanShg(rs.getInt("noofwomanshg"));
+                geographicalCoverage.setNoofPvtg(rs.getInt("noofpvtg"));
+                geographicalCoverage.setNoofPwd(rs.getInt("noofpwd"));
+                geographicalCoverage.setNoofElderly(rs.getInt("noofelderly"));
+                geographicalCoverage.setNoofOthers(rs.getInt("noofothers"));
+                geographicalCoverage.setTotalEach(rs.getInt("total_each"));
+                geographicalCoverage.setPreShg(rs.getInt("preshg"));
+                geographicalCoverage.setPreMembers(rs.getInt("premembers"));
+                geographicalCoverage.setCurrentShg(rs.getInt("currentshg"));
+                geographicalCoverage.setCurrentMember(rs.getInt("currentmember"));
                 tbl_summarylist.add(geographicalCoverage);
             }
             stmt.close();
             con.close();
         } catch (SQLException e) {
-            logger.info("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!", e.getMessage());
-            throw new DatabaseOperationError("Call Procedure fn_getgeographicalcoverage(?,?,?,?,?,?,?) Failed!");
+            logger.info("Call Procedure fn_tbl_summary_getreport(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_tbl_summary_getreport(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) Failed!");
         }
-        logger.info("Call Procedure");
         return  tbl_summarylist;
     }
 }

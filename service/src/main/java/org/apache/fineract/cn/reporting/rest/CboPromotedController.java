@@ -73,9 +73,11 @@ public class CboPromotedController {
         String sid=request.getSid();
         String did=request.getDid();
         String bid=request.getBid();
+        String pid=request.getPid();
+        String vid=request.getVid();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
-                this.cboPromotedApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier));
+                this.cboPromotedApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,pid,vid,tenantIdentifier));
     }
 
 

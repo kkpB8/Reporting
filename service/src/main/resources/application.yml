@@ -39,13 +39,13 @@ server:
   contextPath: /reporting/v1/*
 eureka:
   client:
-    #enabled: false
+    enabled: false
     serviceUrl:
       defaultZone: http://localhost:8761/eureka
 
 cassandra:
-  clusterName: staging_cluster
-  #clusterName: Datacenter1
+#  clusterName: staging_cluster
+  clusterName: Datacenter1
 
   #contactPoints: 43.241.70.100:9042
   contactPoints: 103.248.60.159:9042
@@ -59,8 +59,8 @@ postgresql:
   driverClass: org.postgresql.Driver
 
   database: seshat
-  #host: 103.248.60.159
-  host: 43.241.70.100
+  host: 103.248.60.223
+#  host: 43.241.70.100
   port: 5432
   user: postgres
   password: Microware@123

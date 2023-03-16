@@ -24,6 +24,25 @@ public class Cbo_PromotedRequest {
     private String dfrom;
     private String sid;
     private String did;
+    private String bid;
+    private String pid;
+
+    public String getVid() {
+        return vid;
+    }
+
+    public void setVid(String vid) {
+        this.vid = vid;
+    }
+
+    private String vid;
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
 
     public String getLoctype() {
         return loctype;
@@ -73,5 +92,4 @@ public class Cbo_PromotedRequest {
         this.bid = bid;
     }
 
-    private String bid;
 }

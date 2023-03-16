@@ -45,8 +45,8 @@ public class CboPromotedApiService {
             this.pgCboPromotedFunction = pgCboPromotedFunction;
         }
         public List<CboPromotedResponse> getGeoData(String loctype, String dto, String dfrom, String sid, String did,
-                                                    String bid, String tenantIdentifier) {
-            return pgCboPromotedFunction.fn_getcbopromoteddata(loctype, dto, dfrom, sid, did, bid, tenantIdentifier);
+                                                    String bid,String pid, String vid, String tenantIdentifier) {
+            return pgCboPromotedFunction.fn_getcbopromoteddata(loctype, dto, dfrom, sid, did, bid,pid,vid, tenantIdentifier);
         }
 
 

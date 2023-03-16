@@ -26,12 +26,58 @@ public class CboPromotedResponse {
     private String district_name;
     private String block_id;
     private String block_name;
+    private String panchayatId;
+    private String panchayatNameEn;
+    private String villageId;
+    private String villageName;
     private String total_shg;
     private String target_shg_members;
     private String total_vo;
     private String total_vo_shg;
     private String total_vo_members;
     private String total_clf;
+
+    public String getPanchayatId() {
+        return panchayatId;
+    }
+
+    public void setPanchayatId(String panchayatId) {
+        this.panchayatId = panchayatId;
+    }
+
+    public String getPanchayatNameEn() {
+        return panchayatNameEn;
+    }
+
+    public void setPanchayatNameEn(String panchayatNameEn) {
+        this.panchayatNameEn = panchayatNameEn;
+    }
+
+    public String getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(String villageId) {
+        this.villageId = villageId;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String getTotalClfVo() {
+        return totalClfVo;
+    }
+
+    public void setTotalClfVo(String totalClfVo) {
+        this.totalClfVo = totalClfVo;
+    }
+
+    private String totalClfVo;
     private String total_clf_shg;
     private String total_clf_memebers;
 
