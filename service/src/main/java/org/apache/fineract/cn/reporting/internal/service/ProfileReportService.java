@@ -177,9 +177,9 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[2] != null) {
                     responseMissionUnitLevel.setStateId(new Integer (object[2].toString()));
                 }
-                if (object[3] != null) {
+               /* if (object[3] != null) {
                     responseMissionUnitLevel.setDistrictId(new Integer (object[3].toString()));
-                }
+                }*/
                 if (object[4] != null) {
                     responseMissionUnitLevel.setDistrictAdmin(new BigInteger(object[4].toString()));
                 }
@@ -202,13 +202,17 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[11] != null) {
                     responseMissionUnitLevel.setBlockThematicUser(new BigInteger (object[11].toString()));
                 }
-               responseMissionUnitLevelList.add(responseMissionUnitLevel);
+                if (object[12] != null) {
+                    responseMissionUnitLevel.setDistrictId(new Integer (object[12].toString()));
+                }
+                responseMissionUnitLevelList.add(responseMissionUnitLevel);
             }
         }else{
             throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
         }
         return responseMissionUnitLevelList;
     }
+
 
 
     public List<ResponseMissionUnitLevel> fetchBlockWiseMissionLevelReportList(Integer stateId, Integer districtId,Integer blockId) {
@@ -232,15 +236,11 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[1] != null) {
                     responseMissionUnitLevel.setDistrict(object[1].toString());
                 }
-                if (object[2] != null) {
-                    responseMissionUnitLevel.setDistrictId(new Integer(object[2].toString()));
-                }
+
                 if (object[3] != null) {
                     responseMissionUnitLevel.setBlock(object[3].toString());
                 }
-                if (object[4] != null) {
-                    responseMissionUnitLevel.setBlockId(new Integer(object[4].toString()));
-                }
+
                 if (object[5] != null) {
                     responseMissionUnitLevel.setBlockAdmin(new BigInteger (object[5].toString()));
                 }
@@ -250,7 +250,13 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[7] != null) {
                     responseMissionUnitLevel.setBlockThematicUser(new BigInteger (object[7].toString()));
                 }
-              responseMissionUnitLevelList.add(responseMissionUnitLevel);
+                if (object[8] != null) {
+                    responseMissionUnitLevel.setDistrictId(new Integer(object[8].toString()));
+                }
+                if (object[9] != null) {
+                    responseMissionUnitLevel.setBlockId(new Integer(object[9].toString()));
+                }
+                responseMissionUnitLevelList.add(responseMissionUnitLevel);
             }
         }else{
             throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
@@ -258,6 +264,7 @@ public class ProfileReportService<profileReportEntity> {
         return responseMissionUnitLevelList;
 
     }
+
 }
 
 
