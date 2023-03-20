@@ -45,7 +45,7 @@ public class PGFunctionProcedureService {
      private String driverClass;
      @Value("${postgresql.database}")
      private String database;*/
-    @Value("${postgresql.host}")
+    @Value("${postgresql.host1}")
     private String host;
     @Value("${postgresql.port}")
     private String port;
