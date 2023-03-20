@@ -102,6 +102,7 @@ public class GeographicalCoverageApiRestController {
 
         String dateTo = request.getDto();
         String dateFrom = request.getDfrom();
+        String yearMonth = request.getYear_month();
         String sid = request.getSid();
         String did = request.getDid();
         String bid = request.getBid();
@@ -110,7 +111,7 @@ public class GeographicalCoverageApiRestController {
         Integer shg_mem = request.getShg_mem();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(
-                this.geographicalCoverageApiService.getReportData(dateTo,dateFrom, sid, did, bid, tenantIdentifier,totalRuralHouseholds,targetRuralHouseholds,shg_mem));
+                this.geographicalCoverageApiService.getReportData(dateTo,dateFrom, sid, did, bid,yearMonth, tenantIdentifier,totalRuralHouseholds,targetRuralHouseholds,shg_mem));
 
     }
 }

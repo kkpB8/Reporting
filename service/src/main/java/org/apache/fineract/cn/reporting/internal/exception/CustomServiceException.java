@@ -54,10 +54,12 @@ public final class CustomServiceException  extends RuntimeException {
 
 
     public CustomServiceError customServiceError() {
+
         return this.customServiceError;
     }
 
     public String toString() {
+
         return "" + this.customServiceError + "";
     }
 }

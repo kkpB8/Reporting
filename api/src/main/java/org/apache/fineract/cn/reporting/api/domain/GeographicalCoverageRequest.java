@@ -35,6 +35,8 @@ private Integer targetRuralHouseholds;
 
 private Integer shg_mem;
 
+private String year_month;
+
    public String getLoctype() {
       return loctype;
    }
@@ -113,5 +115,13 @@ private Integer shg_mem;
 
    public void setShg_mem(Integer shg_mem) {
       this.shg_mem = shg_mem;
+   }
+
+   public String getYear_month() {
+      return year_month;
+   }
+
+   public void setYear_month(String year_month) {
+      this.year_month = year_month;
    }
 }

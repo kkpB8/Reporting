@@ -45,7 +45,7 @@ import java.util.LinkedList;
  */
 @Component
 @Order(2)
-public class TokenValidatingFilter implements Filter {
+public class  TokenValidatingFilter implements Filter {
 
     private final static Logger LOG = LoggerFactory.getLogger(TokenValidatingFilter.class);
     static final int MINUTES_PER_HOUR = 60;
