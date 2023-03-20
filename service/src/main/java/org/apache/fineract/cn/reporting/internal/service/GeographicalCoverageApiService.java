@@ -48,5 +48,10 @@ public class GeographicalCoverageApiService {
                tenantIdentifier);
     }
 
+    public List<GeographicalCoverage> getReportData(String dto, String dfrom, String sid, String did,
+                                               String bid,String tenantIdentifier,Integer totalRuralHouseholds,Integer targetRuralHouseholds,Integer shg_mem) {
+        return pgFunctionProcedureService.fn_getgeographicalcoverage("", dto, dfrom, sid, did, bid, "",
+            tenantIdentifier);
+  }
 
 }

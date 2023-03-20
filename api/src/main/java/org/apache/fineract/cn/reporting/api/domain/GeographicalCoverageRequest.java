@@ -29,6 +29,12 @@ private String did;
 private String bid;
 private String pid;
 
+private Integer totalRuralHouseholds;
+
+private Integer targetRuralHouseholds;
+
+private Integer shg_mem;
+
    public String getLoctype() {
       return loctype;
    }
@@ -85,4 +91,27 @@ private String pid;
       this.pid = pid;
    }
 
+   public Integer getTotalRuralHouseholds() {
+      return totalRuralHouseholds;
+   }
+
+   public void setTotalRuralHouseholds(Integer totalRuralHouseholds) {
+      this.totalRuralHouseholds = totalRuralHouseholds;
+   }
+
+   public Integer getTargetRuralHouseholds() {
+      return targetRuralHouseholds;
+   }
+
+   public void setTargetRuralHouseholds(Integer targetRuralHouseholds) {
+      this.targetRuralHouseholds = targetRuralHouseholds;
+   }
+
+   public Integer getShg_mem() {
+      return shg_mem;
+   }
+
+   public void setShg_mem(Integer shg_mem) {
+      this.shg_mem = shg_mem;
+   }
 }
