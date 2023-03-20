@@ -17,14 +17,8 @@
  * under the License.
  */
 package org.apache.fineract.cn.reporting.internal.mapper;
-import org.apache.fineract.cn.reporting.api.domain.LookUpMaster;
-import org.apache.fineract.cn.reporting.api.domain.ProfileReportResponse;
-import org.apache.fineract.cn.reporting.api.domain.TransactionSummary;
-import org.apache.fineract.cn.reporting.api.domain.VoTransactionSummary;
-import org.apache.fineract.cn.reporting.internal.repository.LookUpMasterEntity;
-import org.apache.fineract.cn.reporting.internal.repository.ProfileReportEntity;
-import org.apache.fineract.cn.reporting.internal.repository.TransactionSummaryEntity;
-import org.apache.fineract.cn.reporting.internal.repository.VoTransactionSummaryEntity;
+import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.repository.*;
 import org.modelmapper.ModelMapper;
 //import org.lokos.reporting.internal.repository.*;
 
@@ -67,4 +61,12 @@ public class CommonApiMapper {
     return ProfileReportResponse;
 
   }
+  public static ResponseSocialMobilization map(final SocialMobalizationEntity socialMobalizationEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseSocialMobilization ResponseSocialMobilization =
+            modelMapper.map(socialMobalizationEntity, ResponseSocialMobilization.class);
+    return ResponseSocialMobilization;
+  }
+
+
 }
