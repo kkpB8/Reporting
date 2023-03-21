@@ -48,27 +48,25 @@ public class ServiceSocialMobilization {
         if(requestSocialMobilization.getStateId() == null){
             requestSocialMobilization.setStateId(-1);
         }
-
         if(requestSocialMobilization.getDistrictId() == null){
             requestSocialMobilization.setDistrictId(-1);
         }
-
-
         if(requestSocialMobilization.getBlockId() == null){
             requestSocialMobilization.setBlockId(-1);
         }
-//        if(shgInitiationRequest.getFromDate() == null){
-//            shgInitiationRequest.getFromDate();
-//        }
-//        if(shgInitiationRequest.getToDate()== null){
-//            shgInitiationRequest.getToDate();
-//        }
+        if(requestSocialMobilization.getFromDate() == null){
+            requestSocialMobilization.getFromDate();
+        }
+        if(requestSocialMobilization.getToDate()== null){
+            requestSocialMobilization.getToDate();
+        }
         if(requestSocialMobilization.getYearMonth()==null){
             requestSocialMobilization.getYearMonth();
         }
         if(requestSocialMobilization.getGeographicalFlag()==null){
             requestSocialMobilization.setGeographicalFlag(-1);
         }
+
         List<ResponseSocialMobilization> responseSocialMobilizationList = new ArrayList<>();
         List<SocialMobalizationEntity> socialMobalizationEntityList;
         socialMobalizationEntityList = socialMobalizationRepository.
@@ -76,8 +74,8 @@ public class ServiceSocialMobilization {
                         requestSocialMobilization.getStateId(),
                         requestSocialMobilization.getDistrictId(),
                         requestSocialMobilization.getBlockId(),
-//                        shgInitiationRequest.getFromDate(),
-//                        shgInitiationRequest.getToDate(),
+                        requestSocialMobilization.getFromDate(),
+                        requestSocialMobilization.getToDate(),
                         requestSocialMobilization.getYearMonth(),
                         requestSocialMobilization.getGeographicalFlag()
                 );

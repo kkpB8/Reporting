@@ -3,6 +3,8 @@ package org.apache.fineract.cn.reporting.api.domain;
 public class ResponseSocialMobilization {
 
     private Integer totalRuralHouseholds;
+    private Integer targetRuralHouseholds;
+    private Integer shgMem;
 
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
@@ -29,8 +31,4 @@ public class ResponseSocialMobilization {
     public void setShgMem(Integer shgMem) {
         this.shgMem = shgMem;
     }
-
-    private Integer targetRuralHouseholds;
-    private Integer shgMem;
-
 }

@@ -14,7 +14,7 @@ public interface SocialMobalizationRepository extends JpaRepository<SocialMobali
             "(-1 = :stateId or c.stateId=:stateId) and " +
             "(-1 = :districtId or c.districtId=:districtId) and " +
             "(-1 = :blockId or c.blockId=:blockId) and " +
-//            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
+            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
             "(:yearMonth is not null or c.yearMonth=:yearMonth) and " +
             "(c.geographicalFlag=:geographicalFlag)")
 
@@ -22,10 +22,9 @@ public interface SocialMobalizationRepository extends JpaRepository<SocialMobali
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
-//            @Param("fromDate") final String fromDate,
-//            @Param("toDate") final String toDate,
+            @Param("fromDate") final String fromDate,
+            @Param("toDate") final String toDate,
             @Param("yearMonth") final String yearMonth,
             @Param("geographicalFlag") final Integer geographicalFlag
     );
-
 }

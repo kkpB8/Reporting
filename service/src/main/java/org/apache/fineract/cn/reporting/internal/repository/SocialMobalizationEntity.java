@@ -18,10 +18,16 @@ public class SocialMobalizationEntity {
     private Integer targetRuralHouseholds;
 
 
+    public Integer getShgMem() {
+        return shgMem;
+    }
 
+    public void setShgMem(Integer shgMem) {
+        this.shgMem = shgMem;
+    }
 
     @Column(name = "shg_mem")
-    private Integer shg_mem;
+    private Integer shgMem;
     @Column(name = "geographical_flag")
     private Integer geographicalFlag;
     @Column(name = "state_id")
@@ -79,17 +85,6 @@ public class SocialMobalizationEntity {
         this.targetRuralHouseholds = targetRuralHouseholds;
     }
 
-    public Integer getShg_mem() {
-        return shg_mem;
-    }
-
-    public void setShg_mem(Integer shg_mem) {
-        this.shg_mem = shg_mem;
-    }
-    public BigInteger getId() {
-        return id;
-    }
-
     public void setId(BigInteger id) {
         this.id = id;
     }
@@ -102,4 +97,3 @@ public class SocialMobalizationEntity {
         this.yearMonth = yearMonth;
     }
 }
-

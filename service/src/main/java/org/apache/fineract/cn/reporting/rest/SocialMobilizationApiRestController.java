@@ -42,14 +42,11 @@ public class SocialMobilizationApiRestController {
     public
     @ResponseBody
     ResponseEntity<List<ResponseSocialMobilization>> fetchShgInitiationList(@RequestBody RequestSocialMobilization requestSocialMobilization) {
-        if (requestSocialMobilization.getGeographicalFlag() != null) {
+        if ((requestSocialMobilization.getGeographicalFlag() != null) && (requestSocialMobilization.getFromDate() != null) && (requestSocialMobilization.getToDate()!=null)) {
             return ResponseEntity.ok(
                     this.serviceSocialMobilization.fetchShgInitiationList(requestSocialMobilization));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
-
     }
-
-
 }
