@@ -58,7 +58,115 @@ public class SocialMobalizationEntity {
     private Integer clfShgFormedMonth;
     @Column(name = "clf_vo_formed_month")
     private Integer clfVoFormedMonth;
+    @Column(name = "shg_approved")
+    private Integer shgApproved;
+    @Column(name = "shg_inactive_month")
+    private Integer shgInactiveMonth;
+    @Column(name = "shg_inactive_member_month")
+    private Integer shgInactiveMemberMonth;
+    @Column(name = "vo_approved")
+    private Integer voApproved;
+    @Column(name = "vo_inactive_month")
+    private Integer voInactiveMonth;
+    @Column(name = "clf_approved")
+    private Integer clfApproved;
+    @Column(name = "clf_inactive_month")
+    private Integer clfInactiveMonth;
+    @Column(name = "village_id")
+    private Integer villageId;
+    @Column(name = "panchayat_id")
+    private Integer panchayatId;
+    @Column(name = "village_name")
+    private String villageName;
+    @Column(name = "panchayat_name")
+    private String panchayatName;
+    public Integer getVillageId() {
+        return villageId;
+    }
 
+    public void setVillageId(Integer villageId) {
+        this.villageId = villageId;
+    }
+
+    public Integer getPanchayatId() {
+        return panchayatId;
+    }
+
+    public void setPanchayatId(Integer panchayatId) {
+        this.panchayatId = panchayatId;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String getPanchayatName() {
+        return panchayatName;
+    }
+
+    public void setPanchayatName(String panchayatName) {
+        this.panchayatName = panchayatName;
+    }
+
+    public Integer getShgApproved() {
+        return shgApproved;
+    }
+
+    public void setShgApproved(Integer shgApproved) {
+        this.shgApproved = shgApproved;
+    }
+
+    public Integer getShgInactiveMonth() {
+        return shgInactiveMonth;
+    }
+
+    public void setShgInactiveMonth(Integer shgInactiveMonth) {
+        this.shgInactiveMonth = shgInactiveMonth;
+    }
+
+    public Integer getShgInactiveMemberMonth() {
+        return shgInactiveMemberMonth;
+    }
+
+    public void setShgInactiveMemberMonth(Integer shgInactiveMemberMonth) {
+        this.shgInactiveMemberMonth = shgInactiveMemberMonth;
+    }
+
+    public Integer getVoApproved() {
+        return voApproved;
+    }
+
+    public void setVoApproved(Integer voApproved) {
+        this.voApproved = voApproved;
+    }
+
+    public Integer getVoInactiveMonth() {
+        return voInactiveMonth;
+    }
+
+    public void setVoInactiveMonth(Integer voInactiveMonth) {
+        this.voInactiveMonth = voInactiveMonth;
+    }
+
+    public Integer getClfApproved() {
+        return clfApproved;
+    }
+
+    public void setClfApproved(Integer clfApproved) {
+        this.clfApproved = clfApproved;
+    }
+
+    public Integer getClfInactiveMonth() {
+        return clfInactiveMonth;
+    }
+
+    public void setClfInactiveMonth(Integer clfInactiveMonth) {
+        this.clfInactiveMonth = clfInactiveMonth;
+    }
     public Integer getShgFormedMonth() {
         return shgFormedMonth;
     }

@@ -2,9 +2,13 @@ package org.apache.fineract.cn.reporting.api.domain;
 
 public class RequestSocialMobilization {
     private Integer stateId;
-
     private Integer districtId;
-
+    private Integer blockId;
+    private Integer villageId;
+    private Integer panchayatId;
+    private String fromDate;
+    private String toDate;
+    private Integer geographicalFlag;
     public Integer getStateId() {
         return stateId;
     }
@@ -39,9 +43,6 @@ public class RequestSocialMobilization {
         this.geographicalFlag = geographicalFlag;
     }
 
-    private Integer blockId;
-    private Integer geographicalFlag;
-
     public String getFromDate() {
         return fromDate;
     }
@@ -58,8 +59,21 @@ public class RequestSocialMobilization {
         this.toDate = toDate;
     }
 
-    private String fromDate;
-    private String toDate;
+    public Integer getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(Integer villageId) {
+        this.villageId = villageId;
+    }
+
+    public Integer getPanchayatId() {
+        return panchayatId;
+    }
+
+    public void setPanchayatId(Integer panchayatId) {
+        this.panchayatId = panchayatId;
+    }
 
 //    public String getFromDate() {
 //        return fromDate;

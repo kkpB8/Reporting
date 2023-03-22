@@ -79,11 +79,17 @@ public class ServiceSocialMobilization {
 //            toDate1 = toDate2;
 //        }
 
+        if(requestSocialMobilization.getVillageId() == null){
+            requestSocialMobilization.setVillageId(-1);
+        }
+        if(requestSocialMobilization.getPanchayatId() == null){
+            requestSocialMobilization.setPanchayatId(-1);
+        }
         if(requestSocialMobilization.getFromDate() == null){
-            requestSocialMobilization.getFromDate();
+            requestSocialMobilization.setFromDate("null");
         }
         if(requestSocialMobilization.getToDate()== null){
-            requestSocialMobilization.getToDate();
+            requestSocialMobilization.setToDate("null");
         }
         if(requestSocialMobilization.getGeographicalFlag()==null){
             requestSocialMobilization.setGeographicalFlag(-1);
@@ -96,6 +102,8 @@ public class ServiceSocialMobilization {
                         requestSocialMobilization.getStateId(),
                         requestSocialMobilization.getDistrictId(),
                         requestSocialMobilization.getBlockId(),
+                        requestSocialMobilization.getVillageId(),
+                        requestSocialMobilization.getPanchayatId(),
                         requestSocialMobilization.getFromDate(),
                         requestSocialMobilization.getToDate(),
                         requestSocialMobilization.getGeographicalFlag()
