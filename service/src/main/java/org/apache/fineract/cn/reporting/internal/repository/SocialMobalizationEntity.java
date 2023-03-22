@@ -16,16 +16,12 @@ public class SocialMobalizationEntity {
     private Integer totalRuralHouseholds;
     @Column(name = "targetruralhouseholds")
     private Integer targetRuralHouseholds;
-
-
     public Integer getShgMem() {
         return shgMem;
     }
-
     public void setShgMem(Integer shgMem) {
         this.shgMem = shgMem;
     }
-
     @Column(name = "shg_mem")
     private Integer shgMem;
     @Column(name = "geographical_flag")
@@ -36,6 +32,35 @@ public class SocialMobalizationEntity {
     private Integer districtId;
     @Column(name = "block_id")
     private Integer blockId;
+    @Column(name = "state_name")
+    private String stateName;
+    @Column(name = "district_name")
+    private String districtName;
+    @Column(name = "block_name")
+    private String blockName;
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public String getBlockName() {
+        return blockName;
+    }
+
+    public void setBlockName(String blockName) {
+        this.blockName = blockName;
+    }
     @Column(name = "year_month")
     private String yearMonth;
     public Integer getGeographicalFlag() {
