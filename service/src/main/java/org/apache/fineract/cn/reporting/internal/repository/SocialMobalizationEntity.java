@@ -38,6 +38,106 @@ public class SocialMobalizationEntity {
     private String districtName;
     @Column(name = "block_name")
     private String blockName;
+    @Column(name = "age_block")
+    private Integer ageBlock;
+    @Column(name = "shg_formed_month")
+    private Integer shgFormedMonth;
+    @Column(name = "shg_members_joined_month")
+    private Integer shgMembersJoinedMonth;
+    @Column(name = "vo_formed_month")
+    private Integer voFormedMonth;
+    @Column(name = "vo_shg_formed_month")
+    private Integer voShgFormedMonth;
+    @Column(name = "vo_member_formed_month")
+    private Integer voMemberFormedMonth;
+    @Column(name = "clf_formed_month")
+    private Integer clfFormedMonth;
+    @Column(name = "clf_member_formed_month")
+    private Integer clfMemberFormedMonth;
+    @Column(name = "clf_shg_formed_month")
+    private Integer clfShgFormedMonth;
+    @Column(name = "clf_vo_formed_month")
+    private Integer clfVoFormedMonth;
+
+    public Integer getShgFormedMonth() {
+        return shgFormedMonth;
+    }
+
+    public void setShgFormedMonth(Integer shgFormedMonth) {
+        this.shgFormedMonth = shgFormedMonth;
+    }
+
+    public Integer getShgMembersJoinedMonth() {
+        return shgMembersJoinedMonth;
+    }
+
+    public void setShgMembersJoinedMonth(Integer shgMembersJoinedMonth) {
+        this.shgMembersJoinedMonth = shgMembersJoinedMonth;
+    }
+
+    public Integer getVoFormedMonth() {
+        return voFormedMonth;
+    }
+
+    public void setVoFormedMonth(Integer voFormedMonth) {
+        this.voFormedMonth = voFormedMonth;
+    }
+
+    public Integer getVoShgFormedMonth() {
+        return voShgFormedMonth;
+    }
+
+    public void setVoShgFormedMonth(Integer voShgFormedMonth) {
+        this.voShgFormedMonth = voShgFormedMonth;
+    }
+
+    public Integer getVoMemberFormedMonth() {
+        return voMemberFormedMonth;
+    }
+
+    public void setVoMemberFormedMonth(Integer voMemberFormedMonth) {
+        this.voMemberFormedMonth = voMemberFormedMonth;
+    }
+
+    public Integer getClfFormedMonth() {
+        return clfFormedMonth;
+    }
+
+    public void setClfFormedMonth(Integer clfFormedMonth) {
+        this.clfFormedMonth = clfFormedMonth;
+    }
+
+    public Integer getClfMemberFormedMonth() {
+        return clfMemberFormedMonth;
+    }
+
+    public void setClfMemberFormedMonth(Integer clfMemberFormedMonth) {
+        this.clfMemberFormedMonth = clfMemberFormedMonth;
+    }
+
+    public Integer getClfShgFormedMonth() {
+        return clfShgFormedMonth;
+    }
+
+    public void setClfShgFormedMonth(Integer clfShgFormedMonth) {
+        this.clfShgFormedMonth = clfShgFormedMonth;
+    }
+
+    public Integer getClfVoFormedMonth() {
+        return clfVoFormedMonth;
+    }
+
+    public void setClfVoFormedMonth(Integer clfVoFormedMonth) {
+        this.clfVoFormedMonth = clfVoFormedMonth;
+    }
+    public Integer getAgeBlock() {
+        return ageBlock;
+    }
+
+    public void setAgeBlock(Integer ageBlock) {
+        this.ageBlock = ageBlock;
+    }
+
     public String getStateName() {
         return stateName;
     }
