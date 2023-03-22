@@ -17,6 +17,7 @@
  * under the License.
  */
 package org.apache.fineract.cn.reporting.internal.service;
+import org.apache.fineract.cn.reporting.DateUtils;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.RequestSocialMobilization;
 import org.apache.fineract.cn.reporting.api.domain.ResponseSocialMobilization;
@@ -29,6 +30,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,14 +59,31 @@ public class ServiceSocialMobilization {
         if(requestSocialMobilization.getBlockId() == null){
             requestSocialMobilization.setBlockId(-1);
         }
+//        String fromDate1 = null;
+//        String toDate1 = null;
+//        String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+//        if (requestSocialMobilization.getFromDate() != null && requestSocialMobilization.getToDate() != null) {
+//            fromDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getFromDate());
+//            toDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getToDate());
+//        }
+//        if (requestSocialMobilization.getFromDate() == null && requestSocialMobilization.getToDate() == null) {
+//            fromDate1 = "1970-01";
+//            toDate1 = toDate2;
+//        }
+//        if (requestSocialMobilization.getFromDate() == null && requestSocialMobilization.getToDate() != null) {
+//            fromDate1 = "1970-01";
+//            toDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getToDate());
+//        }
+//        if (requestSocialMobilization.getFromDate() != null && requestSocialMobilization.getToDate() == null) {
+//            fromDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getFromDate());
+//            toDate1 = toDate2;
+//        }
+
         if(requestSocialMobilization.getFromDate() == null){
             requestSocialMobilization.getFromDate();
         }
         if(requestSocialMobilization.getToDate()== null){
             requestSocialMobilization.getToDate();
-        }
-        if(requestSocialMobilization.getYearMonth()==null){
-            requestSocialMobilization.getYearMonth();
         }
         if(requestSocialMobilization.getGeographicalFlag()==null){
             requestSocialMobilization.setGeographicalFlag(-1);
@@ -78,7 +98,6 @@ public class ServiceSocialMobilization {
                         requestSocialMobilization.getBlockId(),
                         requestSocialMobilization.getFromDate(),
                         requestSocialMobilization.getToDate(),
-                        requestSocialMobilization.getYearMonth(),
                         requestSocialMobilization.getGeographicalFlag()
                 );
 

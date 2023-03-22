@@ -31,14 +31,6 @@ public class RequestSocialMobilization {
         this.blockId = blockId;
     }
 
-    public String getYearMonth() {
-        return yearMonth;
-    }
-
-    public void setYearMonth(String yearMonth) {
-        this.yearMonth = yearMonth;
-    }
-
     public Integer getGeographicalFlag() {
         return geographicalFlag;
     }
@@ -48,7 +40,6 @@ public class RequestSocialMobilization {
     }
 
     private Integer blockId;
-    private String yearMonth;
     private Integer geographicalFlag;
 
     public String getFromDate() {
@@ -70,4 +61,22 @@ public class RequestSocialMobilization {
     private String fromDate;
     private String toDate;
 
+//    public String getFromDate() {
+//        return fromDate;
+//    }
+//
+//    public void setFromDate(Long fromDate) {
+//        this.fromDate = fromDate;
+//    }
+//
+//    public String getToDate() {
+//        return toDate;
+//    }
+//
+//    public void setToDate(Long toDate) {
+//        this.toDate = toDate;
+//    }
+//
+//    private Long fromDate;
+//    private Long toDate;
 }
