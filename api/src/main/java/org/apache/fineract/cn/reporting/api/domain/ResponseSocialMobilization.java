@@ -8,12 +8,15 @@ public class ResponseSocialMobilization {
     private Integer stateId;
     private Integer districtId;
     private Integer blockId;
+    private Integer villageId;
+    private Integer panchayatId;
     private String stateName;
     private String districtName;
     private String blockName;
+    private String villageName;
+    private String panchayatName;
     private Integer ageBlock;
     private Integer shgFormedMonth;
-
     private Integer shgMembersJoinedMonth;
     private Integer voFormedMonth;
     private Integer voShgFormedMonth;
@@ -22,7 +25,68 @@ public class ResponseSocialMobilization {
     private Integer clfMemberFormedMonth;
     private Integer clfShgFormedMonth;
     private Integer clfVoFormedMonth;
+    private Integer shgApproved;
+    private Integer shgInactiveMonth;
+    private Integer shgInactiveMemberMonth;
+    private Integer voApproved;
+    private Integer voInactiveMonth;
+    private Integer clfApproved;
+    private Integer clfInactiveMonth;
+    public Integer getShgApproved() {
+        return shgApproved;
+    }
 
+    public void setShgApproved(Integer shgApproved) {
+        this.shgApproved = shgApproved;
+    }
+
+    public Integer getShgInactiveMonth() {
+        return shgInactiveMonth;
+    }
+
+    public void setShgInactiveMonth(Integer shgInactiveMonth) {
+        this.shgInactiveMonth = shgInactiveMonth;
+    }
+
+    public Integer getShgInactiveMemberMonth() {
+        return shgInactiveMemberMonth;
+    }
+
+    public void setShgInactiveMemberMonth(Integer shgInactiveMemberMonth) {
+        this.shgInactiveMemberMonth = shgInactiveMemberMonth;
+    }
+
+    public Integer getVoApproved() {
+        return voApproved;
+    }
+
+    public void setVoApproved(Integer voApproved) {
+        this.voApproved = voApproved;
+    }
+
+    public Integer getVoInactiveMonth() {
+        return voInactiveMonth;
+    }
+
+    public void setVoInactiveMonth(Integer voInactiveMonth) {
+        this.voInactiveMonth = voInactiveMonth;
+    }
+
+    public Integer getClfApproved() {
+        return clfApproved;
+    }
+
+    public void setClfApproved(Integer clfApproved) {
+        this.clfApproved = clfApproved;
+    }
+
+    public Integer getClfInactiveMonth() {
+        return clfInactiveMonth;
+    }
+
+    public void setClfInactiveMonth(Integer clfInactiveMonth) {
+        this.clfInactiveMonth = clfInactiveMonth;
+    }
     public Integer getShgFormedMonth() {
         return shgFormedMonth;
     }
@@ -174,4 +238,37 @@ public class ResponseSocialMobilization {
     public void setShgMem(Integer shgMem) {
         this.shgMem = shgMem;
     }
+
+    public Integer getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(Integer villageId) {
+        this.villageId = villageId;
+    }
+
+    public Integer getPanchayatId() {
+        return panchayatId;
+    }
+
+    public void setPanchayatId(Integer panchayatId) {
+        this.panchayatId = panchayatId;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String  getPanchayatName() {
+        return panchayatName;
+    }
+
+    public void setPanchayatName(String panchayatName) {
+        this.panchayatName = panchayatName;
+    }
+
 }
