@@ -79,7 +79,9 @@ public class ProfileReportService<profileReportEntity> {
                         profileReportRequest.getBlockId(),
                         profileReportRequest.getPanchayatId(),
                         profileReportRequest.getVillageId(),
-                        profileReportRequest.getGeographicalFlag()
+                        profileReportRequest.getGeographicalFlag(),
+                        profileReportRequest.getYearMonth()
+
 
                 );
 

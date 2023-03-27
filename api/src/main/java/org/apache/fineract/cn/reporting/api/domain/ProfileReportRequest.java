@@ -39,6 +39,7 @@ public class ProfileReportRequest {
     private Integer clfShg;
 
     private Integer clfEc;
+    private String yearMonth;
 
     public Integer getStateId() {
         return stateId;
@@ -111,5 +112,13 @@ public class ProfileReportRequest {
 
     public void setClfEc(Integer clfEc) {
         this.clfEc = clfEc;
+    }
+
+    public String getYearMonth() {
+        return yearMonth;
+    }
+
+    public void setYearmonth(String yearMonth) {
+        this.yearMonth = yearMonth;
     }
 }
