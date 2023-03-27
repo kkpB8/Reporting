@@ -80,6 +80,608 @@ public class SocialMobalizationEntity {
     private String villageName;
     @Column(name = "panchayat_name")
     private String panchayatName;
+    @Column(name = "year_month")
+    private String yearMonth;
+    @Column(name = "totaldistict")
+    private Integer totalDistict;
+    @Column(name = "totalblock")
+    private Integer totalBlock;
+    @Column(name = "totalgp")
+    private Integer totalGP;
+    @Column(name = "totalvillage")
+    private Integer totalVillage;
+    @Column(name = "totaldistrictcoverage")
+    private Integer totalDistrictCoverage;
+    @Column(name = "totalblockcoverage")
+    private Integer totalBlockCoverage;
+    @Column(name = "totalgpcoverage")
+    private Integer totalGPCoverage;
+
+    @Column(name = "totalvillagecoverage")
+    private Integer totalVillageCoverage;
+
+    @Column(name = "illiteratemem_month")
+    private Integer illiterateMem;
+    @Column(name = "functionalliteracymem_month")
+    private Integer functionalLiteracyMem;
+    @Column(name = "educationupto5_month")
+    private Integer educationUpto5;
+    @Column(name = "educationupto8_month")
+    private Integer educationUpto8;
+    @Column(name = "educationupto12_month")
+    private Integer educationUpto12;
+    @Column(name = "vocationaltrainingmem_month")
+    private Integer vocationalTrainingMem;
+    @Column(name = "otheredumem_month")
+    private Integer otherEduMem;
+    @Column(name = "shgwithbankaccount")
+    private Integer shgWithBankAccount;
+    @Column(name = "shgwithoutbankaccount")
+    private Integer shgWithoutBankAccount;
+    @Column(name = "vowithbankaccount")
+    private Integer voWithBankAccount;
+    @Column(name = "vowithoutbankaccount")
+    private Integer voWithoutBankAccount;
+    @Column(name = "clfwithbankaccount")
+    private Integer clfWithBankAccount;
+    @Column(name = "clfwithoutbankaccount")
+    private Integer clfWithoutBankAccount;
+    @Column(name = "shgbankacount1")
+    private Integer shgBankAcount1;
+    @Column(name = "shgbankacount2")
+    private Integer shgBankAcount2;
+    @Column(name = "memwithbankaccount")
+    private Integer memWithBankAccount;
+    @Column(name = "memwithadhaar")
+    private Integer memWithAdhaar;
+    @Column(name = "memwithsecct")
+    private Integer memWithSecct;
+    @Column(name = "womenshg_month")
+    private Integer womenshgMonth;
+    @Column(name = "pvtgshg_month")
+    private Integer pvtgshgMonth;
+    @Column(name = "pwdshg_month")
+    private Integer pwdshgMonth;
+    @Column(name = "elderlyshg_month")
+    private Integer elderlyshgMonth;
+    @Column(name = "othertypeshg_month")
+    private Integer othertypeshgMonth;
+    @Column(name = "clfbanklinkage_month")
+    private Integer clfbanklinkageMonth;
+    @Column(name = "clfassetverification_month")
+    private Integer clfassetverificationMonth;
+    @Column(name = "clflivelihoodpromo_month")
+    private Integer clflivelihoodpromoMonth;
+    @Column(name = "clfmonitoring_month")
+    private Integer clfmonitoringMonth;
+    @Column(name = "clfsocialaction_month")
+    private Integer clfsocialactionMonth;
+    @Column(name = "clfspecial_month")
+    private Integer clfspecialMonth;
+    @Column(name = "vobanklinkage_month")
+    private Integer vobanklinkageMonth;
+    @Column(name = "voassetverification_month")
+    private Integer voassetverificationMonth;
+    @Column(name = "volivelihoodpromo_month")
+    private Integer volivelihoodpromoMonth;
+    @Column(name = "vomonitoring_month")
+    private Integer vomonitoringMonth;
+    @Column(name = "vosocialaction_month")
+    private Integer vosocialactionMonth;
+    @Column(name = "vospecial_month")
+    private Integer vospecialMonth;
+    @Column(name = "illiteratemem_leader_month")
+    private Integer illiteratememLeaderMonth;
+    @Column(name = "functionalliteracymem_leader_month")
+    private Integer functionalliteracymemLeaderMonth;
+    @Column(name = "educationupto5_leader_month")
+    private Integer educationupto5LeaderMonth;
+    @Column(name = "educationupto8_leader_month")
+    private Integer educationupto8LeaderMonth;
+    @Column(name = "educationupto12_leader_month")
+    private Integer educationupto12LeaderMonth;
+    @Column(name = "vocationaltrainingmem_leader_month")
+    private Integer vocationalTrainingmemLeaderMonth;
+    @Column(name = "otheredumem_leader_month")
+    private Integer otheredumemLeaderMonth;
+    @Column(name = "shg_leader_month")
+    private Integer shgLeaderMonth;
+    @Column(name = "shg_count")
+    private Integer shgCount;
+    @Column(name = "shg_sc_month")
+    private Integer shgScMonth;
+    @Column(name = "shg_st_month")
+    private Integer shgStMonth;
+    @Column(name = "shg_gen_month")
+    private Integer shgGenMonth;
+    @Column(name = "shg_other_month")
+    private Integer shgOtherMonth;
+    @Column(name = "shg_mem_sc_month")
+    private Integer shgMemScMonth;
+    @Column(name = "shg_mem_st_month")
+    private Integer shgMemStMonth;
+    @Column(name = "shg_mem_gen_month")
+    private Integer shgMemGenMonth;
+
+    public Integer getShgScMonth() {
+        return shgScMonth;
+    }
+
+    public void setShgScMonth(Integer shgScMonth) {
+        this.shgScMonth = shgScMonth;
+    }
+
+    public Integer getShgStMonth() {
+        return shgStMonth;
+    }
+
+    public void setShgStMonth(Integer shgStMonth) {
+        this.shgStMonth = shgStMonth;
+    }
+
+    public Integer getShgGenMonth() {
+        return shgGenMonth;
+    }
+
+    public void setShgGenMonth(Integer shgGenMonth) {
+        this.shgGenMonth = shgGenMonth;
+    }
+
+    public Integer getShgOtherMonth() {
+        return shgOtherMonth;
+    }
+
+    public void setShgOtherMonth(Integer shgOtherMonth) {
+        this.shgOtherMonth = shgOtherMonth;
+    }
+
+    public Integer getShgMemScMonth() {
+        return shgMemScMonth;
+    }
+
+    public void setShgMemScMonth(Integer shgMemScMonth) {
+        this.shgMemScMonth = shgMemScMonth;
+    }
+
+    public Integer getShgMemStMonth() {
+        return shgMemStMonth;
+    }
+
+    public void setShgMemStMonth(Integer shgMemStMonth) {
+        this.shgMemStMonth = shgMemStMonth;
+    }
+
+    public Integer getShgMemGenMonth() {
+        return shgMemGenMonth;
+    }
+
+    public void setShgMemGenMonth(Integer shgMemGenMonth) {
+        this.shgMemGenMonth = shgMemGenMonth;
+    }
+
+    public Integer getShgMemOtherMonth() {
+        return shgMemOtherMonth;
+    }
+
+    public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
+        this.shgMemOtherMonth = shgMemOtherMonth;
+    }
+
+    @Column(name = "shg_mem_other_month")
+    private Integer shgMemOtherMonth;
+    public Integer getShgCount() {
+        return shgCount;
+    }
+
+    public void setShgCount(Integer shgCount) {
+        this.shgCount = shgCount;
+    }
+    public Integer getShgLeaderMonth() {
+        return shgLeaderMonth;
+    }
+
+    public void setShgLeaderMonth(Integer shgLeaderMonth) {
+        this.shgLeaderMonth = shgLeaderMonth;
+    }
+
+    public Integer getIlliteratememLeaderMonth() {
+        return illiteratememLeaderMonth;
+    }
+
+    public void setIlliteratememLeaderMonth(Integer illiteratememLeaderMonth) {
+        this.illiteratememLeaderMonth = illiteratememLeaderMonth;
+    }
+
+    public Integer getFunctionalliteracymemLeaderMonth() {
+        return functionalliteracymemLeaderMonth;
+    }
+
+    public void setFunctionalliteracymemLeaderMonth(Integer functionalliteracymemLeaderMonth) {
+        this.functionalliteracymemLeaderMonth = functionalliteracymemLeaderMonth;
+    }
+
+    public Integer getEducationupto5LeaderMonth() {
+        return educationupto5LeaderMonth;
+    }
+
+    public void setEducationupto5LeaderMonth(Integer educationupto5LeaderMonth) {
+        this.educationupto5LeaderMonth = educationupto5LeaderMonth;
+    }
+
+    public Integer getEducationupto8LeaderMonth() {
+        return educationupto8LeaderMonth;
+    }
+
+    public void setEducationupto8LeaderMonth(Integer educationupto8LeaderMonth) {
+        this.educationupto8LeaderMonth = educationupto8LeaderMonth;
+    }
+
+    public Integer getEducationupto12LeaderMonth() {
+        return educationupto12LeaderMonth;
+    }
+
+    public void setEducationupto12LeaderMonth(Integer educationupto12LeaderMonth) {
+        this.educationupto12LeaderMonth = educationupto12LeaderMonth;
+    }
+
+    public Integer getVocationalTrainingmemLeaderMonth() {
+        return vocationalTrainingmemLeaderMonth;
+    }
+
+    public void setVocationalTrainingmemLeaderMonth(Integer vocationalTrainingmemLeaderMonth) {
+        this.vocationalTrainingmemLeaderMonth = vocationalTrainingmemLeaderMonth;
+    }
+
+    public Integer getOtheredumemLeaderMonth() {
+        return otheredumemLeaderMonth;
+    }
+
+    public void setOtheredumemLeaderMonth(Integer otheredumemLeaderMonth) {
+        this.otheredumemLeaderMonth = otheredumemLeaderMonth;
+    }
+
+    public Integer getClfbanklinkageMonth() {
+        return clfbanklinkageMonth;
+    }
+
+    public void setClfbanklinkageMonth(Integer clfbanklinkageMonth) {
+        this.clfbanklinkageMonth = clfbanklinkageMonth;
+    }
+
+    public Integer getClfassetverificationMonth() {
+        return clfassetverificationMonth;
+    }
+
+    public void setClfassetverificationMonth(Integer clfassetverificationMonth) {
+        this.clfassetverificationMonth = clfassetverificationMonth;
+    }
+
+    public Integer getClflivelihoodpromoMonth() {
+        return clflivelihoodpromoMonth;
+    }
+
+    public void setClflivelihoodpromoMonth(Integer clflivelihoodpromoMonth) {
+        this.clflivelihoodpromoMonth = clflivelihoodpromoMonth;
+    }
+
+    public Integer getClfmonitoringMonth() {
+        return clfmonitoringMonth;
+    }
+
+    public void setClfmonitoringMonth(Integer clfmonitoringMonth) {
+        this.clfmonitoringMonth = clfmonitoringMonth;
+    }
+
+    public Integer getClfsocialactionMonth() {
+        return clfsocialactionMonth;
+    }
+
+    public void setClfsocialactionMonth(Integer clfsocialactionMonth) {
+        this.clfsocialactionMonth = clfsocialactionMonth;
+    }
+
+    public Integer getClfspecialMonth() {
+        return clfspecialMonth;
+    }
+
+    public void setClfspecialMonth(Integer clfspecialMonth) {
+        this.clfspecialMonth = clfspecialMonth;
+    }
+
+    public Integer getVobanklinkageMonth() {
+        return vobanklinkageMonth;
+    }
+
+    public void setVobanklinkageMonth(Integer vobanklinkageMonth) {
+        this.vobanklinkageMonth = vobanklinkageMonth;
+    }
+
+    public Integer getVoassetverificationMonth() {
+        return voassetverificationMonth;
+    }
+
+    public void setVoassetverificationMonth(Integer voassetverificationMonth) {
+        this.voassetverificationMonth = voassetverificationMonth;
+    }
+
+    public Integer getVolivelihoodpromoMonth() {
+        return volivelihoodpromoMonth;
+    }
+
+    public void setVolivelihoodpromoMonth(Integer volivelihoodpromoMonth) {
+        this.volivelihoodpromoMonth = volivelihoodpromoMonth;
+    }
+
+    public Integer getVomonitoringMonth() {
+        return vomonitoringMonth;
+    }
+
+    public void setVomonitoringMonth(Integer vomonitoringMonth) {
+        this.vomonitoringMonth = vomonitoringMonth;
+    }
+
+    public Integer getVosocialactionMonth() {
+        return vosocialactionMonth;
+    }
+
+    public void setVosocialactionMonth(Integer vosocialactionMonth) {
+        this.vosocialactionMonth = vosocialactionMonth;
+    }
+
+    public Integer getVospecialMonth() {
+        return vospecialMonth;
+    }
+
+    public void setVospecialMonth(Integer vospecialMonth) {
+        this.vospecialMonth = vospecialMonth;
+    }
+
+    public Integer getWomenshgMonth() {
+        return womenshgMonth;
+    }
+
+    public void setWomenshgMonth(Integer womenshgMonth) {
+        this.womenshgMonth = womenshgMonth;
+    }
+
+    public Integer getPvtgshgMonth() {
+        return pvtgshgMonth;
+    }
+
+    public void setPvtgshgMonth(Integer pvtgshgMonth) {
+        this.pvtgshgMonth = pvtgshgMonth;
+    }
+
+    public Integer getPwdshgMonth() {
+        return pwdshgMonth;
+    }
+
+    public void setPwdshgMonth(Integer pwdshgMonth) {
+        this.pwdshgMonth = pwdshgMonth;
+    }
+
+    public Integer getElderlyshgMonth() {
+        return elderlyshgMonth;
+    }
+
+    public void setElderlyshgMonth(Integer elderlyshgMonth) {
+        this.elderlyshgMonth = elderlyshgMonth;
+    }
+
+    public Integer getOthertypeshgMonth() {
+        return othertypeshgMonth;
+    }
+
+    public void setOthertypeshgMonth(Integer othertypeshgMonth) {
+        this.othertypeshgMonth = othertypeshgMonth;
+    }
+
+    public Integer getIlliterateMem() {
+        return illiterateMem;
+    }
+
+    public void setIlliterateMem(Integer illiterateMem) {
+        this.illiterateMem = illiterateMem;
+    }
+
+    public Integer getFunctionalLiteracyMem() {
+        return functionalLiteracyMem;
+    }
+
+    public void setFunctionalLiteracyMem(Integer functionalLiteracyMem) {
+        this.functionalLiteracyMem = functionalLiteracyMem;
+    }
+
+    public Integer getEducationUpto5() {
+        return educationUpto5;
+    }
+
+    public void setEducationUpto5(Integer educationUpto5) {
+        this.educationUpto5 = educationUpto5;
+    }
+
+    public Integer getEducationUpto8() {
+        return educationUpto8;
+    }
+
+    public void setEducationUpto8(Integer educationUpto8) {
+        this.educationUpto8 = educationUpto8;
+    }
+
+    public Integer getEducationUpto12() {
+        return educationUpto12;
+    }
+
+    public void setEducationUpto12(Integer educationUpto12) {
+        this.educationUpto12 = educationUpto12;
+    }
+
+    public Integer getVocationalTrainingMem() {
+        return vocationalTrainingMem;
+    }
+
+    public void setVocationalTrainingMem(Integer vocationalTrainingMem) {
+        this.vocationalTrainingMem = vocationalTrainingMem;
+    }
+
+    public Integer getOtherEduMem() {
+        return otherEduMem;
+    }
+
+    public void setOtherEduMem(Integer otherEduMem) {
+        this.otherEduMem = otherEduMem;
+    }
+
+    public Integer getShgWithBankAccount() {
+        return shgWithBankAccount;
+    }
+
+    public void setShgWithBankAccount(Integer shgWithBankAccount) {
+        this.shgWithBankAccount = shgWithBankAccount;
+    }
+
+    public Integer getShgWithoutBankAccount() {
+        return shgWithoutBankAccount;
+    }
+
+    public void setShgWithoutBankAccount(Integer shgWithoutBankAccount) {
+        this.shgWithoutBankAccount = shgWithoutBankAccount;
+    }
+
+    public Integer getVoWithBankAccount() {
+        return voWithBankAccount;
+    }
+
+    public void setVoWithBankAccount(Integer voWithBankAccount) {
+        this.voWithBankAccount = voWithBankAccount;
+    }
+
+    public Integer getVoWithoutBankAccount() {
+        return voWithoutBankAccount;
+    }
+
+    public void setVoWithoutBankAccount(Integer voWithoutBankAccount) {
+        this.voWithoutBankAccount = voWithoutBankAccount;
+    }
+
+    public Integer getClfWithBankAccount() {
+        return clfWithBankAccount;
+    }
+
+    public void setClfWithBankAccount(Integer clfWithBankAccount) {
+        this.clfWithBankAccount = clfWithBankAccount;
+    }
+
+    public Integer getClfWithoutBankAccount() {
+        return clfWithoutBankAccount;
+    }
+
+    public void setClfWithoutBankAccount(Integer clfWithoutBankAccount) {
+        this.clfWithoutBankAccount = clfWithoutBankAccount;
+    }
+
+    public Integer getShgBankAcount1() {
+        return shgBankAcount1;
+    }
+
+    public void setShgBankAcount1(Integer shgBankAcount1) {
+        this.shgBankAcount1 = shgBankAcount1;
+    }
+
+    public Integer getShgBankAcount2() {
+        return shgBankAcount2;
+    }
+
+    public void setShgBankAcount2(Integer shgBankAcount2) {
+        this.shgBankAcount2 = shgBankAcount2;
+    }
+
+    public Integer getMemWithBankAccount() {
+        return memWithBankAccount;
+    }
+
+    public void setMemWithBankAccount(Integer memWithBankAccount) {
+        this.memWithBankAccount = memWithBankAccount;
+    }
+
+    public Integer getMemWithAdhaar() {
+        return memWithAdhaar;
+    }
+
+    public void setMemWithAdhaar(Integer memWithAdhaar) {
+        this.memWithAdhaar = memWithAdhaar;
+    }
+
+    public Integer getMemWithSecct() {
+        return memWithSecct;
+    }
+
+    public void setMemWithSecct(Integer memWithSecct) {
+        this.memWithSecct = memWithSecct;
+    }
+    public Integer getTotalDistict() {
+        return totalDistict;
+    }
+
+    public void setTotalDistict(Integer totalDistict) {
+        this.totalDistict = totalDistict;
+    }
+
+    public Integer getTotalBlock() {
+        return totalBlock;
+    }
+
+    public void setTotalBlock(Integer totalBlock) {
+        this.totalBlock = totalBlock;
+    }
+
+    public Integer getTotalGP() {
+        return totalGP;
+    }
+
+    public void setTotalGP(Integer totalGP) {
+        this.totalGP = totalGP;
+    }
+
+    public Integer getTotalVillage() {
+        return totalVillage;
+    }
+
+    public void setTotalVillage(Integer totalVillage) {
+        this.totalVillage = totalVillage;
+    }
+
+    public Integer getTotalDistrictCoverage() {
+        return totalDistrictCoverage;
+    }
+
+    public void setTotalDistrictCoverage(Integer totalDistrictCoverage) {
+        this.totalDistrictCoverage = totalDistrictCoverage;
+    }
+
+    public Integer getTotalBlockCoverage() {
+        return totalBlockCoverage;
+    }
+
+    public void setTotalBlockCoverage(Integer totalBlockCoverage) {
+        this.totalBlockCoverage = totalBlockCoverage;
+    }
+
+    public Integer getTotalGPCoverage() {
+        return totalGPCoverage;
+    }
+
+    public void setTotalGPCoverage(Integer totalGPCoverage) {
+        this.totalGPCoverage = totalGPCoverage;
+    }
+
+    public Integer getTotalVillageCoverage() {
+        return totalVillageCoverage;
+    }
+
+    public void setTotalVillageCoverage(Integer totalVillageCoverage) {
+        this.totalVillageCoverage = totalVillageCoverage;
+    }
     public Integer getVillageId() {
         return villageId;
     }
@@ -269,8 +871,6 @@ public class SocialMobalizationEntity {
     public void setBlockName(String blockName) {
         this.blockName = blockName;
     }
-    @Column(name = "year_month")
-    private String yearMonth;
     public Integer getGeographicalFlag() {
         return geographicalFlag;
     }
