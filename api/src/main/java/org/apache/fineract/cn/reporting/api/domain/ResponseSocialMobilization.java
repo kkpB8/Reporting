@@ -91,6 +91,129 @@ public class ResponseSocialMobilization {
     private Integer shgScMonth;
     private Integer shgStMonth;
     private Integer shgGenMonth;
+    private Integer shgOtherMonth;
+    private Integer shgMemScMonth;
+    private Integer shgMemStMonth;
+    private Integer shgMemGenMonth;
+    private Integer shgMemOtherMonth;
+    private Integer clflivelihoodpromoMonth;
+    private Integer clfmonitoringMonth;
+    private Integer clfsocialactionMonth;
+    private Integer clfspecialMonth;
+    private Integer vobanklinkageMonth;
+    private Integer voassetverificationMonth;
+    private Integer volivelihoodpromoMonth;
+    private Integer vomonitoringMonth;
+    private Integer vosocialactionMonth;
+    private Integer vospecialMonth;
+    private Integer monthsOld3Month;
+    private Integer monthsOld6Month;
+    private Integer monthsOld9Month;
+    private Integer monthsOld12Month;
+    private Integer monthsOld12MoreMonth;
+    private Integer shgMemApproved;
+    private Integer voCount;
+    private Integer voMemApproved;
+    private Integer clfCount;
+    private Integer clfShg;
+    private Integer clfMem;
+    private Integer clfMemApproved;
+
+
+    public Integer getShgMemApproved() {
+        return shgMemApproved;
+    }
+
+    public void setShgMemApproved(Integer shgMemApproved) {
+        this.shgMemApproved = shgMemApproved;
+    }
+
+    public Integer getVoCount() {
+        return voCount;
+    }
+
+    public void setVoCount(Integer voCount) {
+        this.voCount = voCount;
+    }
+
+    public Integer getVoMemApproved() {
+        return voMemApproved;
+    }
+
+    public void setVoMemApproved(Integer voMemApproved) {
+        this.voMemApproved = voMemApproved;
+    }
+
+    public Integer getClfCount() {
+        return clfCount;
+    }
+
+    public void setClfCount(Integer clfCount) {
+        this.clfCount = clfCount;
+    }
+
+    public Integer getClfShg() {
+        return clfShg;
+    }
+
+    public void setClfShg(Integer clfShg) {
+        this.clfShg = clfShg;
+    }
+
+    public Integer getClfMem() {
+        return clfMem;
+    }
+
+    public void setClfMem(Integer clfMem) {
+        this.clfMem = clfMem;
+    }
+
+    public Integer getClfMemApproved() {
+        return clfMemApproved;
+    }
+
+    public void setClfMemApproved(Integer clfMemApproved) {
+        this.clfMemApproved = clfMemApproved;
+    }
+    public Integer getMonthsOld3Month() {
+        return monthsOld3Month;
+    }
+
+    public void setMonthsOld3Month(Integer monthsOld3Month) {
+        this.monthsOld3Month = monthsOld3Month;
+    }
+
+    public Integer getMonthsOld6Month() {
+        return monthsOld6Month;
+    }
+
+    public void setMonthsOld6Month(Integer monthsOld6Month) {
+        this.monthsOld6Month = monthsOld6Month;
+    }
+
+    public Integer getMonthsOld9Month() {
+        return monthsOld9Month;
+    }
+
+    public void setMonthsOld9Month(Integer monthsOld9Month) {
+        this.monthsOld9Month = monthsOld9Month;
+    }
+
+    public Integer getMonthsOld12Month() {
+        return monthsOld12Month;
+    }
+
+    public void setMonthsOld12Month(Integer monthsOld12Month) {
+        this.monthsOld12Month = monthsOld12Month;
+    }
+
+    public Integer getMonthsOld12MoreMonth() {
+        return monthsOld12MoreMonth;
+    }
+
+    public void setMonthsOld12MoreMonth(Integer monthsOld12MoreMonth) {
+        this.monthsOld12MoreMonth = monthsOld12MoreMonth;
+    }
 
     public Integer getShgScMonth() {
         return shgScMonth;
@@ -156,11 +279,6 @@ public class ResponseSocialMobilization {
         this.shgMemOtherMonth = shgMemOtherMonth;
     }
 
-    private Integer shgOtherMonth;
-    private Integer shgMemScMonth;
-    private Integer shgMemStMonth;
-    private Integer shgMemGenMonth;
-    private Integer shgMemOtherMonth;
     public Integer getShgCount() {
         return shgCount;
     }
@@ -327,17 +445,6 @@ public class ResponseSocialMobilization {
     public void setVospecialMonth(Integer vospecialMonth) {
         this.vospecialMonth = vospecialMonth;
     }
-
-    private Integer clflivelihoodpromoMonth;
-    private Integer clfmonitoringMonth;
-    private Integer clfsocialactionMonth;
-    private Integer clfspecialMonth;
-    private Integer vobanklinkageMonth;
-    private Integer voassetverificationMonth;
-    private Integer volivelihoodpromoMonth;
-    private Integer vomonitoringMonth;
-    private Integer vosocialactionMonth;
-    private Integer vospecialMonth;
     public Integer getWomenshgMonth() {
         return womenshgMonth;
     }
