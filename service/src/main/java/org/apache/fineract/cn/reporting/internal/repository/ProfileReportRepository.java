@@ -36,14 +36,16 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "(-1 = :blockId or c.blockId=:blockId) and "+
             "(-1 = :panchayatId or c.panchayatId=:panchayatId) and "+
             "(-1 = :villageId or c.villageId=:villageId) and "+
-            "(c.geographicalFlag=:geographicalFlag)")
+            "(c.geographicalFlag=:geographicalFlag) and "+
+            "(c.yearMonth=:yearMonth)")
             List<ProfileReportEntity> findByFilter(
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
             @Param("panchayatId") final Integer panchayatId,
             @Param("villageId") final Integer villageId,
-            @Param("geographicalFlag") final Integer geographicalFlag
+            @Param("geographicalFlag") final Integer geographicalFlag,
+            @Param("yearMonth") final String yearMonth
     );
 
 
