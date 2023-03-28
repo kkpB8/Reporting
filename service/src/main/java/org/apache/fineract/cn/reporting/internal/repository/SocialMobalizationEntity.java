@@ -202,7 +202,127 @@ public class SocialMobalizationEntity {
     private Integer shgMemStMonth;
     @Column(name = "shg_mem_gen_month")
     private Integer shgMemGenMonth;
+    @Column(name = "monthsOld_3_month")
+    private Integer monthsOld3Month;
+    @Column(name = "monthsOld_6_month")
+    private Integer monthsOld6Month;
+    @Column(name = "monthsOld_9_month")
+    private Integer monthsOld9Month;
+    @Column(name = "monthsOld_12_month")
+    private Integer monthsOld12Month;
+    @Column(name = "monthsOld_12More_month")
+    private Integer monthsOld12MoreMonth;
+    @Column(name = "shg_mem_approved")
+    private Integer shgMemApproved;
+    @Column(name = "vo_count")
+    private Integer voCount;
+    @Column(name = "vo_mem_approved")
+    private Integer voMemApproved;
+    @Column(name = "clf_count")
+    private Integer clfCount;
+    @Column(name = "clf_shg")
+    private Integer clfShg;
+    @Column(name = "clf_mem")
+    private Integer clfMem;
+    @Column(name = "clf_mem_approved")
+    private Integer clfMemApproved;
 
+
+    public Integer getShgMemApproved() {
+        return shgMemApproved;
+    }
+
+    public void setShgMemApproved(Integer shgMemApproved) {
+        this.shgMemApproved = shgMemApproved;
+    }
+
+    public Integer getVoCount() {
+        return voCount;
+    }
+
+    public void setVoCount(Integer voCount) {
+        this.voCount = voCount;
+    }
+
+    public Integer getVoMemApproved() {
+        return voMemApproved;
+    }
+
+    public void setVoMemApproved(Integer voMemApproved) {
+        this.voMemApproved = voMemApproved;
+    }
+
+    public Integer getClfCount() {
+        return clfCount;
+    }
+
+    public void setClfCount(Integer clfCount) {
+        this.clfCount = clfCount;
+    }
+
+    public Integer getClfShg() {
+        return clfShg;
+    }
+
+    public void setClfShg(Integer clfShg) {
+        this.clfShg = clfShg;
+    }
+
+    public Integer getClfMem() {
+        return clfMem;
+    }
+
+    public void setClfMem(Integer clfMem) {
+        this.clfMem = clfMem;
+    }
+
+    public Integer getClfMemApproved() {
+        return clfMemApproved;
+    }
+
+    public void setClfMemApproved(Integer clfMemApproved) {
+        this.clfMemApproved = clfMemApproved;
+    }
+
+    public Integer getMonthsOld3Month() {
+        return monthsOld3Month;
+    }
+
+    public void setMonthsOld3Month(Integer monthsOld3Month) {
+        this.monthsOld3Month = monthsOld3Month;
+    }
+
+    public Integer getMonthsOld6Month() {
+        return monthsOld6Month;
+    }
+
+    public void setMonthsOld6Month(Integer monthsOld6Month) {
+        this.monthsOld6Month = monthsOld6Month;
+    }
+
+    public Integer getMonthsOld9Month() {
+        return monthsOld9Month;
+    }
+
+    public void setMonthsOld9Month(Integer monthsOld9Month) {
+        this.monthsOld9Month = monthsOld9Month;
+    }
+
+    public Integer getMonthsOld12Month() {
+        return monthsOld12Month;
+    }
+
+    public void setMonthsOld12Month(Integer monthsOld12Month) {
+        this.monthsOld12Month = monthsOld12Month;
+    }
+
+    public Integer getMonthsOld12MoreMonth() {
+        return monthsOld12MoreMonth;
+    }
+
+    public void setMonthsOld12MoreMonth(Integer monthsOld12MoreMonth) {
+        this.monthsOld12MoreMonth = monthsOld12MoreMonth;
+    }
     public Integer getShgScMonth() {
         return shgScMonth;
     }
