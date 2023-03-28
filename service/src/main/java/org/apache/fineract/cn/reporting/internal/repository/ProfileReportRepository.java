@@ -43,7 +43,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
             @Param("panchayatId") final Integer panchayatId,
-                @Param("villageId") final Integer villageId,
+            @Param("villageId") final Integer villageId,
             @Param("geographicalFlag") final Integer geographicalFlag,
             @Param("yearMonth") final String yearMonth
     );
