@@ -16,12 +16,6 @@ public class SocialMobalizationEntity {
     private Integer totalRuralHouseholds;
     @Column(name = "targetruralhouseholds")
     private Integer targetRuralHouseholds;
-    public Integer getShgMem() {
-        return shgMem;
-    }
-    public void setShgMem(Integer shgMem) {
-        this.shgMem = shgMem;
-    }
     @Column(name = "shg_mem")
     private Integer shgMem;
     @Column(name = "geographical_flag")
@@ -116,16 +110,16 @@ public class SocialMobalizationEntity {
     private Integer otherEduMem;
     @Column(name = "shgwithbankaccount")
     private Integer shgWithBankAccount;
-    @Column(name = "shgwithoutbankaccount")
-    private Integer shgWithoutBankAccount;
+//    @Column(name = "shgwithoutbankaccount")
+//    private Integer shgWithoutBankAccount;
     @Column(name = "vowithbankaccount")
     private Integer voWithBankAccount;
-    @Column(name = "vowithoutbankaccount")
-    private Integer voWithoutBankAccount;
+//    @Column(name = "vowithoutbankaccount")
+//    private Integer voWithoutBankAccount;
     @Column(name = "clfwithbankaccount")
     private Integer clfWithBankAccount;
-    @Column(name = "clfwithoutbankaccount")
-    private Integer clfWithoutBankAccount;
+//    @Column(name = "clfwithoutbankaccount")
+//    private Integer clfWithoutBankAccount;
     @Column(name = "shgbankacount1")
     private Integer shgBankAcount1;
     @Column(name = "shgbankacount2")
@@ -194,15 +188,518 @@ public class SocialMobalizationEntity {
     private Integer shgStMonth;
     @Column(name = "shg_gen_month")
     private Integer shgGenMonth;
-    @Column(name = "shg_other_month")
-    private Integer shgOtherMonth;
     @Column(name = "shg_mem_sc_month")
     private Integer shgMemScMonth;
     @Column(name = "shg_mem_st_month")
     private Integer shgMemStMonth;
     @Column(name = "shg_mem_gen_month")
     private Integer shgMemGenMonth;
+    @Column(name = "monthsOld_3_month")
+    private Integer monthsOld3Month;
+    @Column(name = "monthsOld_6_month")
+    private Integer monthsOld6Month;
+    @Column(name = "monthsOld_9_month")
+    private Integer monthsOld9Month;
+    @Column(name = "monthsOld_12_month")
+    private Integer monthsOld12Month;
+    @Column(name = "monthsOld_12More_month")
+    private Integer monthsOld12MoreMonth;
+    @Column(name = "shg_mem_approved")
+    private Integer shgMemApproved;
+    @Column(name = "vo_count")
+    private Integer voCount;
+    @Column(name = "vo_mem_approved")
+    private Integer voMemApproved;
+    @Column(name = "clf_count")
+    private Integer clfCount;
+    @Column(name = "clf_shg")
+    private Integer clfShg;
+    @Column(name = "clf_mem")
+    private Integer clfMem;
+    @Column(name = "clf_mem_approved")
+    private Integer clfMemApproved;
+    @Column(name = "shg_agricultural")
+    private Integer shgAgricultural;
+    @Column(name = "shg_horticulture")
+    private Integer shgHorticulture;
+    @Column(name = "shg_livestock")
+    private Integer shgLivestock;
+    @Column(name = "shg_fishery")
+    private Integer shgFishery;
+    @Column(name = "shg_ntfp")
+    private Integer shgNtfp;
+    @Column(name = "shg_manufacturing")
+    private Integer shgManufacturing;
+    @Column(name = "shg_trading")
+    private Integer shgTrading;
+    @Column(name = "shg_services")
+    private Integer shgServices;
+    @Column(name = "shg_custom_hiring")
+    private Integer shgCustomHiring;
 
+    @Column(name = "mem_agricultural")
+    private Integer memAgricultural;
+    @Column(name = "mem_horticulture")
+    private Integer memHorticulture;
+    @Column(name = "mem_livestock")
+    private Integer memLivestock;
+    @Column(name = "mem_fishery")
+    private Integer memFishery;
+    @Column(name = "mem_ntfp")
+    private Integer memNtfp;
+    @Column(name = "mem_manufacturing")
+    private Integer memManufacturing;
+    @Column(name = "mem_trading")
+    private Integer memTrading;
+    @Column(name = "mem_services")
+    private Integer memServices;
+
+    @Column(name = "shg_leader_agricultural")
+    private Integer shgLeaderAgricultural;
+    @Column(name = "shg_leader_horticulture")
+    private Integer shgLeaderHorticulture;
+    @Column(name = "shg_leader_livestock")
+    private Integer shgLeaderLivestock;
+    @Column(name = "shg_leader_fishery")
+    private Integer shgLeaderFishery;
+    @Column(name = "shg_leader_ntfp")
+    private Integer shgLeaderNtfp;
+    @Column(name = "shg_leader_manufacturing")
+    private Integer shgLeaderManufacturing;
+    @Column(name = "shg_leader_trading")
+    private Integer shgLeaderTrading;
+    @Column(name = "shg_leader_services")
+    private Integer shgLeaderServices;
+    @Column(name = "shg_approved_month")
+    private Integer shgApprovedMonth;
+    @Column(name = "vo_approved_month")
+    private Integer voApprovedMonth;
+    @Column(name = "clf_approved_month")
+    private Integer clfApprovedMonth;
+    @Column(name ="wages_leader")
+    private Integer wagesLeader;
+    @Column(name = "shg_leader_cader_service")
+    private Integer shgLeaderCaderService;
+    @Column(name = "shg_leader_other")
+    private Integer shgLeaderOther;
+    @Column(name = "shg_live_aggregation")
+    private Integer shgLiveAggregation;
+    @Column(name = "shg_live_others")
+    private Integer shgLiveOthers;
+    @Column(name = "mem_wages")
+    private Integer memWages;
+    @Column(name = "mem_cader_service")
+    private Integer memCaderService;
+
+    public Integer getMemWages() {
+        return memWages;
+    }
+
+    public void setMemWages(Integer memWages) {
+        this.memWages = memWages;
+    }
+
+    public Integer getMemCaderService() {
+        return memCaderService;
+    }
+
+    public void setMemCaderService(Integer memCaderService) {
+        this.memCaderService = memCaderService;
+    }
+
+    public Integer getMemOthers() {
+        return memOthers;
+    }
+
+    public void setMemOthers(Integer memOthers) {
+        this.memOthers = memOthers;
+    }
+
+    @Column(name = "mem_others")
+    private Integer memOthers;
+    public Integer getShgLiveAggregation() {
+        return shgLiveAggregation;
+    }
+
+    public void setShgLiveAggregation(Integer shgLiveAggregation) {
+        this.shgLiveAggregation = shgLiveAggregation;
+    }
+
+    public Integer getShgLiveOthers() {
+        return shgLiveOthers;
+    }
+
+    public void setShgLiveOthers(Integer shgLiveOthers) {
+        this.shgLiveOthers = shgLiveOthers;
+    }
+
+    public Integer getWagesLeader() {
+        return wagesLeader;
+    }
+
+    public void setWagesLeader(Integer wagesLeader) {
+        this.wagesLeader = wagesLeader;
+    }
+
+    public Integer getShgLeaderCaderService() {
+        return shgLeaderCaderService;
+    }
+
+    public void setShgLeaderCaderService(Integer shgLeaderCaderService) {
+        this.shgLeaderCaderService = shgLeaderCaderService;
+    }
+
+    public Integer getShgLeaderOther() {
+        return shgLeaderOther;
+    }
+
+    public void setShgLeaderOther(Integer shgLeaderOther) {
+        this.shgLeaderOther = shgLeaderOther;
+    }
+
+//    @Column(name = "")
+//    private Integer shgAggregation;
+//    @Column(name = "")
+//    private Integer shgOther;
+//    public Integer getShgAggregation() {
+//        return shgAggregation;
+//    }
+//
+//    public void setShgAggregation(Integer shgAggregation) {
+//        this.shgAggregation = shgAggregation;
+//    }
+//
+//    public Integer getShgOther() {
+//        return shgOther;
+//    }
+
+//    public void setShgOther(Integer shgOther) {
+//        this.shgOther = shgOther;
+//    }
+    public Integer getShgMem() {
+    return shgMem;
+}
+    public void setShgMem(Integer shgMem) {
+        this.shgMem = shgMem;
+    }
+    public Integer getShgApprovedMonth() {
+    return shgApprovedMonth;
+}
+
+    public void setShgApprovedMonth(Integer shgApprovedMonth) {
+        this.shgApprovedMonth = shgApprovedMonth;
+    }
+
+    public Integer getVoApprovedMonth() {
+        return voApprovedMonth;
+    }
+
+    public void setVoApprovedMonth(Integer voApprovedMonth) {
+        this.voApprovedMonth = voApprovedMonth;
+    }
+
+    public Integer getClfApprovedMonth() {
+        return clfApprovedMonth;
+    }
+
+    public void setClfApprovedMonth(Integer clfApprovedMonth) {
+        this.clfApprovedMonth = clfApprovedMonth;
+    }
+
+    public Integer getMemServices() {
+        return memServices;
+    }
+
+    public void setMemServices(Integer memServices) {
+        this.memServices = memServices;
+    }
+
+    public Integer getShgLeaderAgricultural() {
+        return shgLeaderAgricultural;
+    }
+
+    public void setShgLeaderAgricultural(Integer shgLeaderAgricultural) {
+        this.shgLeaderAgricultural = shgLeaderAgricultural;
+    }
+
+    public Integer getShgLeaderHorticulture() {
+        return shgLeaderHorticulture;
+    }
+
+    public void setShgLeaderHorticulture(Integer shgLeaderHorticulture) {
+        this.shgLeaderHorticulture = shgLeaderHorticulture;
+    }
+
+    public Integer getShgLeaderLivestock() {
+        return shgLeaderLivestock;
+    }
+
+    public void setShgLeaderLivestock(Integer shgLeaderLivestock) {
+        this.shgLeaderLivestock = shgLeaderLivestock;
+    }
+
+    public Integer getShgLeaderFishery() {
+        return shgLeaderFishery;
+    }
+
+    public void setShgLeaderFishery(Integer shgLeaderFishery) {
+        this.shgLeaderFishery = shgLeaderFishery;
+    }
+
+    public Integer getShgLeaderNtfp() {
+        return shgLeaderNtfp;
+    }
+
+    public void setShgLeaderNtfp(Integer shgLeaderNtfp) {
+        this.shgLeaderNtfp = shgLeaderNtfp;
+    }
+
+    public Integer getShgLeaderManufacturing() {
+        return shgLeaderManufacturing;
+    }
+
+    public void setShgLeaderManufacturing(Integer shgLeaderManufacturing) {
+        this.shgLeaderManufacturing = shgLeaderManufacturing;
+    }
+
+    public Integer getShgLeaderTrading() {
+        return shgLeaderTrading;
+    }
+
+    public void setShgLeaderTrading(Integer shgLeaderTrading) {
+        this.shgLeaderTrading = shgLeaderTrading;
+    }
+
+    public Integer getShgLeaderServices() {
+        return shgLeaderServices;
+    }
+
+    public void setShgLeaderServices(Integer shgLeaderServices) {
+        this.shgLeaderServices = shgLeaderServices;
+    }
+    public Integer getMemAgricultural() {
+        return memAgricultural;
+    }
+
+    public void setMemAgricultural(Integer memAgricultural) {
+        this.memAgricultural = memAgricultural;
+    }
+
+    public Integer getMemHorticulture() {
+        return memHorticulture;
+    }
+
+    public void setMemHorticulture(Integer memHorticulture) {
+        this.memHorticulture = memHorticulture;
+    }
+
+    public Integer getMemLivestock() {
+        return memLivestock;
+    }
+
+    public void setMemLivestock(Integer memLivestock) {
+        this.memLivestock = memLivestock;
+    }
+
+    public Integer getMemFishery() {
+        return memFishery;
+    }
+
+    public void setMemFishery(Integer memFishery) {
+        this.memFishery = memFishery;
+    }
+
+    public Integer getMemNtfp() {
+        return memNtfp;
+    }
+
+    public void setMemNtfp(Integer memNtfp) {
+        this.memNtfp = memNtfp;
+    }
+
+    public Integer getMemManufacturing() {
+        return memManufacturing;
+    }
+
+    public void setMemManufacturing(Integer memManufacturing) {
+        this.memManufacturing = memManufacturing;
+    }
+
+    public Integer getMemTrading() {
+        return memTrading;
+    }
+
+    public void setMemTrading(Integer memTrading) {
+        this.memTrading = memTrading;
+    }
+
+    public Integer getShgAgricultural() {
+        return shgAgricultural;
+    }
+
+    public void setShgAgricultural(Integer shgAgricultural) {
+        this.shgAgricultural = shgAgricultural;
+    }
+
+    public Integer getShgHorticulture() {
+        return shgHorticulture;
+    }
+
+    public void setShgHorticulture(Integer shgHorticulture) {
+        this.shgHorticulture = shgHorticulture;
+    }
+
+    public Integer getShgLivestock() {
+        return shgLivestock;
+    }
+
+    public void setShgLivestock(Integer shgLivestock) {
+        this.shgLivestock = shgLivestock;
+    }
+
+    public Integer getShgFishery() {
+        return shgFishery;
+    }
+
+    public void setShgFishery(Integer shgFishery) {
+        this.shgFishery = shgFishery;
+    }
+
+    public Integer getShgNtfp() {
+        return shgNtfp;
+    }
+
+    public void setShgNtfp(Integer shgNtfp) {
+        this.shgNtfp = shgNtfp;
+    }
+
+    public Integer getShgManufacturing() {
+        return shgManufacturing;
+    }
+
+    public void setShgManufacturing(Integer shgManufacturing) {
+        this.shgManufacturing = shgManufacturing;
+    }
+
+    public Integer getShgTrading() {
+        return shgTrading;
+    }
+
+    public void setShgTrading(Integer shgTrading) {
+        this.shgTrading = shgTrading;
+    }
+
+    public Integer getShgServices() {
+        return shgServices;
+    }
+
+    public void setShgServices(Integer shgServices) {
+        this.shgServices = shgServices;
+    }
+
+    public Integer getShgCustomHiring() {
+        return shgCustomHiring;
+    }
+
+    public void setShgCustomHiring(Integer shgCustomHiring) {
+        this.shgCustomHiring = shgCustomHiring;
+    }
+
+    public Integer getShgMemApproved() {
+        return shgMemApproved;
+    }
+
+    public void setShgMemApproved(Integer shgMemApproved) {
+        this.shgMemApproved = shgMemApproved;
+    }
+
+    public Integer getVoCount() {
+        return voCount;
+    }
+
+    public void setVoCount(Integer voCount) {
+        this.voCount = voCount;
+    }
+
+    public Integer getVoMemApproved() {
+        return voMemApproved;
+    }
+
+    public void setVoMemApproved(Integer voMemApproved) {
+        this.voMemApproved = voMemApproved;
+    }
+
+    public Integer getClfCount() {
+        return clfCount;
+    }
+
+    public void setClfCount(Integer clfCount) {
+        this.clfCount = clfCount;
+    }
+
+    public Integer getClfShg() {
+        return clfShg;
+    }
+
+    public void setClfShg(Integer clfShg) {
+        this.clfShg = clfShg;
+    }
+
+    public Integer getClfMem() {
+        return clfMem;
+    }
+
+    public void setClfMem(Integer clfMem) {
+        this.clfMem = clfMem;
+    }
+
+    public Integer getClfMemApproved() {
+        return clfMemApproved;
+    }
+
+    public void setClfMemApproved(Integer clfMemApproved) {
+        this.clfMemApproved = clfMemApproved;
+    }
+
+    public Integer getMonthsOld3Month() {
+        return monthsOld3Month;
+    }
+
+    public void setMonthsOld3Month(Integer monthsOld3Month) {
+        this.monthsOld3Month = monthsOld3Month;
+    }
+
+    public Integer getMonthsOld6Month() {
+        return monthsOld6Month;
+    }
+
+    public void setMonthsOld6Month(Integer monthsOld6Month) {
+        this.monthsOld6Month = monthsOld6Month;
+    }
+
+    public Integer getMonthsOld9Month() {
+        return monthsOld9Month;
+    }
+
+    public void setMonthsOld9Month(Integer monthsOld9Month) {
+        this.monthsOld9Month = monthsOld9Month;
+    }
+
+    public Integer getMonthsOld12Month() {
+        return monthsOld12Month;
+    }
+
+    public void setMonthsOld12Month(Integer monthsOld12Month) {
+        this.monthsOld12Month = monthsOld12Month;
+    }
+
+    public Integer getMonthsOld12MoreMonth() {
+        return monthsOld12MoreMonth;
+    }
+
+    public void setMonthsOld12MoreMonth(Integer monthsOld12MoreMonth) {
+        this.monthsOld12MoreMonth = monthsOld12MoreMonth;
+    }
     public Integer getShgScMonth() {
         return shgScMonth;
     }
@@ -227,13 +724,6 @@ public class SocialMobalizationEntity {
         this.shgGenMonth = shgGenMonth;
     }
 
-    public Integer getShgOtherMonth() {
-        return shgOtherMonth;
-    }
-
-    public void setShgOtherMonth(Integer shgOtherMonth) {
-        this.shgOtherMonth = shgOtherMonth;
-    }
 
     public Integer getShgMemScMonth() {
         return shgMemScMonth;
@@ -259,16 +749,6 @@ public class SocialMobalizationEntity {
         this.shgMemGenMonth = shgMemGenMonth;
     }
 
-    public Integer getShgMemOtherMonth() {
-        return shgMemOtherMonth;
-    }
-
-    public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
-        this.shgMemOtherMonth = shgMemOtherMonth;
-    }
-
-    @Column(name = "shg_mem_other_month")
-    private Integer shgMemOtherMonth;
     public Integer getShgCount() {
         return shgCount;
     }
@@ -540,14 +1020,6 @@ public class SocialMobalizationEntity {
         this.shgWithBankAccount = shgWithBankAccount;
     }
 
-    public Integer getShgWithoutBankAccount() {
-        return shgWithoutBankAccount;
-    }
-
-    public void setShgWithoutBankAccount(Integer shgWithoutBankAccount) {
-        this.shgWithoutBankAccount = shgWithoutBankAccount;
-    }
-
     public Integer getVoWithBankAccount() {
         return voWithBankAccount;
     }
@@ -556,28 +1028,12 @@ public class SocialMobalizationEntity {
         this.voWithBankAccount = voWithBankAccount;
     }
 
-    public Integer getVoWithoutBankAccount() {
-        return voWithoutBankAccount;
-    }
-
-    public void setVoWithoutBankAccount(Integer voWithoutBankAccount) {
-        this.voWithoutBankAccount = voWithoutBankAccount;
-    }
-
     public Integer getClfWithBankAccount() {
         return clfWithBankAccount;
     }
 
     public void setClfWithBankAccount(Integer clfWithBankAccount) {
         this.clfWithBankAccount = clfWithBankAccount;
-    }
-
-    public Integer getClfWithoutBankAccount() {
-        return clfWithoutBankAccount;
-    }
-
-    public void setClfWithoutBankAccount(Integer clfWithoutBankAccount) {
-        this.clfWithoutBankAccount = clfWithoutBankAccount;
     }
 
     public Integer getShgBankAcount1() {
