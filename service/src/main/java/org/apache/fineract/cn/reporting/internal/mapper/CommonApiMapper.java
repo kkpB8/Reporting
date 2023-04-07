@@ -67,6 +67,10 @@ public class CommonApiMapper {
             modelMapper.map(socialMobalizationEntity, ResponseSocialMobilization.class);
     return ResponseSocialMobilization;
   }
-
-
+  public static ResponseBankBranchCbos map(final BankBranchCbosEntity bankBranchCbosEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBankBranchCbos responseBankBranchCbos =
+            modelMapper.map(bankBranchCbosEntity, ResponseBankBranchCbos.class);
+    return responseBankBranchCbos;
+  }
 }
