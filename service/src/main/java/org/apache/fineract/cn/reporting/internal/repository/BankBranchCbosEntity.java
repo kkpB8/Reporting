@@ -13,8 +13,6 @@ public class BankBranchCbosEntity {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id", nullable = false)
         private BigInteger id ;
-
-
         @Column(name = "geographical_flag")
         private Integer geographicalFlag;
         @Column(name = "state_id")
@@ -49,7 +47,6 @@ public class BankBranchCbosEntity {
         private Integer clfBank;
         @Column(name = "year_month")
         private String yearMonth;
-
 
         public BigInteger getId() {
             return id;

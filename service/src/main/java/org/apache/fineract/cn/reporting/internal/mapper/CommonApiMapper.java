@@ -73,4 +73,19 @@ public class CommonApiMapper {
             modelMapper.map(bankBranchCbosEntity, ResponseBankBranchCbos.class);
     return responseBankBranchCbos;
   }
+
+  public static ResponseBankDeatils map(final BankDetailsEntity bankDetailsEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBankDeatils responseBankDeatils =
+            modelMapper.map(bankDetailsEntity, ResponseBankDeatils.class);
+    return responseBankDeatils;
+  }
+
+
+  public static ResponseBranchDet map(final BranchDetEntity branchDetEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBranchDet responseBranchDet =
+            modelMapper.map(branchDetEntity, ResponseBranchDet.class);
+    return responseBranchDet;
+  }
 }
