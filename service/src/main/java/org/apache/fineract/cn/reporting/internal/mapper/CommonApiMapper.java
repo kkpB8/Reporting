@@ -88,4 +88,12 @@ public class CommonApiMapper {
             modelMapper.map(branchDetEntity, ResponseBranchDet.class);
     return responseBranchDet;
   }
+
+  public static MeetingApiRestResponse map(final MeetingApiRestEntity meetingApiRestEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    MeetingApiRestResponse meetingApiRestResponse =
+            modelMapper.map(meetingApiRestEntity, MeetingApiRestResponse.class);
+    return meetingApiRestResponse;
+  }
+
 }
