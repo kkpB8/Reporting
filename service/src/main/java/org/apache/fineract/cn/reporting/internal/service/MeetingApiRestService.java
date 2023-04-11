@@ -62,8 +62,8 @@ public class MeetingApiRestService {
             if(meetingApiRestRequest.getToDate()== null){
                 meetingApiRestRequest.setToDate("null");
             }
-            if(meetingApiRestRequest.getGeographicalLevel()==null){
-                meetingApiRestRequest.setGeographicalLevel(-1);
+            if(meetingApiRestRequest.getGeographicalFlag()==null){
+                meetingApiRestRequest.setGeographicalFlag(-1);
             }
 
             List<MeetingApiRestResponse> meetingApiRestResponseList = new ArrayList<>();
@@ -80,7 +80,7 @@ public class MeetingApiRestService {
                             meetingApiRestRequest.getClfId(),
                             meetingApiRestRequest.getFromDate(),
                             meetingApiRestRequest.getToDate(),
-                            meetingApiRestRequest.getGeographicalLevel()
+                            meetingApiRestRequest.getGeographicalFlag()
                     );
 
             meetingApiRestEntityList.forEach(meetingApiRestEntity ->

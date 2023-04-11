@@ -19,7 +19,7 @@ public interface MeetingApiRestRepository extends JpaRepository<MeetingApiRestEn
                 "(-1 = :voId or c.voId=:voId) and " +
                 "(-1 = :clfId or c.clfId=:clfId) and " +
                 "(c.yearMonth>=:fromDate or c.yearMonth<=:toDate) and " +
-                "(c.geographicalLevel=:geographicalLevel)")
+                "(c.geographicalFlag=:geographicalFlag)")
         List<MeetingApiRestEntity> findByFilter(
                 @Param("stateId") final Integer stateId,
                 @Param("districtId") final Integer districtId,
@@ -31,7 +31,7 @@ public interface MeetingApiRestRepository extends JpaRepository<MeetingApiRestEn
                 @Param("clfId") final Integer clfId,
                 @Param("fromDate") final String fromDate,
                 @Param("toDate") final String toDate,
-                @Param("geographicalLevel") final Integer geographicalLevel
+                @Param("geographicalFlag") final Integer geographicalFlag
 
         );
     }

@@ -5,11 +5,12 @@ public class MeetingApiRestResponse {
     private Integer stateId;
     private Integer districtId;
     private Integer blockId;
-    private Integer villageId;
     private Integer panchayatId;
+    private Integer villageId;
     private Integer totalShgFormed;
     private Integer shgConductedMeeting;
-    private Integer geographicalLevel;
+  //  private Integer geographicalLevel;
+    private Integer geographicalFlag;
     private String yearMonth;
     private Integer shgId;
     private Integer voId;
@@ -95,12 +96,20 @@ public class MeetingApiRestResponse {
         this.shgConductedMeeting = shgConductedMeeting;
     }
 
-    public Integer getGeographicalLevel() {
-        return geographicalLevel;
+//    public Integer getGeographicalLevel() {
+//        return geographicalLevel;
+//    }
+//
+//    public void setGeographicalLevel(Integer geographicalLevel) {
+//        this.geographicalLevel = geographicalLevel;
+//    }
+
+    public Integer getGeographicalFlag() {
+        return geographicalFlag;
     }
 
-    public void setGeographicalLevel(Integer geographicalLevel) {
-        this.geographicalLevel = geographicalLevel;
+    public void setGeographicalFlag(Integer geographicalFlag) {
+        this.geographicalFlag = geographicalFlag;
     }
 
     public String getYearMonth() {

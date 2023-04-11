@@ -12,24 +12,23 @@ public class MeetingApiRestEntity {
         @Column(name = "id", nullable = false)
         private BigInteger id ;
         @Column(name = "geographical_level")
-        private Integer geographicalLevel;
+        private Integer geographicalFlag;
         @Column(name = "state_id")
         private Integer stateId;
         @Column(name = "district_id")
         private Integer districtId;
         @Column(name = "block_id")
         private Integer blockId;
-        @Column(name = "village_id")
-        private Integer villageId;
         @Column(name = "panchayat_id")
         private Integer panchayatId;
+        @Column(name = "village_id")
+        private Integer villageId;
         @Column(name = "year_month")
         private String yearMonth;
         @Column(name = "total_shg_formed")
         private Integer totalShgFormed;
         @Column(name = "shg_conducted_meeting")
         private Integer shgConductedMeeting;
-
         @Column(name = "shg_id")
         private Integer shgId;
         @Column(name = "vo_id")
@@ -70,11 +69,19 @@ public class MeetingApiRestEntity {
                 this.id = id;
         }
 
-        public Integer getGeographicalLevel() {
-                return geographicalLevel;
+//        public Integer getGeographicalLevel() {
+//                return geographicalLevel;
+//        }
+//        public void setGeographicalLevel(Integer geographicalLevel) {
+//                this.geographicalLevel = geographicalLevel;
+//        }
+
+        public Integer getGeographicalFlag() {
+                return geographicalFlag;
         }
-        public void setGeographicalLevel(Integer geographicalLevel) {
-                this.geographicalLevel = geographicalLevel;
+
+        public void setGeographicalFlag(Integer geographicalFlag) {
+                this.geographicalFlag = geographicalFlag;
         }
 
         public Integer getStateId() {

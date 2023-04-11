@@ -10,7 +10,8 @@ public class MeetingApiRestRequest {
     private Integer villageId;
     private String fromDate;
     private String toDate;
-    private Integer geographicalLevel;
+  //  private Integer geographicalLevel;
+    private Integer geographicalFlag;
     private Integer shgId;
     private Integer voId;
     private Integer clfId;
@@ -96,11 +97,20 @@ public class MeetingApiRestRequest {
         this.toDate = toDate;
     }
 
-    public Integer getGeographicalLevel() {
-        return geographicalLevel;
+//    public Integer getGeographicalLevel() {
+//        return geographicalLevel;
+//    }
+//
+//    public void setGeographicalLevel(Integer geographicalLevel) {
+//        this.geographicalLevel = geographicalLevel;
+//    }
+
+
+    public Integer getGeographicalFlag() {
+        return geographicalFlag;
     }
 
-    public void setGeographicalLevel(Integer geographicalLevel) {
-        this.geographicalLevel = geographicalLevel;
+    public void setGeographicalFlag(Integer geographicalFlag) {
+        this.geographicalFlag = geographicalFlag;
     }
 }

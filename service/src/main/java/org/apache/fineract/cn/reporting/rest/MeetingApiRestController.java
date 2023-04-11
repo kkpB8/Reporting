@@ -41,7 +41,7 @@ public class MeetingApiRestController {
         public
         @ResponseBody
         ResponseEntity<List<MeetingApiRestResponse>> fetchMeetingList(@RequestBody MeetingApiRestRequest meetingApiRestRequest) {
-            if (meetingApiRestRequest.getGeographicalLevel() != null) {
+            if (meetingApiRestRequest.getGeographicalFlag() != null) {
                 return ResponseEntity.ok(
                         this.meetingApiRestService.fetchMeetingList(meetingApiRestRequest));
             } else {
