@@ -96,4 +96,13 @@ public class CommonApiMapper {
     return meetingApiRestResponse;
   }
 
+<<<<<<< HEAD
+=======
+  public static ResponseBankWiseCbo map(final BankWiseCboEntity bankWiseCboEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBankWiseCbo responseBankWiseCbo =
+            modelMapper.map(bankWiseCboEntity, ResponseBankWiseCbo.class);
+    return responseBankWiseCbo;
+  }
+>>>>>>> 29372973b9169febcc05888dad98acba4b24c998
 }
