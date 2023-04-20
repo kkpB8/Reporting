@@ -18,18 +18,21 @@ public class BankBranchCbosApiService {
         private final BankBranchCbosRepository bankBranchCbosRepository;
         private final BankDetailsRepository bankDetailsRepository;
         private final BranchDetRepository branchDetRepository;
+        private final BankWiseCboRepository bankWiseCboRepository;
 //    BankBranch
 
         @Autowired
         public BankBranchCbosApiService(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
                                         final BankBranchCbosRepository bankBranchCbosRepository,
                                         final BankDetailsRepository bankDetailsRepository,
-                                        final BranchDetRepository branchDetRepository) {
+                                        final BranchDetRepository branchDetRepository,
+                                        final BankWiseCboRepository bankWiseCboRepository) {
             super();
             this.logger = logger;
             this.bankBranchCbosRepository = bankBranchCbosRepository;
             this.bankDetailsRepository = bankDetailsRepository;
             this.branchDetRepository = branchDetRepository;
+            this.bankWiseCboRepository = bankWiseCboRepository;
         }
         public List<ResponseBankBranchCbos> fetchBankBranchList(RequestBankBranchCbos requestBankBranchCbos) {
             if(requestBankBranchCbos.getStateId() == null){
@@ -122,5 +125,58 @@ public class BankBranchCbosApiService {
             responseBranchDetList.add(responseBranchDet);
         });
         return responseBranchDetList;
+    }
+
+    public List<ResponseBankWiseCbo> fetchBankWiseCboList(RequestBankWiseCbo requestBankWiseCbo){
+        if(requestBankWiseCbo.getStateId() == null){
+            requestBankWiseCbo.setStateId(-1);
+        }
+        if(requestBankWiseCbo.getDistrictId() == null){
+            requestBankWiseCbo.setDistrictId(-1);
+        }
+        if(requestBankWiseCbo.getBlockId() == null){
+            requestBankWiseCbo.setBlockId(-1);
+        }
+        if(requestBankWiseCbo.getBankTypeId() == null){
+            requestBankWiseCbo.setBankTypeId(-1);
+        }
+        if(requestBankWiseCbo.getBankId() == null){
+            requestBankWiseCbo.setBankId(-1);
+        }
+        if(requestBankWiseCbo.getBranchId()==null){
+            requestBankWiseCbo.setBranchId(-1);
+        }
+        if(requestBankWiseCbo.getFromDate() == null){
+            requestBankWiseCbo.setFromDate("null");
+        }
+        if(requestBankWiseCbo.getToDate()== null){
+            requestBankWiseCbo.setToDate("null");
+        }
+        if(requestBankWiseCbo.getGeographicalFlag()==null){
+            requestBankWiseCbo.setGeographicalFlag(-1);
+        }
+
+
+        List<ResponseBankWiseCbo> responseBankWiseCboList = new ArrayList<>();
+        List<BankWiseCboEntity> bankWiseCboEntityList;
+        bankWiseCboEntityList = bankWiseCboRepository.
+                fetchBankWiseCbo(
+                        requestBankWiseCbo.getStateId(),
+                        requestBankWiseCbo.getDistrictId(),
+                        requestBankWiseCbo.getBlockId(),
+                        requestBankWiseCbo.getBankTypeId(),
+                        requestBankWiseCbo.getBankId(),
+                        requestBankWiseCbo.getBranchId(),
+                        requestBankWiseCbo.getFromDate(),
+                        requestBankWiseCbo.getToDate(),
+                        requestBankWiseCbo.getGeographicalFlag()
+                );
+
+        bankWiseCboEntityList.forEach(bankWiseCboEntity ->
+        {
+            ResponseBankWiseCbo responseBankWiseCbo = CommonApiMapper.map(bankWiseCboEntity);
+            responseBankWiseCboList.add(responseBankWiseCbo);
+        });
+        return responseBankWiseCboList;
     }
 }
