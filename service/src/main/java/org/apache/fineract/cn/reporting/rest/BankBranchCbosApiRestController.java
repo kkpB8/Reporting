@@ -2,10 +2,7 @@ package org.apache.fineract.cn.reporting.rest;
 import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
-import org.apache.fineract.cn.reporting.api.domain.RequestBankBranchCbos;
-import org.apache.fineract.cn.reporting.api.domain.ResponseBankBranchCbos;
-import org.apache.fineract.cn.reporting.api.domain.ResponseBankDeatils;
-import org.apache.fineract.cn.reporting.api.domain.ResponseBranchDet;
+import org.apache.fineract.cn.reporting.api.domain.*;
 import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.repository.BranchDetEntity;
@@ -89,6 +86,26 @@ public class BankBranchCbosApiRestController {
         if (bankId != null) {
             return ResponseEntity.ok(
                     this.bankBranchCbosApiService.fetchBranchList(bankId, geographicalFlag));
+        } else {
+            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+        }
+    }
+
+
+
+    @Permittable(value = AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/bank-wise-cbo-accounts",
+            method = RequestMethod.POST,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestBody RequestBankWiseCbo requestBankWiseCbo) {
+        if (requestBankWiseCbo.getGeographicalFlag() != null) {
+            return ResponseEntity.ok(
+                    this.bankBranchCbosApiService.fetchBankWiseCboList(requestBankWiseCbo));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
