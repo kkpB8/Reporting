@@ -44,18 +44,38 @@ public class TransactionSummaryEntity {
     private Integer panchayatId;
     @Column(name = "village_id")
     private Integer villageId;
+    @Column(name = "state_name")
+    private String stateName;
+    @Column(name = "district_name")
+    private String districtName;
+    @Column(name = "block_name")
+    private String blockName;
+    @Column(name = "panchayat_name")
+    private String panchayatName;
+    @Column(name = "village_name")
+    private String villageName;
     @Column(name = "shg_id")
     private Integer shgId;
     @Column(name = "vo_id")
     private BigInteger voId;
     @Column(name = "clf_id")
     private BigInteger clfId;
+    @Column(name = "shg_name")
+    private String shgName;
+    @Column(name = "vo_name")
+    private String voName;
+    @Column(name = "clf_name")
+    private String clfName;
     @Column(name = "year_month")
     private String yearMonth;
     @Column(name = "geographical_level")
     private Integer geographicalLevel;
     @Column(name = "total_shg")
     private Integer totalShg;
+    @Column(name = "total_shg_formed")
+    private Integer totalShgFormed;
+    @Column(name = "shg_mapped_month")
+    private Integer shgMappedMonth;
     @Column(name = "total_shg_member")
     private Integer totalShgMember;
     @Column(name = "total_meeting_conducted")
@@ -163,11 +183,175 @@ public class TransactionSummaryEntity {
     private  Integer flag;
     @Column(name = "meeting_frequency")
     private Short meetingFrequency;
+    @Column(name = "shg_conduting_meeting")
+    private Integer shgConductingMeeting;
+    @Column(name = "shg_save_50")
+    private Integer shgSave50;
+    @Column(name = "shg_save_50_70")
+    private Integer shgSave50to70;
+    @Column(name = "shg_save_70_90")
+    private Integer shgSave70to90;
+
+    @Column(name = "shg_save_90")
+    private Integer shgSave90;
+    @Column(name = "no_of_meeting")
+    private Integer noOfMeeting;
+    @Column(name = "expected_amt")
+    private Integer expectedAmt;
+    @Column(name = "amt_collected")
+    private Integer amtCollected;
+    @Column(name = "amt_voluntary")
+    private Integer amtVoluntary;
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
+    public String getDistrictName() {
+        return districtName;
+    }
+
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
+    }
+
+    public String getBlockName() {
+        return blockName;
+    }
+
+    public void setBlockName(String blockName) {
+        this.blockName = blockName;
+    }
+
+    public String getPanchayatName() {
+        return panchayatName;
+    }
+
+    public void setPanchayatName(String panchayatName) {
+        this.panchayatName = panchayatName;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String getShgName() {
+        return shgName;
+    }
+
+    public void setShgName(String shgName) {
+        this.shgName = shgName;
+    }
+
+    public String getVoName() {
+        return voName;
+    }
+
+    public void setVoName(String voName) {
+        this.voName = voName;
+    }
+
+    public String getClfName() {
+        return clfName;
+    }
+
+    public void setClfName(String clfName) {
+        this.clfName = clfName;
+    }
+    public Integer getNoOfMeeting() {
+        return noOfMeeting;
+    }
+
+    public void setNoOfMeeting(Integer noOfMeeting) {
+        this.noOfMeeting = noOfMeeting;
+    }
+
+    public Integer getExpectedAmt() {
+        return expectedAmt;
+    }
+
+    public void setExpectedAmt(Integer expectedAmt) {
+        this.expectedAmt = expectedAmt;
+    }
+
+    public Integer getAmtCollected() {
+        return amtCollected;
+    }
+
+    public void setAmtCollected(Integer amtCollected) {
+        this.amtCollected = amtCollected;
+    }
+
+    public Integer getAmtVoluntary() {
+        return amtVoluntary;
+    }
+
+    public void setAmtVoluntary(Integer amtVoluntary) {
+        this.amtVoluntary = amtVoluntary;
+    }
+
+    public Integer getTotalShgFormed() {
+        return totalShgFormed;
+    }
+
+    public void setTotalShgFormed(Integer totalShgFormed) {
+        this.totalShgFormed = totalShgFormed;
+    }
+    public Integer getShgMappedMonth() {
+        return shgMappedMonth;
+    }
+
+    public void setShgMappedMonth(Integer shgMappedMonth) {
+        this.shgMappedMonth = shgMappedMonth;
+    }
+
+    public Integer getShgSave50() {
+        return shgSave50;
+    }
+
+    public void setShgSave50(Integer shgSave50) {
+        this.shgSave50 = shgSave50;
+    }
+
+    public Integer getShgSave50to70() {
+        return shgSave50to70;
+    }
+
+    public void setShgSave50to70(Integer shgSave50to70) {
+        this.shgSave50to70 = shgSave50to70;
+    }
+
+    public Integer getShgSave70to90() {
+        return shgSave70to90;
+    }
+
+    public void setShgSave70to90(Integer shgSave70to90) {
+        this.shgSave70to90 = shgSave70to90;
+    }
 
 
+    public Integer getShgSave90() {
+        return shgSave90;
+    }
 
+    public void setShgSave90(Integer shgSave90) {
+        this.shgSave90 = shgSave90;
+    }
 
+    public Integer getShgConductingMeeting() {
+        return shgConductingMeeting;
+    }
 
+    public void setShgConductingMeeting(Integer shgConductingMeeting) {
+        this.shgConductingMeeting = shgConductingMeeting;
+    }
     public BigInteger getId() {
         return id;
     }

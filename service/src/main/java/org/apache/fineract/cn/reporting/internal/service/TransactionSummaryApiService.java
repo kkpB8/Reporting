@@ -55,8 +55,8 @@ public class TransactionSummaryApiService {
     public List<TransactionSummary> fetchShgTransactionSummaryList(TransactionSummaryRequest transactionSummaryRequest) {
         String yearMonth = null;
         String orderBy1 = null;
-        String fromDate1 = null;
-        String toDate1 = null;
+//        String fromDate1 = null;
+//        String toDate1 = null;
         if(transactionSummaryRequest.getQtrhalfYearFlag() != null){
            // String year =transactionSummaryRequest.getYear();
             //String quaterHalf = transactionSummaryRequest.getQtrhalfYearFlag();
@@ -76,26 +76,29 @@ public class TransactionSummaryApiService {
 //            }
 
         } else {
-
-
-
-            String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
-            if (transactionSummaryRequest.getFromDate() != null && transactionSummaryRequest.getToDate() != null) {
-                fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
-                toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
+//            String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+            if(transactionSummaryRequest.getFromDate() == null){
+                transactionSummaryRequest.setFromDate("null");
             }
-            if (transactionSummaryRequest.getFromDate() == null && transactionSummaryRequest.getToDate() == null) {
-                fromDate1 = "1970-01";
-                toDate1 = toDate2;
+            if(transactionSummaryRequest.getToDate() == null){
+                transactionSummaryRequest.setToDate("null");
             }
-            if (transactionSummaryRequest.getFromDate() == null && transactionSummaryRequest.getToDate() != null) {
-                fromDate1 = "1970-01";
-                toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
-            }
-            if (transactionSummaryRequest.getFromDate() != null && transactionSummaryRequest.getToDate() == null) {
-                fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
-                toDate1 = toDate2;
-            }
+//            if (transactionSummaryRequest.getFromDate() != null && transactionSummaryRequest.getToDate() != null) {
+//                fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
+//                toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
+//            }
+//            if (transactionSummaryRequest.getFromDate() == null && transactionSummaryRequest.getToDate() == null) {
+//                fromDate1 = "1970-01";
+//                toDate1 = toDate2;
+//            }
+//            if (transactionSummaryRequest.getFromDate() == null && transactionSummaryRequest.getToDate() != null) {
+//                fromDate1 = "1970-01";
+//                toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
+//            }
+//            if (transactionSummaryRequest.getFromDate() != null && transactionSummaryRequest.getToDate() == null) {
+//                fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
+//                toDate1 = toDate2;
+//            }
         }
       // List<ResponseLoanShgReport> responseLoanShgReportList = new ArrayList<>();
        //List<Object[]> loanShgReportList;
@@ -160,8 +163,10 @@ public class TransactionSummaryApiService {
                            transactionSummaryRequest.getBlockId(),
                            transactionSummaryRequest.getPanchayatId(),
                            transactionSummaryRequest.getVillageId(),
-                           fromDate1,
-                           toDate1,
+//                           fromDate1,
+//                           toDate1,
+                           transactionSummaryRequest.getFromDate(),
+                           transactionSummaryRequest.getToDate(),
                            transactionSummaryRequest.getShgId(),
                            transactionSummaryRequest.getVoId(),
                            transactionSummaryRequest.getClfId(),
@@ -179,8 +184,10 @@ public class TransactionSummaryApiService {
                                transactionSummaryRequest.getBlockId(),
                                transactionSummaryRequest.getPanchayatId(),
                                transactionSummaryRequest.getVillageId(),
-                               fromDate1,
-                               toDate1,
+//                               fromDate1,
+//                               toDate1,
+                               transactionSummaryRequest.getFromDate(),
+                               transactionSummaryRequest.getToDate(),
                                transactionSummaryRequest.getShgId(),
                                transactionSummaryRequest.getVoId(),
                                transactionSummaryRequest.getClfId(),
@@ -203,19 +210,25 @@ public class TransactionSummaryApiService {
     public List<VoTransactionSummary> fetchVoTransactionSummaryList(TransactionSummaryRequest transactionSummaryRequest) {
         String fromDate1 = null;
         String toDate1 =null;
-        String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
-        if(transactionSummaryRequest.getFromDate() != null && transactionSummaryRequest.getToDate() != null) {
-            fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
-            toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
-        }if(transactionSummaryRequest.getFromDate() == null && transactionSummaryRequest.getToDate() == null){
-            fromDate1 = "1970-01";
-            toDate1 = toDate2;
-        }if(transactionSummaryRequest.getFromDate() == null  && transactionSummaryRequest.getToDate() != null){
-            fromDate1 = "1970-01";
-            toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
-        }if(transactionSummaryRequest.getFromDate() != null  && transactionSummaryRequest.getToDate() == null){
-            fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
-            toDate1 = toDate2;
+//        String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+//        if(transactionSummaryRequest.getFromDate() != null && transactionSummaryRequest.getToDate() != null) {
+//            fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
+//            toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
+//        }if(transactionSummaryRequest.getFromDate() == null && transactionSummaryRequest.getToDate() == null){
+//            fromDate1 = "1970-01";
+//            toDate1 = toDate2;
+//        }if(transactionSummaryRequest.getFromDate() == null  && transactionSummaryRequest.getToDate() != null){
+//            fromDate1 = "1970-01";
+//            toDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getToDate());
+//        }if(transactionSummaryRequest.getFromDate() != null  && transactionSummaryRequest.getToDate() == null){
+//            fromDate1 = DateUtils.longConvertToYearMonth(transactionSummaryRequest.getFromDate());
+//            toDate1 = toDate2;
+//        }
+        if(transactionSummaryRequest.getFromDate() == null){
+            transactionSummaryRequest.setFromDate("null");
+        }
+        if(transactionSummaryRequest.getToDate() == null){
+            transactionSummaryRequest.setToDate("null");
         }
         String orderBy=" c.yearMonth ASC";
         if(transactionSummaryRequest.getStateId() == null){
@@ -258,8 +271,10 @@ public class TransactionSummaryApiService {
                         transactionSummaryRequest.getDistrictId(),
                         transactionSummaryRequest.getBlockId(),
                         transactionSummaryRequest.getPanchayatId(),
-                        fromDate1,
-                        toDate1,
+//                        fromDate1,
+//                        toDate1,
+                        transactionSummaryRequest.getFromDate(),
+                        transactionSummaryRequest.getToDate(),
                         transactionSummaryRequest.getVoId(),
                         transactionSummaryRequest.getClfId(),
                         transactionSummaryRequest.getGeoGraphicalLevel(),
