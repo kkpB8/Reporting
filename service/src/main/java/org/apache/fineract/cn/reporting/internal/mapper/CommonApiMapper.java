@@ -46,7 +46,6 @@ public class CommonApiMapper {
     return transactionSummary;
 
   }
-
   public static VoTransactionSummary map(final VoTransactionSummaryEntity voTransactionSummaryEntity) {
     ModelMapper modelMapper = new ModelMapper();
     VoTransactionSummary voTransactionSummary =
@@ -59,7 +58,6 @@ public class CommonApiMapper {
     ProfileReportResponse ProfileReportResponse =
             modelMapper.map(profileReportEntity, ProfileReportResponse.class);
     return ProfileReportResponse;
-
   }
   public static ResponseSocialMobilization map(final SocialMobalizationEntity socialMobalizationEntity) {
     ModelMapper modelMapper = new ModelMapper();
@@ -81,7 +79,6 @@ public class CommonApiMapper {
     return responseBankDeatils;
   }
 
-
   public static ResponseBranchDet map(final BranchDetEntity branchDetEntity) {
     ModelMapper modelMapper = new ModelMapper();
     ResponseBranchDet responseBranchDet =
@@ -96,13 +93,72 @@ public class CommonApiMapper {
     return meetingApiRestResponse;
   }
 
-<<<<<<< HEAD
-=======
   public static ResponseBankWiseCbo map(final BankWiseCboEntity bankWiseCboEntity) {
     ModelMapper modelMapper = new ModelMapper();
     ResponseBankWiseCbo responseBankWiseCbo =
             modelMapper.map(bankWiseCboEntity, ResponseBankWiseCbo.class);
     return responseBankWiseCbo;
   }
->>>>>>> 29372973b9169febcc05888dad98acba4b24c998
+
+
+  public static MenuMasterResponse map(final MenuMasterEntity menuMasterEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    MenuMasterResponse menuMasterResponse =
+            modelMapper.map(menuMasterEntity, MenuMasterResponse.class);
+    return menuMasterResponse;
+  }
+
+  public static VoFilterResponse map(final VoFilterEntity voFilterEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    VoFilterResponse voFilterResponse =
+            modelMapper.map(voFilterEntity, VoFilterResponse.class);
+    return voFilterResponse;
+  }
+
+  public static ClfVoFilterResponse map(final ClfVoFilterEntity clfVoFilterEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ClfVoFilterResponse clfVoFilterResponse =
+            modelMapper.map(clfVoFilterEntity, ClfVoFilterResponse.class);
+    return clfVoFilterResponse;
+  }
+  /*
+  public static ResponseBankApiDeatils map(final BankDetailApiEntity bankDetailApiEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBankApiDeatils responseBankApiDeatils =
+            modelMapper.map(bankDetailApiEntity, ResponseBankApiDeatils.class);
+    return responseBankApiDeatils;
+  }
+
+   */
+
+  public static TransactionSummary map(final TransactionsSummaryEntity transactionsSummaryEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    TransactionSummary transactionSummary =
+            modelMapper.map(transactionsSummaryEntity, TransactionSummary.class);
+    return transactionSummary;
+  }
+
+  public static VoTransactionSummary map(final TransactionsSummarysEntity transactionsSummarysEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    VoTransactionSummary voTransactionSummary =
+            modelMapper.map(transactionsSummarysEntity, VoTransactionSummary.class);
+    return voTransactionSummary;
+  }
+
+  public static ResponseBankApiDeatils map(final BankDetailApiEntity bankDetailApiEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBankApiDeatils responseBankApiDeatils =
+            modelMapper.map(bankDetailApiEntity, ResponseBankApiDeatils.class);
+    return responseBankApiDeatils;
+  }
+
+
+  public static ResponseBranchApiDeatils map(final BranchDetailApiEntity branchDetailApiEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseBranchApiDeatils responseBranchApiDeatils =
+            modelMapper.map(branchDetailApiEntity, ResponseBranchApiDeatils.class);
+    return responseBranchApiDeatils;
+  }
+
+
 }
