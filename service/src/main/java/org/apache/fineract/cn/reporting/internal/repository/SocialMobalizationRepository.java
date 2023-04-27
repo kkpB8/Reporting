@@ -11,26 +11,41 @@ import java.util.List;
 @Repository
 public interface SocialMobalizationRepository extends JpaRepository<SocialMobalizationEntity, BigInteger> {
     @Query("FROM  SocialMobalizationEntity c WHERE " +
+            "(c.geographicalFlag=:geographicalFlag) and "+
+            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
             "(-1 = :stateId or c.stateId=:stateId) and " +
             "(-1 = :districtId or c.districtId=:districtId) and " +
             "(-1 = :blockId or c.blockId=:blockId) and " +
-            "(-1 = :villageId or c.villageId=:villageId) and " +
             "(-1 = :panchayatId or c.panchayatId=:panchayatId) and " +
-            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
-//            "(:yearMonth is not null or c.yearMonth=:yearMonth) and " +
-            "(c.geographicalFlag=:geographicalFlag)")
+            "(-1 = :villageId or c.villageId=:villageId)")
 
     List<SocialMobalizationEntity> findByFilter(
+            @Param("geographicalFlag") final Integer geographicalFlag,
+            @Param("fromDate") final String fromDate,
+            @Param("toDate") final String toDate,
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
-            @Param("villageId") final Integer villageId,
             @Param("panchayatId") final Integer panchayatId,
-//            @Param("fromDate") final Long fromDate,
-//            @Param("toDate") final Long toDate,
+            @Param("villageId") final Integer villageId
+    );
+    @Query("FROM  SocialMobalizationEntity c WHERE " +
+            "(c.geographicalFlag=:geographicalFlag) and "+
+            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
+            "(-1 = :stateId or c.stateId=:stateId) and " +
+            "(-1 = :districtId or c.districtId=:districtId) and " +
+            "(-1 = :blockId or c.blockId=:blockId) and " +
+            "(-1 = :panchayatId or c.panchayatId=:panchayatId) and " +
+            "(-1 = :villageId or c.villageId=:villageId)")
+
+    List<SocialMobalizationEntity> findByFilter1(
+            @Param("geographicalFlag") final Integer geographicalFlag,
             @Param("fromDate") final String fromDate,
             @Param("toDate") final String toDate,
-            @Param("geographicalFlag") final Integer geographicalFlag
+            @Param("stateId") final Integer stateId,
+            @Param("districtId") final Integer districtId,
+            @Param("blockId") final Integer blockId,
+            @Param("panchayatId") final Integer panchayatId,
+            @Param("villageId") final Integer villageId
     );
-
 }

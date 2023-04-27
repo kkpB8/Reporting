@@ -17,6 +17,7 @@
  * under the License.
  */
 package org.apache.fineract.cn.reporting.internal.service;
+import jnr.ffi.annotations.In;
 import org.apache.fineract.cn.reporting.DateUtils;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.RequestSocialMobilization;
@@ -49,7 +50,17 @@ public class ServiceSocialMobilization {
 
     }
 
-    public List<ResponseSocialMobilization> fetchShgInitiationList(RequestSocialMobilization requestSocialMobilization) {
+    public List<ResponseSocialMobilization> fetchShgInitiationsList(RequestSocialMobilization requestSocialMobilization) {
+
+        if(requestSocialMobilization.getGeographicalFlag()==null){
+            requestSocialMobilization.setGeographicalFlag(-1);
+        }
+        if(requestSocialMobilization.getFromDate() == null){
+            requestSocialMobilization.setFromDate("null");
+        }
+        if(requestSocialMobilization.getToDate()== null){
+            requestSocialMobilization.setToDate("null");
+        }
         if(requestSocialMobilization.getStateId() == null){
             requestSocialMobilization.setStateId(-1);
         }
@@ -59,55 +70,67 @@ public class ServiceSocialMobilization {
         if(requestSocialMobilization.getBlockId() == null){
             requestSocialMobilization.setBlockId(-1);
         }
-//        String fromDate1 = null;
-//        String toDate1 = null;
-//        String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
-//        if (requestSocialMobilization.getFromDate() != null && requestSocialMobilization.getToDate() != null) {
-//            fromDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getFromDate());
-//            toDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getToDate());
-//        }
-//        if (requestSocialMobilization.getFromDate() == null && requestSocialMobilization.getToDate() == null) {
-//            fromDate1 = "1970-01";
-//            toDate1 = toDate2;
-//        }
-//        if (requestSocialMobilization.getFromDate() == null && requestSocialMobilization.getToDate() != null) {
-//            fromDate1 = "1970-01";
-//            toDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getToDate());
-//        }
-//        if (requestSocialMobilization.getFromDate() != null && requestSocialMobilization.getToDate() == null) {
-//            fromDate1 = DateUtils.longConvertToYearMonth(requestSocialMobilization.getFromDate());
-//            toDate1 = toDate2;
-//        }
-
-        if(requestSocialMobilization.getVillageId() == null){
-            requestSocialMobilization.setVillageId(-1);
-        }
         if(requestSocialMobilization.getPanchayatId() == null){
             requestSocialMobilization.setPanchayatId(-1);
         }
-        if(requestSocialMobilization.getFromDate() == null){
-            requestSocialMobilization.setFromDate("null");
-        }
-        if(requestSocialMobilization.getToDate()== null){
-            requestSocialMobilization.setToDate("null");
-        }
-        if(requestSocialMobilization.getGeographicalFlag()==null){
-            requestSocialMobilization.setGeographicalFlag(-1);
+        if(requestSocialMobilization.getVillageId() == null){
+            requestSocialMobilization.setVillageId(-1);
         }
 
         List<ResponseSocialMobilization> responseSocialMobilizationList = new ArrayList<>();
         List<SocialMobalizationEntity> socialMobalizationEntityList;
         socialMobalizationEntityList = socialMobalizationRepository.
                 findByFilter(
+                        requestSocialMobilization.getGeographicalFlag(),
+                        requestSocialMobilization.getFromDate(),
+                        requestSocialMobilization.getToDate(),
                         requestSocialMobilization.getStateId(),
                         requestSocialMobilization.getDistrictId(),
                         requestSocialMobilization.getBlockId(),
-                        requestSocialMobilization.getVillageId(),
                         requestSocialMobilization.getPanchayatId(),
-                        requestSocialMobilization.getFromDate(),
-                        requestSocialMobilization.getToDate(),
-                        requestSocialMobilization.getGeographicalFlag()
+                        requestSocialMobilization.getVillageId()
                 );
+
+        socialMobalizationEntityList.forEach(socialMobalizationEntity ->
+        {
+            ResponseSocialMobilization responseSocialMobilization = CommonApiMapper.map(socialMobalizationEntity);
+            responseSocialMobilizationList.add(responseSocialMobilization);
+        });
+        return responseSocialMobilizationList;
+    }
+
+    public List<ResponseSocialMobilization> fetchShgInitiationList(Integer geographicalFlag, String fromDate, String toDate, Integer stateId, Integer districtId,
+                                                                   Integer blockId, Integer panchayatId, Integer villageId) {
+
+        if(geographicalFlag == null){
+            geographicalFlag = -1;
+        }
+        if(fromDate == null){
+            fromDate = "null";
+        }
+        if(toDate == null){
+            toDate = "null";
+        }
+        if(stateId == null){
+            stateId = -1;
+        }
+        if(districtId == null){
+            districtId = -1;
+        }
+        if(blockId == null){
+            blockId = -1;
+        }
+        if(panchayatId == null){
+            panchayatId = -1;
+        }
+        if(villageId == null){
+            villageId = -1;
+        }
+
+        List<ResponseSocialMobilization> responseSocialMobilizationList = new ArrayList<>();
+        List<SocialMobalizationEntity> socialMobalizationEntityList;
+        socialMobalizationEntityList = socialMobalizationRepository.
+                findByFilter1(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId);
 
         socialMobalizationEntityList.forEach(socialMobalizationEntity ->
         {

@@ -1,4 +1,5 @@
 package org.apache.fineract.cn.reporting.internal.service;
+import jnr.ffi.annotations.In;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
 import org.apache.fineract.cn.reporting.internal.mapper.CommonApiMapper;
@@ -34,48 +35,38 @@ public class BankBranchCbosApiService {
             this.branchDetRepository = branchDetRepository;
             this.bankWiseCboRepository = bankWiseCboRepository;
         }
-        public List<ResponseBankBranchCbos> fetchBankBranchList(RequestBankBranchCbos requestBankBranchCbos) {
-            if(requestBankBranchCbos.getStateId() == null){
-                requestBankBranchCbos.setStateId(-1);
+        public List<ResponseBankBranchCbos> fetchBankBranchList(Integer geographicalFlag, String fromDate, String toDate, Integer stateId,
+                                                                Integer districtId, Integer blockId,Integer bankId,
+                                                                Integer branchId) {
+            if(geographicalFlag == null){
+                geographicalFlag = -1;
             }
-            if(requestBankBranchCbos.getDistrictId() == null){
-                requestBankBranchCbos.setDistrictId(-1);
+            if(fromDate == null){
+                fromDate = "null";
             }
-            if(requestBankBranchCbos.getBlockId() == null){
-                requestBankBranchCbos.setBlockId(-1);
+            if(toDate == null){
+                toDate = "null";
             }
-            if(requestBankBranchCbos.getBankId() == null){
-                requestBankBranchCbos.setBankId(-1);
+            if(stateId == null){
+                stateId = -1;
             }
-            if(requestBankBranchCbos.getBranchId()== null){
-                requestBankBranchCbos.setBranchId(-1);
+            if(districtId == null){
+                districtId = -1;
             }
-            if(requestBankBranchCbos.getFromDate() == null){
-                requestBankBranchCbos.setFromDate("null");
+            if(blockId == null){
+                blockId = -1;
             }
-            if(requestBankBranchCbos.getToDate()== null) {
-                requestBankBranchCbos.setToDate("null");
+            if(bankId == null){
+                bankId = -1;
             }
-            if(requestBankBranchCbos.getGeographicalFlag()==null){
-                requestBankBranchCbos.setGeographicalFlag(-1);
+            if(branchId == null){
+                branchId = -1;
             }
-
 
             List<ResponseBankBranchCbos> responseBankBranchCbosList = new ArrayList<>();
             List<BankBranchCbosEntity> bankBranchCbosEntityList;
             bankBranchCbosEntityList = bankBranchCbosRepository.
-                    findByFilter(
-                            requestBankBranchCbos.getStateId(),
-                            requestBankBranchCbos.getDistrictId(),
-                            requestBankBranchCbos.getBlockId(),
-                            requestBankBranchCbos.getBankId(),
-                            requestBankBranchCbos.getBranchId(),
-                            requestBankBranchCbos.getFromDate(),
-                            requestBankBranchCbos.getToDate(),
-                            requestBankBranchCbos.getGeographicalFlag()
-
-                    );
-
+                    findByFilter(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, bankId, branchId);
             bankBranchCbosEntityList.forEach(bankBranchCbosEntity ->
             {
                 ResponseBankBranchCbos responseBankBranchCbos = CommonApiMapper.map(bankBranchCbosEntity);
@@ -127,50 +118,41 @@ public class BankBranchCbosApiService {
         return responseBranchDetList;
     }
 
-    public List<ResponseBankWiseCbo> fetchBankWiseCboList(RequestBankWiseCbo requestBankWiseCbo){
-        if(requestBankWiseCbo.getStateId() == null){
-            requestBankWiseCbo.setStateId(-1);
+    public List<ResponseBankWiseCbo> fetchBankWiseCboList(Integer geographicalFlag, String fromDate, String toDate, Integer stateId,
+                                                          Integer districtId, Integer blockId, Integer bankTypeId, Integer bankId,
+                                                          Integer branchId) {
+        if(geographicalFlag == null){
+            geographicalFlag = -1;
         }
-        if(requestBankWiseCbo.getDistrictId() == null){
-            requestBankWiseCbo.setDistrictId(-1);
+        if(fromDate == null){
+            fromDate = "null";
         }
-        if(requestBankWiseCbo.getBlockId() == null){
-            requestBankWiseCbo.setBlockId(-1);
+        if(toDate == null){
+            toDate = "null";
         }
-        if(requestBankWiseCbo.getBankTypeId() == null){
-            requestBankWiseCbo.setBankTypeId(-1);
+        if(stateId == null){
+            stateId = -1;
         }
-        if(requestBankWiseCbo.getBankId() == null){
-            requestBankWiseCbo.setBankId(-1);
+        if(districtId == null){
+            districtId = -1;
         }
-        if(requestBankWiseCbo.getBranchId()==null){
-            requestBankWiseCbo.setBranchId(-1);
+        if(blockId == null){
+            blockId = -1;
         }
-        if(requestBankWiseCbo.getFromDate() == null){
-            requestBankWiseCbo.setFromDate("null");
+        if(bankTypeId == null){
+            bankTypeId = -1;
         }
-        if(requestBankWiseCbo.getToDate()== null){
-            requestBankWiseCbo.setToDate("null");
+        if(bankId == null){
+            bankId = -1;
         }
-        if(requestBankWiseCbo.getGeographicalFlag()==null){
-            requestBankWiseCbo.setGeographicalFlag(-1);
+        if(branchId == null){
+            branchId = -1;
         }
-
 
         List<ResponseBankWiseCbo> responseBankWiseCboList = new ArrayList<>();
         List<BankWiseCboEntity> bankWiseCboEntityList;
         bankWiseCboEntityList = bankWiseCboRepository.
-                fetchBankWiseCbo(
-                        requestBankWiseCbo.getStateId(),
-                        requestBankWiseCbo.getDistrictId(),
-                        requestBankWiseCbo.getBlockId(),
-                        requestBankWiseCbo.getBankTypeId(),
-                        requestBankWiseCbo.getBankId(),
-                        requestBankWiseCbo.getBranchId(),
-                        requestBankWiseCbo.getFromDate(),
-                        requestBankWiseCbo.getToDate(),
-                        requestBankWiseCbo.getGeographicalFlag()
-                );
+                fetchBankWiseCbo(geographicalFlag, fromDate, toDate, stateId, districtId, blockId,bankTypeId, bankId,  branchId);
 
         bankWiseCboEntityList.forEach(bankWiseCboEntity ->
         {

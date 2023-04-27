@@ -22,9 +22,9 @@ import java.math.BigInteger;
 
 public class TransactionSummaryRequest {
 
-    private Long fromDate;
+    private String fromDate;
 
-    private Long toDate;
+    private String toDate;
 
     private BigInteger shgId;
 
@@ -91,19 +91,19 @@ public class TransactionSummaryRequest {
         this.villageId = villageId;
     }
 
-    public Long getFromDate() {
+    public String getFromDate() {
         return fromDate;
     }
 
-    public void setFromDate(Long fromDate) {
+    public void setFromDate(String fromDate) {
         this.fromDate = fromDate;
     }
 
-    public Long getToDate() {
+    public String getToDate() {
         return toDate;
     }
 
-    public void setToDate(Long toDate) {
+    public void setToDate(String toDate) {
         this.toDate = toDate;
     }
 

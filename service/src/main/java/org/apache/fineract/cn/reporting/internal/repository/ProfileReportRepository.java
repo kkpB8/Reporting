@@ -31,21 +31,21 @@ import java.util.List;
 public interface ProfileReportRepository extends JpaRepository<ProfileReportEntity, BigInteger>  {
 
     @Query("FROM  ProfileReportEntity c WHERE "+
+            "(c.geographicalFlag=:geographicalFlag) and "+
+            "(c.yearMonth=:yearMonth) and "+
             "(-1 = :stateId or c.stateId=:stateId) and "+
             "(-1 = :districtId or c.districtId=:districtId) and "+
             "(-1 = :blockId or c.blockId=:blockId) and "+
             "(-1 = :panchayatId or c.panchayatId=:panchayatId) and "+
-            "(-1 = :villageId or c.villageId=:villageId) and "+
-            "(c.geographicalFlag=:geographicalFlag) and "+
-            "(c.yearMonth=:yearMonth)")
+            "(-1 = :villageId or c.villageId=:villageId)")
             List<ProfileReportEntity> findByFilter(
+            @Param("geographicalFlag") final Integer geographicalFlag,
+            @Param("yearMonth") final String yearMonth,
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
             @Param("panchayatId") final Integer panchayatId,
-            @Param("villageId") final Integer villageId,
-            @Param("geographicalFlag") final Integer geographicalFlag,
-            @Param("yearMonth") final String yearMonth
+            @Param("villageId") final Integer villageId
     );
 
 
@@ -64,7 +64,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             ".state_id left join (select district_id,count(case when role_id='790' then 1 end)DA,count(case when role_id='770' then 1 end)DM,count(case when role_id='750' then 1 end)DT from user_role_rights_map group by district_id)du on d.district_id::varchar=du.district_id left join (select district_id,count(block_id)BlockCnt from block_master group by district_id)b on d.district_id=b.district_id left join (select district_id,count(case when role_id='690' then 1 end)BA,count(case when role_id='670' then 1 end)BM ,count(case when role_id='650' then 1 end)BT from user_role_rights_map group by district_id)bu on d.district_id::varchar=bu.district_id where (?1 = -1 or s.state_id=?1) and (?2 = -1 or d.district_id=?2)")
     List<Object[]> fetchDistrictWiseMissionLevelReport(Integer stateId,Integer districtId);
     @Query(nativeQuery = true, value="select State_name_en State,district_name_en District ,d.district_id as " +
-            "districtId ,block_name_en as  Block,bu.*, d.district_id, b.block_id from state_master s inner join   " +
+            "districtId ,block_name_en as  Block,bu.*,s.state_id, d.district_id, b.block_id from state_master s inner join   " +
             "district_master  d on s.state_id=d.state_id inner join  block_master  b on d.district_id=b.district_id left join (select block_id,count(case when role_id='690' then 1 end)BA,count(case when role_id='670' then 1 end)BM ,count(case when role_id='650' then 1 end)BT from user_role_rights_map group by block_id)bu on b.block_id::varchar =bu.block_id where (?1 = -1 or s.state_id=?1) and (?2 = -1 or d.district_id=?2) and (?3 =-1 or b.block_id=?3)")
     List<Object[]> fetchBlockWiseMissionLevelReport(Integer stateId,Integer districtId ,Integer blockId);
 }
