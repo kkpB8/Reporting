@@ -52,16 +52,22 @@ public class ProfileReportApiRestController {
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/get-profile-report",
-            method = RequestMethod.POST,
+            method = RequestMethod.GET,
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public
     @ResponseBody
-    ResponseEntity<List<ProfileReportResponse>> fetchProfileReportSummaryList(@RequestBody ProfileReportRequest profileReportRequest) {
-        if (profileReportRequest.getGeographicalFlag() != null) {
+    ResponseEntity<List<ProfileReportResponse>> fetchProfileReportSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                              @RequestParam("yearMonth") String yearMonth,
+                                                                              @RequestParam("stateId") Integer stateId,
+                                                                              @RequestParam("districtId") Integer districtId,
+                                                                              @RequestParam("blockId") Integer blockId,
+                                                                              @RequestParam("panchayatId") Integer panchayatId,
+                                                                              @RequestParam("villageId") Integer villageId) {
+        if (geographicalFlag != null) {
             return ResponseEntity.ok(
-                    this.profileReportService.fetchProfileReportSummaryList(profileReportRequest));
+                    this.profileReportService.fetchProfileReportSummaryList(geographicalFlag, yearMonth, stateId, districtId, blockId, panchayatId, villageId));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
@@ -70,24 +76,27 @@ public class ProfileReportApiRestController {
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/get-mission-level-report",
-            method = RequestMethod.POST,
+            method = RequestMethod.GET,
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public
     @ResponseBody
-    ResponseEntity <List <ResponseMissionUnitLevel>> fetchResponseMissionUnitLevelList(@RequestBody ProfileReportRequest profileReportRequest) {
-        if (profileReportRequest.getGeographicalFlag() ==1) {
+    ResponseEntity <List <ResponseMissionUnitLevel>> fetchResponseMissionUnitLevelList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                                       @RequestParam("stateId") Integer stateId,
+                                                                                       @RequestParam("districtId") Integer districtId,
+                                                                                       @RequestParam("blockId") Integer blockId) {
+        if (geographicalFlag ==1) {
             return ResponseEntity.ok(
-                    this.profileReportService.fetchStateWiseMissionLevelReportList(profileReportRequest.getStateId()));
+                    this.profileReportService.fetchStateWiseMissionLevelReportList(stateId));
         }
-        if(profileReportRequest.getGeographicalFlag() ==2) {
+        if(geographicalFlag ==2) {
             return ResponseEntity.ok(
-                    this.profileReportService.fetchDistrictWiseMissionLevelReportList(profileReportRequest.getStateId(),profileReportRequest.getDistrictId()));
+                    this.profileReportService.fetchDistrictWiseMissionLevelReportList(stateId,districtId));
         }
-       if(profileReportRequest.getGeographicalFlag() == 3){
+       if(geographicalFlag == 3){
             return ResponseEntity.ok(
-                    this.profileReportService.fetchBlockWiseMissionLevelReportList(profileReportRequest.getStateId(),profileReportRequest.getDistrictId(),profileReportRequest.getBlockId()));
+                    this.profileReportService.fetchBlockWiseMissionLevelReportList(stateId,districtId,blockId));
         }
         else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);

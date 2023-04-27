@@ -33,16 +33,23 @@ public class BankBranchCbosApiRestController {
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-details",
-            method = RequestMethod.POST,
+            method = RequestMethod.GET,
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBankBranchCbos>> fetchBankBranchList(@RequestBody RequestBankBranchCbos requestBankBranchCbos) {
-        if (requestBankBranchCbos.getGeographicalFlag() != null) {
+    ResponseEntity<List<ResponseBankBranchCbos>> fetchBankBranchList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                     @RequestParam("fromDate") String fromDate,
+                                                                     @RequestParam("toDate") String toDate,
+                                                                     @RequestParam("stateId") Integer stateId,
+                                                                     @RequestParam("districtId") Integer districtId,
+                                                                     @RequestParam("blockId") Integer blockId,
+                                                                     @RequestParam("bankId") Integer bankId,
+                                                                     @RequestParam("branchId") Integer branchId) {
+        if (geographicalFlag != null) {
             return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBankBranchList(requestBankBranchCbos));
+                    this.bankBranchCbosApiService.fetchBankBranchList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, bankId, branchId));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
@@ -59,17 +66,12 @@ public class BankBranchCbosApiRestController {
     @ResponseBody
     ResponseEntity<List<ResponseBankDeatils>> fetchBankList(@RequestParam("stateId") Integer stateId,
                                                             @RequestParam(value = "geographicalFlag", defaultValue = "1") int geographicalFlag) {
-//        ResponseEntity<List<BankDetailsEntity>> fetchBankList(@RequestParam("stateId") Integer stateId,
-//                                                          @RequestParam(value = "geographicalFlag",defaultValue = "1") int geographicalFlag){
         if (stateId != null) {
             return ResponseEntity.ok(
                     this.bankBranchCbosApiService.fetchBankList(stateId, geographicalFlag));
-//                this.bankDetailsRepository.fetchBankList(stateId, geographicalFlag));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
-//            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
-//        return ResponseEntity.ok().body(responseBankDeatils);
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -96,16 +98,26 @@ public class BankBranchCbosApiRestController {
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-wise-cbo-accounts",
-            method = RequestMethod.POST,
+//            method = RequestMethod.POST,
+            method = RequestMethod.GET,
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestBody RequestBankWiseCbo requestBankWiseCbo) {
-        if (requestBankWiseCbo.getGeographicalFlag() != null) {
+//    ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestBody RequestBankWiseCbo requestBankWiseCbo) {
+    ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                   @RequestParam("fromDate") String fromDate,
+                                                                   @RequestParam("toDate") String toDate,
+                                                                   @RequestParam("stateId") Integer stateId,
+                                                                   @RequestParam("districtId") Integer districtId,
+                                                                   @RequestParam("blockId") Integer blockId,
+                                                                   @RequestParam("bankTypeId") Integer bankTypeId,
+                                                                   @RequestParam("bankId") Integer bankId,
+                                                                   @RequestParam("branchId") Integer branchId) {
+        if (geographicalFlag != null) {
             return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBankWiseCboList(requestBankWiseCbo));
+                    this.bankBranchCbosApiService.fetchBankWiseCboList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId,bankTypeId, bankId,  branchId));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }

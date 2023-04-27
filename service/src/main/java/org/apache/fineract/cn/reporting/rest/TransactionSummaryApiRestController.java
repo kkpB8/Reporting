@@ -31,6 +31,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
 
@@ -53,43 +54,82 @@ public class TransactionSummaryApiRestController {
   @Permittable(value= AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-shg-meeting",
-          method = RequestMethod.POST,
+          method = RequestMethod.GET,
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
   public
   @ResponseBody
-  ResponseEntity<List<TransactionSummary>> fetchShgMeetingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
+  ResponseEntity<List<TransactionSummary>> fetchShgMeetingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                      @RequestParam("flag") Integer flag,
+                                                                      @RequestParam("fromDate") String fromDate,
+                                                                      @RequestParam("toDate") String toDate,
+                                                                      @RequestParam("stateId") Integer stateId,
+                                                                      @RequestParam("districtId") Integer districtId,
+                                                                      @RequestParam("blockId") Integer blockId,
+                                                                      @RequestParam("panchayatId") Integer panchayatId,
+                                                                      @RequestParam("villageId") Integer villageId,
+                                                                      @RequestParam("shgId") BigInteger shgId,
+                                                                      @RequestParam("voId") BigInteger voId,
+                                                                      @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
+//    return ResponseEntity.ok(
+//            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
+//  }
 
   @Permittable(value= AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-shg-saving",
-          method = RequestMethod.POST,
+          method = RequestMethod.GET,
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
   public
   @ResponseBody
-  ResponseEntity<List<TransactionSummary>> fetchShgSavingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
+  ResponseEntity<List<TransactionSummary>> fetchShgSavingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                     @RequestParam("flag") Integer flag,
+                                                                     @RequestParam("fromDate") String fromDate,
+                                                                     @RequestParam("toDate") String toDate,
+                                                                     @RequestParam("stateId") Integer stateId,
+                                                                     @RequestParam("districtId") Integer districtId,
+                                                                     @RequestParam("blockId") Integer blockId,
+                                                                     @RequestParam("panchayatId") Integer panchayatId,
+                                                                     @RequestParam("villageId") Integer villageId,
+                                                                     @RequestParam("shgId") BigInteger shgId,
+                                                                     @RequestParam("voId") BigInteger voId,
+                                                                     @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
   @Permittable(value= AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-shg-loan",
-          method = RequestMethod.POST,
+          method = RequestMethod.GET,
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
   public
   @ResponseBody
-  ResponseEntity<List<TransactionSummary>> fetchShgLoanSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
+  ResponseEntity<List<TransactionSummary>> fetchShgLoanSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                   @RequestParam("flag") Integer flag,
+                                                                   @RequestParam("fromDate") String fromDate,
+                                                                   @RequestParam("toDate") String toDate,
+                                                                   @RequestParam("stateId") Integer stateId,
+                                                                   @RequestParam("districtId") Integer districtId,
+                                                                   @RequestParam("blockId") Integer blockId,
+                                                                   @RequestParam("panchayatId") Integer panchayatId,
+                                                                   @RequestParam("villageId") Integer villageId,
+                                                                   @RequestParam("shgId") BigInteger shgId,
+                                                                   @RequestParam("voId") BigInteger voId,
+                                                                   @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
+//    return ResponseEntity.ok(
+//            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
+//  }
 
   @Permittable(value= AcceptedTokenType.GUEST)
   @RequestMapping(

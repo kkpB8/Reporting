@@ -19,14 +19,14 @@ public interface BankBranchCbosRepository extends JpaRepository<BankBranchCbosEn
             "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
             "(c.geographicalFlag=:geographicalFlag)")
     List<BankBranchCbosEntity> findByFilter(
+            @Param("geographicalFlag") final Integer geographicalFlag,
+            @Param("fromDate") final String fromDate,
+            @Param("toDate") final String toDate,
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
             @Param("bankId") final Integer bankId,
-            @Param("branchId") final Integer branchId,
-            @Param("fromDate") final String fromDate,
-            @Param("toDate") final String toDate,
-            @Param("geographicalFlag") final Integer geographicalFlag
+            @Param("branchId") final Integer branchId
     );
 
 }

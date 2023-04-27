@@ -12,20 +12,26 @@ public class SocialMobalizationEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private BigInteger id ;
-    @Column(name="totalruralhouseholds")
-    private Integer totalRuralHouseholds;
-    @Column(name = "targetruralhouseholds")
-    private Integer targetRuralHouseholds;
-    @Column(name = "shg_mem")
-    private Integer shgMem;
     @Column(name = "geographical_flag")
     private Integer geographicalFlag;
+    @Column(name = "year_month")
+    private String yearMonth;
     @Column(name = "state_id")
     private Integer stateId;
     @Column(name = "district_id")
     private Integer districtId;
     @Column(name = "block_id")
     private Integer blockId;
+    @Column(name = "panchayat_id")
+    private Integer panchayatId;
+    @Column(name = "village_id")
+    private Integer villageId;
+    @Column(name="totalruralhouseholds")
+    private Integer totalRuralHouseholds;
+    @Column(name = "targetruralhouseholds")
+    private Integer targetRuralHouseholds;
+    @Column(name = "shg_mem")
+    private Integer shgMem;
     @Column(name = "state_name")
     private String stateName;
     @Column(name = "district_name")
@@ -66,16 +72,10 @@ public class SocialMobalizationEntity {
     private Integer clfApproved;
     @Column(name = "clf_inactive_month")
     private Integer clfInactiveMonth;
-    @Column(name = "village_id")
-    private Integer villageId;
-    @Column(name = "panchayat_id")
-    private Integer panchayatId;
     @Column(name = "village_name")
     private String villageName;
     @Column(name = "panchayat_name")
     private String panchayatName;
-    @Column(name = "year_month")
-    private String yearMonth;
     @Column(name = "totaldistict")
     private Integer totalDistict;
     @Column(name = "totalblock")
