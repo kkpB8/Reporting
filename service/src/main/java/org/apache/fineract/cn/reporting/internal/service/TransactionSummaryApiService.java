@@ -287,4 +287,62 @@ public class TransactionSummaryApiService {
         });
         return voTransactionSummaryList;
     }
+    public List<TransactionSummary> fetchShgTransactionsSummaryList(Integer geographicalFlag, Integer flag,
+                                                                    String fromDate, String toDate,  Integer stateId,
+                                                                    Integer districtId, Integer blockId, Integer panchayatId, Integer villageId,
+                                                                    BigInteger shgId, BigInteger voId, BigInteger clfId) {
+      if(geographicalFlag == null) {
+          geographicalFlag = -1;
+      }
+      if(flag == null){
+          flag = -1;
+      }
+      if(fromDate == null){
+          fromDate = "null";
+      }
+      if(toDate == null){
+          toDate = "null";
+      }
+//      if(year == null){
+//          year = "null";
+//      }
+//      if (qtrhalfyear == null){
+//          qtrhalfyear = "null";
+//      }
+      if(stateId == null){
+          stateId = -1;
+      }
+      if(districtId == null){
+          districtId = -1;
+      }
+      if(blockId == null){
+          blockId = -1;
+      }
+      if(panchayatId == null){
+          panchayatId = -1;
+      }
+      if (villageId == null){
+          villageId = -1;
+      }
+      if(shgId == null){
+          shgId = new BigInteger("-1");
+      }
+      if(voId == null){
+          voId = new BigInteger("-1");
+      }
+      if(clfId == null){
+          clfId = new BigInteger("-1");
+      }
+        List<TransactionSummary> transactionSummaryList = new ArrayList<TransactionSummary>();
+        List<TransactionSummaryEntity> transactionSummaryEntityList;
+            transactionSummaryEntityList = transactionSummaryRepository.
+                    findByFilter2(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
+        transactionSummaryEntityList.forEach(transactionSummaryEntity ->
+        {
+            TransactionSummary transactionSummary = CommonApiMapper.map(transactionSummaryEntity);
+            transactionSummaryList.add(transactionSummary);
+        });
+        return transactionSummaryList;
+    }
+
 }

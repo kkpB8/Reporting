@@ -52,37 +52,34 @@ public class ProfileReportService<profileReportEntity> {
 
     }
 
-    public List<ProfileReportResponse> fetchProfileReportSummaryList(ProfileReportRequest profileReportRequest) {
-        if(profileReportRequest.getStateId() == null){
-            profileReportRequest.setStateId(-1);
+    public List<ProfileReportResponse> fetchProfileReportSummaryList(Integer geographicalFlag,String yearMonth,Integer stateId,
+                                                                     Integer districtId,Integer blockId,Integer panchayatId,Integer villageId) {
+        if(geographicalFlag == null){
+            geographicalFlag = -1;
         }
-        if(profileReportRequest.getDistrictId() == null){
-            profileReportRequest.setDistrictId(-1);
+        if(yearMonth == null){
+            yearMonth = "null";
         }
-
-        if(profileReportRequest.getBlockId() == null){
-            profileReportRequest.setBlockId(-1);
+        if(stateId == null){
+            stateId = -1;
         }
-        if(profileReportRequest.getPanchayatId() == null){
-            profileReportRequest.setPanchayatId(-1);
+        if(districtId == null){
+            districtId = -1;
         }
-        if(profileReportRequest.getVillageId() == null){
-            profileReportRequest.setVillageId(-1);
+        if(blockId == null){
+            blockId = -1;
+        }
+        if(panchayatId == null){
+            panchayatId = -1;
+        }
+        if(villageId == null){
+            villageId = -1;
         }
 
         List<ProfileReportResponse> profileReportResponseList = new ArrayList<>();
         List<ProfileReportEntity> profileReportEntityList;
         profileReportEntityList = profileReportRepository.
-                findByFilter(
-                        profileReportRequest.getStateId(),
-                        profileReportRequest.getDistrictId(),
-                        profileReportRequest.getBlockId(),
-                        profileReportRequest.getPanchayatId(),
-                        profileReportRequest.getVillageId(),
-                        profileReportRequest.getGeographicalFlag(),
-                        profileReportRequest.getYearMonth()
-
-                );
+                findByFilter(geographicalFlag, yearMonth, stateId, districtId, blockId, panchayatId, villageId);
 
         profileReportEntityList.forEach(profileReportEntity ->
         {

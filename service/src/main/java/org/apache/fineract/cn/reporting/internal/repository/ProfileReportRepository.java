@@ -31,21 +31,21 @@ import java.util.List;
 public interface ProfileReportRepository extends JpaRepository<ProfileReportEntity, BigInteger>  {
 
     @Query("FROM  ProfileReportEntity c WHERE "+
+            "(c.geographicalFlag=:geographicalFlag) and "+
+            "(c.yearMonth=:yearMonth) and "+
             "(-1 = :stateId or c.stateId=:stateId) and "+
             "(-1 = :districtId or c.districtId=:districtId) and "+
             "(-1 = :blockId or c.blockId=:blockId) and "+
             "(-1 = :panchayatId or c.panchayatId=:panchayatId) and "+
-            "(-1 = :villageId or c.villageId=:villageId) and "+
-            "(c.geographicalFlag=:geographicalFlag) and "+
-            "(c.yearMonth=:yearMonth)")
+            "(-1 = :villageId or c.villageId=:villageId)")
             List<ProfileReportEntity> findByFilter(
+            @Param("geographicalFlag") final Integer geographicalFlag,
+            @Param("yearMonth") final String yearMonth,
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
             @Param("panchayatId") final Integer panchayatId,
-            @Param("villageId") final Integer villageId,
-            @Param("geographicalFlag") final Integer geographicalFlag,
-            @Param("yearMonth") final String yearMonth
+            @Param("villageId") final Integer villageId
     );
 
 

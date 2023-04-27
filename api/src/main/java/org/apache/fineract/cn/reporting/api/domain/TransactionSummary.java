@@ -18,7 +18,6 @@
  */
 package org.apache.fineract.cn.reporting.api.domain;
 
-import javax.persistence.Column;
 import java.math.BigInteger;
 
 
@@ -108,6 +107,174 @@ public class TransactionSummary {
     private Integer expectedAmt;
     private Integer amtCollected;
     private Integer amtVoluntary;
+    private Integer shgMeetReg50p;
+    private Integer shgMeetReg50p70p;
+    private Integer shgMeetReg70p90p;
+    private Integer shgMeetReg90p;
+    private Integer noEducationLoan;
+    private Integer educationAmt;
+    private Integer noMedicalLoan;
+    private Integer medicalAmt;
+    private Integer noHomeLoan;
+    private Integer homeAmt;
+    private Integer shgLoanEqu50p;
+    private Integer shgLoanEqu50p70p;
+    private Integer shgLoanEqu70p90p;
+    private Integer shgLoanEqu90p;
+    private Integer shgRep50p;
+    private Integer shgRep50p70p;
+    private Integer shgRep70p90p;
+    private Integer shgRep90p;
+    private Integer shgTakingLoan;
+    public Integer getShgLoanEqu50p() {
+        return shgLoanEqu50p;
+    }
+
+    public void setShgLoanEqu50p(Integer shgLoanEqu50p) {
+        this.shgLoanEqu50p = shgLoanEqu50p;
+    }
+
+    public Integer getShgLoanEqu50p70p() {
+        return shgLoanEqu50p70p;
+    }
+
+    public void setShgLoanEqu50p70p(Integer shgLoanEqu50p70p) {
+        this.shgLoanEqu50p70p = shgLoanEqu50p70p;
+    }
+
+    public Integer getShgLoanEqu70p90p() {
+        return shgLoanEqu70p90p;
+    }
+
+    public void setShgLoanEqu70p90p(Integer shgLoanEqu70p90p) {
+        this.shgLoanEqu70p90p = shgLoanEqu70p90p;
+    }
+
+    public Integer getShgLoanEqu90p() {
+        return shgLoanEqu90p;
+    }
+
+    public void setShgLoanEqu90p(Integer shgLoanEqu90p) {
+        this.shgLoanEqu90p = shgLoanEqu90p;
+    }
+
+    public Integer getShgRep50p() {
+        return shgRep50p;
+    }
+
+    public void setShgRep50p(Integer shgRep50p) {
+        this.shgRep50p = shgRep50p;
+    }
+
+    public Integer getShgRep50p70p() {
+        return shgRep50p70p;
+    }
+
+    public void setShgRep50p70p(Integer shgRep50p70p) {
+        this.shgRep50p70p = shgRep50p70p;
+    }
+
+    public Integer getShgRep70p90p() {
+        return shgRep70p90p;
+    }
+
+    public void setShgRep70p90p(Integer shgRep70p90p) {
+        this.shgRep70p90p = shgRep70p90p;
+    }
+
+    public Integer getShgRep90p() {
+        return shgRep90p;
+    }
+
+    public void setShgRep90p(Integer shgRep90p) {
+        this.shgRep90p = shgRep90p;
+    }
+
+    public Integer getShgTakingLoan() {
+        return shgTakingLoan;
+    }
+
+    public void setShgTakingLoan(Integer shgTakingLoan) {
+        this.shgTakingLoan = shgTakingLoan;
+    }
+    public Integer getNoEducationLoan() {
+        return noEducationLoan;
+    }
+
+    public void setNoEducationLoan(Integer noEducationLoan) {
+        this.noEducationLoan = noEducationLoan;
+    }
+
+    public Integer getEducationAmt() {
+        return educationAmt;
+    }
+
+    public void setEducationAmt(Integer educationAmt) {
+        this.educationAmt = educationAmt;
+    }
+
+    public Integer getNoMedicalLoan() {
+        return noMedicalLoan;
+    }
+
+    public void setNoMedicalLoan(Integer noMedicalLoan) {
+        this.noMedicalLoan = noMedicalLoan;
+    }
+
+    public Integer getMedicalAmt() {
+        return medicalAmt;
+    }
+
+    public void setMedicalAmt(Integer medicalAmt) {
+        this.medicalAmt = medicalAmt;
+    }
+
+    public Integer getNoHomeLoan() {
+        return noHomeLoan;
+    }
+
+    public void setNoHomeLoan(Integer noHomeLoan) {
+        this.noHomeLoan = noHomeLoan;
+    }
+
+    public Integer getHomeAmt() {
+        return homeAmt;
+    }
+
+    public void setHomeAmt(Integer homeAmt) {
+        this.homeAmt = homeAmt;
+    }
+    public Integer getShgMeetReg50p() {
+        return shgMeetReg50p;
+    }
+
+    public void setShgMeetReg50p(Integer shgMeetReg50p) {
+        this.shgMeetReg50p = shgMeetReg50p;
+    }
+
+    public Integer getShgMeetReg50p70p() {
+        return shgMeetReg50p70p;
+    }
+
+    public void setShgMeetReg50p70p(Integer shgMeetReg50p70p) {
+        this.shgMeetReg50p70p = shgMeetReg50p70p;
+    }
+
+    public Integer getShgMeetReg70p90p() {
+        return shgMeetReg70p90p;
+    }
+
+    public void setShgMeetReg70p90p(Integer shgMeetReg70p90p) {
+        this.shgMeetReg70p90p = shgMeetReg70p90p;
+    }
+
+    public Integer getShgMeetReg90p() {
+        return shgMeetReg90p;
+    }
+
+    public void setShgMeetReg90p(Integer shgMeetReg90p) {
+        this.shgMeetReg90p = shgMeetReg90p;
+    }
     public String getStateName() {
         return stateName;
     }
