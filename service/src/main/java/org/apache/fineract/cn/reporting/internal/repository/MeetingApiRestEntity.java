@@ -4,158 +4,81 @@ import javax.persistence.*;
 import java.math.BigInteger;
 @Entity
 @Cacheable(value = false)
-@Table(name = "transaction_summary")
+@Table(name = "tbl_summary")
 public class MeetingApiRestEntity {
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id", nullable = false)
         private BigInteger id ;
-        @Column(name = "geographical_level")
+        @Column(name = "geographical_flag")
         private Integer geographicalFlag;
+        @Column(name = "year_month")
+        private String yearMonth;
         @Column(name = "state_id")
         private Integer stateId;
         @Column(name = "district_id")
         private Integer districtId;
         @Column(name = "block_id")
         private Integer blockId;
-        @Column(name = "village_id")
-        private Integer villageId;
         @Column(name = "panchayat_id")
         private Integer panchayatId;
-        @Column(name = "year_month")
-        private String yearMonth;
-        @Column(name = "total_shg_formed")
-        private Integer totalShgFormed;
-        @Column(name = "shg_conducted_meeting")
-        private Integer shgConductedMeeting;
-
+        @Column(name = "village_id")
+        private Integer villageId;
         @Column(name = "shg_id")
         private Integer shgId;
         @Column(name = "vo_id")
         private Integer voId;
+
         @Column(name = "clf_id")
         private Integer clfId;
-        @Column(name = "shg_mapped_month")
-        private Integer shgMappedMonth;
-        @Column(name = "total_vo_month")
-        private Integer totalVoMonth;
-        @Column(name = "total_mapped_vo")
-        private Integer totalMappedVo;
-        @Column(name = "vo_conduting_meeting")
-        private Integer voCondutingMeeting;
-        @Column(name = "total_clf_month")
-        private Integer totalClfMonth;
-        @Column(name = "total_mapped_clf")
-        private Integer totalMappedClf;
-        @Column(name = "clf_conduting_meeting")
-        private Integer clfCondutingMeeting;
-        @Column(name = "state_name")
-        private String stateName;
-        @Column(name = "district_name")
-        private String districtName;
-        @Column(name = "block_name")
-        private String blockName;
-        @Column(name = "panchayat_name")
-        private String panchayatName;
-        @Column(name = "village_name")
-        private String villageName;
-        public Integer getShgMappedMonth() {
-                return shgMappedMonth;
+
+        @Column(name = "shg_name")
+        private String shgName;
+
+        @Column(name = "vo_name")
+        private String voName;
+        @Column(name = "clf_name")
+        private String clfName;
+
+        @Column(name = "shg_sc_month")
+        private Integer shgScMonth;
+        @Column(name = "shg_st_month")
+        private Integer shgStMonth;
+        @Column(name = "shg_gen_month")
+        private Integer shgGenMonth;
+        @Column(name = "shg_mem_sc_month")
+        private Integer shgMemScMonth;
+        @Column(name = "shg_mem_st_month")
+        private Integer shgMemStMonth;
+        @Column(name = "clfvo_shg")
+        private Integer clfVoShg;
+        @Column(name = "clfvo_shgmem")
+        private Integer clfVoShgMem;
+
+        public Integer getClfVoShg() {
+                return clfVoShg;
         }
 
-        public void setShgMappedMonth(Integer shgMappedMonth) {
-                this.shgMappedMonth = shgMappedMonth;
+        public void setClfVoShg(Integer clfVoShg) {
+                this.clfVoShg = clfVoShg;
         }
 
-        public Integer getTotalVoMonth() {
-                return totalVoMonth;
+        public Integer getClfVoShgMem() {
+                return clfVoShgMem;
         }
 
-        public void setTotalVoMonth(Integer totalVoMonth) {
-                this.totalVoMonth = totalVoMonth;
+        public void setClfVoShgMem(Integer clfVoShgMem) {
+                this.clfVoShgMem = clfVoShgMem;
         }
 
-        public Integer getTotalMappedVo() {
-                return totalMappedVo;
+        public BigInteger getId() {
+                return id;
         }
 
-        public void setTotalMappedVo(Integer totalMappedVo) {
-                this.totalMappedVo = totalMappedVo;
+        public void setId(BigInteger id) {
+                this.id = id;
         }
-
-        public Integer getVoCondutingMeeting() {
-                return voCondutingMeeting;
-        }
-
-        public void setVoCondutingMeeting(Integer voCondutingMeeting) {
-                this.voCondutingMeeting = voCondutingMeeting;
-        }
-
-        public Integer getTotalClfMonth() {
-                return totalClfMonth;
-        }
-
-        public void setTotalClfMonth(Integer totalClfMonth) {
-                this.totalClfMonth = totalClfMonth;
-        }
-
-        public Integer getTotalMappedClf() {
-                return totalMappedClf;
-        }
-
-        public void setTotalMappedClf(Integer totalMappedClf) {
-                this.totalMappedClf = totalMappedClf;
-        }
-
-        public Integer getClfCondutingMeeting() {
-                return clfCondutingMeeting;
-        }
-
-        public void setClfCondutingMeeting(Integer clfCondutingMeeting) {
-                this.clfCondutingMeeting = clfCondutingMeeting;
-        }
-
-        public String getStateName() {
-                return stateName;
-        }
-
-        public void setStateName(String stateName) {
-                this.stateName = stateName;
-        }
-
-        public String getDistrictName() {
-                return districtName;
-        }
-
-        public void setDistrictName(String districtName) {
-                this.districtName = districtName;
-        }
-
-        public String getBlockName() {
-                return blockName;
-        }
-
-        public void setBlockName(String blockName) {
-                this.blockName = blockName;
-        }
-
-        public String getPanchayatName() {
-                return panchayatName;
-        }
-
-        public void setPanchayatName(String panchayatName) {
-                this.panchayatName = panchayatName;
-        }
-
-        public String getVillageName() {
-                return villageName;
-        }
-
-        public void setVillageName(String villageName) {
-                this.villageName = villageName;
-        }
-
 
         public Integer getGeographicalFlag() {
                 return geographicalFlag;
@@ -165,36 +88,12 @@ public class MeetingApiRestEntity {
                 this.geographicalFlag = geographicalFlag;
         }
 
-        public Integer getShgId() {
-                return shgId;
+        public String getYearMonth() {
+                return yearMonth;
         }
 
-        public void setShgId(Integer shgId) {
-                this.shgId = shgId;
-        }
-
-        public Integer getVoId() {
-                return voId;
-        }
-
-        public void setVoId(Integer voId) {
-                this.voId = voId;
-        }
-
-        public Integer getClfId() {
-                return clfId;
-        }
-
-        public void setClfId(Integer clfId) {
-                this.clfId = clfId;
-        }
-
-        public BigInteger getId() {
-                return id;
-        }
-
-        public void setId(BigInteger id) {
-                this.id = id;
+        public void setYearMonth(String yearMonth) {
+                this.yearMonth = yearMonth;
         }
 
         public Integer getStateId() {
@@ -221,14 +120,6 @@ public class MeetingApiRestEntity {
                 this.blockId = blockId;
         }
 
-        public Integer getVillageId() {
-                return villageId;
-        }
-
-        public void setVillageId(Integer villageId) {
-                this.villageId = villageId;
-        }
-
         public Integer getPanchayatId() {
                 return panchayatId;
         }
@@ -237,27 +128,121 @@ public class MeetingApiRestEntity {
                 this.panchayatId = panchayatId;
         }
 
-        public String getYearMonth() {
-                return yearMonth;
+        public Integer getVillageId() {
+                return villageId;
         }
 
-        public void setYearMonth(String yearMonth) {
-                this.yearMonth = yearMonth;
+        public void setVillageId(Integer villageId) {
+                this.villageId = villageId;
         }
 
-        public Integer getTotalShgFormed() {
-                return totalShgFormed;
+        public Integer getShgId() {
+                return shgId;
         }
 
-        public void setTotalShgFormed(Integer totalShgFormed) {
-                this.totalShgFormed = totalShgFormed;
+        public void setShgId(Integer shgId) {
+                this.shgId = shgId;
         }
 
-        public Integer getShgConductedMeeting() {
-                return shgConductedMeeting;
+
+        public Integer getVoId() {
+                return voId;
         }
 
-        public void setShgConductedMeeting(Integer shgConductedMeeting) {
-                this.shgConductedMeeting = shgConductedMeeting;
+        public void setVoId(Integer voId) {
+                this.voId = voId;
+        }
+
+        public Integer getClfId() {
+                return clfId;
+        }
+
+        public void setClfId(Integer clfId) {
+                this.clfId = clfId;
+        }
+
+        public String getShgName() {
+                return shgName;
+        }
+
+        public void setShgName(String shgName) {
+                this.shgName = shgName;
+        }
+
+        public String getVoName() {
+                return voName;
+        }
+
+        public void setVoName(String voName) {
+                this.voName = voName;
+        }
+
+        public String getClfName() {
+                return clfName;
+        }
+
+        public void setClfName(String clfName) {
+                this.clfName = clfName;
+        }
+
+        public Integer getShgScMonth() {
+                return shgScMonth;
+        }
+
+        public void setShgScMonth(Integer shgScMonth) {
+                this.shgScMonth = shgScMonth;
+        }
+
+        public Integer getShgStMonth() {
+                return shgStMonth;
+        }
+
+        public void setShgStMonth(Integer shgStMonth) {
+                this.shgStMonth = shgStMonth;
+        }
+
+        public Integer getShgGenMonth() {
+                return shgGenMonth;
+        }
+
+        public void setShgGenMonth(Integer shgGenMonth) {
+                this.shgGenMonth = shgGenMonth;
+        }
+
+        public Integer getShgMemScMonth() {
+                return shgMemScMonth;
+        }
+
+        public void setShgMemScMonth(Integer shgMemScMonth) {
+                this.shgMemScMonth = shgMemScMonth;
+        }
+
+        public Integer getShgMemStMonth() {
+                return shgMemStMonth;
+        }
+
+        public void setShgMemStMonth(Integer shgMemStMonth) {
+                this.shgMemStMonth = shgMemStMonth;
+        }
+
+        public Integer getShgMemGenMonth() {
+                return shgMemGenMonth;
+        }
+
+        public void setShgMemGenMonth(Integer shgMemGenMonth) {
+                this.shgMemGenMonth = shgMemGenMonth;
+        }
+
+        @Column(name = "shg_mem_gen_month")
+        private Integer shgMemGenMonth;
+        @Column(name = "shg_mem_other_month")
+        private Integer shgMemOtherMonth;
+
+        public Integer getShgMemOtherMonth() {
+                return shgMemOtherMonth;
+        }
+
+        public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
+                this.shgMemOtherMonth = shgMemOtherMonth;
         }
 }

@@ -7,122 +7,81 @@ public class MeetingApiRestResponse {
     private Integer stateId;
     private Integer districtId;
     private Integer blockId;
-    private Integer villageId;
     private Integer panchayatId;
-    private Integer totalShgFormed;
-    private Integer shgConductedMeeting;
+    private Integer villageId;
     private Integer geographicalFlag;
     private String yearMonth;
     private Integer shgId;
     private Integer voId;
     private Integer clfId;
-    private Integer shgMappedMonth;
-    private Integer totalVoMonth;
-    private Integer totalMappedVo;
-    private Integer voCondutingMeeting;
-    private Integer totalClfMonth;
-    private Integer totalMappedClf;
-    private Integer clfCondutingMeeting;
-    private String stateName;
-    private String districtName;
-    private String blockName;
-    private String panchayatName;
-    private String villageName;
-    public Integer getShgMappedMonth() {
-        return shgMappedMonth;
+    private String shgName;
+    private String voName;
+    private String clfName;
+
+    private Integer shgScMonth;
+    private Integer shgStMonth;
+    private Integer shgGenMonth;
+    private Integer shgMemScMonth;
+    private Integer shgMemStMonth;
+    private Integer clfVoShg;
+
+    private Integer clfVoShgMem;
+    public Integer getShgScMonth() {
+        return shgScMonth;
     }
 
-    public void setShgMappedMonth(Integer shgMappedMonth) {
-        this.shgMappedMonth = shgMappedMonth;
+    public void setShgScMonth(Integer shgScMonth) {
+        this.shgScMonth = shgScMonth;
     }
 
-    public Integer getTotalVoMonth() {
-        return totalVoMonth;
+    public Integer getShgStMonth() {
+        return shgStMonth;
     }
 
-    public void setTotalVoMonth(Integer totalVoMonth) {
-        this.totalVoMonth = totalVoMonth;
+    public void setShgStMonth(Integer shgStMonth) {
+        this.shgStMonth = shgStMonth;
     }
 
-    public Integer getTotalMappedVo() {
-        return totalMappedVo;
+    public Integer getShgGenMonth() {
+        return shgGenMonth;
     }
 
-    public void setTotalMappedVo(Integer totalMappedVo) {
-        this.totalMappedVo = totalMappedVo;
+    public void setShgGenMonth(Integer shgGenMonth) {
+        this.shgGenMonth = shgGenMonth;
     }
 
-    public Integer getVoCondutingMeeting() {
-        return voCondutingMeeting;
+    public Integer getShgMemScMonth() {
+        return shgMemScMonth;
     }
 
-    public void setVoCondutingMeeting(Integer voCondutingMeeting) {
-        this.voCondutingMeeting = voCondutingMeeting;
+    public void setShgMemScMonth(Integer shgMemScMonth) {
+        this.shgMemScMonth = shgMemScMonth;
     }
 
-    public Integer getTotalClfMonth() {
-        return totalClfMonth;
+    public Integer getShgMemStMonth() {
+        return shgMemStMonth;
     }
 
-    public void setTotalClfMonth(Integer totalClfMonth) {
-        this.totalClfMonth = totalClfMonth;
+    public void setShgMemStMonth(Integer shgMemStMonth) {
+        this.shgMemStMonth = shgMemStMonth;
     }
 
-    public Integer getTotalMappedClf() {
-        return totalMappedClf;
+    public Integer getClfVoShg() {
+        return clfVoShg;
     }
 
-    public void setTotalMappedClf(Integer totalMappedClf) {
-        this.totalMappedClf = totalMappedClf;
+    public void setClfVoShg(Integer clfVoShg) {
+        this.clfVoShg = clfVoShg;
     }
 
-    public Integer getClfCondutingMeeting() {
-        return clfCondutingMeeting;
+    public Integer getClfVoShgMem() {
+        return clfVoShgMem;
     }
 
-    public void setClfCondutingMeeting(Integer clfCondutingMeeting) {
-        this.clfCondutingMeeting = clfCondutingMeeting;
+    public void setClfVoShgMem(Integer clfVoShgMem) {
+        this.clfVoShgMem = clfVoShgMem;
     }
 
-    public String getStateName() {
-        return stateName;
-    }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
-    }
-
-    public String getDistrictName() {
-        return districtName;
-    }
-
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
-    }
-
-    public String getBlockName() {
-        return blockName;
-    }
-
-    public void setBlockName(String blockName) {
-        this.blockName = blockName;
-    }
-
-    public String getPanchayatName() {
-        return panchayatName;
-    }
-
-    public void setPanchayatName(String panchayatName) {
-        this.panchayatName = panchayatName;
-    }
-
-    public String getVillageName() {
-        return villageName;
-    }
-
-    public void setVillageName(String villageName) {
-        this.villageName = villageName;
-    }
     public Integer getShgId() {
         return shgId;
     }
@@ -186,22 +145,30 @@ public class MeetingApiRestResponse {
     public void setPanchayatId(Integer panchayatId) {
         this.panchayatId = panchayatId;
     }
-
-    public Integer getTotalShgFormed() {
-        return totalShgFormed;
+    public String getShgName() {
+        return shgName;
     }
 
-    public void setTotalShgFormed(Integer totalShgFormed) {
-        this.totalShgFormed = totalShgFormed;
+    public void setShgName(String shgName) {
+        this.shgName = shgName;
     }
 
-    public Integer getShgConductedMeeting() {
-        return shgConductedMeeting;
+    public String getVoName() {
+        return voName;
     }
 
-    public void setShgConductedMeeting(Integer shgConductedMeeting) {
-        this.shgConductedMeeting = shgConductedMeeting;
+    public void setVoName(String voName) {
+        this.voName = voName;
     }
+
+    public String getClfName() {
+        return clfName;
+    }
+
+    public void setClfName(String clfName) {
+        this.clfName = clfName;
+    }
+
 
     public String getYearMonth() {
         return yearMonth;
