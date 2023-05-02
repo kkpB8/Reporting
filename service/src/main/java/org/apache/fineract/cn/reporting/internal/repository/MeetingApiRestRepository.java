@@ -10,6 +10,8 @@ import java.util.List;
 @Repository
 public interface MeetingApiRestRepository extends JpaRepository<MeetingApiRestEntity, BigInteger> {
         @Query("FROM  MeetingApiRestEntity c WHERE " +
+                "(c.geographicalFlag=:geographicalFlag) and "+
+                "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
                 "(-1 = :stateId or c.stateId=:stateId) and " +
                 "(-1 = :districtId or c.districtId=:districtId) and " +
                 "(-1 = :blockId or c.blockId=:blockId) and " +
@@ -17,20 +19,18 @@ public interface MeetingApiRestRepository extends JpaRepository<MeetingApiRestEn
                 "(-1 = :villageId or c.villageId=:villageId) and " +
                 "(-1 = :shgId or c.shgId=:shgId) and " +
                 "(-1 = :voId or c.voId=:voId) and " +
-                "(-1 = :clfId or c.clfId=:clfId) and " +
-                "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
-                "(c.geographicalFlag=:geographicalFlag)")
+                "(-1 = :clfId or c.clfId=:clfId)")
         List<MeetingApiRestEntity> findByFilter(
+                @Param("geographicalFlag") final Integer geographicalFlag,
+                @Param("fromDate") final String fromDate,
+                @Param("toDate") final String toDate,
                 @Param("stateId") final Integer stateId,
                 @Param("districtId") final Integer districtId,
                 @Param("blockId") final Integer blockId,
-                @Param("villageId") final Integer villageId,
                 @Param("panchayatId") final Integer panchayatId,
+                @Param("villageId") final Integer villageId,
                 @Param("shgId") final Integer shgId,
                 @Param("voId") final Integer voId,
-                @Param("clfId") final Integer clfId,
-                @Param("fromDate") final String fromDate,
-                @Param("toDate") final String toDate,
-                @Param("geographicalFlag") final Integer geographicalFlag
+                @Param("clfId") final Integer clfId
         );
     }

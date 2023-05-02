@@ -183,7 +183,7 @@ public class TransactionSummaryEntity {
     private  Integer flag;
     @Column(name = "meeting_frequency")
     private Short meetingFrequency;
-    @Column(name = "shg_conduting_meeting")
+    @Column(name = "shg_conducted_meeting")
     private Integer shgConductingMeeting;
     @Column(name = "shg_save_50")
     private Integer shgSave50;
@@ -191,7 +191,6 @@ public class TransactionSummaryEntity {
     private Integer shgSave50to70;
     @Column(name = "shg_save_70_90")
     private Integer shgSave70to90;
-
     @Column(name = "shg_save_90")
     private Integer shgSave90;
     @Column(name = "no_of_meeting")

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/meetings-api")
+@RequestMapping("/shgbysc")
 public class MeetingApiRestController {
 
         private final Logger logger;
@@ -33,17 +33,27 @@ public class MeetingApiRestController {
 
         @Permittable(value= AcceptedTokenType.GUEST)
         @RequestMapping(
-                value = "/meetings-api-details",
-                method = RequestMethod.POST,
+                value = "/mem-shg-sc",
+                method = RequestMethod.GET,
                 consumes = MediaType.ALL_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE
         )
         public
         @ResponseBody
-        ResponseEntity<List<MeetingApiRestResponse>> fetchMeetingList(@RequestBody MeetingApiRestRequest meetingApiRestRequest) {
-            if (meetingApiRestRequest.getGeographicalFlag() != null) {
+        ResponseEntity<List<MeetingApiRestResponse>> fetchSHGSCList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                      @RequestParam("fromDate") String fromDate,
+                                                                      @RequestParam("toDate") String toDate,
+                                                                      @RequestParam("stateId") Integer stateId,
+                                                                      @RequestParam("districtId") Integer districtId,
+                                                                      @RequestParam("blockId") Integer blockId,
+                                                                      @RequestParam("panchayatId") Integer panchayatId,
+                                                                      @RequestParam("villageId") Integer villageId,
+                                                                      @RequestParam("shgId") Integer shgId,
+                                                                      @RequestParam("voId") Integer voId,
+                                                                      @RequestParam("clfId") Integer clfId) {
+            if (geographicalFlag != null) {
                 return ResponseEntity.ok(
-                        this.meetingApiRestService.fetchMeetingList(meetingApiRestRequest));
+                        this.meetingApiRestService.fetchSHGSCList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
             } else {
                 throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
             }
