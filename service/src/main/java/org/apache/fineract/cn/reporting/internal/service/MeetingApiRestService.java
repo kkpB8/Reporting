@@ -1,7 +1,6 @@
 package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.ServiceConstants;
-import org.apache.fineract.cn.reporting.api.domain.MeetingApiRestRequest;
 import org.apache.fineract.cn.reporting.api.domain.MeetingApiRestResponse;
 import org.apache.fineract.cn.reporting.internal.mapper.CommonApiMapper;
 import org.apache.fineract.cn.reporting.internal.repository.MeetingApiRestRepository;
@@ -9,9 +8,7 @@ import org.apache.fineract.cn.reporting.internal.repository.MeetingApiRestEntity
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,14 +16,12 @@ import java.util.List;
 public class MeetingApiRestService {
         private final Logger logger;
         private final MeetingApiRestRepository meetingApiRestRepository;
-
         @Autowired
         public MeetingApiRestService(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
                                          final MeetingApiRestRepository meetingApiRestRepository) {
             super();
             this.logger = logger;
             this.meetingApiRestRepository = meetingApiRestRepository;
-
         }
 
         public List<MeetingApiRestResponse> fetchSHGSCList(Integer geographicalFlag, String fromDate, String toDate, Integer stateId, Integer districtId,
@@ -74,6 +69,5 @@ public class MeetingApiRestService {
                 meetingApiRestResponseList.add(meetingApiRestResponse);
             });
             return meetingApiRestResponseList;
-
         }
 }

@@ -55,6 +55,20 @@ public class MeetingApiRestEntity {
         private Integer clfVoShg;
         @Column(name = "clfvo_shgmem")
         private Integer clfVoShgMem;
+        @Column(name = "shg_mem_gen_month")
+        private Integer shgMemGenMonth;
+        @Column(name = "shg_mem_other_month")
+        private Integer shgMemOtherMonth;
+
+        @Column(name = "shg_other_month")
+        private Integer shgOtherMonth;
+        public Integer getShgOtherMonth() {
+                return shgOtherMonth;
+        }
+
+        public void setShgOtherMonth(Integer shgOtherMonth) {
+                this.shgOtherMonth = shgOtherMonth;
+        }
 
         public Integer getClfVoShg() {
                 return clfVoShg;
@@ -232,11 +246,6 @@ public class MeetingApiRestEntity {
         public void setShgMemGenMonth(Integer shgMemGenMonth) {
                 this.shgMemGenMonth = shgMemGenMonth;
         }
-
-        @Column(name = "shg_mem_gen_month")
-        private Integer shgMemGenMonth;
-        @Column(name = "shg_mem_other_month")
-        private Integer shgMemOtherMonth;
 
         public Integer getShgMemOtherMonth() {
                 return shgMemOtherMonth;

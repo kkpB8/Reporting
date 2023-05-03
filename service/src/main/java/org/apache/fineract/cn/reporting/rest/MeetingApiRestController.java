@@ -3,7 +3,6 @@ package org.apache.fineract.cn.reporting.rest;
 import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
-import org.apache.fineract.cn.reporting.api.domain.MeetingApiRestRequest;
 import org.apache.fineract.cn.reporting.api.domain.MeetingApiRestResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
@@ -24,12 +23,13 @@ public class MeetingApiRestController {
         private final Logger logger;
         private final MeetingApiRestService meetingApiRestService;
 
-        @Autowired
-        public MeetingApiRestController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger, final MeetingApiRestService meetingApiRestService) {
+    @Autowired
+        public MeetingApiRestController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
+                                        final MeetingApiRestService meetingApiRestService) {
             super();
             this.logger = logger;
             this.meetingApiRestService = meetingApiRestService;
-        }
+    }
 
         @Permittable(value= AcceptedTokenType.GUEST)
         @RequestMapping(
