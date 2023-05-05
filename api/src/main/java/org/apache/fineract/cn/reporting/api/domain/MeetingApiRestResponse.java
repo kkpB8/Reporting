@@ -26,6 +26,36 @@ public class MeetingApiRestResponse {
     private Integer clfVoShg;
 
     private Integer clfVoShgMem;
+    private Integer shgMemGenMonth;
+
+    public Integer getShgMemGenMonth() {
+        return shgMemGenMonth;
+    }
+
+    public void setShgMemGenMonth(Integer shgMemGenMonth) {
+        this.shgMemGenMonth = shgMemGenMonth;
+    }
+
+    public Integer getShgMemOtherMonth() {
+        return shgMemOtherMonth;
+    }
+
+    public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
+        this.shgMemOtherMonth = shgMemOtherMonth;
+    }
+
+    public Integer getShgOtherMonth() {
+        return shgOtherMonth;
+    }
+
+    public void setShgOtherMonth(Integer shgOtherMonth) {
+        this.shgOtherMonth = shgOtherMonth;
+    }
+
+    private Integer shgMemOtherMonth;
+
+    private Integer shgOtherMonth;
+
     public Integer getShgScMonth() {
         return shgScMonth;
     }

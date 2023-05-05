@@ -1240,4 +1240,42 @@ public class PGFunctionProcedureService {
         logger.info("Call Procedure");
         return  tbl_summarylist;
     }
+
+    public List<SummaryTransactionSubReportsResponse> fn_summarytrasanction_sub_reports(Integer villageId, Integer voId, String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<SummaryTransactionSubReportsResponse> summaryTransactionSubReportsResponsesList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_summarytrasanction_sub_reports(?,?)}");
+            stmt.setInt(1,villageId);
+            stmt.setInt(2,voId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                SummaryTransactionSubReportsResponse sTsResponse = new SummaryTransactionSubReportsResponse();
+                sTsResponse.setShgId(rs.getInt("shg_id"));
+                sTsResponse.setShgName(rs.getString("shg_name"));
+                sTsResponse.setShgMem(rs.getInt("shg_mem"));
+                sTsResponse.setTotalAttendance(rs.getInt("total_attendance"));
+                sTsResponse.setTotalMeetingHeld(rs.getInt("total_meeting_held"));
+                sTsResponse.setExpectedAmt(rs.getInt("expectedamt"));
+                sTsResponse.setAmtCollected(rs.getInt("amtcollected"));
+                sTsResponse.setAmtVoluntary(rs.getInt("amtvoluntary"));
+                sTsResponse.setTotalNumberofLoans(rs.getInt("total_number_of_loans"));
+                sTsResponse.setTotalMembersAvailingLoans(rs.getInt("total_members_availing_loans"));
+                sTsResponse.setTotalAmountOfLoans(rs.getInt("total_amount_of_loans"));
+                sTsResponse.setNumberofMemberPenalised(rs.getInt("numberofmemberpenalised"));
+                sTsResponse.setTotalPenaltyAmount(rs.getInt("toalpenaltyamount"));
+                summaryTransactionSubReportsResponsesList.add(sTsResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_summarytrasanction_sub_reports(?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_summarytrasanction_sub_reports(?,?) Failed!");
+        }
+        return summaryTransactionSubReportsResponsesList;
+    }
 }
