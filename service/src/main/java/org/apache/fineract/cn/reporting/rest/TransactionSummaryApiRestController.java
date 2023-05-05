@@ -22,6 +22,9 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
+import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
+import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.CommonApiService;
 import org.apache.fineract.cn.reporting.internal.service.TransactionSummaryApiService;
 import org.slf4j.Logger;
@@ -30,7 +33,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
@@ -51,7 +54,7 @@ public class TransactionSummaryApiRestController {
     this.transactionSummaryApiService = transactionSummaryApiService;
   }
 
-  @Permittable(value= AcceptedTokenType.GUEST)
+  @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-shg-meeting",
           method = RequestMethod.GET,
@@ -79,7 +82,7 @@ public class TransactionSummaryApiRestController {
 //            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
 //  }
 
-  @Permittable(value= AcceptedTokenType.GUEST)
+  @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-shg-saving",
           method = RequestMethod.GET,
@@ -103,7 +106,8 @@ public class TransactionSummaryApiRestController {
     return ResponseEntity.ok(
             this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
-  @Permittable(value= AcceptedTokenType.GUEST)
+
+  @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-shg-loan",
           method = RequestMethod.GET,
@@ -131,7 +135,7 @@ public class TransactionSummaryApiRestController {
 //            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
 //  }
 
-  @Permittable(value= AcceptedTokenType.GUEST)
+  @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-vo-meeting",
           method = RequestMethod.POST,
@@ -145,7 +149,7 @@ public class TransactionSummaryApiRestController {
             this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest));
   }
 
-  @Permittable(value= AcceptedTokenType.GUEST)
+  @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-vo-saving",
           method = RequestMethod.POST,
@@ -158,7 +162,8 @@ public class TransactionSummaryApiRestController {
     return ResponseEntity.ok(
             this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest));
   }
-  @Permittable(value= AcceptedTokenType.GUEST)
+
+  @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
           value = "/get-vo-loan",
           method = RequestMethod.POST,
@@ -172,4 +177,32 @@ public class TransactionSummaryApiRestController {
             this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest));
   }
 
+  @Permittable(value = AcceptedTokenType.GUEST)
+  @RequestMapping(
+          value = "/shg-meeting-dd",
+          method = RequestMethod.GET,
+          consumes = MediaType.ALL_VALUE,
+          produces = MediaType.APPLICATION_JSON_VALUE
+  )
+  public List<ShgMeetingResponse> fetchBranchList(@RequestParam("villageId") Integer villageId) {
+    return transactionSummaryApiService.fetchBranchList(villageId);
+  }
+
+  @Permittable(value = AcceptedTokenType.GUEST)
+  @RequestMapping(
+          value = "/shg-subreports",
+          method = RequestMethod.GET,
+          consumes = MediaType.ALL_VALUE,
+          produces = MediaType.APPLICATION_JSON_VALUE
+  )
+  public List<SummaryTransactionSubReportsResponse> fetchSubReportsList(@RequestParam("villageId") Integer villageId,
+                                                            @RequestParam("voId") Integer voId,
+                                                            HttpServletRequest httpServletRequest) {
+    if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
+      this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+      throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+    }
+   String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+    return transactionSummaryApiService.fetchSubReportsList(villageId, voId, tenantIdentifier);
+  }
 }
