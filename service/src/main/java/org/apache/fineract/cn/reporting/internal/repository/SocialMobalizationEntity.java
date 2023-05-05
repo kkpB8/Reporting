@@ -291,6 +291,63 @@ public class SocialMobalizationEntity {
     @Column(name = "mem_cader_service")
     private Integer memCaderService;
 
+    @Column(name = "mem_others")
+    private Integer memOthers;
+    @Column(name = "int_block_zero_3")
+    private Integer intBlock0to3;
+    @Column(name = "int_block_three_6")
+    private Integer intBlock3to6;
+    @Column(name = "int_block_six_10")
+    private Integer intBlock6to10;
+
+    @Column(name = "int_block_more_10")
+    private Integer intBlockMore10;
+    @Column(name = "is_saturated")
+    private Integer isSaturated;
+    public Integer getIsSaturated() {
+        return isSaturated;
+    }
+
+    public void setIsSaturated(Integer isSaturated) {
+        this.isSaturated = isSaturated;
+    }
+
+    public BigInteger getId() {
+        return id;
+    }
+
+    public Integer getIntBlock0to3() {
+        return intBlock0to3;
+    }
+
+    public void setIntBlock0to3(Integer intBlock0to3) {
+        this.intBlock0to3 = intBlock0to3;
+    }
+
+    public Integer getIntBlock3to6() {
+        return intBlock3to6;
+    }
+
+    public void setIntBlock3to6(Integer intBlock3to6) {
+        this.intBlock3to6 = intBlock3to6;
+    }
+
+    public Integer getIntBlock6to10() {
+        return intBlock6to10;
+    }
+
+    public void setIntBlock6to10(Integer intBlock6to10) {
+        this.intBlock6to10 = intBlock6to10;
+    }
+
+    public Integer getIntBlockMore10() {
+        return intBlockMore10;
+    }
+
+    public void setIntBlockMore10(Integer intBlockMore10) {
+        this.intBlockMore10 = intBlockMore10;
+    }
+
     public Integer getMemWages() {
         return memWages;
     }
@@ -315,8 +372,6 @@ public class SocialMobalizationEntity {
         this.memOthers = memOthers;
     }
 
-    @Column(name = "mem_others")
-    private Integer memOthers;
     public Integer getShgLiveAggregation() {
         return shgLiveAggregation;
     }

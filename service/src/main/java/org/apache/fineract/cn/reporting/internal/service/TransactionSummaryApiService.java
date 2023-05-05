@@ -21,6 +21,7 @@ package org.apache.fineract.cn.reporting.internal.service;
 import org.apache.fineract.cn.reporting.DateUtils;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.mapper.CommonApiMapper;
@@ -43,13 +44,17 @@ public class TransactionSummaryApiService {
   private final Logger logger;
   private final TransactionSummaryRepository transactionSummaryRepository;
     private final VoTransactionSummaryRepository voTransactionSummaryRepository;
+    private final PGFunctionProcedureService pgFunctionProcedureService;
   @Autowired
   public TransactionSummaryApiService(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
-                                      final TransactionSummaryRepository transactionSummaryRepository,final VoTransactionSummaryRepository voTransactionSummaryRepository) {
+                                      final TransactionSummaryRepository transactionSummaryRepository,
+                                      final VoTransactionSummaryRepository voTransactionSummaryRepository,
+                                      final PGFunctionProcedureService pgFunctionProcedureService) {
     super();
     this.logger = logger;
     this.transactionSummaryRepository = transactionSummaryRepository;
     this.voTransactionSummaryRepository = voTransactionSummaryRepository;
+    this.pgFunctionProcedureService = pgFunctionProcedureService;
   }
 
     public List<TransactionSummary> fetchShgTransactionSummaryList(TransactionSummaryRequest transactionSummaryRequest) {
@@ -271,8 +276,6 @@ public class TransactionSummaryApiService {
                         transactionSummaryRequest.getDistrictId(),
                         transactionSummaryRequest.getBlockId(),
                         transactionSummaryRequest.getPanchayatId(),
-//                        fromDate1,
-//                        toDate1,
                         transactionSummaryRequest.getFromDate(),
                         transactionSummaryRequest.getToDate(),
                         transactionSummaryRequest.getVoId(),
@@ -303,12 +306,6 @@ public class TransactionSummaryApiService {
       if(toDate == null){
           toDate = "null";
       }
-//      if(year == null){
-//          year = "null";
-//      }
-//      if (qtrhalfyear == null){
-//          qtrhalfyear = "null";
-//      }
       if(stateId == null){
           stateId = -1;
       }
@@ -344,5 +341,36 @@ public class TransactionSummaryApiService {
         });
         return transactionSummaryList;
     }
+    public List<ShgMeetingResponse> fetchBranchList(Integer villageId) {
+        List<ShgMeetingResponse> shgMeetingResponseList = new ArrayList<>();
+        if(villageId == null){
+            villageId=-1;
+        }
+        List<Object[]> objectList = transactionSummaryRepository.fetchByVillageId(villageId);
+        if(objectList != null){
+            for(Object[] object : objectList) {
+                ShgMeetingResponse kResponse = new ShgMeetingResponse();
+                if (object[0] != null) {
+                    kResponse.setBkName(object[0].toString());
+                }
+                if (object[1] != null) {
+                    kResponse.setVillageId(new Integer(object[1].toString()));
+                }
+                if (object[2] != null) {
+                    kResponse.setShgsMapped(new Integer(object[2].toString()));
+                }
+                if (object[3] != null) {
+                    kResponse.setShgUpdated(new Integer(object[3].toString()));
+                }
+                shgMeetingResponseList.add(kResponse);
+            }
+        }else{
+            throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
+        }
+        return shgMeetingResponseList;
 
+    }
+    public List<SummaryTransactionSubReportsResponse> fetchSubReportsList(Integer villageId, Integer voId, String tenantIdentifier) {
+        return pgFunctionProcedureService.fn_summarytrasanction_sub_reports(villageId, voId, tenantIdentifier);
+    }
 }

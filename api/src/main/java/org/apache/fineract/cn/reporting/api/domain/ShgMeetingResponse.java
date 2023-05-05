@@ -1,36 +1,72 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.apache.fineract.cn.reporting.api.domain;
 
-import java.math.BigInteger;
-
 public class ShgMeetingResponse {
+    private String bkName;
+    private Integer villageId;
+    private Integer shgsMapped;
+    private Integer shgUpdated;
+    public String getBkName() {
+        return bkName;
+    }
 
-    private Integer state;
-    private Integer district;
-    private Integer block;
-    private Integer panchayat;
-    private Integer village;
-    private Integer shg;
-    private BigInteger vo;
-    private BigInteger clf;
-    private Integer geographicalRegion;
-    private String yearMonth;
-    private Integer noOfShgs;
+    public void setBkName(String bkName) {
+        this.bkName = bkName;
+    }
+
+    public Integer getVillageId() {
+        return villageId;
+    }
+
+    public void setVillageId(Integer villageId) {
+        this.villageId = villageId;
+    }
+
+    public Integer getShgsMapped() {
+        return shgsMapped;
+    }
+
+    public void setShgsMapped(Integer shgsMapped) {
+        this.shgsMapped = shgsMapped;
+    }
+
+    public Integer getShgUpdated() {
+        return shgUpdated;
+    }
+
+    public void setShgUpdated(Integer shgUpdated) {
+        this.shgUpdated = shgUpdated;
+    }
+//
+//    public String getB_k_name() {
+//        return b_k_name;
+//    }
+//
+//    public void setB_k_name(String b_k_name) {
+//        this.b_k_name = b_k_name;
+//    }
+//
+//    public Integer getVillage_id() {
+//        return village_id;
+//    }
+//
+//    public void setVillage_id(Integer village_id) {
+//        this.village_id = village_id;
+//    }
+//
+//    public Integer getShgsmapped() {
+//        return shgsmapped;
+//    }
+//
+//    public void setShgsmapped(Integer shgsmapped) {
+//        this.shgsmapped = shgsmapped;
+//    }
+//
+//    public Integer getShgupdated() {
+//        return shgupdated;
+//    }
+//
+//    public void setShgupdated(Integer shgupdated) {
+//        this.shgupdated = shgupdated;
+//    }
+
 }
