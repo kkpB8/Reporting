@@ -20,7 +20,6 @@ package org.apache.fineract.cn.reporting.internal.service;
 
 
 import org.apache.fineract.cn.reporting.ServiceConstants;
-import org.apache.fineract.cn.reporting.api.domain.ProfileReportRequest;
 import org.apache.fineract.cn.reporting.api.domain.ProfileReportResponse;
 import org.apache.fineract.cn.reporting.api.domain.ResponseMissionUnitLevel;
 import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
@@ -31,9 +30,7 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.web.util.NestedServletException;
 
-import javax.transaction.Transactional;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -211,8 +208,6 @@ public class ProfileReportService<profileReportEntity> {
         return responseMissionUnitLevelList;
     }
 
-
-
     public List<ResponseMissionUnitLevel> fetchBlockWiseMissionLevelReportList(Integer stateId, Integer districtId,Integer blockId) {
         List<ResponseMissionUnitLevel> responseMissionUnitLevelList = new ArrayList<>();
         if(stateId == null){
@@ -263,9 +258,7 @@ public class ProfileReportService<profileReportEntity> {
             throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
         }
         return responseMissionUnitLevelList;
-
     }
-
 }
 
 
