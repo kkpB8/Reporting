@@ -304,6 +304,97 @@ public class SocialMobalizationEntity {
     private Integer intBlockMore10;
     @Column(name = "is_saturated")
     private Integer isSaturated;
+    @Column(name = "shg_obc_month")
+    private Integer shgObcMonth;
+    @Column(name = "shg_mem_obc_month")
+    private Integer shgMemObcMonth;
+    @Column(name = "educationuptoGradAndAbve_month")
+    private Integer educationUptoGradAndAboveMonth;
+    @Column(name = "educationuptoGradandabve_leader_month")
+    private Integer educationuptoGradandabveLeaderMonth;
+    @Column(name = "mem_mobile")
+    private Integer memMobile;
+    @Column(name = "monthsOld_12_24_month")
+    private Integer monthOld12to24Month;
+    @Column(name = "monthsOld_24_60_month")
+    private Integer monthsOld24to60Month;
+    @Column(name = "monthsOld_60_120_month")
+    private Integer monthsOld60to120Month;
+    @Column(name = "monthsOld_120_More_month")
+    private Integer monthsOld120MoreMonth;
+
+    public Integer getMonthOld12to24Month() {
+        return monthOld12to24Month;
+    }
+
+    public void setMonthOld12to24Month(Integer monthOld12to24Month) {
+        this.monthOld12to24Month = monthOld12to24Month;
+    }
+
+    public Integer getMonthsOld24to60Month() {
+        return monthsOld24to60Month;
+    }
+
+    public void setMonthsOld24to60Month(Integer monthsOld24to60Month) {
+        this.monthsOld24to60Month = monthsOld24to60Month;
+    }
+
+    public Integer getMonthsOld60to120Month() {
+        return monthsOld60to120Month;
+    }
+
+    public void setMonthsOld60to120Month(Integer monthsOld60to120Month) {
+        this.monthsOld60to120Month = monthsOld60to120Month;
+    }
+
+    public Integer getMonthsOld120MoreMonth() {
+        return monthsOld120MoreMonth;
+    }
+
+    public void setMonthsOld120MoreMonth(Integer monthsOld120MoreMonth) {
+        this.monthsOld120MoreMonth = monthsOld120MoreMonth;
+    }
+
+    public Integer getMemMobile() {
+        return memMobile;
+    }
+
+    public void setMemMobile(Integer memMobile) {
+        this.memMobile = memMobile;
+    }
+
+    public Integer getShgObcMonth() {
+        return shgObcMonth;
+    }
+
+    public void setShgObcMonth(Integer shgObcMonth) {
+        this.shgObcMonth = shgObcMonth;
+    }
+
+    public Integer getShgMemObcMonth() {
+        return shgMemObcMonth;
+    }
+
+    public void setShgMemObcMonth(Integer shgMemObcMonth) {
+        this.shgMemObcMonth = shgMemObcMonth;
+    }
+
+    public Integer getEducationUptoGradAndAboveMonth() {
+        return educationUptoGradAndAboveMonth;
+    }
+
+    public void setEducationUptoGradAndAboveMonth(Integer educationUptoGradAndAboveMonth) {
+        this.educationUptoGradAndAboveMonth = educationUptoGradAndAboveMonth;
+    }
+
+    public Integer getEducationuptoGradandabveLeaderMonth() {
+        return educationuptoGradandabveLeaderMonth;
+    }
+
+    public void setEducationuptoGradandabveLeaderMonth(Integer educationuptoGradandabveLeaderMonth) {
+        this.educationuptoGradandabveLeaderMonth = educationuptoGradandabveLeaderMonth;
+    }
+
     public Integer getIsSaturated() {
         return isSaturated;
     }

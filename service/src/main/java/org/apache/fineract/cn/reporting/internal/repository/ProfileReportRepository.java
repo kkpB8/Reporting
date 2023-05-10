@@ -18,7 +18,6 @@
  */
 package org.apache.fineract.cn.reporting.internal.repository;
 
-import org.apache.fineract.cn.reporting.api.domain.ResponseMissionUnitLevel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -67,4 +66,5 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "districtId ,block_name_en as  Block,bu.*,s.state_id, d.district_id, b.block_id from state_master s inner join   " +
             "district_master  d on s.state_id=d.state_id inner join  block_master  b on d.district_id=b.district_id left join (select block_id,count(case when role_id='690' then 1 end)BA,count(case when role_id='670' then 1 end)BM ,count(case when role_id='650' then 1 end)BT from user_role_rights_map group by block_id)bu on b.block_id::varchar =bu.block_id where (?1 = -1 or s.state_id=?1) and (?2 = -1 or d.district_id=?2) and (?3 =-1 or b.block_id=?3)")
     List<Object[]> fetchBlockWiseMissionLevelReport(Integer stateId,Integer districtId ,Integer blockId);
+
 }
