@@ -239,6 +239,344 @@ public class TransactionSummaryEntity {
     private Integer shgRep90p;
     @Column(name = "shg_taking_loan")
     private Integer shgTakingLoan;
+    @Column(name = "total_vo_month")
+    private Integer totalVoMonth;
+    @Column(name = "total_mapped_vo")
+    private Integer totalMappedVo;
+    @Column(name = "vo_conducting_meeting")
+    private Integer voConductingMeeting;
+    @Column(name = "total_clf_month")
+    private Integer totalClfMonth;
+    @Column(name = "total_mapped_clf")
+    private Integer totalMappedClf;
+    @Column(name  = "clf_conducting_meeting")
+    private Integer clfConductingMeeting;
+    @Column(name = "vo_save_50")
+    private Integer voSave50;
+    @Column(name = "vo_save_50_70")
+    private Integer voSave50to70;
+    @Column(name = "vo_save_70_90")
+    private Integer voSave70to90;
+    @Column(name = "vo_save_90")
+    private Integer voSave90;
+    @Column(name = "clf_save_50")
+    private Integer clfSave50;
+    @Column(name = "clf_save_50_70")
+    private Integer clfSave50to70;
+    @Column(name = "clf_save_70_90")
+    private Integer clfSave70to90;
+    @Column(name = "clf_save_90")
+    private Integer clfSave90;
+    @Column(name = "vo_meet_atten_50")
+    private Integer voMeetAtten50;
+    @Column(name = "vo_meet_atten_50_70")
+    private Integer voMeetAtten50to70;
+    @Column(name = "vo_meet_atten_70_90")
+    private Integer voMeetAtten70to90;
+    @Column(name = "vo_meet_atten_90")
+    private Integer voMeetAtten90;
+    @Column(name = "clf_meet_atten_50")
+    private Integer clfMeetAtten50;
+    @Column(name = "clf_meet_atten_50_70")
+    private Integer clfMeetAtten50to70;
+    @Column(name = "clf_meet_atten_70_90")
+    private Integer clfMeetAtten70to90;
+    @Column(name = "clf_meet_atten_90")
+    private Integer clfMeetAtten90;
+    @Column(name = "shg_atten_50p_1")
+    private Integer shgAtten50p1;
+    @Column(name = "shg_atten_50p_70p_1")
+    private Integer shgAtten50p70p1;
+    @Column(name = "shg_atten_70p_90p_1")
+    private Integer shgAtten70p90p1;
+    @Column(name = "shg_atten_90p_1")
+    private Integer shgAtten90p1;
+    @Column(name = "shg_atten_50p_2")
+    private Integer shgAtten50p2;
+    @Column(name = "shg_atten_50p_70p_2")
+    private Integer shgAtten50p70p2;
+    @Column(name = "shg_atten_70p_90p_2")
+    private Integer shgAtten70p90p2;
+    @Column(name = "shg_atten_90p_2")
+    private Integer shgAtten90p2;
+    @Column(name = "shg_atten_50p_3")
+    private Integer shgAtten50p3;
+    @Column(name = "shg_atten_50p_70p_3")
+    private Integer shgAtten50p70p3;
+    @Column(name = "shg_atten_70p_90p_3")
+    private Integer shgAtten70p90p3;
+    @Column(name = "shg_atten_90p_3")
+    private Integer shgAtten90p3;
+    public Integer getShgAtten50p1() {
+        return shgAtten50p1;
+    }
+
+    public void setShgAtten50p1(Integer shgAtten50p1) {
+        this.shgAtten50p1 = shgAtten50p1;
+    }
+
+    public Integer getShgAtten50p70p1() {
+        return shgAtten50p70p1;
+    }
+
+    public void setShgAtten50p70p1(Integer shgAtten50p70p1) {
+        this.shgAtten50p70p1 = shgAtten50p70p1;
+    }
+
+    public Integer getShgAtten70p90p1() {
+        return shgAtten70p90p1;
+    }
+
+    public void setShgAtten70p90p1(Integer shgAtten70p90p1) {
+        this.shgAtten70p90p1 = shgAtten70p90p1;
+    }
+
+    public Integer getShgAtten90p1() {
+        return shgAtten90p1;
+    }
+
+    public void setShgAtten90p1(Integer shgAtten90p1) {
+        this.shgAtten90p1 = shgAtten90p1;
+    }
+
+    public Integer getShgAtten50p2() {
+        return shgAtten50p2;
+    }
+
+    public void setShgAtten50p2(Integer shgAtten50p2) {
+        this.shgAtten50p2 = shgAtten50p2;
+    }
+
+    public Integer getShgAtten50p70p2() {
+        return shgAtten50p70p2;
+    }
+
+    public void setShgAtten50p70p2(Integer shgAtten50p70p2) {
+        this.shgAtten50p70p2 = shgAtten50p70p2;
+    }
+
+    public Integer getShgAtten70p90p2() {
+        return shgAtten70p90p2;
+    }
+
+    public void setShgAtten70p90p2(Integer shgAtten70p90p2) {
+        this.shgAtten70p90p2 = shgAtten70p90p2;
+    }
+
+    public Integer getShgAtten90p2() {
+        return shgAtten90p2;
+    }
+
+    public void setShgAtten90p2(Integer shgAtten90p2) {
+        this.shgAtten90p2 = shgAtten90p2;
+    }
+
+    public Integer getShgAtten50p3() {
+        return shgAtten50p3;
+    }
+
+    public void setShgAtten50p3(Integer shgAtten50p3) {
+        this.shgAtten50p3 = shgAtten50p3;
+    }
+
+    public Integer getShgAtten50p70p3() {
+        return shgAtten50p70p3;
+    }
+
+    public void setShgAtten50p70p3(Integer shgAtten50p70p3) {
+        this.shgAtten50p70p3 = shgAtten50p70p3;
+    }
+
+    public Integer getShgAtten70p90p3() {
+        return shgAtten70p90p3;
+    }
+
+    public void setShgAtten70p90p3(Integer shgAtten70p90p3) {
+        this.shgAtten70p90p3 = shgAtten70p90p3;
+    }
+
+    public Integer getShgAtten90p3() {
+        return shgAtten90p3;
+    }
+
+    public void setShgAtten90p3(Integer shgAtten90p3) {
+        this.shgAtten90p3 = shgAtten90p3;
+    }
+
+    public Integer getVoMeetAtten50() {
+        return voMeetAtten50;
+    }
+
+    public void setVoMeetAtten50(Integer voMeetAtten50) {
+        this.voMeetAtten50 = voMeetAtten50;
+    }
+
+    public Integer getVoMeetAtten50to70() {
+        return voMeetAtten50to70;
+    }
+
+    public void setVoMeetAtten50to70(Integer voMeetAtten50to70) {
+        this.voMeetAtten50to70 = voMeetAtten50to70;
+    }
+
+    public Integer getVoMeetAtten70to90() {
+        return voMeetAtten70to90;
+    }
+
+    public void setVoMeetAtten70to90(Integer voMeetAtten70to90) {
+        this.voMeetAtten70to90 = voMeetAtten70to90;
+    }
+
+    public Integer getVoMeetAtten90() {
+        return voMeetAtten90;
+    }
+
+    public void setVoMeetAtten90(Integer voMeetAtten90) {
+        this.voMeetAtten90 = voMeetAtten90;
+    }
+
+    public Integer getClfMeetAtten50() {
+        return clfMeetAtten50;
+    }
+
+    public void setClfMeetAtten50(Integer clfMeetAtten50) {
+        this.clfMeetAtten50 = clfMeetAtten50;
+    }
+
+    public Integer getClfMeetAtten50to70() {
+        return clfMeetAtten50to70;
+    }
+
+    public void setClfMeetAtten50to70(Integer clfMeetAtten50to70) {
+        this.clfMeetAtten50to70 = clfMeetAtten50to70;
+    }
+
+    public Integer getClfMeetAtten70to90() {
+        return clfMeetAtten70to90;
+    }
+
+    public void setClfMeetAtten70to90(Integer clfMeetAtten70to90) {
+        this.clfMeetAtten70to90 = clfMeetAtten70to90;
+    }
+
+    public Integer getClfMeetAtten90() {
+        return clfMeetAtten90;
+    }
+
+    public void setClfMeetAtten90(Integer clfMeetAtten90) {
+        this.clfMeetAtten90 = clfMeetAtten90;
+    }
+    public Integer getTotalClfMonth() {
+        return totalClfMonth;
+    }
+
+    public void setTotalClfMonth(Integer totalClfMonth) {
+        this.totalClfMonth = totalClfMonth;
+    }
+
+    public Integer getTotalMappedClf() {
+        return totalMappedClf;
+    }
+
+    public void setTotalMappedClf(Integer totalMappedClf) {
+        this.totalMappedClf = totalMappedClf;
+    }
+
+    public Integer getClfConductingMeeting() {
+        return clfConductingMeeting;
+    }
+
+    public void setClfConductingMeeting(Integer clfConductingMeeting) {
+        this.clfConductingMeeting = clfConductingMeeting;
+    }
+
+    public Integer getVoSave50() {
+        return voSave50;
+    }
+
+    public void setVoSave50(Integer voSave50) {
+        this.voSave50 = voSave50;
+    }
+
+    public Integer getVoSave50to70() {
+        return voSave50to70;
+    }
+
+    public void setVoSave50to70(Integer voSave50to70) {
+        this.voSave50to70 = voSave50to70;
+    }
+
+    public Integer getVoSave70to90() {
+        return voSave70to90;
+    }
+
+    public void setVoSave70to90(Integer voSave70to90) {
+        this.voSave70to90 = voSave70to90;
+    }
+
+    public Integer getVoSave90() {
+        return voSave90;
+    }
+
+    public void setVoSave90(Integer voSave90) {
+        this.voSave90 = voSave90;
+    }
+
+    public Integer getClfSave50() {
+        return clfSave50;
+    }
+
+    public void setClfSave50(Integer clfSave50) {
+        this.clfSave50 = clfSave50;
+    }
+
+    public Integer getClfSave50to70() {
+        return clfSave50to70;
+    }
+
+    public void setClfSave50to70(Integer clfSave50to70) {
+        this.clfSave50to70 = clfSave50to70;
+    }
+
+    public Integer getClfSave70to90() {
+        return clfSave70to90;
+    }
+
+    public void setClfSave70to90(Integer clfSave70to90) {
+        this.clfSave70to90 = clfSave70to90;
+    }
+
+    public Integer getClfSave90() {
+        return clfSave90;
+    }
+
+    public void setClfSave90(Integer clfSave90) {
+        this.clfSave90 = clfSave90;
+    }
+
+    public Integer getTotalVoMonth() {
+        return totalVoMonth;
+    }
+
+    public void setTotalVoMonth(Integer totalVoMonth) {
+        this.totalVoMonth = totalVoMonth;
+    }
+
+    public Integer getTotalMappedVo() {
+        return totalMappedVo;
+    }
+
+    public void setTotalMappedVo(Integer totalMappedVo) {
+        this.totalMappedVo = totalMappedVo;
+    }
+
+    public Integer getVoConductingMeeting() {
+        return voConductingMeeting;
+    }
+
+    public void setVoConductingMeeting(Integer voConductingMeeting) {
+        this.voConductingMeeting = voConductingMeeting;
+    }
     public Integer getShgLoanEqu50p() {
         return shgLoanEqu50p;
     }
