@@ -67,4 +67,27 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "district_master  d on s.state_id=d.state_id inner join  block_master  b on d.district_id=b.district_id left join (select block_id,count(case when role_id='690' then 1 end)BA,count(case when role_id='670' then 1 end)BM ,count(case when role_id='650' then 1 end)BT from user_role_rights_map group by block_id)bu on b.block_id::varchar =bu.block_id where (?1 = -1 or s.state_id=?1) and (?2 = -1 or d.district_id=?2) and (?3 =-1 or b.block_id=?3)")
     List<Object[]> fetchBlockWiseMissionLevelReport(Integer stateId,Integer districtId ,Integer blockId);
 
+    @Query(nativeQuery = true, value="select state_id,state_name , COUNT(CASE WHEN  age_block IN (0,1,2,3) THEN age_block end) as int_block_zero_3,  " +
+            "COALESCE(SUM(CASE WHEN  age_block IN (0,1,2,3) THEN is_saturated end),0) int_block_zero_3_sat,  " +
+            "COUNT(CASE WHEN  age_block IN (4,5,6) THEN age_block end) as int_block_three_6,  " +
+            "COALESCE(SUM(CASE WHEN  age_block IN (4,5,6) THEN is_saturated end),0) int_block_three_6_sat,  " +
+            "COUNT(CASE WHEN  age_block IN (7,8,9,10) THEN age_block end) as int_block_six_10,  " +
+            "COALESCE(SUM(CASE WHEN  age_block IN (7,8,9,10) THEN is_saturated end),0) int_block_six_10_sat,  " +
+            "COUNT(CASE WHEN  age_block >10  THEN age_block end) as int_block_more_10, " +
+            "COALESCE(SUM(CASE WHEN  age_block > 10 THEN is_saturated end),0) int_block_more_10_sat " +
+            "from tbl_summary where  year_month = ?1 and (?2 = -1 or state_id = ?2) and geographical_flag = 3  " +
+            "group by state_id, state_name")
+    List<Object[]> fetchBS(String yearMonth, Integer stateId);
+    @Query(nativeQuery = true, value = "select state_id,state_name ,district_id,district_name,  " +
+            "COUNT(CASE WHEN  age_block IN (0,1,2,3) THEN age_block end) as int_block_zero_3,  " +
+            "COALESCE(SUM(CASE WHEN  age_block IN (0,1,2,3) THEN is_saturated end),0) int_block_zero_3_sat,  " +
+            "COUNT(CASE WHEN  age_block IN (4,5,6) THEN age_block end) as int_block_three_6,  " +
+            "COALESCE(SUM(CASE WHEN  age_block IN (4,5,6) THEN is_saturated end),0) int_block_three_6_sat,  " +
+            "COUNT(CASE WHEN  age_block IN (7,8,9,10) THEN age_block end) as int_block_six_10,  " +
+            "COALESCE(SUM(CASE WHEN  age_block IN (7,8,9,10) THEN is_saturated end),0) int_block_six_10_sat,  " +
+            "COUNT(CASE WHEN  age_block >10  THEN age_block end) as int_block_more_10,  " +
+            "COALESCE(SUM(CASE WHEN  age_block > 10 THEN is_saturated end),0) int_block_more_10_sat  " +
+            "from tbl_summary where  year_month= ?1 and (?2 = -1 or state_id = ?2) and (?3 = -1 or district_id = ?3) and geographical_flag = 3  " +
+            "group by state_id,state_name,district_id,district_name")
+    List<Object[]> fetchBSlist(String yearMonth, Integer stateId, Integer districtId);
 }

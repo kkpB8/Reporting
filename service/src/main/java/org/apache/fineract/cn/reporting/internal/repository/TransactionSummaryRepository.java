@@ -111,8 +111,6 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             @Param("flag") final Integer flag,
             @Param("fromDate") final String fromDate,
             @Param("toDate") final String toDate,
-//            @Param("year") final String year,
-//            @Param("qtrhalfyear") final String qtrhalfyear,
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,
