@@ -11,13 +11,13 @@ import java.util.List;
 @Repository
 public interface BankBranchCbosRepository extends JpaRepository<BankBranchCbosEntity, BigInteger> {
     @Query("FROM  BankBranchCbosEntity c WHERE " +
+            "(c.geographicalFlag=:geographicalFlag) and "  +
+            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
             "(-1 = :stateId or c.stateId=:stateId) and " +
             "(-1 = :districtId or c.districtId=:districtId) and " +
             "(-1 = :blockId or c.blockId=:blockId) and " +
             "(-1 = :bankId or c.bankId=:bankId) and " +
-            "(-1 = :branchId or c.branchId=:branchId) and " +
-            "(c.yearMonth>=:fromDate and c.yearMonth<=:toDate) and " +
-            "(c.geographicalFlag=:geographicalFlag)")
+            "(-1 = :branchId or c.branchId=:branchId) ")
     List<BankBranchCbosEntity> findByFilter(
             @Param("geographicalFlag") final Integer geographicalFlag,
             @Param("fromDate") final String fromDate,

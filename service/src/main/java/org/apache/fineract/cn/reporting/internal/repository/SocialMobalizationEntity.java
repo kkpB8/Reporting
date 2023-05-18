@@ -322,6 +322,86 @@ public class SocialMobalizationEntity {
     private Integer monthsOld60to120Month;
     @Column(name = "monthsOld_120_More_month")
     private Integer monthsOld120MoreMonth;
+    @Column(name = "shg_activated")
+    private Integer shgActivated;
+    @Column(name = "vo_activated")
+    private Integer voActivated;
+    @Column(name = "clf_activated")
+    private Integer clfActivated;
+    @Column(name = "mem_activated")
+    private Integer memActivated;
+    @Column(name = "int_block_zero_3_sat")
+    private Integer intBlockZero3sat;
+    @Column(name = "int_block_three_6_sat")
+    private Integer intBlockThree6Sat;
+    @Column(name = "int_block_six_10_sat")
+    private Integer intBlockSix10Sat;
+    @Column(name = "int_block_more_10_sat")
+    private Integer intBlockMore10Sat;
+
+    public Integer getIntBlockZero3sat() {
+        return intBlockZero3sat;
+    }
+
+    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
+        this.intBlockZero3sat = intBlockZero3sat;
+    }
+
+    public Integer getIntBlockThree6Sat() {
+        return intBlockThree6Sat;
+    }
+
+    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
+        this.intBlockThree6Sat = intBlockThree6Sat;
+    }
+
+    public Integer getIntBlockSix10Sat() {
+        return intBlockSix10Sat;
+    }
+
+    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
+        this.intBlockSix10Sat = intBlockSix10Sat;
+    }
+
+    public Integer getIntBlockMore10Sat() {
+        return intBlockMore10Sat;
+    }
+
+    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
+        this.intBlockMore10Sat = intBlockMore10Sat;
+    }
+
+    public Integer getMemActivated() {
+        return memActivated;
+    }
+
+    public void setMemActivated(Integer memActivated) {
+        this.memActivated = memActivated;
+    }
+
+    public Integer getVoActivated() {
+        return voActivated;
+    }
+
+    public void setVoActivated(Integer voActivated) {
+        this.voActivated = voActivated;
+    }
+
+    public Integer getClfActivated() {
+        return clfActivated;
+    }
+
+    public void setClfActivated(Integer clfActivated) {
+        this.clfActivated = clfActivated;
+    }
+
+    public Integer getShgActivated() {
+        return shgActivated;
+    }
+
+    public void setShgActivated(Integer shgActivated) {
+        this.shgActivated = shgActivated;
+    }
 
     public Integer getMonthOld12to24Month() {
         return monthOld12to24Month;
