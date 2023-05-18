@@ -2,6 +2,8 @@ package org.apache.fineract.cn.reporting.internal.service;
 import jnr.ffi.annotations.In;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
+import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.mapper.CommonApiMapper;
 import org.apache.fineract.cn.reporting.internal.repository.*;
 import org.slf4j.Logger;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 @Service
@@ -74,47 +77,24 @@ public class BankBranchCbosApiService {
             });
             return responseBankBranchCbosList;
         }
-// Fetch Bank Lists
-//    public List<ResponseBankDeatils> fetchBankList(Integer stateId, Integer geographicalFlag)
-//            {
-//            return bankDetailsRepository.fetchBanksList(stateId, geographicalFlag);
-//        }
 
-    public List<ResponseBankDeatils> fetchBankList(Integer stateId, Integer geographicalFlag) {
-        List<ResponseBankDeatils> responseBankDeatilsList = new ArrayList<>();
-        List<BankDetailsEntity> bankDetailsEntityList;
-        bankDetailsEntityList = bankDetailsRepository.
-                fetchBanksList(stateId, geographicalFlag);
-        bankDetailsEntityList.forEach(bankDetailsEntity ->
-        {
-            ResponseBankDeatils responseBankDeatils = CommonApiMapper.map(bankDetailsEntity);
-            responseBankDeatilsList.add(responseBankDeatils);
-        });
-        return responseBankDeatilsList;
-    }
-
-// Fetch Branch Lists
-//    public List<BranchDetEntity> fetchBranchList(Integer bankId, Integer geographicalFlag)
-//    {
-//        return branchDetRepository.fetchBranchList(bankId, geographicalFlag);
-//    }
-    public List<ResponseBranchDet> fetchBranchList(Integer bankId, Integer geographicalFlag) {
+    public List<ResponseBranchDet> fetchBranchList(Integer geographicalFlag, Integer stateId,Integer bankId) {
         List<ResponseBranchDet> responseBranchDetList = new ArrayList<>();
-        List<BranchDetEntity> branchDetEntityList;
-//        if(bankId != null){
-//            bankId = -1;
-//        }
-//        if(geographicalFlag != null){
-//            geographicalFlag = -1;
-//        }
-        branchDetEntityList = branchDetRepository.
-                fetchBranchList(bankId, geographicalFlag);
-
-        branchDetEntityList.forEach(branchDetEntity ->
-        {
-            ResponseBranchDet responseBranchDet = CommonApiMapper.map(branchDetEntity);
-            responseBranchDetList.add(responseBranchDet);
-        });
+        List<Object[]>  objectList =objectList =  branchDetRepository.fetchBranchList(geographicalFlag, stateId, bankId);
+        if(objectList != null){
+            for(Object[] object :objectList) {
+                ResponseBranchDet responseBranchDet = new ResponseBranchDet();
+                if (object[0] != null) {
+                    responseBranchDet.setBranchId(new Integer(object[0].toString()));
+                }
+                if (object[1] != null) {
+                    responseBranchDet.setBranchName(object[1].toString());
+                }
+                responseBranchDetList.add(responseBranchDet);
+            }
+        }else{
+            throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
+        }
         return responseBranchDetList;
     }
 
@@ -161,4 +141,25 @@ public class BankBranchCbosApiService {
         });
         return responseBankWiseCboList;
     }
+
+    public List<ResponseBankDeatils> fetchBank(Integer geographicalFlag, Integer stateId) {
+        List<ResponseBankDeatils> responseBankDeatilsList = new ArrayList<>();
+        List<Object[]> objectList  = bankDetailsRepository.fetchBankList(geographicalFlag, stateId);
+        if(objectList != null){
+            for(Object[] object :objectList) {
+                ResponseBankDeatils responseBankDeatils = new ResponseBankDeatils();
+                if (object[0] != null) {
+                    responseBankDeatils.setBankId(new Integer(object[0].toString()));
+                }
+                if (object[1] != null) {
+                    responseBankDeatils.setBankName(object[1].toString());
+                }
+                responseBankDeatilsList.add(responseBankDeatils);
+            }
+        }else{
+            throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
+        }
+        return responseBankDeatilsList;
+    }
+
 }

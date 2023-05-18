@@ -64,11 +64,11 @@ public class BankBranchCbosApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBankDeatils>> fetchBankList(@RequestParam("stateId") Integer stateId,
-                                                            @RequestParam(value = "geographicalFlag", defaultValue = "1") int geographicalFlag) {
+    ResponseEntity<List<ResponseBankDeatils>> fetchBankList( @RequestParam(value = "geographicalFlag", defaultValue = "1") int geographicalFlag,
+                                                             @RequestParam("stateId") Integer stateId) {
         if (stateId != null) {
             return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBankList(stateId, geographicalFlag));
+                    this.bankBranchCbosApiService.fetchBank(geographicalFlag, stateId));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
@@ -83,11 +83,13 @@ public class BankBranchCbosApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBranchDet>> fetchBranchList(@RequestParam("bankId") Integer bankId,
-                                                            @RequestParam(value = "geographicalFlag",defaultValue = "2") int geographicalFlag){
+    ResponseEntity<List<ResponseBranchDet>> fetchBranchList(
+            @RequestParam(value = "geographicalFlag",defaultValue = "2") int geographicalFlag,
+            @RequestParam("stateId") Integer stateId,
+            @RequestParam("bankId") Integer bankId){
         if (bankId != null) {
             return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBranchList(bankId, geographicalFlag));
+                    this.bankBranchCbosApiService.fetchBranchList(geographicalFlag, stateId, bankId));
         } else {
             throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
         }
@@ -98,14 +100,12 @@ public class BankBranchCbosApiRestController {
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-wise-cbo-accounts",
-//            method = RequestMethod.POST,
             method = RequestMethod.GET,
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
     public
     @ResponseBody
-//    ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestBody RequestBankWiseCbo requestBankWiseCbo) {
     ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                                    @RequestParam("fromDate") String fromDate,
                                                                    @RequestParam("toDate") String toDate,

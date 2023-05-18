@@ -21,6 +21,7 @@ package org.apache.fineract.cn.reporting.internal.service;
 
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.ProfileReportResponse;
+import org.apache.fineract.cn.reporting.api.domain.ResponseBs;
 import org.apache.fineract.cn.reporting.api.domain.ResponseMissionUnitLevel;
 import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
@@ -259,7 +260,114 @@ public class ProfileReportService<profileReportEntity> {
         }
         return responseMissionUnitLevelList;
     }
+
+    public List<ResponseBs>  fetchBlockSaturation(String yearMonth, Integer stateId) {
+        List<ResponseBs> responseBsList = new ArrayList<>();
+        if (yearMonth == null) {
+            yearMonth = "null";
+        }
+        if (stateId == null){
+            stateId = -1;
+        }
+        List<Object[]> objectList =     profileReportRepository.fetchBS(yearMonth, stateId);
+        if(objectList != null){
+            for(Object[] object : objectList) {
+                ResponseBs responseBs = new ResponseBs();
+                if (object[0] != null) {
+                    responseBs.setStateId(new Integer (object[0].toString()));
+                }
+                if (object[1] != null) {
+                    responseBs.setStateName(object[1].toString());
+                }
+
+                if (object[2] != null) {
+                    responseBs.setIntBlockZero3(new Integer (object[2].toString()));
+                }
+                if (object[3] != null) {
+                    responseBs.setIntBlockZero3sat(new Integer (object[3].toString()));
+                }
+                if (object[4] != null) {
+                    responseBs.setIntBlockThree6(new Integer (object[4].toString()));
+                }
+                if (object[5] != null) {
+                    responseBs.setIntBlockThree6sat(new Integer (object[5].toString()));
+                }
+                if (object[6] != null) {
+                    responseBs.setIntBlockSix10(new Integer (object[6].toString()));
+                }
+                if (object[7] != null) {
+                    responseBs.setIntBlockSix10sat(new Integer (object[7].toString()));
+                }
+                if (object[8] != null) {
+                    responseBs.setIntBlockMore10(new Integer (object[8].toString()));
+                }
+                if (object[9] != null) {
+                    responseBs.setIntBlockMore10sat(new Integer (object[9].toString()));
+                }
+                responseBsList.add(responseBs);
+            }
+        }else{
+            throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
+        }
+        return responseBsList;
+    }
+
+    public List<ResponseBs>  fetchBlockSaturationList(String yearMonth, Integer stateId, Integer districtId) {
+        List<ResponseBs> responseBsList = new ArrayList<>();
+        if (yearMonth == null) {
+            yearMonth = "null";
+        }
+        if(stateId == null){
+            stateId = -1;
+        }
+        if(districtId == null){
+            districtId = -1;
+        }
+        List<Object[]> objectList = profileReportRepository.fetchBSlist(yearMonth, stateId, districtId);
+        if(objectList != null){
+            for(Object[] object : objectList) {
+                ResponseBs responseBs = new ResponseBs();
+                if (object[0] != null) {
+                    responseBs.setStateId(new Integer (object[0].toString()));
+                }
+                if (object[1] != null) {
+                    responseBs.setStateName(object[1].toString());
+                }
+                if (object[2] != null) {
+                    responseBs.setDistrictId(new Integer (object[2].toString()));
+                }
+                if (object[3] != null) {
+                    responseBs.setDistrictName(object[3].toString());
+                }
+                if (object[4] != null) {
+                    responseBs.setIntBlockZero3(new Integer (object[4].toString()));
+                }
+                if (object[5] != null) {
+                    responseBs.setIntBlockZero3sat(new Integer (object[5].toString()));
+                }
+                if (object[6] != null) {
+                    responseBs.setIntBlockThree6(new Integer (object[6].toString()));
+                }
+                if (object[7] != null) {
+                    responseBs.setIntBlockThree6sat(new Integer (object[7].toString()));
+                }
+                if (object[8] != null) {
+                    responseBs.setIntBlockSix10(new Integer (object[8].toString()));
+                }
+                if (object[9] != null) {
+                    responseBs.setIntBlockSix10sat(new Integer (object[9].toString()));
+                }
+                if (object[10] != null) {
+                    responseBs.setIntBlockMore10(new Integer (object[10].toString()));
+                }
+                if (object[11] != null) {
+                    responseBs.setIntBlockMore10sat(new Integer (object[11].toString()));
+                }
+                responseBsList.add(responseBs);
+            }
+        }else{
+            throw  new RecordNotFoundException(CustomStatus.NO_RECORD_FOUND);
+        }
+        return responseBsList;
+    }
 }
-
-
-

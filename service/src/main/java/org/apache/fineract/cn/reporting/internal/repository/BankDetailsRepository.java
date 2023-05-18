@@ -10,12 +10,9 @@ import java.math.BigInteger;
 import java.util.List;
 @Repository
 public interface BankDetailsRepository extends JpaRepository<BankDetailsEntity, BigInteger> {
-    @Query("FROM  BankDetailsEntity c WHERE " +
-            "(-1 = :stateId or c.stateId=:stateId) and " +
-            "(c.geographicalFlag=:geographicalFlag)")
-//    List<BankDetailsEntity> fetchBankList(
-    List<BankDetailsEntity> fetchBanksList(
-            @Param("stateId") final Integer stateId,
-            @Param("geographicalFlag") final Integer geographicalFlag
-    );
+
+    @Query(nativeQuery = true, value="select bank_id,bank_name from tbl_summary_banks  " +
+            "where geographical_flag=?1 and year_month='2023-05' and state_id=?2 and bank_id is not null  " +
+            "group by bank_id,bank_name")
+    List<Object[]> fetchBankList(Integer geographicalFlag, Integer stateId);
 }

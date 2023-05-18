@@ -10,12 +10,12 @@ import java.util.List;
 
 @Repository
 public interface BranchDetRepository extends JpaRepository<BranchDetEntity, BigInteger> {
-    @Query("FROM  BranchDetEntity c WHERE "+
-            "(c.bankId=:bankId and c.geographicalFlag=:geographicalFlag)")
-//            "(c.geographicalFlag=:geographicalFlag)")
-//    List<BankDetailsEntity> fetchBankList(
-    List<BranchDetEntity> fetchBranchList(
-            @Param("bankId") final Integer bankId,
-            @Param("geographicalFlag") final Integer geographicalFlag
+    @Query(nativeQuery = true, value="select branch_id,branch_name from tbl_summary_banks " +
+            " where geographical_flag=?1 and year_month='2023-05' and state_id=?2   and bank_id = ?3" +
+            " group by branch_id,branch_name")
+    List<Object[]> fetchBranchList(
+            @Param("geographicalFlag") final Integer geographicalFlag,
+            @Param("stateId") final Integer stateId,
+            @Param("bankId") final Integer bankId
     );
 }
