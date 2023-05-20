@@ -154,10 +154,10 @@ public class ResponseSocialMobilization {
     private Integer memCaderService;
 
     private Integer memOthers;
-    private Integer intBlock0to3;
-    private Integer intBlock3to6;
-    private Integer intBlock6to10;
-    private Integer intBlockMore10;
+//    private Integer intBlock0to3;
+//    private Integer intBlock3to6;
+//    private Integer intBlock6to10;
+//    private Integer intBlockMore10;
     private Integer isSaturated;
     private Integer shgObcMonth;
     private Integer shgMemObcMonth;
@@ -172,42 +172,42 @@ public class ResponseSocialMobilization {
     private Integer voActivated;
     private Integer clfActivated;
     private Integer memActivated;
-    private Integer intBlockZero3sat;
-    private Integer intBlockThree6Sat;
-    private Integer intBlockSix10Sat;
-    private Integer intBlockMore10Sat;
+//    private Integer intBlockZero3sat;
+//    private Integer intBlockThree6Sat;
+//    private Integer intBlockSix10Sat;
+//    private Integer intBlockMore10Sat;
 
-    public Integer getIntBlockZero3sat() {
-        return intBlockZero3sat;
-    }
-
-    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
-        this.intBlockZero3sat = intBlockZero3sat;
-    }
-
-    public Integer getIntBlockThree6Sat() {
-        return intBlockThree6Sat;
-    }
-
-    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
-        this.intBlockThree6Sat = intBlockThree6Sat;
-    }
-
-    public Integer getIntBlockSix10Sat() {
-        return intBlockSix10Sat;
-    }
-
-    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
-        this.intBlockSix10Sat = intBlockSix10Sat;
-    }
-
-    public Integer getIntBlockMore10Sat() {
-        return intBlockMore10Sat;
-    }
-
-    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
-        this.intBlockMore10Sat = intBlockMore10Sat;
-    }
+//    public Integer getIntBlockZero3sat() {
+//        return intBlockZero3sat;
+//    }
+//
+//    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
+//        this.intBlockZero3sat = intBlockZero3sat;
+//    }
+//
+//    public Integer getIntBlockThree6Sat() {
+//        return intBlockThree6Sat;
+//    }
+//
+//    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
+//        this.intBlockThree6Sat = intBlockThree6Sat;
+//    }
+//
+//    public Integer getIntBlockSix10Sat() {
+//        return intBlockSix10Sat;
+//    }
+//
+//    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
+//        this.intBlockSix10Sat = intBlockSix10Sat;
+//    }
+//
+//    public Integer getIntBlockMore10Sat() {
+//        return intBlockMore10Sat;
+//    }
+//
+//    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
+//        this.intBlockMore10Sat = intBlockMore10Sat;
+//    }
 
     public Integer getMemActivated() {
         return memActivated;
@@ -321,37 +321,37 @@ public class ResponseSocialMobilization {
         this.isSaturated = isSaturated;
     }
 
-    public Integer getIntBlock0to3() {
-        return intBlock0to3;
-    }
-
-    public void setIntBlock0to3(Integer intBlock0to3) {
-        this.intBlock0to3 = intBlock0to3;
-    }
-
-    public Integer getIntBlock3to6() {
-        return intBlock3to6;
-    }
-
-    public void setIntBlock3to6(Integer intBlock3to6) {
-        this.intBlock3to6 = intBlock3to6;
-    }
-
-    public Integer getIntBlock6to10() {
-        return intBlock6to10;
-    }
-
-    public void setIntBlock6to10(Integer intBlock6to10) {
-        this.intBlock6to10 = intBlock6to10;
-    }
-
-    public Integer getIntBlockMore10() {
-        return intBlockMore10;
-    }
-
-    public void setIntBlockMore10(Integer intBlockMore10) {
-        this.intBlockMore10 = intBlockMore10;
-    }
+//    public Integer getIntBlock0to3() {
+//        return intBlock0to3;
+//    }
+//
+//    public void setIntBlock0to3(Integer intBlock0to3) {
+//        this.intBlock0to3 = intBlock0to3;
+//    }
+//
+//    public Integer getIntBlock3to6() {
+//        return intBlock3to6;
+//    }
+//
+//    public void setIntBlock3to6(Integer intBlock3to6) {
+//        this.intBlock3to6 = intBlock3to6;
+//    }
+//
+//    public Integer getIntBlock6to10() {
+//        return intBlock6to10;
+//    }
+//
+//    public void setIntBlock6to10(Integer intBlock6to10) {
+//        this.intBlock6to10 = intBlock6to10;
+//    }
+//
+//    public Integer getIntBlockMore10() {
+//        return intBlockMore10;
+//    }
+//
+//    public void setIntBlockMore10(Integer intBlockMore10) {
+//        this.intBlockMore10 = intBlockMore10;
+//    }
     public Integer getMemWages() {
         return memWages;
     }
