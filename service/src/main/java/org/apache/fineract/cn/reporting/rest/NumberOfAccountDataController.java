@@ -22,6 +22,7 @@ import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.NumberOfAccountDataRequest;
 import org.apache.fineract.cn.reporting.api.domain.AccountDataResponse;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.NumberOfAccountDataServiceClass;
@@ -38,7 +39,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/accountdetail")
-public class NumberOfAccountDataController {
+public class NumberOfAccountDataController extends BaseController {
     private final Logger logger;
     private final NumberOfAccountDataServiceClass numberOfAccountDataServiceClass;
 
@@ -61,8 +62,8 @@ public class NumberOfAccountDataController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<AccountDataResponse>> getGeoData(@RequestBody NumberOfAccountDataRequest request,
-                                                         HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<AccountDataResponse>>> getGeoData(@RequestBody NumberOfAccountDataRequest request,
+                                                                           HttpServletRequest headerRequest) {
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -72,7 +73,7 @@ public class NumberOfAccountDataController {
         String district_id=request.getDistrict_id();
         String block_id=request.getBlock_id();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.numberOfAccountDataServiceClass.getnumberofaccountdata(locationtype,state_id,district_id,block_id,tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.numberOfAccountDataServiceClass.getnumberofaccountdata(locationtype,state_id,district_id,block_id,tenantIdentifier)));
     }
 }

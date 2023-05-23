@@ -22,6 +22,7 @@ package org.apache.fineract.cn.reporting.rest;
 import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.service.CommonApiService;
 import org.apache.fineract.cn.reporting.api.domain.LookUpMaster;
 import org.slf4j.Logger;
@@ -36,7 +37,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/master")
-public class CommonApiRestController {
+public class CommonApiRestController extends BaseController{
 
   private final Logger logger;
   private final CommonApiService commonApiService;
@@ -59,9 +60,9 @@ public class CommonApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<String> getTest(@RequestHeader Map<String, String> headers) {
-    return ResponseEntity.ok(
-            "success");
+  ResponseEntity<GlobalApiResponse<String>> getTest(@RequestHeader Map<String, String> headers) {
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            "success"));
   }
   //VIEW ALL LOOKUP MASTER 30-12-2020
   @Permittable(value= AcceptedTokenType.GUEST)
@@ -73,10 +74,9 @@ public class CommonApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<LookUpMaster>> fetchLookupMaster() {
-    return ResponseEntity.ok(
-            this.commonApiService.fetchLookupMaster());
+  ResponseEntity<GlobalApiResponse<LookUpMaster>> fetchLookupMaster() {
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.commonApiService.fetchLookupMaster()));
   }
-
 
 }

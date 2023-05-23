@@ -22,7 +22,7 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
-import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
+import org.apache.fineract.cn.reporting.internal.Error.*;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.ProfileReportService;
 
@@ -37,7 +37,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/profileReport")
-public class ProfileReportApiRestController {
+public class ProfileReportApiRestController extends  BaseController{
 
     private final Logger logger;
     private final ProfileReportService profileReportService;
@@ -58,7 +58,7 @@ public class ProfileReportApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ProfileReportResponse>> fetchProfileReportSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+    ResponseEntity<GlobalApiResponse<List<ProfileReportResponse>>> fetchProfileReportSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                                               @RequestParam("yearMonth") String yearMonth,
                                                                               @RequestParam("stateId") Integer stateId,
                                                                               @RequestParam("districtId") Integer districtId,
@@ -66,10 +66,10 @@ public class ProfileReportApiRestController {
                                                                               @RequestParam("panchayatId") Integer panchayatId,
                                                                               @RequestParam("villageId") Integer villageId) {
         if (geographicalFlag != null) {
-            return ResponseEntity.ok(
-                    this.profileReportService.fetchProfileReportSummaryList(geographicalFlag, yearMonth, stateId, districtId, blockId, panchayatId, villageId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.profileReportService.fetchProfileReportSummaryList(geographicalFlag, yearMonth, stateId, districtId, blockId, panchayatId, villageId)));
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError("Invalid geographical flag, please give geographical flag");
         }
     }
 
@@ -82,26 +82,25 @@ public class ProfileReportApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseMissionUnitLevel>> fetchResponseMissionUnitLevelList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+    ResponseEntity<GlobalApiResponse<List<ResponseMissionUnitLevel>>> fetchResponseMissionUnitLevelList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                                                      @RequestParam("stateId") Integer stateId,
                                                                                      @RequestParam("districtId") Integer districtId,
                                                                                      @RequestParam("blockId") Integer blockId) {
         if (geographicalFlag == 1) {
-            return ResponseEntity.ok(
-                    this.profileReportService.fetchStateWiseMissionLevelReportList(stateId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.profileReportService.fetchStateWiseMissionLevelReportList(stateId)));
         }
         if (geographicalFlag == 2) {
-            return ResponseEntity.ok(
-                    this.profileReportService.fetchDistrictWiseMissionLevelReportList(stateId, districtId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.profileReportService.fetchDistrictWiseMissionLevelReportList(stateId, districtId)));
         }
         if (geographicalFlag == 3) {
-            return ResponseEntity.ok(
-                    this.profileReportService.fetchBlockWiseMissionLevelReportList(stateId, districtId, blockId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.profileReportService.fetchBlockWiseMissionLevelReportList(stateId, districtId, blockId)));
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSGS);
         }
     }
-
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/get-block-saturation",
@@ -111,19 +110,19 @@ public class ProfileReportApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBs>> fetchList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+    ResponseEntity<GlobalApiResponse<List<ResponseBs>>> fetchList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                @RequestParam("stateId") Integer stateId,
                                                @RequestParam("districtId") Integer districtId,
                                                @RequestParam("yearMonth") String yearMonth) {
         if (geographicalFlag == 1) {
-            return ResponseEntity.ok(
-                    this.profileReportService.fetchBlockSaturation(yearMonth, stateId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.profileReportService.fetchBlockSaturation(yearMonth, stateId)));
         }
         if (geographicalFlag == 2) {
-            return ResponseEntity.ok(
-                    this.profileReportService.fetchBlockSaturationList(yearMonth, stateId, districtId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.profileReportService.fetchBlockSaturationList(yearMonth, stateId, districtId)));
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAGS_MSG);
         }
     }
 }

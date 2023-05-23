@@ -22,6 +22,7 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.service.SavingApiService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/saving")
-public class SavingApiRestController {
+public class SavingApiRestController extends BaseController{
     private final Logger logger;
     private final SavingApiService savingApiService;
 
@@ -48,20 +49,22 @@ public class SavingApiRestController {
     }
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/shg-saving")
-    public ResponseEntity<List<ShgSavingResponses>> getShgSaving(@RequestBody RequestSavingShgReport requestLoanShgReport) {
-       return  ResponseEntity.ok(savingApiService.getShgSaving(requestLoanShgReport.getStateId(),requestLoanShgReport.getDistrictId(),requestLoanShgReport.getBlockId(),requestLoanShgReport.getPanchayatId(),requestLoanShgReport.getVillageId(),requestLoanShgReport.getFromDate(),requestLoanShgReport.getToDate(),requestLoanShgReport.getShgId(),requestLoanShgReport.getVoId(),requestLoanShgReport.getClfId()));
+    public ResponseEntity<GlobalApiResponse<List<ShgSavingResponses>>> getShgSaving(@RequestBody RequestSavingShgReport requestLoanShgReport) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+             this.savingApiService.getShgSaving(requestLoanShgReport.getStateId(),requestLoanShgReport.getDistrictId(),requestLoanShgReport.getBlockId(),requestLoanShgReport.getPanchayatId(),requestLoanShgReport.getVillageId(),requestLoanShgReport.getFromDate(),requestLoanShgReport.getToDate(),requestLoanShgReport.getShgId(),requestLoanShgReport.getVoId(),requestLoanShgReport.getClfId())));
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/shg-saving1")
-    public ResponseEntity<List<ShgSavingResponses>> getShgSaving1(@RequestBody RequestLoanShgReport requestShgSavingReport) {
-        return  ResponseEntity.ok(savingApiService.getShgSaving1(requestShgSavingReport.getStateId(),requestShgSavingReport.getDistrictId(),requestShgSavingReport.getBlockId(),requestShgSavingReport.getPanchayatId(),requestShgSavingReport.getVillageId(),requestShgSavingReport.getFromDate(),requestShgSavingReport.getToDate(),requestShgSavingReport.getShgId(),requestShgSavingReport.getVoId(),requestShgSavingReport.getClfId(),requestShgSavingReport.getGeoGraphicalLevel()));
+    public ResponseEntity<GlobalApiResponse<List<ShgSavingResponses>>> getShgSaving1(@RequestBody RequestLoanShgReport requestShgSavingReport) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                savingApiService.getShgSaving1(requestShgSavingReport.getStateId(),requestShgSavingReport.getDistrictId(),requestShgSavingReport.getBlockId(),requestShgSavingReport.getPanchayatId(),requestShgSavingReport.getVillageId(),requestShgSavingReport.getFromDate(),requestShgSavingReport.getToDate(),requestShgSavingReport.getShgId(),requestShgSavingReport.getVoId(),requestShgSavingReport.getClfId(),requestShgSavingReport.getGeoGraphicalLevel())));
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/vo-saving")
-    public ResponseEntity<List<ResponseForVoSaving>> getVoSaving(@RequestBody RequestLoanShgReport requestShgSavingReport) {
-        return  ResponseEntity.ok(savingApiService.getVoSaving(requestShgSavingReport.getStateId(),requestShgSavingReport.getDistrictId(),requestShgSavingReport.getBlockId(),requestShgSavingReport.getPanchayatId(),requestShgSavingReport.getFromDate(),requestShgSavingReport.getToDate(),requestShgSavingReport.getVoId(),requestShgSavingReport.getClfId(),requestShgSavingReport.getGeoGraphicalLevel()));
+    public ResponseEntity<GlobalApiResponse<List<ResponseForVoSaving>>> getVoSaving(@RequestBody RequestLoanShgReport requestShgSavingReport) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",savingApiService.getVoSaving(requestShgSavingReport.getStateId(),requestShgSavingReport.getDistrictId(),requestShgSavingReport.getBlockId(),requestShgSavingReport.getPanchayatId(),requestShgSavingReport.getFromDate(),requestShgSavingReport.getToDate(),requestShgSavingReport.getVoId(),requestShgSavingReport.getClfId(),requestShgSavingReport.getGeoGraphicalLevel())));
     }
 
     /*@Permittable(value= AcceptedTokenType.GUEST)

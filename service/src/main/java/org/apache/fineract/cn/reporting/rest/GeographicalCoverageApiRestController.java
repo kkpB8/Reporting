@@ -26,6 +26,8 @@ import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.GeographicalCoverage;
 import org.apache.fineract.cn.reporting.api.domain.GeographicalCoverageRequest;
 import org.apache.fineract.cn.reporting.api.domain.LookUpMaster;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
+import org.apache.fineract.cn.reporting.internal.Error.GlobleException;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.CommonApiService;
@@ -44,7 +46,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/geo")
-public class GeographicalCoverageApiRestController {
+public class GeographicalCoverageApiRestController extends  BaseController{
 
   private final Logger logger;
   private final GeographicalCoverageApiService geographicalCoverageApiService;
@@ -68,8 +70,8 @@ public class GeographicalCoverageApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<GeographicalCoverage>> getGeoData(@RequestBody GeographicalCoverageRequest request,
-                                                        HttpServletRequest headerRequest) {
+  ResponseEntity<GlobalApiResponse<List<GeographicalCoverage>>> getGeoData(@RequestBody GeographicalCoverageRequest request,
+                                                                          HttpServletRequest headerRequest) {
 
    if(headerRequest.getHeader("X-Tenant-Identifier")==null){
       this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -83,8 +85,8 @@ public class GeographicalCoverageApiRestController {
     String bid=request.getBid();
     String pid=request.getPid();
     String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-    return ResponseEntity.ok(
-            this.geographicalCoverageApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,pid,tenantIdentifier));
+      return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.geographicalCoverageApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,pid,tenantIdentifier)));
   }
 
 

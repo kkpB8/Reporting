@@ -4,7 +4,8 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.MeetingApiRestResponse;
-import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
+import org.apache.fineract.cn.reporting.internal.Error.BadRequestError;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.MeetingApiRestService;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/shgbysc")
-public class MeetingApiRestController {
+public class MeetingApiRestController extends  BaseController{
 
         private final Logger logger;
         private final MeetingApiRestService meetingApiRestService;
@@ -40,23 +41,22 @@ public class MeetingApiRestController {
         )
         public
         @ResponseBody
-        ResponseEntity<List<MeetingApiRestResponse>> fetchSHGSCList(@RequestParam("geographicalFlag") Integer geographicalFlag,
-                                                                      @RequestParam("fromDate") String fromDate,
-                                                                      @RequestParam("toDate") String toDate,
-                                                                      @RequestParam("stateId") Integer stateId,
-                                                                      @RequestParam("districtId") Integer districtId,
-                                                                      @RequestParam("blockId") Integer blockId,
-                                                                      @RequestParam("panchayatId") Integer panchayatId,
-                                                                      @RequestParam("villageId") Integer villageId,
-                                                                      @RequestParam("shgId") Integer shgId,
-                                                                      @RequestParam("voId") Integer voId,
-                                                                      @RequestParam("clfId") Integer clfId) {
+        ResponseEntity<GlobalApiResponse<List<MeetingApiRestResponse>>> fetchSHGSCList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                                      @RequestParam("fromDate") String fromDate,
+                                                                                      @RequestParam("toDate") String toDate,
+                                                                                      @RequestParam("stateId") Integer stateId,
+                                                                                      @RequestParam("districtId") Integer districtId,
+                                                                                      @RequestParam("blockId") Integer blockId,
+                                                                                      @RequestParam("panchayatId") Integer panchayatId,
+                                                                                      @RequestParam("villageId") Integer villageId,
+                                                                                      @RequestParam("shgId") Integer shgId,
+                                                                                      @RequestParam("voId") Integer voId,
+                                                                                      @RequestParam("clfId") Integer clfId) {
             if (geographicalFlag != null) {
-                return ResponseEntity.ok(
-                        this.meetingApiRestService.fetchSHGSCList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+                return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                        this.meetingApiRestService.fetchSHGSCList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
             } else {
-                throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+                throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
             }
-
         }
 }

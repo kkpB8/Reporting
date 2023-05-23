@@ -22,6 +22,7 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.TransactionSummaryApiService;
@@ -38,7 +39,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/report1")
-public class TransactionSummaryApiRestController {
+public class TransactionSummaryApiRestController extends  BaseController{
 
   private final Logger logger;
   private final TransactionSummaryApiService transactionSummaryApiService;
@@ -61,20 +62,23 @@ public class TransactionSummaryApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<TransactionSummary>> fetchShgMeetingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
-                                                                      @RequestParam("flag") Integer flag,
-                                                                      @RequestParam("fromDate") String fromDate,
-                                                                      @RequestParam("toDate") String toDate,
-                                                                      @RequestParam("stateId") Integer stateId,
-                                                                      @RequestParam("districtId") Integer districtId,
-                                                                      @RequestParam("blockId") Integer blockId,
-                                                                      @RequestParam("panchayatId") Integer panchayatId,
-                                                                      @RequestParam("villageId") Integer villageId,
-                                                                      @RequestParam("shgId") BigInteger shgId,
-                                                                      @RequestParam("voId") BigInteger voId,
-                                                                      @RequestParam("clfId") BigInteger clfId) {
-    return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+  ResponseEntity<GlobalApiResponse<List<TransactionSummary>>> fetchShgMeetingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                                        @RequestParam("flag") Integer flag,
+                                                                                        @RequestParam("fromDate") String fromDate,
+                                                                                        @RequestParam("toDate") String toDate,
+                                                                                        @RequestParam("stateId") Integer stateId,
+                                                                                        @RequestParam("districtId") Integer districtId,
+                                                                                        @RequestParam("blockId") Integer blockId,
+                                                                                        @RequestParam("panchayatId") Integer panchayatId,
+                                                                                        @RequestParam("villageId") Integer villageId,
+                                                                                        @RequestParam("shgId") BigInteger shgId,
+                                                                                        @RequestParam("voId") BigInteger voId,
+                                                                                        @RequestParam("clfId") BigInteger clfId) {
+
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+    this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
+
+
   }
 //    return ResponseEntity.ok(
 //            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
@@ -89,7 +93,7 @@ public class TransactionSummaryApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<TransactionSummary>> fetchShgSavingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+  ResponseEntity<GlobalApiResponse<List<TransactionSummary>>> fetchShgSavingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                                      @RequestParam("flag") Integer flag,
                                                                      @RequestParam("fromDate") String fromDate,
                                                                      @RequestParam("toDate") String toDate,
@@ -101,8 +105,8 @@ public class TransactionSummaryApiRestController {
                                                                      @RequestParam("shgId") BigInteger shgId,
                                                                      @RequestParam("voId") BigInteger voId,
                                                                      @RequestParam("clfId") BigInteger clfId) {
-    return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -114,7 +118,7 @@ public class TransactionSummaryApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<TransactionSummary>> fetchShgLoanSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+  ResponseEntity<GlobalApiResponse<List<TransactionSummary>>> fetchShgLoanSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                                    @RequestParam("flag") Integer flag,
                                                                    @RequestParam("fromDate") String fromDate,
                                                                    @RequestParam("toDate") String toDate,
@@ -126,8 +130,8 @@ public class TransactionSummaryApiRestController {
                                                                    @RequestParam("shgId") BigInteger shgId,
                                                                    @RequestParam("voId") BigInteger voId,
                                                                    @RequestParam("clfId") BigInteger clfId) {
-    return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
   }
 //    return ResponseEntity.ok(
 //            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
@@ -142,9 +146,9 @@ public class TransactionSummaryApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<VoTransactionSummary>> fetchVoMeetingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
-    return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest));
+  ResponseEntity<GlobalApiResponse<List<VoTransactionSummary>>> fetchVoMeetingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest)));
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -156,9 +160,9 @@ public class TransactionSummaryApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<VoTransactionSummary>> fetchVoSavingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
-    return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest));
+  ResponseEntity<GlobalApiResponse<List<VoTransactionSummary>>> fetchVoSavingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest)));
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -170,9 +174,9 @@ public class TransactionSummaryApiRestController {
   )
   public
   @ResponseBody
-  ResponseEntity<List<VoTransactionSummary>> fetchVoLoanSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
-    return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest));
+  ResponseEntity<GlobalApiResponse<List<VoTransactionSummary>>> fetchVoLoanSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+            this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest)));
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -182,8 +186,10 @@ public class TransactionSummaryApiRestController {
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
-  public List<ShgMeetingResponse> fetchBranchList(@RequestParam("villageId") Integer villageId) {
-    return transactionSummaryApiService.fetchBranchList(villageId);
+    ResponseEntity<GlobalApiResponse<List<ShgMeetingResponse>>> fetchBranchList(@RequestParam("villageId") Integer villageId) {
+//  public List<ShgMeetingResponse> fetchBranchList(@RequestParam("villageId") Integer villageId) {
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+    this.transactionSummaryApiService.fetchBranchList(villageId)));
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -193,14 +199,15 @@ public class TransactionSummaryApiRestController {
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
-  public List<SummaryTransactionSubReportsResponse> fetchSubReportsList(@RequestParam("villageId") Integer villageId,
-                                                            @RequestParam("voId") Integer voId,
-                                                            HttpServletRequest httpServletRequest) {
+  ResponseEntity<GlobalApiResponse<List<SummaryTransactionSubReportsResponse>>> fetchSubReportsList(@RequestParam("villageId") Integer villageId,
+                                                                        @RequestParam("voId") Integer voId,
+                                                                        HttpServletRequest httpServletRequest) {
     if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
       this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
       throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
     }
-   String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
-    return transactionSummaryApiService.fetchSubReportsList(villageId, voId, tenantIdentifier);
+    String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+    this.transactionSummaryApiService.fetchSubReportsList(villageId, voId, tenantIdentifier)));
   }
 }

@@ -18,9 +18,12 @@
  */
 package org.apache.fineract.cn.reporting.internal.Error;
 
+import org.apache.fineract.cn.lang.ServiceError;
+
 import java.text.MessageFormat;
 
 public final class ServiceException extends RuntimeException {
+    /*
     private final ServiceError serviceError;
 
     public ServiceException(ServiceError serviceError) {
@@ -46,6 +49,38 @@ public final class ServiceException extends RuntimeException {
 
     public static ServiceException customErrorCodeAndMsg(Integer errorCode, String message, Object... args) {
         return new ServiceException(ServiceError.create(errorCode).message(MessageFormat.format(message, args)).build());
+    }
+
+    public ServiceError serviceError() {
+        return this.serviceError;
+    }
+
+    public String toString() {
+        return "ServiceException{serviceError=" + this.serviceError + '}';
+    }
+}
+     */
+    private final org.apache.fineract.cn.lang.ServiceError serviceError;
+
+    public ServiceException(org.apache.fineract.cn.lang.ServiceError serviceError) {
+        super(serviceError.getMessage());
+        this.serviceError = serviceError;
+    }
+
+    public static org.apache.fineract.cn.lang.ServiceException badRequest(String message, Object... args) {
+        return new org.apache.fineract.cn.lang.ServiceException(org.apache.fineract.cn.lang.ServiceError.create(400).message(MessageFormat.format(message, args)).build());
+    }
+
+    public static org.apache.fineract.cn.lang.ServiceException notFound(String message, Object... args) {
+        return new org.apache.fineract.cn.lang.ServiceException(org.apache.fineract.cn.lang.ServiceError.create(404).message(MessageFormat.format(message, args)).build());
+    }
+
+    public static org.apache.fineract.cn.lang.ServiceException conflict(String message, Object... args) {
+        return new org.apache.fineract.cn.lang.ServiceException(org.apache.fineract.cn.lang.ServiceError.create(409).message(MessageFormat.format(message, args)).build());
+    }
+
+    public static org.apache.fineract.cn.lang.ServiceException internalError(String message, Object... args) {
+        return new org.apache.fineract.cn.lang.ServiceException(org.apache.fineract.cn.lang.ServiceError.create(500).message(MessageFormat.format(message, args)).build());
     }
 
     public ServiceError serviceError() {

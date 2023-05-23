@@ -21,6 +21,7 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.TblSummaryApiService;
@@ -35,7 +36,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @RestController
 @RequestMapping("/apiSummary")
-public class TblSummaryApiRestController {
+public class TblSummaryApiRestController extends  BaseController{
     private final Logger logger;
     private final TblSummaryApiService tblSummaryApiService;
 
@@ -48,7 +49,6 @@ public class TblSummaryApiRestController {
         this.tblSummaryApiService = tblSummaryApiService;
     }
 
-
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/rpt_summary",
@@ -58,8 +58,8 @@ public class TblSummaryApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<TblSummaryResponse>> gettblsummarydata(@RequestBody TblSummaryRequest request,
-                                                               HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<TblSummaryResponse>>> gettblsummarydata(@RequestBody TblSummaryRequest request,
+                                                                                 HttpServletRequest headerRequest) {
 
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -82,9 +82,9 @@ public class TblSummaryApiRestController {
         String vo=request.getVo();
         String shg=request.getShg();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.tblSummaryApiService.gettbl_summarydata(reportName,locationType,dateTo
-                        ,dateFrom,stateId, districtId, blockId,panchayatId,villageId,bankTypeId,bankType,bankCode,branchCode,clf,vo,shg, tenantIdentifier));
+                        ,dateFrom,stateId, districtId, blockId,panchayatId,villageId,bankTypeId,bankType,bankCode,branchCode,clf,vo,shg, tenantIdentifier)));
     }
 
 }

@@ -24,6 +24,7 @@ import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.GeographicalCoverageRequest;
 import org.apache.fineract.cn.reporting.api.domain.SocialMobilizationRequest;
 import org.apache.fineract.cn.reporting.api.domain.SocialMoblizationResponse;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.SocialMobilizationApiService;
@@ -40,7 +41,7 @@ import java.util.Map;
 
     @RestController
     @RequestMapping("/social")
-    public class SocialMobilizationRestController {
+    public class SocialMobilizationRestController extends  BaseController{
 
         private final Logger logger;
         private final SocialMobilizationApiService socialMobilizationApiService;
@@ -64,8 +65,8 @@ import java.util.Map;
         )
         public
         @ResponseBody
-        ResponseEntity<List<SocialMoblizationResponse>> getSocialMoblizationData(@RequestBody SocialMobilizationRequest request,
-                                                                                 HttpServletRequest headerRequest) {
+        ResponseEntity<GlobalApiResponse<List<SocialMoblizationResponse>>> getSocialMoblizationData(@RequestBody SocialMobilizationRequest request,
+                                                                                                   HttpServletRequest headerRequest) {
             if(headerRequest.getHeader("X-Tenant-Identifier")==null){
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -77,8 +78,8 @@ import java.util.Map;
             String did = request.getDid();
             String bid = request.getBid();
             String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-            return ResponseEntity.ok(
-                    this.socialMobilizationApiService.getSocialMoblizationData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.socialMobilizationApiService.getSocialMoblizationData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier)));
         }
 
     }

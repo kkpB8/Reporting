@@ -66,6 +66,7 @@ public interface CustomStatus {
     String QUERY_TIMEOUT_CODE="655";
     String  REQUEST_ENTITY_TOO_LARGE_CODE = "656";
     String REQUEST_INPUT_NOT_PRESENT_CODE = "700";
+    String INTERNAL_COMPILER_ERROR = "900";
 
 
     String NO_DATABASE_CONNECTION_MSG="No Database connection.";
@@ -135,4 +136,27 @@ public interface CustomStatus {
     String NO_RECORD_FOUND = "No record found";
 
     String WRONG_MORATORIUM = "Moratorium should be less than Number of Installments";
+
+
+    String INVALID_GEOGRAPHICAL_FLAG = "654";
+    String INVALID_GEOGRAPHICAL_FLAG_CODE = "657";
+
+
+    String INVALID_STATE_ID = "655";
+    String INVALID_STATE_ID_MSG = "Invalid state id. Please give state id";
+
+    String INVALID_BANK_ID = "656";
+    String INVALID_BANK_ID_MSG = "Invalid bank id. Please give bank id.";
+
+    String TOKEN_ALREADY_FOUND_CODE ="609";
+    String TOKEN_ALREADY_FOUND_MSG ="You already have a valid token. If your token is lost, you can force Login";
+    String INVALID_GEO_FLAG_MSG = "Invalid geographical flag and from date and to date. ";
+
+    String INVALID_GEOGRAPHICAL_FLAG_MSG = "Invalid geographical flag. please send geographical flag ";
+    String INVALID_GEOGRAPHICAL_FLAG_MSGS = "Invalid geographical flag, geographical flag 1 for state ,2 for district and 3 for block";
+
+    String INVALID_GEOGRAPHICAL_FLAGS_MSG = "Invalid geographical flag, geographical flag 1 for state and 2 for district ";
+
+
+
 }
