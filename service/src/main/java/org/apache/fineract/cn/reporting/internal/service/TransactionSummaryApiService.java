@@ -295,18 +295,19 @@ toDate1,
                                                                     String fromDate, String toDate,  Integer stateId,
                                                                     Integer districtId, Integer blockId, Integer panchayatId, Integer villageId,
                                                                     BigInteger shgId, BigInteger voId, BigInteger clfId) {
+      String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+      String fromDate1 = null;
+      String toDate1 = null;
       if(geographicalFlag == null) {
           geographicalFlag = -1;
       }
       if(flag == null){
           flag = -1;
       }
-      if(fromDate == null){
-          fromDate = "null";
-      }
-      if(toDate == null){
-          toDate = "null";
-      }
+        if (fromDate == null && toDate == null) {
+            fromDate1 = "1970-01";
+            toDate1 = toDate2;
+        }
       if(stateId == null){
           stateId = -1;
       }
@@ -334,7 +335,8 @@ toDate1,
         List<TransactionSummary> transactionSummaryList = new ArrayList<TransactionSummary>();
         List<TransactionSummaryEntity> transactionSummaryEntityList;
             transactionSummaryEntityList = transactionSummaryRepository.
-                    findByFilter2(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
+                    findByFilter2(geographicalFlag, flag, fromDate1,
+                            toDate1, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
         transactionSummaryEntityList.forEach(transactionSummaryEntity ->
         {
             TransactionSummary transactionSummary = CommonApiMapper.map(transactionSummaryEntity);

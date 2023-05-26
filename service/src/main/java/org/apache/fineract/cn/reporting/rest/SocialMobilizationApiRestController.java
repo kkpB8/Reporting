@@ -32,23 +32,23 @@ public class SocialMobilizationApiRestController {
         this.serviceSocialMobilization = serviceSocialMobilization;
     }
 
-    @Permittable(value= AcceptedTokenType.GUEST)
-    @RequestMapping(
-            value = "/social-mobilization",
-            method = RequestMethod.POST,
-            consumes = MediaType.ALL_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public
-    @ResponseBody
-    ResponseEntity<List<ResponseSocialMobilization>> fetchShgInitiationsList(@RequestBody RequestSocialMobilization requestSocialMobilization) {
-        if ((requestSocialMobilization.getGeographicalFlag() != null) && (requestSocialMobilization.getFromDate() != null) && (requestSocialMobilization.getToDate()!=null)) {
-            return ResponseEntity.ok(
-                    this.serviceSocialMobilization.fetchShgInitiationsList(requestSocialMobilization));
-        } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
-        }
-    }
+//    @Permittable(value= AcceptedTokenType.GUEST)
+//    @RequestMapping(
+//            value = "/social-mobilization",
+//            method = RequestMethod.POST,
+//            consumes = MediaType.ALL_VALUE,
+//            produces = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public
+//    @ResponseBody
+//    ResponseEntity<List<ResponseSocialMobilization>> fetchShgInitiationsList(@RequestBody RequestSocialMobilization requestSocialMobilization) {
+//        if ((requestSocialMobilization.getGeographicalFlag() != null) && (requestSocialMobilization.getFromDate() != null) && (requestSocialMobilization.getToDate()!=null)) {
+//            return ResponseEntity.ok(
+//                    this.serviceSocialMobilization.fetchShgInitiationsList(requestSocialMobilization));
+//        } else {
+//            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+//        }
+//    }
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/social-mobilization-update",

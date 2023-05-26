@@ -97,7 +97,9 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
     @Query("FROM TransactionSummaryEntity c WHERE " +
             "(c.geographicalLevel=:geoGraphicalLevel) and " +
             "(c.flag=:flag) and " +
-            "(c.yearMonth>=:fromDate and  c.yearMonth<=:toDate) and " +
+            "(:fromDate is null  or c.yearMonth>=:fromDate and :toDate is null or c.yearMonth<=:toDate) and " +
+//            "(:yearMonth is null or c.yearMonth=:yearMonth) " +
+//            "(c.yearMonth>=:fromDate and  c.yearMonth<=:toDate) and " +
             "(-1 = :stateId or c.stateId=:stateId) and " +
             "(-1 = :districtId or c.districtId=:districtId) and " +
             "(-1 = :blockId or c.blockId=:blockId) and " +
