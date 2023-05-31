@@ -112,87 +112,6 @@ class CustomGlobalExceptionHandler  {
     error.setStatus((HttpStatus.INTERNAL_SERVER_ERROR.value()));
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
-  /*
-  @ExceptionHandler(value = GeoFlagError.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest(GeoFlagError e) {
-    CustomErrorResponse error = new CustomErrorResponse("653",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = BadRequestNew.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest1(BadRequestNew e) {
-    CustomErrorResponse error = new CustomErrorResponse("654",e.getMessage());
-    //CustomErrorResponse error = new CustomErrorResponse("656",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-  @ExceptionHandler(value = BadRequests.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(BadRequests e) {
-    CustomErrorResponse error = new CustomErrorResponse("655",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = GeoFlagsError.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeoFlagsError e) {
-    CustomErrorResponse error = new CustomErrorResponse("656",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = GeogFlag.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeogFlag e) {
-    CustomErrorResponse error = new CustomErrorResponse("657",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = GeoFlag.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeoFlag e) {
-    CustomErrorResponse error = new CustomErrorResponse("658",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = GeoFlags.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeoFlags e) {
-    CustomErrorResponse error = new CustomErrorResponse("659",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = GeogrFlag.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeogrFlag e) {
-    CustomErrorResponse error = new CustomErrorResponse("660",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-  @ExceptionHandler(value = GeographicalFlagError.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeographicalFlagError e) {
-    CustomErrorResponse error = new CustomErrorResponse("661",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-  @ExceptionHandler(value = GeograFlags.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(GeograFlags e) {
-    CustomErrorResponse error = new CustomErrorResponse("662",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.BAD_REQUEST.value()));
-    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
-  }
-
-   */
 
 
   @ExceptionHandler(value = BadRequestError.class)
@@ -202,22 +121,6 @@ class CustomGlobalExceptionHandler  {
     error.setStatus((HttpStatus.BAD_REQUEST.value()));
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
   }
-/*
-  @ExceptionHandler(value = Success.class)
-  public ResponseEntity<CustomErrorResponse> BadRequest2(Success e) {
-    CustomErrorResponse error = new CustomErrorResponse("200",e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.OK.value()));
-    return new ResponseEntity<>(error, HttpStatus.OK);
-  }
-  @ExceptionHandler(TokenAlreadyFoundException.class)
-  public ResponseEntity<CustomErrorResponse> handleTokenAlreadyFoundException(TokenAlreadyFoundException e) {
-    CustomErrorResponse error = new CustomErrorResponse(CustomStatus.TOKEN_ALREADY_FOUND_CODE, e.getMessage());
-    error.setTimestamp(LocalDateTime.now().toString());
-    error.setStatus((HttpStatus.OK.value()));
-    return new ResponseEntity<>(error, HttpStatus.OK);
-  }
 
- */
 
 }

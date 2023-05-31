@@ -160,5 +160,31 @@ public class CommonApiMapper {
     return responseBranchApiDeatils;
   }
 
+  public static TransactionClfVoResponse map(final TrClfVoEntity trClfVoEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    TransactionClfVoResponse transactionClfVoResponse =
+            modelMapper.map(trClfVoEntity, TransactionClfVoResponse.class);
+    return transactionClfVoResponse;
+  }
+  public static ResponseShgBySocialCategory map(final ShgBySocialCategoryEntity shgBySocialCategoryEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseShgBySocialCategory responseShgBySocialCategory =
+            modelMapper.map(shgBySocialCategoryEntity, ResponseShgBySocialCategory.class);
+    return responseShgBySocialCategory;
+  }
+
+  public static ResponseMemberShgDetails map(final MemberShgDetailsEntity memberShgDetailsEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseMemberShgDetails responseMemberShgDetails =
+            modelMapper.map(memberShgDetailsEntity, ResponseMemberShgDetails.class);
+    return responseMemberShgDetails;
+  }
+
+  public static ResponseMemberAttendanceDetails map(final MemberAttendanceEntity memberAttendanceEntity) {
+    ModelMapper modelMapper = new ModelMapper();
+    ResponseMemberAttendanceDetails responseMemberAttendanceDetails =
+            modelMapper.map(memberAttendanceEntity, ResponseMemberAttendanceDetails.class);
+    return responseMemberAttendanceDetails;
+  }
 
 }

@@ -27,7 +27,6 @@ public class ExceptionhandlerController {
         return new ResponseEntity<>(new GlobleException(globleException.getResponseCode(),globleException.getResponseMsg(),globleException.getStatus(),String.valueOf(timestamp)), HttpStatus.BAD_REQUEST);
     }
 
-
     @ExceptionHandler(MaximumLoginAttempsReached.class)
     public ResponseEntity<GlobleException> getMaximumLoginAttempsReached(MaximumLoginAttempsReached exception){
         return new ResponseEntity<>(new GlobleException("429",exception.getMessage(),"429",String.valueOf(timestamp)), HttpStatus.TOO_MANY_REQUESTS);

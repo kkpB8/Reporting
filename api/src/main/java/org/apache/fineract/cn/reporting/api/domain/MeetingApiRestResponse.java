@@ -15,14 +15,12 @@ public class MeetingApiRestResponse {
     private String shgName;
     private String voName;
     private String clfName;
-
     private Integer shgScMonth;
     private Integer shgStMonth;
     private Integer shgGenMonth;
     private Integer shgMemScMonth;
     private Integer shgMemStMonth;
     private Integer clfVoShg;
-
     private Integer clfVoShgMem;
     private Integer shgMemGenMonth;
 
@@ -45,13 +43,10 @@ public class MeetingApiRestResponse {
     public Integer getShgOtherMonth() {
         return shgOtherMonth;
     }
-
     public void setShgOtherMonth(Integer shgOtherMonth) {
         this.shgOtherMonth = shgOtherMonth;
     }
-
     private Integer shgMemOtherMonth;
-
     private Integer shgOtherMonth;
 
     public Integer getShgScMonth() {

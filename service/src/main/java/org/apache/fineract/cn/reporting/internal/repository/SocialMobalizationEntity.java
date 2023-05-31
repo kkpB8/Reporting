@@ -110,15 +110,15 @@ public class SocialMobalizationEntity {
     private Integer otherEduMem;
     @Column(name = "shgwithbankaccount")
     private Integer shgWithBankAccount;
-//    @Column(name = "shgwithoutbankaccount")
+    //    @Column(name = "shgwithoutbankaccount")
 //    private Integer shgWithoutBankAccount;
     @Column(name = "vowithbankaccount")
     private Integer voWithBankAccount;
-//    @Column(name = "vowithoutbankaccount")
+    //    @Column(name = "vowithoutbankaccount")
 //    private Integer voWithoutBankAccount;
     @Column(name = "clfwithbankaccount")
     private Integer clfWithBankAccount;
-//    @Column(name = "clfwithoutbankaccount")
+    //    @Column(name = "clfwithoutbankaccount")
 //    private Integer clfWithoutBankAccount;
     @Column(name = "shgbankacount1")
     private Integer shgBankAcount1;
@@ -293,15 +293,15 @@ public class SocialMobalizationEntity {
 
     @Column(name = "mem_others")
     private Integer memOthers;
-    @Column(name = "int_block_zero_3")
-    private Integer intBlock0to3;
-    @Column(name = "int_block_three_6")
-    private Integer intBlock3to6;
-    @Column(name = "int_block_six_10")
-    private Integer intBlock6to10;
-
-    @Column(name = "int_block_more_10")
-    private Integer intBlockMore10;
+    //    @Column(name = "int_block_zero_3")
+//    private Integer intBlock0to3;
+//    @Column(name = "int_block_three_6")
+//    private Integer intBlock3to6;
+//    @Column(name = "int_block_six_10")
+//    private Integer intBlock6to10;
+//
+//    @Column(name = "int_block_more_10")
+//    private Integer intBlockMore10;
     @Column(name = "is_saturated")
     private Integer isSaturated;
     @Column(name = "shg_obc_month")
@@ -330,46 +330,46 @@ public class SocialMobalizationEntity {
     private Integer clfActivated;
     @Column(name = "mem_activated")
     private Integer memActivated;
-    @Column(name = "int_block_zero_3_sat")
-    private Integer intBlockZero3sat;
-    @Column(name = "int_block_three_6_sat")
-    private Integer intBlockThree6Sat;
-    @Column(name = "int_block_six_10_sat")
-    private Integer intBlockSix10Sat;
-    @Column(name = "int_block_more_10_sat")
-    private Integer intBlockMore10Sat;
+//    @Column(name = "int_block_zero_3_sat")
+//    private Integer intBlockZero3sat;
+//    @Column(name = "int_block_three_6_sat")
+//    private Integer intBlockThree6Sat;
+//    @Column(name = "int_block_six_10_sat")
+//    private Integer intBlockSix10Sat;
+//    @Column(name = "int_block_more_10_sat")
+//    private Integer intBlockMore10Sat;
 
-    public Integer getIntBlockZero3sat() {
-        return intBlockZero3sat;
-    }
-
-    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
-        this.intBlockZero3sat = intBlockZero3sat;
-    }
-
-    public Integer getIntBlockThree6Sat() {
-        return intBlockThree6Sat;
-    }
-
-    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
-        this.intBlockThree6Sat = intBlockThree6Sat;
-    }
-
-    public Integer getIntBlockSix10Sat() {
-        return intBlockSix10Sat;
-    }
-
-    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
-        this.intBlockSix10Sat = intBlockSix10Sat;
-    }
-
-    public Integer getIntBlockMore10Sat() {
-        return intBlockMore10Sat;
-    }
-
-    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
-        this.intBlockMore10Sat = intBlockMore10Sat;
-    }
+//    public Integer getIntBlockZero3sat() {
+//        return intBlockZero3sat;
+//    }
+//
+//    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
+//        this.intBlockZero3sat = intBlockZero3sat;
+//    }
+//
+//    public Integer getIntBlockThree6Sat() {
+//        return intBlockThree6Sat;
+//    }
+//
+//    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
+//        this.intBlockThree6Sat = intBlockThree6Sat;
+//    }
+//
+//    public Integer getIntBlockSix10Sat() {
+//        return intBlockSix10Sat;
+//    }
+//
+//    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
+//        this.intBlockSix10Sat = intBlockSix10Sat;
+//    }
+//
+//    public Integer getIntBlockMore10Sat() {
+//        return intBlockMore10Sat;
+//    }
+//
+//    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
+//        this.intBlockMore10Sat = intBlockMore10Sat;
+//    }
 
     public Integer getMemActivated() {
         return memActivated;
@@ -487,37 +487,37 @@ public class SocialMobalizationEntity {
         return id;
     }
 
-    public Integer getIntBlock0to3() {
-        return intBlock0to3;
-    }
-
-    public void setIntBlock0to3(Integer intBlock0to3) {
-        this.intBlock0to3 = intBlock0to3;
-    }
-
-    public Integer getIntBlock3to6() {
-        return intBlock3to6;
-    }
-
-    public void setIntBlock3to6(Integer intBlock3to6) {
-        this.intBlock3to6 = intBlock3to6;
-    }
-
-    public Integer getIntBlock6to10() {
-        return intBlock6to10;
-    }
-
-    public void setIntBlock6to10(Integer intBlock6to10) {
-        this.intBlock6to10 = intBlock6to10;
-    }
-
-    public Integer getIntBlockMore10() {
-        return intBlockMore10;
-    }
-
-    public void setIntBlockMore10(Integer intBlockMore10) {
-        this.intBlockMore10 = intBlockMore10;
-    }
+//    public Integer getIntBlock0to3() {
+//        return intBlock0to3;
+//    }
+//
+//    public void setIntBlock0to3(Integer intBlock0to3) {
+//        this.intBlock0to3 = intBlock0to3;
+//    }
+//
+//    public Integer getIntBlock3to6() {
+//        return intBlock3to6;
+//    }
+//
+//    public void setIntBlock3to6(Integer intBlock3to6) {
+//        this.intBlock3to6 = intBlock3to6;
+//    }
+//
+//    public Integer getIntBlock6to10() {
+//        return intBlock6to10;
+//    }
+//
+//    public void setIntBlock6to10(Integer intBlock6to10) {
+//        this.intBlock6to10 = intBlock6to10;
+//    }
+//
+//    public Integer getIntBlockMore10() {
+//        return intBlockMore10;
+//    }
+//
+//    public void setIntBlockMore10(Integer intBlockMore10) {
+//        this.intBlockMore10 = intBlockMore10;
+//    }
 
     public Integer getMemWages() {
         return memWages;
@@ -599,18 +599,18 @@ public class SocialMobalizationEntity {
 //        return shgOther;
 //    }
 
-//    public void setShgOther(Integer shgOther) {
+    //    public void setShgOther(Integer shgOther) {
 //        this.shgOther = shgOther;
 //    }
     public Integer getShgMem() {
-    return shgMem;
-}
+        return shgMem;
+    }
     public void setShgMem(Integer shgMem) {
         this.shgMem = shgMem;
     }
     public Integer getShgApprovedMonth() {
-    return shgApprovedMonth;
-}
+        return shgApprovedMonth;
+    }
 
     public void setShgApprovedMonth(Integer shgApprovedMonth) {
         this.shgApprovedMonth = shgApprovedMonth;
@@ -1612,4 +1612,3 @@ public class SocialMobalizationEntity {
         this.yearMonth = yearMonth;
     }
 }
-

@@ -154,12 +154,11 @@ public class ResponseSocialMobilization {
     private Integer memCaderService;
 
     private Integer memOthers;
-    private Integer intBlock0to3;
-    private Integer intBlock3to6;
-    private Integer intBlock6to10;
-    private Integer intBlockMore10;
+    //    private Integer intBlock0to3;
+//    private Integer intBlock3to6;
+//    private Integer intBlock6to10;
+//    private Integer intBlockMore10;
     private Integer isSaturated;
-
     private Integer shgObcMonth;
     private Integer shgMemObcMonth;
     private Integer educationUptoGradAndAboveMonth;
@@ -169,6 +168,78 @@ public class ResponseSocialMobilization {
     private Integer monthsOld24to60Month;
     private Integer monthsOld60to120Month;
     private Integer monthsOld120MoreMonth;
+    private Integer shgActivated;
+    private Integer voActivated;
+    private Integer clfActivated;
+    private Integer memActivated;
+//    private Integer intBlockZero3sat;
+//    private Integer intBlockThree6Sat;
+//    private Integer intBlockSix10Sat;
+//    private Integer intBlockMore10Sat;
+
+//    public Integer getIntBlockZero3sat() {
+//        return intBlockZero3sat;
+//    }
+//
+//    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
+//        this.intBlockZero3sat = intBlockZero3sat;
+//    }
+//
+//    public Integer getIntBlockThree6Sat() {
+//        return intBlockThree6Sat;
+//    }
+//
+//    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
+//        this.intBlockThree6Sat = intBlockThree6Sat;
+//    }
+//
+//    public Integer getIntBlockSix10Sat() {
+//        return intBlockSix10Sat;
+//    }
+//
+//    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
+//        this.intBlockSix10Sat = intBlockSix10Sat;
+//    }
+//
+//    public Integer getIntBlockMore10Sat() {
+//        return intBlockMore10Sat;
+//    }
+//
+//    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
+//        this.intBlockMore10Sat = intBlockMore10Sat;
+//    }
+
+    public Integer getMemActivated() {
+        return memActivated;
+    }
+
+    public void setMemActivated(Integer memActivated) {
+        this.memActivated = memActivated;
+    }
+
+    public Integer getVoActivated() {
+        return voActivated;
+    }
+
+    public void setVoActivated(Integer voActivated) {
+        this.voActivated = voActivated;
+    }
+
+    public Integer getClfActivated() {
+        return clfActivated;
+    }
+
+    public void setClfActivated(Integer clfActivated) {
+        this.clfActivated = clfActivated;
+    }
+
+    public Integer getShgActivated() {
+        return shgActivated;
+    }
+
+    public void setShgActivated(Integer shgActivated) {
+        this.shgActivated = shgActivated;
+    }
 
     public Integer getMonthOld12to24Month() {
         return monthOld12to24Month;
@@ -250,37 +321,37 @@ public class ResponseSocialMobilization {
         this.isSaturated = isSaturated;
     }
 
-    public Integer getIntBlock0to3() {
-        return intBlock0to3;
-    }
-
-    public void setIntBlock0to3(Integer intBlock0to3) {
-        this.intBlock0to3 = intBlock0to3;
-    }
-
-    public Integer getIntBlock3to6() {
-        return intBlock3to6;
-    }
-
-    public void setIntBlock3to6(Integer intBlock3to6) {
-        this.intBlock3to6 = intBlock3to6;
-    }
-
-    public Integer getIntBlock6to10() {
-        return intBlock6to10;
-    }
-
-    public void setIntBlock6to10(Integer intBlock6to10) {
-        this.intBlock6to10 = intBlock6to10;
-    }
-
-    public Integer getIntBlockMore10() {
-        return intBlockMore10;
-    }
-
-    public void setIntBlockMore10(Integer intBlockMore10) {
-        this.intBlockMore10 = intBlockMore10;
-    }
+    //    public Integer getIntBlock0to3() {
+//        return intBlock0to3;
+//    }
+//
+//    public void setIntBlock0to3(Integer intBlock0to3) {
+//        this.intBlock0to3 = intBlock0to3;
+//    }
+//
+//    public Integer getIntBlock3to6() {
+//        return intBlock3to6;
+//    }
+//
+//    public void setIntBlock3to6(Integer intBlock3to6) {
+//        this.intBlock3to6 = intBlock3to6;
+//    }
+//
+//    public Integer getIntBlock6to10() {
+//        return intBlock6to10;
+//    }
+//
+//    public void setIntBlock6to10(Integer intBlock6to10) {
+//        this.intBlock6to10 = intBlock6to10;
+//    }
+//
+//    public Integer getIntBlockMore10() {
+//        return intBlockMore10;
+//    }
+//
+//    public void setIntBlockMore10(Integer intBlockMore10) {
+//        this.intBlockMore10 = intBlockMore10;
+//    }
     public Integer getMemWages() {
         return memWages;
     }
@@ -345,7 +416,7 @@ public class ResponseSocialMobilization {
         this.shgLiveOthers = shgLiveOthers;
     }
 
-//    private Integer shgAggregation;
+    //    private Integer shgAggregation;
 //
 //    private Integer shgOther;
 //    public Integer getShgAggregation() {
@@ -363,9 +434,9 @@ public class ResponseSocialMobilization {
 //    public void setShgOther(Integer shgOther) {
 //        this.shgOther = shgOther;
 //    }
-public Integer getShgApprovedMonth() {
-    return shgApprovedMonth;
-}
+    public Integer getShgApprovedMonth() {
+        return shgApprovedMonth;
+    }
 
     public void setShgApprovedMonth(Integer shgApprovedMonth) {
         this.shgApprovedMonth = shgApprovedMonth;
@@ -458,6 +529,7 @@ public Integer getShgApprovedMonth() {
     public void setShgLeaderServices(Integer shgLeaderServices) {
         this.shgLeaderServices = shgLeaderServices;
     }
+
     public Integer getMemAgricultural() {
         return memAgricultural;
     }
@@ -585,6 +657,7 @@ public Integer getShgApprovedMonth() {
     public void setShgCustomHiring(Integer shgCustomHiring) {
         this.shgCustomHiring = shgCustomHiring;
     }
+
     public Integer getShgMemApproved() {
         return shgMemApproved;
     }
@@ -640,6 +713,7 @@ public Integer getShgApprovedMonth() {
     public void setClfMemApproved(Integer clfMemApproved) {
         this.clfMemApproved = clfMemApproved;
     }
+
     public Integer getMonthsOld3Month() {
         return monthsOld3Month;
     }
@@ -743,6 +817,7 @@ public Integer getShgApprovedMonth() {
     public void setIlliteratememLeaderMonth(Integer illiteratememLeaderMonth) {
         this.illiteratememLeaderMonth = illiteratememLeaderMonth;
     }
+
     public Integer getFunctionalliteracymemLeaderMonth() {
         return functionalliteracymemLeaderMonth;
     }
@@ -847,92 +922,310 @@ public Integer getShgApprovedMonth() {
         this.clfspecialMonth = clfspecialMonth;
     }
 
-    public Integer getVobanklinkageMonth() {
-        return vobanklinkageMonth;
+    public Integer getTotalRuralHouseholds() {
+        return totalRuralHouseholds;
     }
 
-    public void setVobanklinkageMonth(Integer vobanklinkageMonth) {
-        this.vobanklinkageMonth = vobanklinkageMonth;
+    public void setTotalRuralHouseholds(Integer totalRuralHouseholds) {
+        this.totalRuralHouseholds = totalRuralHouseholds;
     }
 
-    public Integer getVoassetverificationMonth() {
-        return voassetverificationMonth;
+    public Integer getTargetRuralHouseholds() {
+        return targetRuralHouseholds;
     }
 
-    public void setVoassetverificationMonth(Integer voassetverificationMonth) {
-        this.voassetverificationMonth = voassetverificationMonth;
+    public void setTargetRuralHouseholds(Integer targetRuralHouseholds) {
+        this.targetRuralHouseholds = targetRuralHouseholds;
     }
 
-    public Integer getVolivelihoodpromoMonth() {
-        return volivelihoodpromoMonth;
+    public Integer getShgMem() {
+        return shgMem;
     }
 
-    public void setVolivelihoodpromoMonth(Integer volivelihoodpromoMonth) {
-        this.volivelihoodpromoMonth = volivelihoodpromoMonth;
+    public void setShgMem(Integer shgMem) {
+        this.shgMem = shgMem;
     }
 
-    public Integer getVomonitoringMonth() {
-        return vomonitoringMonth;
+    public Integer getStateId() {
+        return stateId;
     }
 
-    public void setVomonitoringMonth(Integer vomonitoringMonth) {
-        this.vomonitoringMonth = vomonitoringMonth;
+    public void setStateId(Integer stateId) {
+        this.stateId = stateId;
     }
 
-    public Integer getVosocialactionMonth() {
-        return vosocialactionMonth;
+    public Integer getDistrictId() {
+        return districtId;
     }
 
-    public void setVosocialactionMonth(Integer vosocialactionMonth) {
-        this.vosocialactionMonth = vosocialactionMonth;
+    public void setDistrictId(Integer districtId) {
+        this.districtId = districtId;
     }
 
-    public Integer getVospecialMonth() {
-        return vospecialMonth;
+    public Integer getBlockId() {
+        return blockId;
     }
 
-    public void setVospecialMonth(Integer vospecialMonth) {
-        this.vospecialMonth = vospecialMonth;
-    }
-    public Integer getWomenshgMonth() {
-        return womenshgMonth;
+    public void setBlockId(Integer blockId) {
+        this.blockId = blockId;
     }
 
-    public void setWomenshgMonth(Integer womenshgMonth) {
-        this.womenshgMonth = womenshgMonth;
+    public Integer getVillageId() {
+        return villageId;
     }
 
-    public Integer getPvtgshgMonth() {
-        return pvtgshgMonth;
+    public void setVillageId(Integer villageId) {
+        this.villageId = villageId;
     }
 
-    public void setPvtgshgMonth(Integer pvtgshgMonth) {
-        this.pvtgshgMonth = pvtgshgMonth;
+    public Integer getPanchayatId() {
+        return panchayatId;
     }
 
-    public Integer getPwdshgMonth() {
-        return pwdshgMonth;
+    public void setPanchayatId(Integer panchayatId) {
+        this.panchayatId = panchayatId;
     }
 
-    public void setPwdshgMonth(Integer pwdshgMonth) {
-        this.pwdshgMonth = pwdshgMonth;
+    public String getStateName() {
+        return stateName;
     }
 
-    public Integer getElderlyshgMonth() {
-        return elderlyshgMonth;
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 
-    public void setElderlyshgMonth(Integer elderlyshgMonth) {
-        this.elderlyshgMonth = elderlyshgMonth;
+    public String getDistrictName() {
+        return districtName;
     }
 
-    public Integer getOthertypeshgMonth() {
-        return othertypeshgMonth;
+    public void setDistrictName(String districtName) {
+        this.districtName = districtName;
     }
 
-    public void setOthertypeshgMonth(Integer othertypeshgMonth) {
-        this.othertypeshgMonth = othertypeshgMonth;
+    public String getBlockName() {
+        return blockName;
     }
+
+    public void setBlockName(String blockName) {
+        this.blockName = blockName;
+    }
+
+    public String getVillageName() {
+        return villageName;
+    }
+
+    public void setVillageName(String villageName) {
+        this.villageName = villageName;
+    }
+
+    public String getPanchayatName() {
+        return panchayatName;
+    }
+
+    public void setPanchayatName(String panchayatName) {
+        this.panchayatName = panchayatName;
+    }
+
+    public Integer getAgeBlock() {
+        return ageBlock;
+    }
+
+    public void setAgeBlock(Integer ageBlock) {
+        this.ageBlock = ageBlock;
+    }
+
+    public Integer getShgFormedMonth() {
+        return shgFormedMonth;
+    }
+
+    public void setShgFormedMonth(Integer shgFormedMonth) {
+        this.shgFormedMonth = shgFormedMonth;
+    }
+
+    public Integer getShgMembersJoinedMonth() {
+        return shgMembersJoinedMonth;
+    }
+
+    public void setShgMembersJoinedMonth(Integer shgMembersJoinedMonth) {
+        this.shgMembersJoinedMonth = shgMembersJoinedMonth;
+    }
+
+    public Integer getVoFormedMonth() {
+        return voFormedMonth;
+    }
+
+    public void setVoFormedMonth(Integer voFormedMonth) {
+        this.voFormedMonth = voFormedMonth;
+    }
+
+    public Integer getVoShgFormedMonth() {
+        return voShgFormedMonth;
+    }
+
+    public void setVoShgFormedMonth(Integer voShgFormedMonth) {
+        this.voShgFormedMonth = voShgFormedMonth;
+    }
+
+    public Integer getVoMemberFormedMonth() {
+        return voMemberFormedMonth;
+    }
+
+    public void setVoMemberFormedMonth(Integer voMemberFormedMonth) {
+        this.voMemberFormedMonth = voMemberFormedMonth;
+    }
+
+    public Integer getClfFormedMonth() {
+        return clfFormedMonth;
+    }
+
+    public void setClfFormedMonth(Integer clfFormedMonth) {
+        this.clfFormedMonth = clfFormedMonth;
+    }
+
+    public Integer getClfMemberFormedMonth() {
+        return clfMemberFormedMonth;
+    }
+
+    public void setClfMemberFormedMonth(Integer clfMemberFormedMonth) {
+        this.clfMemberFormedMonth = clfMemberFormedMonth;
+    }
+
+    public Integer getClfShgFormedMonth() {
+        return clfShgFormedMonth;
+    }
+
+    public void setClfShgFormedMonth(Integer clfShgFormedMonth) {
+        this.clfShgFormedMonth = clfShgFormedMonth;
+    }
+
+    public Integer getClfVoFormedMonth() {
+        return clfVoFormedMonth;
+    }
+
+    public void setClfVoFormedMonth(Integer clfVoFormedMonth) {
+        this.clfVoFormedMonth = clfVoFormedMonth;
+    }
+
+    public Integer getShgApproved() {
+        return shgApproved;
+    }
+
+    public void setShgApproved(Integer shgApproved) {
+        this.shgApproved = shgApproved;
+    }
+
+    public Integer getShgInactiveMonth() {
+        return shgInactiveMonth;
+    }
+
+    public void setShgInactiveMonth(Integer shgInactiveMonth) {
+        this.shgInactiveMonth = shgInactiveMonth;
+    }
+
+    public Integer getShgInactiveMemberMonth() {
+        return shgInactiveMemberMonth;
+    }
+
+    public void setShgInactiveMemberMonth(Integer shgInactiveMemberMonth) {
+        this.shgInactiveMemberMonth = shgInactiveMemberMonth;
+    }
+
+    public Integer getVoApproved() {
+        return voApproved;
+    }
+
+    public void setVoApproved(Integer voApproved) {
+        this.voApproved = voApproved;
+    }
+
+    public Integer getVoInactiveMonth() {
+        return voInactiveMonth;
+    }
+
+    public void setVoInactiveMonth(Integer voInactiveMonth) {
+        this.voInactiveMonth = voInactiveMonth;
+    }
+
+    public Integer getClfApproved() {
+        return clfApproved;
+    }
+
+    public void setClfApproved(Integer clfApproved) {
+        this.clfApproved = clfApproved;
+    }
+
+    public Integer getClfInactiveMonth() {
+        return clfInactiveMonth;
+    }
+
+    public void setClfInactiveMonth(Integer clfInactiveMonth) {
+        this.clfInactiveMonth = clfInactiveMonth;
+    }
+
+    public Integer getTotalDistict() {
+        return totalDistict;
+    }
+
+    public void setTotalDistict(Integer totalDistict) {
+        this.totalDistict = totalDistict;
+    }
+
+    public Integer getTotalBlock() {
+        return totalBlock;
+    }
+
+    public void setTotalBlock(Integer totalBlock) {
+        this.totalBlock = totalBlock;
+    }
+
+    public Integer getTotalGP() {
+        return totalGP;
+    }
+
+    public void setTotalGP(Integer totalGP) {
+        this.totalGP = totalGP;
+    }
+
+    public Integer getTotalVillage() {
+        return totalVillage;
+    }
+
+    public void setTotalVillage(Integer totalVillage) {
+        this.totalVillage = totalVillage;
+    }
+
+    public Integer getTotalDistrictCoverage() {
+        return totalDistrictCoverage;
+    }
+
+    public void setTotalDistrictCoverage(Integer totalDistrictCoverage) {
+        this.totalDistrictCoverage = totalDistrictCoverage;
+    }
+
+    public Integer getTotalBlockCoverage() {
+        return totalBlockCoverage;
+    }
+
+    public void setTotalBlockCoverage(Integer totalBlockCoverage) {
+        this.totalBlockCoverage = totalBlockCoverage;
+    }
+
+    public Integer getTotalGPCoverage() {
+        return totalGPCoverage;
+    }
+
+    public void setTotalGPCoverage(Integer totalGPCoverage) {
+        this.totalGPCoverage = totalGPCoverage;
+    }
+
+    public Integer getTotalVillageCoverage() {
+        return totalVillageCoverage;
+    }
+
+    public void setTotalVillageCoverage(Integer totalVillageCoverage) {
+        this.totalVillageCoverage = totalVillageCoverage;
+    }
+
     public Integer getIlliterateMem() {
         return illiterateMem;
     }
@@ -1052,307 +1345,92 @@ public Integer getShgApprovedMonth() {
     public void setMemWithSecct(Integer memWithSecct) {
         this.memWithSecct = memWithSecct;
     }
-    public Integer getTotalDistict() {
-        return totalDistict;
-    }
-
-    public void setTotalDistict(Integer totalDistict) {
-        this.totalDistict = totalDistict;
-    }
-
-    public Integer getTotalBlock() {
-        return totalBlock;
-    }
-
-    public void setTotalBlock(Integer totalBlock) {
-        this.totalBlock = totalBlock;
-    }
-
-    public Integer getTotalGP() {
-        return totalGP;
-    }
-
-    public void setTotalGP(Integer totalGP) {
-        this.totalGP = totalGP;
-    }
-
-    public Integer getTotalVillage() {
-        return totalVillage;
-    }
-
-    public void setTotalVillage(Integer totalVillage) {
-        this.totalVillage = totalVillage;
-    }
-
-    public Integer getTotalDistrictCoverage() {
-        return totalDistrictCoverage;
-    }
-
-    public void setTotalDistrictCoverage(Integer totalDistrictCoverage) {
-        this.totalDistrictCoverage = totalDistrictCoverage;
-    }
-
-    public Integer getTotalBlockCoverage() {
-        return totalBlockCoverage;
-    }
-
-    public void setTotalBlockCoverage(Integer totalBlockCoverage) {
-        this.totalBlockCoverage = totalBlockCoverage;
-    }
-
-    public Integer getTotalGPCoverage() {
-        return totalGPCoverage;
-    }
-
-    public void setTotalGPCoverage(Integer totalGPCoverage) {
-        this.totalGPCoverage = totalGPCoverage;
-    }
-
-    public Integer getTotalVillageCoverage() {
-        return totalVillageCoverage;
-    }
-
-    public void setTotalVillageCoverage(Integer totalVillageCoverage) {
-        this.totalVillageCoverage = totalVillageCoverage;
-    }
-
-    public Integer getShgApproved() {
-        return shgApproved;
-    }
-
-    public void setShgApproved(Integer shgApproved) {
-        this.shgApproved = shgApproved;
-    }
-
-    public Integer getShgInactiveMonth() {
-        return shgInactiveMonth;
-    }
-
-    public void setShgInactiveMonth(Integer shgInactiveMonth) {
-        this.shgInactiveMonth = shgInactiveMonth;
-    }
-
-    public Integer getShgInactiveMemberMonth() {
-        return shgInactiveMemberMonth;
-    }
-
-    public void setShgInactiveMemberMonth(Integer shgInactiveMemberMonth) {
-        this.shgInactiveMemberMonth = shgInactiveMemberMonth;
-    }
-
-    public Integer getVoApproved() {
-        return voApproved;
-    }
-
-    public void setVoApproved(Integer voApproved) {
-        this.voApproved = voApproved;
-    }
-
-    public Integer getVoInactiveMonth() {
-        return voInactiveMonth;
-    }
-
-    public void setVoInactiveMonth(Integer voInactiveMonth) {
-        this.voInactiveMonth = voInactiveMonth;
-    }
-
-    public Integer getClfApproved() {
-        return clfApproved;
-    }
 
-    public void setClfApproved(Integer clfApproved) {
-        this.clfApproved = clfApproved;
+    public Integer getWomenshgMonth() {
+        return womenshgMonth;
     }
 
-    public Integer getClfInactiveMonth() {
-        return clfInactiveMonth;
+    public void setWomenshgMonth(Integer womenshgMonth) {
+        this.womenshgMonth = womenshgMonth;
     }
 
-    public void setClfInactiveMonth(Integer clfInactiveMonth) {
-        this.clfInactiveMonth = clfInactiveMonth;
+    public Integer getPvtgshgMonth() {
+        return pvtgshgMonth;
     }
-    public Integer getShgFormedMonth() {
-        return shgFormedMonth;
-    }
-
-    public void setShgFormedMonth(Integer shgFormedMonth) {
-        this.shgFormedMonth = shgFormedMonth;
-    }
-
-    public Integer getShgMembersJoinedMonth() {
-        return shgMembersJoinedMonth;
-    }
-
-    public void setShgMembersJoinedMonth(Integer shgMembersJoinedMonth) {
-        this.shgMembersJoinedMonth = shgMembersJoinedMonth;
-    }
-
-    public Integer getVoFormedMonth() {
-        return voFormedMonth;
-    }
-
-    public void setVoFormedMonth(Integer voFormedMonth) {
-        this.voFormedMonth = voFormedMonth;
-    }
-
-    public Integer getVoShgFormedMonth() {
-        return voShgFormedMonth;
-    }
-
-    public void setVoShgFormedMonth(Integer voShgFormedMonth) {
-        this.voShgFormedMonth = voShgFormedMonth;
-    }
-
-    public Integer getVoMemberFormedMonth() {
-        return voMemberFormedMonth;
-    }
-
-    public void setVoMemberFormedMonth(Integer voMemberFormedMonth) {
-        this.voMemberFormedMonth = voMemberFormedMonth;
-    }
-
-    public Integer getClfFormedMonth() {
-        return clfFormedMonth;
-    }
-
-    public void setClfFormedMonth(Integer clfFormedMonth) {
-        this.clfFormedMonth = clfFormedMonth;
-    }
-
-    public Integer getClfMemberFormedMonth() {
-        return clfMemberFormedMonth;
-    }
-
-    public void setClfMemberFormedMonth(Integer clfMemberFormedMonth) {
-        this.clfMemberFormedMonth = clfMemberFormedMonth;
-    }
 
-    public Integer getClfShgFormedMonth() {
-        return clfShgFormedMonth;
+    public void setPvtgshgMonth(Integer pvtgshgMonth) {
+        this.pvtgshgMonth = pvtgshgMonth;
     }
 
-    public void setClfShgFormedMonth(Integer clfShgFormedMonth) {
-        this.clfShgFormedMonth = clfShgFormedMonth;
+    public Integer getPwdshgMonth() {
+        return pwdshgMonth;
     }
 
-    public Integer getClfVoFormedMonth() {
-        return clfVoFormedMonth;
+    public void setPwdshgMonth(Integer pwdshgMonth) {
+        this.pwdshgMonth = pwdshgMonth;
     }
 
-    public void setClfVoFormedMonth(Integer clfVoFormedMonth) {
-        this.clfVoFormedMonth = clfVoFormedMonth;
+    public Integer getElderlyshgMonth() {
+        return elderlyshgMonth;
     }
-    public Integer getAgeBlock() {
-        return ageBlock;
-    }
-
-    public void setAgeBlock(Integer ageBlock) {
-        this.ageBlock = ageBlock;
-    }
-
-    public Integer getStateId() {
-        return stateId;
-    }
-
-    public void setStateId(Integer stateId) {
-        this.stateId = stateId;
-    }
-
-    public Integer getDistrictId() {
-        return districtId;
-    }
-
-    public void setDistrictId(Integer districtId) {
-        this.districtId = districtId;
-    }
-
-    public Integer getBlockId() {
-        return blockId;
-    }
 
-    public void setBlockId(Integer blockId) {
-        this.blockId = blockId;
+    public void setElderlyshgMonth(Integer elderlyshgMonth) {
+        this.elderlyshgMonth = elderlyshgMonth;
     }
 
-    public String getStateName() {
-        return stateName;
+    public Integer getOthertypeshgMonth() {
+        return othertypeshgMonth;
     }
 
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setOthertypeshgMonth(Integer othertypeshgMonth) {
+        this.othertypeshgMonth = othertypeshgMonth;
     }
 
-    public String getDistrictName() {
-        return districtName;
+    public Integer getVobanklinkageMonth() {
+        return vobanklinkageMonth;
     }
 
-    public void setDistrictName(String districtName) {
-        this.districtName = districtName;
+    public void setVobanklinkageMonth(Integer vobanklinkageMonth) {
+        this.vobanklinkageMonth = vobanklinkageMonth;
     }
 
-    public String getBlockName() {
-        return blockName;
+    public Integer getVoassetverificationMonth() {
+        return voassetverificationMonth;
     }
 
-    public void setBlockName(String blockName) {
-        this.blockName = blockName;
+    public void setVoassetverificationMonth(Integer voassetverificationMonth) {
+        this.voassetverificationMonth = voassetverificationMonth;
     }
-    public Integer getTotalRuralHouseholds() {
-        return totalRuralHouseholds;
-    }
-
-
-
-    public void setTotalRuralHouseholds(Integer totalRuralHouseholds) {
-        this.totalRuralHouseholds = totalRuralHouseholds;
-    }
-
-    public Integer getTargetRuralHouseholds() {
-        return targetRuralHouseholds;
-    }
 
-    public void setTargetRuralHouseholds(Integer targetRuralHouseholds) {
-        this.targetRuralHouseholds = targetRuralHouseholds;
+    public Integer getVolivelihoodpromoMonth() {
+        return volivelihoodpromoMonth;
     }
 
-    public Integer getShgMem() {
-        return shgMem;
+    public void setVolivelihoodpromoMonth(Integer volivelihoodpromoMonth) {
+        this.volivelihoodpromoMonth = volivelihoodpromoMonth;
     }
 
-    public void setShgMem(Integer shgMem) {
-        this.shgMem = shgMem;
+    public Integer getVomonitoringMonth() {
+        return vomonitoringMonth;
     }
 
-    public Integer getVillageId() {
-        return villageId;
+    public void setVomonitoringMonth(Integer vomonitoringMonth) {
+        this.vomonitoringMonth = vomonitoringMonth;
     }
 
-    public void setVillageId(Integer villageId) {
-        this.villageId = villageId;
+    public Integer getVosocialactionMonth() {
+        return vosocialactionMonth;
     }
 
-    public Integer getPanchayatId() {
-        return panchayatId;
+    public void setVosocialactionMonth(Integer vosocialactionMonth) {
+        this.vosocialactionMonth = vosocialactionMonth;
     }
 
-    public void setPanchayatId(Integer panchayatId) {
-        this.panchayatId = panchayatId;
+    public Integer getVospecialMonth() {
+        return vospecialMonth;
     }
 
-    public String getVillageName() {
-        return villageName;
+    public void setVospecialMonth(Integer vospecialMonth) {
+        this.vospecialMonth = vospecialMonth;
     }
-
-    public void setVillageName(String villageName) {
-        this.villageName = villageName;
-    }
-
-    public String  getPanchayatName() {
-        return panchayatName;
-    }
-
-    public void setPanchayatName(String panchayatName) {
-        this.panchayatName = panchayatName;
-    }
-
 }
