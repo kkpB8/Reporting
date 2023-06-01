@@ -46,6 +46,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/geo")
+
 public class GeographicalCoverageApiRestController extends  BaseController{
 
   private final Logger logger;
@@ -68,6 +69,7 @@ public class GeographicalCoverageApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+  
   public
   @ResponseBody
   ResponseEntity<GlobalApiResponse<List<GeographicalCoverage>>> getGeoData(@RequestBody GeographicalCoverageRequest request,
@@ -76,7 +78,9 @@ public class GeographicalCoverageApiRestController extends  BaseController{
    if(headerRequest.getHeader("X-Tenant-Identifier")==null){
       this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
       throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+
     }
+
     String loctype=request.getLoctype();
     String dto=request.getDto();
     String dfrom =request.getDfrom();
@@ -84,9 +88,11 @@ public class GeographicalCoverageApiRestController extends  BaseController{
     String did=request.getDid();
     String bid=request.getBid();
     String pid=request.getPid();
+
     String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
       return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.geographicalCoverageApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,pid,tenantIdentifier)));
+
   }
 
 

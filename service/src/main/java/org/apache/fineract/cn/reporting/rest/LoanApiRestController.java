@@ -36,19 +36,22 @@ import java.util.List;
 @RestController
 @RequestMapping("/loanReport")
 public class LoanApiRestController extends BaseController{
+
     private final Logger logger;
     private final LoanReportService loanReportService;
 
     public LoanApiRestController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger, LoanReportService loanReportService) {
         this.logger = logger;
         this.loanReportService = loanReportService;
-    }
 
+    }
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/shg-loan")
     public ResponseEntity<GlobalApiResponse<List<ResponseLoanShgReport>>> getShgLoan(@RequestBody RequestLoanShgReport requestLoanShgReport) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
               this.loanReportService.getshgLoanReport(requestLoanShgReport.getStateId(),requestLoanShgReport.getDistrictId(),requestLoanShgReport.getBlockId(),requestLoanShgReport.getPanchayatId(),requestLoanShgReport.getVillageId(),requestLoanShgReport.getFromDate(),requestLoanShgReport.getToDate(),requestLoanShgReport.getShgId(),requestLoanShgReport.getVoId(),requestLoanShgReport.getClfId(),requestLoanShgReport.getGeoGraphicalLevel())));
+
     }
+
 }

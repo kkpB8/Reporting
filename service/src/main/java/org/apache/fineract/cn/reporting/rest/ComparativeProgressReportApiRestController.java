@@ -55,6 +55,7 @@ public class ComparativeProgressReportApiRestController extends  BaseController{
             this.logger = logger;
             this.comparativeProgressReportApiService = comparativeProgressReportApiService;
         }
+
         @Permittable(value= AcceptedTokenType.GUEST)
         @RequestMapping(
                 value = "/comp-report",
@@ -62,6 +63,7 @@ public class ComparativeProgressReportApiRestController extends  BaseController{
                 consumes = MediaType.ALL_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE
         )
+
         public
         @ResponseBody
         ResponseEntity<GlobalApiResponse<List<ComparativeProgressReportResponse>>> getCompReData(@RequestBody ComparativeProgressReportRequest request,
@@ -70,6 +72,7 @@ public class ComparativeProgressReportApiRestController extends  BaseController{
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             }
+
             String location_type = request.getLocation_type();
             String date_to = request.getDate_to();
             String date_from = request.getDate_from();
@@ -80,5 +83,6 @@ public class ComparativeProgressReportApiRestController extends  BaseController{
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.comparativeProgressReportApiService.getCompReData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
         }
+
 
     }

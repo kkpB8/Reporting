@@ -37,6 +37,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/apiSummary")
 public class TblSummaryApiRestController extends  BaseController{
+
     private final Logger logger;
     private final TblSummaryApiService tblSummaryApiService;
 
@@ -56,6 +57,7 @@ public class TblSummaryApiRestController extends  BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<TblSummaryResponse>>> gettblsummarydata(@RequestBody TblSummaryRequest request,
@@ -65,6 +67,7 @@ public class TblSummaryApiRestController extends  BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String reportName=request.getReportName();
         String locationType=request.getLocationType();
         String dateTo=request.getDateTo();
@@ -85,6 +88,8 @@ public class TblSummaryApiRestController extends  BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.tblSummaryApiService.gettbl_summarydata(reportName,locationType,dateTo
                         ,dateFrom,stateId, districtId, blockId,panchayatId,villageId,bankTypeId,bankType,bankCode,branchCode,clf,vo,shg, tenantIdentifier)));
+
     }
+
 
 }

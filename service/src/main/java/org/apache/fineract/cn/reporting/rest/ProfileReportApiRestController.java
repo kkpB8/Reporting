@@ -69,8 +69,10 @@ public class ProfileReportApiRestController extends  BaseController{
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.profileReportService.fetchProfileReportSummaryList(geographicalFlag, yearMonth, stateId, districtId, blockId, panchayatId, villageId)));
         } else {
+
             throw new BadRequestError("Invalid geographical flag, please give geographical flag");
         }
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -90,16 +92,19 @@ public class ProfileReportApiRestController extends  BaseController{
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.profileReportService.fetchStateWiseMissionLevelReportList(stateId)));
         }
+
         if (geographicalFlag == 2) {
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.profileReportService.fetchDistrictWiseMissionLevelReportList(stateId, districtId)));
         }
+
         if (geographicalFlag == 3) {
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.profileReportService.fetchBlockWiseMissionLevelReportList(stateId, districtId, blockId)));
         } else {
             throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSGS);
         }
+
     }
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
@@ -124,5 +129,7 @@ public class ProfileReportApiRestController extends  BaseController{
         } else {
             throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAGS_MSG);
         }
+
     }
+
 }

@@ -19,7 +19,11 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 
 public class TokenInvalidatedException extends RuntimeException {
+
     public TokenInvalidatedException(String message) {
         super(message);
     }
+
+
+
 }

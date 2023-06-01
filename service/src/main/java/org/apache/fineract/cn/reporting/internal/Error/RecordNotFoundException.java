@@ -19,7 +19,9 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 
 public class RecordNotFoundException extends RuntimeException{
+
     public RecordNotFoundException(String id) {
         super(id);
     }
+
 }

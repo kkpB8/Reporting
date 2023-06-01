@@ -42,7 +42,6 @@ public class CommonApiRestController extends BaseController{
   private final Logger logger;
   private final CommonApiService commonApiService;
 
-
   @Autowired
   public CommonApiRestController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
                                  final CommonApiService commonApiService) {
@@ -64,6 +63,7 @@ public class CommonApiRestController extends BaseController{
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             "success"));
   }
+
   //VIEW ALL LOOKUP MASTER 30-12-2020
   @Permittable(value= AcceptedTokenType.GUEST)
   @RequestMapping(
@@ -72,11 +72,13 @@ public class CommonApiRestController extends BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
   public
   @ResponseBody
   ResponseEntity<GlobalApiResponse<LookUpMaster>> fetchLookupMaster() {
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.commonApiService.fetchLookupMaster()));
+
   }
 
 }

@@ -43,6 +43,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/Bankfilter")
 public class BankNameDataController extends BaseController {
+
     private final Logger logger;
     private final BankNameDataService bankNameDataService;
 
@@ -88,10 +89,14 @@ public class BankNameDataController extends BaseController {
         if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+
         }
-//        String bank_code = httpServletRequest.getHeader("bank_code");
+
         String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.bankNameDataService.getBankBranchNameData(bank_code,stateId,tenantIdentifier)));
+
     }
+
+
 }

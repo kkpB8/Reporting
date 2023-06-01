@@ -21,25 +21,31 @@ public class ExceptionhandlerController {
         return new ResponseEntity<>(new GlobleException(globleException.getResponseCode(),globleException.getResponseMsg(),globleException.getStatus(),String.valueOf(timestamp)), HttpStatus.BAD_REQUEST);
     }
 
+
     @ExceptionHandler(GlobleException.class)
     public ResponseEntity<GlobleException> getGlobleException(HttpClientErrorException exception){
         GlobleException globleException=gson.fromJson(exception.getResponseBodyAsString().toString(),GlobleException.class);
         return new ResponseEntity<>(new GlobleException(globleException.getResponseCode(),globleException.getResponseMsg(),globleException.getStatus(),String.valueOf(timestamp)), HttpStatus.BAD_REQUEST);
     }
 
+
     @ExceptionHandler(MaximumLoginAttempsReached.class)
     public ResponseEntity<GlobleException> getMaximumLoginAttempsReached(MaximumLoginAttempsReached exception){
         return new ResponseEntity<>(new GlobleException("429",exception.getMessage(),"429",String.valueOf(timestamp)), HttpStatus.TOO_MANY_REQUESTS);
     }
 
+
     @ExceptionHandler(InActiveException.class)
     public ResponseEntity<GlobleException> getGlobleException(InActiveException exception){
         return new ResponseEntity<>(new GlobleException("401",exception.getMessage(),"401",String.valueOf(timestamp)), HttpStatus.UNAUTHORIZED);
     }
+
+
     @ExceptionHandler(TokenAlreadyFoundException.class)
     public ResponseEntity<GlobleException> getTokenAlreadyFoundException(TokenAlreadyFoundException exception){
         return new ResponseEntity<>(new GlobleException("401",exception.getMessage(),"401",String.valueOf(timestamp)), HttpStatus.BAD_REQUEST);
     }
+
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<GlobleException> getNotFoundException(NotFoundException exception){
@@ -77,6 +83,7 @@ public class ExceptionhandlerController {
 //    public ResponseEntity<GlobleException> getBadRequestException(geoFlag exception){
 //        return new ResponseEntity<>(new GlobleException("660",exception.getMessage(),"400",String.valueOf(timestamp)), HttpStatus.BAD_REQUEST);
 //    }
+
 
 
 

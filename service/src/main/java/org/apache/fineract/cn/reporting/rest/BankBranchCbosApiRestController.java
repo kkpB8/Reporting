@@ -31,6 +31,7 @@ public class BankBranchCbosApiRestController extends  BaseController{
         this.logger = logger;
         this.bankBranchCbosApiService = bankBranchCbosApiService;
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-details",
@@ -57,7 +58,6 @@ public class BankBranchCbosApiRestController extends  BaseController{
         }
 
     }
-   // geographicalFlagErrors
 
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -78,6 +78,7 @@ public class BankBranchCbosApiRestController extends  BaseController{
         } else {
             throw new BadRequestError(CustomStatus.INVALID_STATE_ID_MSG);
         }
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -101,8 +102,6 @@ public class BankBranchCbosApiRestController extends  BaseController{
         }
     }
 
-
-
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-wise-cbo-accounts",
@@ -122,10 +121,15 @@ public class BankBranchCbosApiRestController extends  BaseController{
                                                                    @RequestParam("bankId") Integer bankId,
                                                                    @RequestParam("branchId") Integer branchId) {
         if (geographicalFlag != null) {
+
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.bankBranchCbosApiService.fetchBankWiseCboList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId,bankTypeId, bankId,  branchId)));
+
         } else {
+
             throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
         }
+
     }
+
 }

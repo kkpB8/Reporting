@@ -41,10 +41,8 @@ import java.util.Map;
 @RequestMapping("/leader")
 public class LeaderEducationApiRestController extends BaseController{
 
-
         private final Logger logger;
         private final LeaderEducationApiService leaderEducationApiService;
-
 
         @Autowired
         public LeaderEducationApiRestController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
@@ -53,6 +51,7 @@ public class LeaderEducationApiRestController extends BaseController{
             this.logger = logger;
             this.leaderEducationApiService = leaderEducationApiService;
         }
+
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/leader-education",
@@ -60,6 +59,7 @@ public class LeaderEducationApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<LeaderEducationResponse>>> getLeaderEducationData(@RequestBody LeaderEducationRequest request,
@@ -69,6 +69,7 @@ public class LeaderEducationApiRestController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String location_type = request.getLocation_type();
         String date_to = request.getDate_to();
         String date_from = request.getDate_from();
@@ -78,7 +79,8 @@ public class LeaderEducationApiRestController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.leaderEducationApiService.getLeaderEducationData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
-    }
+
+        }
 
         @Permittable(value= AcceptedTokenType.GUEST)
         @RequestMapping(
@@ -96,6 +98,7 @@ public class LeaderEducationApiRestController extends BaseController{
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             }
+
             String location_type = request.getLocation_type();
             String date_to = request.getDate_to();
             String date_from = request.getDate_from();
@@ -105,6 +108,8 @@ public class LeaderEducationApiRestController extends BaseController{
             String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.leaderEducationApiService.getLeaderData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
+
         }
+
 
     }

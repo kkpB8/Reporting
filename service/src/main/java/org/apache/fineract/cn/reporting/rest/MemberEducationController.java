@@ -43,6 +43,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/member")
 public class MemberEducationController extends BaseController{
+
     private final Logger logger;
     private final MemberEducationService memberEducationService;
 
@@ -71,6 +72,7 @@ public class MemberEducationController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String loctype=request.getLocation_type();
         String dto=request.getState_id();
         String dfrom =request.getDistrict_id();
@@ -78,5 +80,7 @@ public class MemberEducationController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.memberEducationService.getmembereducation(loctype,dto,dfrom,sid,tenantIdentifier)));
+
     }
+
 }

@@ -36,6 +36,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/saving")
 public class SavingApiRestController extends BaseController{
+
     private final Logger logger;
     private final SavingApiService savingApiService;
 
@@ -47,11 +48,13 @@ public class SavingApiRestController extends BaseController{
         this.logger = logger;
         this.savingApiService = savingApiService;
     }
+
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/shg-saving")
     public ResponseEntity<GlobalApiResponse<List<ShgSavingResponses>>> getShgSaving(@RequestBody RequestSavingShgReport requestLoanShgReport) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
              this.savingApiService.getShgSaving(requestLoanShgReport.getStateId(),requestLoanShgReport.getDistrictId(),requestLoanShgReport.getBlockId(),requestLoanShgReport.getPanchayatId(),requestLoanShgReport.getVillageId(),requestLoanShgReport.getFromDate(),requestLoanShgReport.getToDate(),requestLoanShgReport.getShgId(),requestLoanShgReport.getVoId(),requestLoanShgReport.getClfId())));
+
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
@@ -59,12 +62,14 @@ public class SavingApiRestController extends BaseController{
     public ResponseEntity<GlobalApiResponse<List<ShgSavingResponses>>> getShgSaving1(@RequestBody RequestLoanShgReport requestShgSavingReport) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 savingApiService.getShgSaving1(requestShgSavingReport.getStateId(),requestShgSavingReport.getDistrictId(),requestShgSavingReport.getBlockId(),requestShgSavingReport.getPanchayatId(),requestShgSavingReport.getVillageId(),requestShgSavingReport.getFromDate(),requestShgSavingReport.getToDate(),requestShgSavingReport.getShgId(),requestShgSavingReport.getVoId(),requestShgSavingReport.getClfId(),requestShgSavingReport.getGeoGraphicalLevel())));
+
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/vo-saving")
     public ResponseEntity<GlobalApiResponse<List<ResponseForVoSaving>>> getVoSaving(@RequestBody RequestLoanShgReport requestShgSavingReport) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",savingApiService.getVoSaving(requestShgSavingReport.getStateId(),requestShgSavingReport.getDistrictId(),requestShgSavingReport.getBlockId(),requestShgSavingReport.getPanchayatId(),requestShgSavingReport.getFromDate(),requestShgSavingReport.getToDate(),requestShgSavingReport.getVoId(),requestShgSavingReport.getClfId(),requestShgSavingReport.getGeoGraphicalLevel())));
+
     }
 
     /*@Permittable(value= AcceptedTokenType.GUEST)

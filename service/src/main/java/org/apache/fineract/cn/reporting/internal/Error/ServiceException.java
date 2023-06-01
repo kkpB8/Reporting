@@ -63,8 +63,10 @@ public final class ServiceException extends RuntimeException {
     private final org.apache.fineract.cn.lang.ServiceError serviceError;
 
     public ServiceException(org.apache.fineract.cn.lang.ServiceError serviceError) {
+
         super(serviceError.getMessage());
         this.serviceError = serviceError;
+
     }
 
     public static org.apache.fineract.cn.lang.ServiceException badRequest(String message, Object... args) {
@@ -87,7 +89,10 @@ public final class ServiceException extends RuntimeException {
         return this.serviceError;
     }
 
+
     public String toString() {
         return "ServiceException{serviceError=" + this.serviceError + '}';
     }
+
+
 }

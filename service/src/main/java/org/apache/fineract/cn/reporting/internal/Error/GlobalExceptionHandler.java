@@ -113,13 +113,14 @@ class CustomGlobalExceptionHandler  {
     return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
   }
 
-
   @ExceptionHandler(value = BadRequestError.class)
   public ResponseEntity<CustomErrorResponse> BadRequest2(BadRequestError e) {
     CustomErrorResponse error = new CustomErrorResponse("900",e.getMessage());
     error.setTimestamp(LocalDateTime.now().toString());
     error.setStatus((HttpStatus.BAD_REQUEST.value()));
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+
+
   }
 
 

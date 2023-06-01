@@ -51,9 +51,12 @@ public final class CustomServiceException  extends RuntimeException {
     public static CustomServiceException recordNotFoundError(String message, Object... args) {
         return new CustomServiceException(CustomServiceError.create(1003).message(MessageFormat.format(message, args)).build());
     }
+
+
     public static CustomServiceException processingError(String message, Object... args) {
         return new CustomServiceException(CustomServiceError.create(900).message(MessageFormat.format(message, args)).build());
     }
+
 
     public CustomServiceError customServiceError() {
         return this.customServiceError;

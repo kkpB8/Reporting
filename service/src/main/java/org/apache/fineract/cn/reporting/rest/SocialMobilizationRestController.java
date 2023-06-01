@@ -63,6 +63,7 @@ import java.util.Map;
                 consumes = MediaType.ALL_VALUE,
                 produces = MediaType.APPLICATION_JSON_VALUE
         )
+
         public
         @ResponseBody
         ResponseEntity<GlobalApiResponse<List<SocialMoblizationResponse>>> getSocialMoblizationData(@RequestBody SocialMobilizationRequest request,
@@ -71,6 +72,7 @@ import java.util.Map;
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             }
+
             String loctype = request.getLoctype();
             String dto = request.getDto();
             String dfrom = request.getDfrom();
@@ -80,6 +82,8 @@ import java.util.Map;
             String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.socialMobilizationApiService.getSocialMoblizationData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier)));
+
         }
+
 
     }

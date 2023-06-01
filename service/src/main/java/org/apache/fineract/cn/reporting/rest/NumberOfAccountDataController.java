@@ -55,6 +55,7 @@ public class NumberOfAccountDataController extends BaseController {
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
+
             value = "/account-data",
             method = RequestMethod.POST,
             consumes = MediaType.ALL_VALUE,
@@ -65,9 +66,12 @@ public class NumberOfAccountDataController extends BaseController {
     ResponseEntity<GlobalApiResponse<List<AccountDataResponse>>> getGeoData(@RequestBody NumberOfAccountDataRequest request,
                                                                            HttpServletRequest headerRequest) {
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
+
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+
         }
+
         String locationtype=request.getLocationtype();
         String state_id=request.getState_id();
         String district_id=request.getDistrict_id();
@@ -75,5 +79,7 @@ public class NumberOfAccountDataController extends BaseController {
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.numberOfAccountDataServiceClass.getnumberofaccountdata(locationtype,state_id,district_id,block_id,tenantIdentifier)));
+
     }
+
 }

@@ -11,6 +11,7 @@ public class GlobleException extends Exception{
     public synchronized Throwable fillInStackTrace() {
         return this;
     }
+
     GlobleException(){
         super();
     }
@@ -26,9 +27,11 @@ public class GlobleException extends Exception{
         return responseCode;
     }
 
+
     public void setResponseCode(String responseCode) {
         this.responseCode = responseCode;
     }
+
 
     public String getResponseMsg() {
         return responseMsg;
@@ -38,20 +41,25 @@ public class GlobleException extends Exception{
         this.responseMsg = responseMsg;
     }
 
+
     public String getStatus() {
         return status;
     }
+
 
     public void setStatus(String status) {
         this.status = status;
     }
 
+
     public String getTimestamp() {
         return timestamp;
     }
 
+
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
 }
 

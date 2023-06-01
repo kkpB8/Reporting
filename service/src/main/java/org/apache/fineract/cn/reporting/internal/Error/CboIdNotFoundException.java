@@ -19,7 +19,10 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 
 public class CboIdNotFoundException extends RuntimeException{
+
     public CboIdNotFoundException(String id) {
         super(id);
     }
+
+
 }

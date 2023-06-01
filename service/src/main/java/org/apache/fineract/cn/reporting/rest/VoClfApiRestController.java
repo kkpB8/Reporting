@@ -51,6 +51,7 @@ public class VoClfApiRestController extends BaseController{
             this.logger = logger;
             this.voClfApiService = voClfApiService;
         }
+
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/clf-subCommity",
@@ -58,6 +59,7 @@ public class VoClfApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ClfSubCommityResponse>>> getClfSCData(@RequestBody ClfSubCommityRequest request,
@@ -66,6 +68,7 @@ public class VoClfApiRestController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String location_type = request.getLocation_type();
         String date_to = request.getDate_to();
         String date_from = request.getDate_from();
@@ -75,6 +78,7 @@ public class VoClfApiRestController extends BaseController{
             String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.voClfApiService.getClfSCData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
+
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
@@ -84,6 +88,7 @@ public class VoClfApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<VoSubCommityResponse>>> getClfSCData(@RequestBody VoSubCommityRequest request,
@@ -92,6 +97,7 @@ public class VoClfApiRestController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String location_type = request.getLocation_type();
         String date_to = request.getDate_to();
         String date_from = request.getDate_from();
@@ -102,6 +108,7 @@ public class VoClfApiRestController extends BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.voClfApiService.getVoSCData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
     }
+
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/vo-sdd",
@@ -109,14 +116,17 @@ public class VoClfApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<VosddResponse>>> getVosbbData(@RequestParam String  cbo_id,
                                                             HttpServletRequest headerRequest) {
+
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.voClfApiService.getVosbbData(cbo_id, tenantIdentifier)));
@@ -129,10 +139,12 @@ public class VoClfApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ClfsddResponse>>> getClfsbbData(@RequestParam String  stateId, @RequestParam String districtId, @RequestParam String blockId,
                                                      HttpServletRequest headerRequest) {
+
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -141,4 +153,5 @@ public class VoClfApiRestController extends BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.voClfApiService.getClfsbbData(stateId,districtId, blockId, tenantIdentifier)));
     }
+
 }

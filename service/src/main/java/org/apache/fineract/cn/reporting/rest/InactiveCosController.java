@@ -56,7 +56,6 @@ public class InactiveCosController extends BaseController{
         this.inactiveCboServiceClass = inactiveCboServiceClass;
     }
 
-
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/inactive-data",
@@ -73,6 +72,7 @@ public class InactiveCosController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String loctype=request.getLoctype();
         String dto=request.getDto();
         String dfrom =request.getDfrom();
@@ -82,5 +82,7 @@ public class InactiveCosController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.inactiveCboServiceClass.getinactivedata(loctype,dto,dfrom,sid,did,bid,tenantIdentifier)));
+
     }
+
 }

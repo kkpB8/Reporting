@@ -19,7 +19,11 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 
 public class BadRequest extends RuntimeException{
+
     public BadRequest(String id) {
         super(id);
     }
+
+
+
 }

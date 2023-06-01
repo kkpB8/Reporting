@@ -25,4 +25,5 @@ public class SQLException extends RuntimeException {
         super(id);
     }
 
+
 }

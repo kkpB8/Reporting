@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 public class BaseController {
 
     protected final ResponseStatus API_SUCCESS_STATUS = ResponseStatus.SUCCESS;
+
     protected final ResponseStatus API_ERROR_STATUS = ResponseStatus.FAILURE;
 
 
@@ -46,6 +47,7 @@ public class BaseController {
         globalApiResponse.setTimestamp(LocalDateTime.now().toString());
         globalApiResponse.setResponseData(errors);
         return globalApiResponse;
+
     }
 
 }

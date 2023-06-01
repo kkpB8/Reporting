@@ -19,7 +19,9 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 
 public class RecordAlreadyExistsException extends RuntimeException{
+
     public RecordAlreadyExistsException(String id) {
         super(id);
     }
+
 }

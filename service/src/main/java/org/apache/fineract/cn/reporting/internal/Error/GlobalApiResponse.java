@@ -13,6 +13,7 @@ public class GlobalApiResponse<T> implements Serializable {
     public String timestamp;
     T responseData;
 
+
     public String getResponseCode() {
         return responseCode;
     }
@@ -33,17 +34,21 @@ public class GlobalApiResponse<T> implements Serializable {
         return timestamp;
     }
 
+
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
 
     public T getResponseData() {
         return responseData;
     }
 
+
     public void setResponseData(T responseData) {
         this.responseData = responseData;
     }
+
 
     public ResponseStatus getStatus() {
         return status;
@@ -52,5 +57,6 @@ public class GlobalApiResponse<T> implements Serializable {
     public void setStatus(ResponseStatus status) {
         this.status = status;
     }
+
 }
 

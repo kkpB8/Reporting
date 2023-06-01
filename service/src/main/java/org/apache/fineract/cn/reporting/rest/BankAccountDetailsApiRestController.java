@@ -41,7 +41,6 @@ import java.util.Map;
 @RequestMapping("/bankDetail")
 public class BankAccountDetailsApiRestController extends BaseController {
 
-
     private final Logger logger;
     private final BankAccountDetailsApiService bankAccountDetailsApiService;
 
@@ -78,6 +77,7 @@ public class BankAccountDetailsApiRestController extends BaseController {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.bankAccountDetailsApiService.getBankAccountData(location_type, state_id, district_id, block_id, tenantIdentifier)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-wisecbo",
@@ -93,6 +93,8 @@ public class BankAccountDetailsApiRestController extends BaseController {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
+
         String location_type = request.getLocation_type();
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
@@ -103,6 +105,8 @@ public class BankAccountDetailsApiRestController extends BaseController {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.bankAccountDetailsApiService.getBankwisecboData(location_type, state_id, district_id, block_id, bank_id, branch_id, tenantIdentifier)));
     }
+
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/member-bank-details",
@@ -126,6 +130,8 @@ public class BankAccountDetailsApiRestController extends BaseController {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.bankAccountDetailsApiService.getMemberBankAccountData(location_type, state_id, district_id, block_id, tenantIdentifier)));
     }
+
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/bank-cbo-details",
@@ -141,6 +147,8 @@ public class BankAccountDetailsApiRestController extends BaseController {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
+
         String location_type = request.getLocation_type();
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
@@ -152,4 +160,6 @@ public class BankAccountDetailsApiRestController extends BaseController {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.bankAccountDetailsApiService.getBankWiseCbodetail(location_type,state_id,district_id,block_id,btid,bank_id,branch_id,tenantIdentifier)));
     }
+
+
 }

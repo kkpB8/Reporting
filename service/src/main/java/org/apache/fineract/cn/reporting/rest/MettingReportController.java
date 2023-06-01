@@ -47,6 +47,7 @@ public class MettingReportController extends  BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<String>> getTest(@RequestHeader Map<String, String> headers) {
@@ -60,6 +61,7 @@ public class MettingReportController extends  BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.reportingServices.getShgMeeting(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/shg-meeting-village")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingVillage(@RequestParam("villageName") String villageName,@RequestParam(value="fromDate",defaultValue = "2010") String fromYear,@RequestParam(value = "fromMonth",defaultValue = "01") String fromMonth,@RequestParam(value = "toYear",defaultValue = "2022") String toYear,@RequestParam(value = "toMonth",defaultValue = "08") String toMonth) {
@@ -67,17 +69,20 @@ public class MettingReportController extends  BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 reportingServices.getShgMeetingVillage(villageName,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @PostMapping("/shg-meeting-regularity-village-percent")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingRegularityVillagePercent(@RequestBody ReportRequestDto reportRequestDto) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 reportingServices.getShgMeetingRegularity(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/shg-meeting-regularity-village")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingRegularityVillage(@RequestParam("villageName") String villageName,@RequestParam(value="fromDate",defaultValue = "2010") String fromYear,@RequestParam(value = "fromMonth",defaultValue = "01") String fromMonth,@RequestParam(value = "toYear",defaultValue = "2022") String toYear,@RequestParam(value = "toMonth",defaultValue = "08") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",this.reportingServices.getShgMeetingRegularityVillage(villageName,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/shg-meeting-regularity-vo")
     public ResponseEntity<GlobalApiResponse<List<?>>> getShgMeetingRegularityVo(@RequestParam("voCode") Integer voCode,@RequestParam(value="fromYear",defaultValue = "2010") String fromYear,@RequestParam(value = "fromMonth",defaultValue = "01") String fromMonth,@RequestParam(value = "toYear",defaultValue = "2022") String toYear,@RequestParam(value = "toMonth",defaultValue = "08") String toMonth) {
@@ -89,26 +94,31 @@ public class MettingReportController extends  BaseController{
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingRegularityClfVo(@RequestBody ShgVoClfRequestDto reportRequestDto) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getShgMeetingRegularityClfVo(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @PostMapping("/shg-meeting-attendance-percent")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingAttendDancePercent(@RequestBody ReportRequestDto reportRequestDto) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getShgMeetingAttendance(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @PostMapping("/shg-meeting-attendance-clf-vo")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingAttendanceClfVo(@RequestBody ShgVoClfRequestDto reportRequestDto) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getShgMeetingAttendanceClfVo(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/shg-meeting-attendance-village")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingAttendanceVillage(@RequestParam("villageName") String villageName,@RequestParam(value="fromDate",defaultValue = "2010") String fromYear,@RequestParam(value = "fromMonth",defaultValue = "01") String fromMonth,@RequestParam(value = "toYear",defaultValue = "2022") String toYear,@RequestParam(value = "toMonth",defaultValue = "08") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getShgMeetingAttendanceVillage(villageName,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/shg-meeting-attendance-vo")
     public ResponseEntity<GlobalApiResponse<?>> getShgMeetingAttendanceVo(@RequestParam("voCode") Integer voCode,@RequestParam(value="fromDate",defaultValue = "2010") String fromYear,@RequestParam(value = "fromMonth",defaultValue = "01") String fromMonth,@RequestParam(value = "toYear",defaultValue = "2022") String toYear,@RequestParam(value = "toMonth",defaultValue = "08") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getShgMeetingAttendanceVo(voCode, fromYear, fromMonth, toYear, toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @PostMapping("/vo-meeting")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeeting(@RequestBody ReportRequestDto reportRequestDto) {
@@ -120,45 +130,54 @@ public class MettingReportController extends  BaseController{
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingRegularityVillagePercent(@RequestBody ReportRequestDto reportRequestDto) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingRegularity(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-regularity-vo")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingRegularityVo(@RequestParam("clfcode") Integer clfCode,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingRegularityVo(clfCode,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-regularity-clf")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingRegularityClf(@RequestParam("blockName") String blockname,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingRegularityClf(blockname,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @PostMapping("/vo-meeting-attendance-village-percent")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingAttendanceVillagePercent(@RequestBody ReportRequestDto reportRequestDto) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingAttendance(reportRequestDto)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-attendance-clf")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingAttendanceClf(@RequestParam("blockName") String blockname,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingAttendanceClf(blockname,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-attendance-vo")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingAttendanceVo(@RequestParam("clfcode") Integer clfCode,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingAttendanceVo(clfCode,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-attendance-village")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingAttendanceVillage(@RequestParam("villageName") String villageName,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingAttendanceVillage(villageName,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-village")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingVillage(@RequestParam("villageName") String villageName,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingVillage(villageName,fromYear,fromMonth,toYear,toMonth)));
     }
+
     @Permittable(value = AcceptedTokenType.GUEST)
     @GetMapping("/vo-meeting-regularity-village")
     public ResponseEntity<GlobalApiResponse<?>> getVoMeetingRegularityVillage(@RequestParam("villageName") String villageName,@RequestParam("fromYear") String fromYear,@RequestParam("fromMonth") String fromMonth,@RequestParam("toYear") String toYear,@RequestParam("toMonth") String toMonth) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",reportingServices.getVoMeetingRegularityVillage(villageName,fromYear,fromMonth,toYear,toMonth)));
     }
+
 
 }

@@ -40,6 +40,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/cbo")
 public class CboPromotedController extends  BaseController{
+
     private final Logger logger;
     private final CboPromotedApiService cboPromotedApiService;
 
@@ -47,9 +48,11 @@ public class CboPromotedController extends  BaseController{
     @Autowired
     public CboPromotedController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
                                  final CboPromotedApiService cboPromotedApiService) {
+
         super();
         this.logger = logger;
         this.cboPromotedApiService = cboPromotedApiService;
+
     }
 
 
@@ -67,7 +70,9 @@ public class CboPromotedController extends  BaseController{
         if (headerRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+
         }
+
         String loctype=request.getLoctype();
         String dto=request.getDto();
         String dfrom =request.getDfrom();
@@ -77,6 +82,7 @@ public class CboPromotedController extends  BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.cboPromotedApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier)));
+
     }
 
 

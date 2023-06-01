@@ -32,12 +32,14 @@ import java.util.Map;
 @RestController
 @RequestMapping("/saving-report")
 public class SavingReportController extends BaseController{
+
     private final Logger logger;
     private final SavingReportService savingReportService;
 
     public SavingReportController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger, SavingReportService savingReportService) {
         this.logger = logger;
         this.savingReportService = savingReportService;
+
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
@@ -45,5 +47,7 @@ public class SavingReportController extends BaseController{
     public ResponseEntity<GlobalApiResponse<?>> getShgSaving(@RequestParam("locationType") String locationType, @RequestParam(value = "locationId",defaultValue = "1") int locationId,
                                                             @RequestParam(value="fromDate",defaultValue = "2016-10") String fromDate, @RequestParam(value="toDate",defaultValue = "2021-07") String toDate) {
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",savingReportService.getShgSaving(locationType,locationId,fromDate,toDate)));
+
     }
+
 }

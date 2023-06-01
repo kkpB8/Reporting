@@ -40,6 +40,7 @@ public class SocialMobilizationApiRestController  extends  BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ResponseSocialMobilization>>> fetchShgInitiationsList(@RequestBody RequestSocialMobilization requestSocialMobilization) {
@@ -49,7 +50,9 @@ public class SocialMobilizationApiRestController  extends  BaseController{
         } else {
             throw new BadRequestError(CustomStatus.INVALID_GEO_FLAG_MSG);
         }
+
     }
+
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/social-mobilization-update",
@@ -57,6 +60,7 @@ public class SocialMobilizationApiRestController  extends  BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ResponseSocialMobilization>>> fetchShgInitiationList(@RequestParam("geographicalFlag") Integer geographicalFlag,
@@ -68,10 +72,14 @@ public class SocialMobilizationApiRestController  extends  BaseController{
                                                                             @RequestParam("panchayatId") Integer panchayatId,
                                                                             @RequestParam("villageId") Integer villageId) {
         if (geographicalFlag != null) {
+
             return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                     this.serviceSocialMobilization.fetchShgInitiationList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId)));
         } else {
             throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
+
         }
+
     }
+
 }

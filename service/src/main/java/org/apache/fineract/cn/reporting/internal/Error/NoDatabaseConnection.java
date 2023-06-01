@@ -25,4 +25,5 @@ public class NoDatabaseConnection extends RuntimeException {
         super(id);
     }
 
+
 }

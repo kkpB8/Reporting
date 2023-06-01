@@ -100,91 +100,14 @@ public class CommonApiMapper {
     return responseBankWiseCbo;
   }
 
-
-  public static MenuMasterResponse map(final MenuMasterEntity menuMasterEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    MenuMasterResponse menuMasterResponse =
-            modelMapper.map(menuMasterEntity, MenuMasterResponse.class);
-    return menuMasterResponse;
-  }
-
-  public static VoFilterResponse map(final VoFilterEntity voFilterEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    VoFilterResponse voFilterResponse =
-            modelMapper.map(voFilterEntity, VoFilterResponse.class);
-    return voFilterResponse;
-  }
-
-  public static ClfVoFilterResponse map(final ClfVoFilterEntity clfVoFilterEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    ClfVoFilterResponse clfVoFilterResponse =
-            modelMapper.map(clfVoFilterEntity, ClfVoFilterResponse.class);
-    return clfVoFilterResponse;
-  }
-  /*
+/*
   public static ResponseBankApiDeatils map(final BankDetailApiEntity bankDetailApiEntity) {
     ModelMapper modelMapper = new ModelMapper();
     ResponseBankApiDeatils responseBankApiDeatils =
             modelMapper.map(bankDetailApiEntity, ResponseBankApiDeatils.class);
     return responseBankApiDeatils;
   }
+ */
 
-   */
-
-  public static TransactionSummary map(final TransactionsSummaryEntity transactionsSummaryEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    TransactionSummary transactionSummary =
-            modelMapper.map(transactionsSummaryEntity, TransactionSummary.class);
-    return transactionSummary;
-  }
-
-  public static VoTransactionSummary map(final TransactionsSummarysEntity transactionsSummarysEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    VoTransactionSummary voTransactionSummary =
-            modelMapper.map(transactionsSummarysEntity, VoTransactionSummary.class);
-    return voTransactionSummary;
-  }
-
-  public static ResponseBankApiDeatils map(final BankDetailApiEntity bankDetailApiEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    ResponseBankApiDeatils responseBankApiDeatils =
-            modelMapper.map(bankDetailApiEntity, ResponseBankApiDeatils.class);
-    return responseBankApiDeatils;
-  }
-
-
-  public static ResponseBranchApiDeatils map(final BranchDetailApiEntity branchDetailApiEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    ResponseBranchApiDeatils responseBranchApiDeatils =
-            modelMapper.map(branchDetailApiEntity, ResponseBranchApiDeatils.class);
-    return responseBranchApiDeatils;
-  }
-
-  public static TransactionClfVoResponse map(final TrClfVoEntity trClfVoEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    TransactionClfVoResponse transactionClfVoResponse =
-            modelMapper.map(trClfVoEntity, TransactionClfVoResponse.class);
-    return transactionClfVoResponse;
-  }
-  public static ResponseShgBySocialCategory map(final ShgBySocialCategoryEntity shgBySocialCategoryEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    ResponseShgBySocialCategory responseShgBySocialCategory =
-            modelMapper.map(shgBySocialCategoryEntity, ResponseShgBySocialCategory.class);
-    return responseShgBySocialCategory;
-  }
-
-  public static ResponseMemberShgDetails map(final MemberShgDetailsEntity memberShgDetailsEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    ResponseMemberShgDetails responseMemberShgDetails =
-            modelMapper.map(memberShgDetailsEntity, ResponseMemberShgDetails.class);
-    return responseMemberShgDetails;
-  }
-
-  public static ResponseMemberAttendanceDetails map(final MemberAttendanceEntity memberAttendanceEntity) {
-    ModelMapper modelMapper = new ModelMapper();
-    ResponseMemberAttendanceDetails responseMemberAttendanceDetails =
-            modelMapper.map(memberAttendanceEntity, ResponseMemberAttendanceDetails.class);
-    return responseMemberAttendanceDetails;
-  }
 
 }

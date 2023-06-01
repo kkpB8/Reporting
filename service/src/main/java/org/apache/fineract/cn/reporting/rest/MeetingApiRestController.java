@@ -30,6 +30,7 @@ public class MeetingApiRestController extends  BaseController{
             super();
             this.logger = logger;
             this.meetingApiRestService = meetingApiRestService;
+
     }
 
         @Permittable(value= AcceptedTokenType.GUEST)
@@ -53,10 +54,14 @@ public class MeetingApiRestController extends  BaseController{
                                                                                       @RequestParam("voId") Integer voId,
                                                                                       @RequestParam("clfId") Integer clfId) {
             if (geographicalFlag != null) {
+
                 return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                         this.meetingApiRestService.fetchSHGSCList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
             } else {
                 throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
+
             }
+
         }
+
 }

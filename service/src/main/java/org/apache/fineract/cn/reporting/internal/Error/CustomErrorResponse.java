@@ -30,7 +30,9 @@ public class CustomErrorResponse {
     int status;
     String timestamp;
 
+
     public CustomErrorResponse(String responseCode, String responseMsg) {
+
         super();
         this.responseCode = responseCode;
         this.responseMsg = responseMsg;
@@ -67,4 +69,6 @@ public class CustomErrorResponse {
     public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
+
+
 }

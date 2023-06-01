@@ -25,4 +25,5 @@ public class DatabaseOperationError extends RuntimeException {
         super(id);
     }
 
+
 }

@@ -20,6 +20,7 @@ package org.apache.fineract.cn.reporting.internal.exception;
 
 
 public interface CustomStatus {
+
     Integer EC_CBO_GUID_NOT_FOUND_CODE =1001;
     String EC_CBO_GUID_NOT_FOUND_MSG ="Group Code not found for Member Name : {0}";
     Integer EC_MEMBER_NOT_FOUND_CODE =2001;
@@ -62,6 +63,7 @@ public interface CustomStatus {
     String EITHER_DATABASE_IS_NOT_REACHABLE_OR_DB_SERVICES_ARE_DOWN_PLEASE_TRY_AGAIN_CODE ="651";
     String PORT_NOT_AVAILABLE_CODE ="652";
     String  REQUEST_REJECTED_OR_BAD_REQUEST_CODE	="653";
+
     String REQUEST_TIMEOUT_CODE = "654";
     String QUERY_TIMEOUT_CODE="655";
     String  REQUEST_ENTITY_TOO_LARGE_CODE = "656";
@@ -149,13 +151,17 @@ public interface CustomStatus {
     String INVALID_BANK_ID_MSG = "Invalid bank id. Please give bank id.";
 
     String TOKEN_ALREADY_FOUND_CODE ="609";
+
     String TOKEN_ALREADY_FOUND_MSG ="You already have a valid token. If your token is lost, you can force Login";
+
     String INVALID_GEO_FLAG_MSG = "Invalid geographical flag and from date and to date. ";
 
     String INVALID_GEOGRAPHICAL_FLAG_MSG = "Invalid geographical flag. please send geographical flag ";
+
     String INVALID_GEOGRAPHICAL_FLAG_MSGS = "Invalid geographical flag, geographical flag 1 for state ,2 for district and 3 for block";
 
     String INVALID_GEOGRAPHICAL_FLAGS_MSG = "Invalid geographical flag, geographical flag 1 for state and 2 for district ";
+
 
 
 

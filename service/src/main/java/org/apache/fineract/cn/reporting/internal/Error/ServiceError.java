@@ -19,6 +19,7 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 
 public final class ServiceError {
+
     private final int code;
     private final String message;
 
@@ -59,5 +60,6 @@ public final class ServiceError {
         public ServiceError build() {
             return new ServiceError(this.code, this.message);
         }
+
     }
 }

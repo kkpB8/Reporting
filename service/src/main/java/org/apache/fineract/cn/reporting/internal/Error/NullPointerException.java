@@ -23,4 +23,5 @@ public class NullPointerException extends RuntimeException{
         super(id);
     }
 
+
 }

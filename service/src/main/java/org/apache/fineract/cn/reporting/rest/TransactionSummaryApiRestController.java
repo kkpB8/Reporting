@@ -80,9 +80,6 @@ public class TransactionSummaryApiRestController extends  BaseController{
 
 
   }
-//    return ResponseEntity.ok(
-//            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
-//  }
 
   @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
@@ -91,6 +88,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
   public
   @ResponseBody
   ResponseEntity<GlobalApiResponse<List<TransactionSummary>>> fetchShgSavingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
@@ -107,6 +105,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
                                                                      @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
+
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -116,6 +115,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
   public
   @ResponseBody
   ResponseEntity<GlobalApiResponse<List<TransactionSummary>>> fetchShgLoanSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
@@ -133,9 +133,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId)));
   }
-//    return ResponseEntity.ok(
-//            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
-//  }
+
 
   @Permittable(value = AcceptedTokenType.GUEST)
   @RequestMapping(
@@ -144,6 +142,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
   public
   @ResponseBody
   ResponseEntity<GlobalApiResponse<List<VoTransactionSummary>>> fetchVoMeetingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
@@ -163,6 +162,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
   ResponseEntity<GlobalApiResponse<List<VoTransactionSummary>>> fetchVoSavingSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest)));
+
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -172,11 +172,13 @@ public class TransactionSummaryApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
   public
   @ResponseBody
   ResponseEntity<GlobalApiResponse<List<VoTransactionSummary>>> fetchVoLoanSummaryList(@RequestBody TransactionSummaryRequest transactionSummaryRequest) {
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.transactionSummaryApiService.fetchVoTransactionSummaryList(transactionSummaryRequest)));
+
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -186,8 +188,8 @@ public class TransactionSummaryApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
     ResponseEntity<GlobalApiResponse<List<ShgMeetingResponse>>> fetchBranchList(@RequestParam("villageId") Integer villageId) {
-//  public List<ShgMeetingResponse> fetchBranchList(@RequestParam("villageId") Integer villageId) {
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
     this.transactionSummaryApiService.fetchBranchList(villageId)));
   }
@@ -199,6 +201,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
           consumes = MediaType.ALL_VALUE,
           produces = MediaType.APPLICATION_JSON_VALUE
   )
+
   ResponseEntity<GlobalApiResponse<List<SummaryTransactionSubReportsResponse>>> fetchSubReportsList(@RequestParam("villageId") Integer villageId,
                                                                         @RequestParam("voId") Integer voId,
                                                                         HttpServletRequest httpServletRequest) {
@@ -209,5 +212,7 @@ public class TransactionSummaryApiRestController extends  BaseController{
     String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
     this.transactionSummaryApiService.fetchSubReportsList(villageId, voId, tenantIdentifier)));
+
   }
+
 }

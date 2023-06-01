@@ -40,6 +40,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/shgLivelyHood")
 public class ShgLivelyHoodApiRestController extends BaseController{
+
     private final Logger logger;
     private final ShgLivelyHoodDetailsApiService shgLivelyHoodDetailsApiService;
 
@@ -50,6 +51,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
         super();
         this.logger = logger;
         this.shgLivelyHoodDetailsApiService = shgLivelyHoodDetailsApiService;
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -59,6 +61,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ShgLivelyHoodDetailsResponse>>> getShgLivelyHoodData(@RequestBody ShgLivelyHoodDetailsRequest request,
@@ -74,6 +77,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.shgLivelyHoodDetailsApiService.getShgLivelyHoodData(location_type, state_id, district_id, block_id, tenantIdentifier)));
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -83,6 +87,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<MemberLivelyHoodResponse>>> getMemberLivelyHoodData(@RequestBody MemberLivelyHoodRequest request,
@@ -98,6 +103,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.shgLivelyHoodDetailsApiService.getMemberLivelyHoodData(location_type, state_id, district_id, block_id, tenantIdentifier)));
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -107,6 +113,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ShgByEachTypeResponse>>> getShgByEachTypeData(@RequestBody ShgByEachTypeRequest request,
@@ -115,6 +122,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String location_type = request.getLocation_type();
         String date_to = request.getDate_to();
         String date_from = request.getDate_from();
@@ -124,6 +132,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.shgLivelyHoodDetailsApiService.getShgByEachTypeData(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier)));
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -133,6 +142,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ShgBySocialCategoryResponse>>> getShgBySocialCategoryData(@RequestBody ShgBySocialCategoryRequest request,
@@ -141,6 +151,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String category = request.getCategory();
         String location_type = request.getLocation_type();
         String date_to = request.getDate_to();
@@ -157,6 +168,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.shgLivelyHoodDetailsApiService.getShgBySocialCategoryData(category, location_type, date_to, date_from, state_id,
                         district_id, block_id, p_id, v_id, clf_id, vo_id, shg_id, tenantIdentifier)));
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -166,6 +178,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ShgInitiativeResponse>>> getShgInitiativeData(@RequestBody ShgInitiativeRequest request,
@@ -183,6 +196,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.shgLivelyHoodDetailsApiService.getShgInitiativeData(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier)));
+
     }
 
     @Permittable(value = AcceptedTokenType.GUEST)
@@ -192,6 +206,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             consumes = MediaType.ALL_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
+
     public
     @ResponseBody
     ResponseEntity<GlobalApiResponse<List<ShgByDateResponse>>> getShgByDateData(@RequestBody ShgByDateRequest request,
@@ -200,6 +215,7 @@ public class ShgLivelyHoodApiRestController extends BaseController{
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
+
         String location_type = request.getLocation_type();
         String date_to = request.getDate_to();
         String date_from = request.getDate_from();
@@ -211,4 +227,5 @@ public class ShgLivelyHoodApiRestController extends BaseController{
                 this.shgLivelyHoodDetailsApiService.getShgByDateData(location_type, date_to, date_from, state_id, district_id, block_id, tenantIdentifier)));
 
     }
+
 }
