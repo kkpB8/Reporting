@@ -172,6 +172,8 @@ public class ResponseSocialMobilization {
     private Integer voActivated;
     private Integer clfActivated;
     private Integer memActivated;
+    private Integer shgOtherMonth;
+    private Integer shgMemOtherMonth;
 //    private Integer intBlockZero3sat;
 //    private Integer intBlockThree6Sat;
 //    private Integer intBlockSix10Sat;
@@ -1426,4 +1428,19 @@ public Integer getShgApprovedMonth() {
         this.panchayatName = panchayatName;
     }
 
+    public Integer getShgOtherMonth() {
+        return shgOtherMonth;
+    }
+
+    public void setShgOtherMonth(Integer shgOtherMonth) {
+        this.shgOtherMonth = shgOtherMonth;
+    }
+
+    public Integer getShgMemOtherMonth() {
+        return shgMemOtherMonth;
+    }
+
+    public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
+        this.shgMemOtherMonth = shgMemOtherMonth;
+    }
 }

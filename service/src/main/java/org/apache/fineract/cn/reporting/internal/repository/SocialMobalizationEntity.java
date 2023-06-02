@@ -330,6 +330,10 @@ public class SocialMobalizationEntity {
     private Integer clfActivated;
     @Column(name = "mem_activated")
     private Integer memActivated;
+    @Column(name = "shg_other_month")
+    private Integer shgOtherMonth;
+    @Column(name = "shg_mem_other_month")
+    private Integer shgMemOtherMonth;
 //    @Column(name = "int_block_zero_3_sat")
 //    private Integer intBlockZero3sat;
 //    @Column(name = "int_block_three_6_sat")
@@ -1610,6 +1614,22 @@ public class SocialMobalizationEntity {
 
     public void setYearMonth(String yearMonth) {
         this.yearMonth = yearMonth;
+    }
+
+    public Integer getShgOtherMonth() {
+        return shgOtherMonth;
+    }
+
+    public void setShgOtherMonth(Integer shgOtherMonth) {
+        this.shgOtherMonth = shgOtherMonth;
+    }
+
+    public Integer getShgMemOtherMonth() {
+        return shgMemOtherMonth;
+    }
+
+    public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
+        this.shgMemOtherMonth = shgMemOtherMonth;
     }
 }
 

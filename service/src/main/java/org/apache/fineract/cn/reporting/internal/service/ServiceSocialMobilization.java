@@ -132,8 +132,29 @@ public class ServiceSocialMobilization {
         socialMobalizationEntityList = socialMobalizationRepository.
                 findByFilter1(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId);
 
+        String finalToDate = toDate;
         socialMobalizationEntityList.forEach(socialMobalizationEntity ->
         {
+            if(socialMobalizationEntity.getYearMonth().equals(finalToDate)){
+                socialMobalizationEntity.setShgActivated(socialMobalizationEntity.getShgActivated());
+            }else {
+                socialMobalizationEntity.setShgActivated(0);
+            }
+            if(socialMobalizationEntity.getYearMonth().equals(finalToDate)){
+                socialMobalizationEntity.setVoActivated(socialMobalizationEntity.getVoActivated());
+            }else {
+                socialMobalizationEntity.setVoActivated(0);
+            }
+            if(socialMobalizationEntity.getYearMonth().equals(finalToDate)){
+                socialMobalizationEntity.setClfActivated(socialMobalizationEntity.getClfActivated());
+            }else {
+                socialMobalizationEntity.setClfActivated(0);
+            }
+            if(socialMobalizationEntity.getYearMonth().equals(finalToDate)){
+                socialMobalizationEntity.setMemActivated(socialMobalizationEntity.getMemActivated());
+            }else {
+                socialMobalizationEntity.setMemActivated(0);
+            }
             ResponseSocialMobilization responseSocialMobilization = CommonApiMapper.map(socialMobalizationEntity);
             responseSocialMobilizationList.add(responseSocialMobilization);
         });

@@ -63,8 +63,9 @@ public class TransactionSummaryApiRestController {
   @ResponseBody
   ResponseEntity<List<TransactionSummary>> fetchShgMeetingSummaryList(@RequestParam("geographicalFlag") Integer geographicalFlag,
                                                                       @RequestParam("flag") Integer flag,
-                                                                      @RequestParam("fromDate") String fromDate,
-                                                                      @RequestParam("toDate") String toDate,
+                                                                      @RequestParam(value = "fromDate", required = false) String fromDate,
+                                                                      @RequestParam(value = "toDate", required = false) String toDate,
+                                                                      @RequestParam(value = "yearMonth", required = false) String yearMonth,
                                                                       @RequestParam("stateId") Integer stateId,
                                                                       @RequestParam("districtId") Integer districtId,
                                                                       @RequestParam("blockId") Integer blockId,
@@ -74,7 +75,7 @@ public class TransactionSummaryApiRestController {
                                                                       @RequestParam("voId") BigInteger voId,
                                                                       @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, yearMonth, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
 //    return ResponseEntity.ok(
 //            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
@@ -93,6 +94,7 @@ public class TransactionSummaryApiRestController {
                                                                      @RequestParam("flag") Integer flag,
                                                                      @RequestParam("fromDate") String fromDate,
                                                                      @RequestParam("toDate") String toDate,
+                                                                     @RequestParam("yearMonth") String yearMonth,
                                                                      @RequestParam("stateId") Integer stateId,
                                                                      @RequestParam("districtId") Integer districtId,
                                                                      @RequestParam("blockId") Integer blockId,
@@ -102,7 +104,7 @@ public class TransactionSummaryApiRestController {
                                                                      @RequestParam("voId") BigInteger voId,
                                                                      @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, yearMonth, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
 
   @Permittable(value = AcceptedTokenType.GUEST)
@@ -118,6 +120,7 @@ public class TransactionSummaryApiRestController {
                                                                    @RequestParam("flag") Integer flag,
                                                                    @RequestParam("fromDate") String fromDate,
                                                                    @RequestParam("toDate") String toDate,
+                                                                   @RequestParam("yearMonth") String yearMonth,
                                                                    @RequestParam("stateId") Integer stateId,
                                                                    @RequestParam("districtId") Integer districtId,
                                                                    @RequestParam("blockId") Integer blockId,
@@ -127,7 +130,7 @@ public class TransactionSummaryApiRestController {
                                                                    @RequestParam("voId") BigInteger voId,
                                                                    @RequestParam("clfId") BigInteger clfId) {
     return ResponseEntity.ok(
-            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
+            this.transactionSummaryApiService.fetchShgTransactionsSummaryList(geographicalFlag, flag, fromDate, toDate, yearMonth, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId));
   }
 //    return ResponseEntity.ok(
 //            this.transactionSummaryApiService.fetchShgTransactionSummaryList(transactionSummaryRequest));
