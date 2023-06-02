@@ -21,6 +21,7 @@ package org.apache.fineract.cn.reporting.internal.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
@@ -98,8 +99,7 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             "(c.geographicalLevel=:geoGraphicalLevel) and " +
             "(c.flag=:flag) and " +
             "(:fromDate is null  or c.yearMonth>=:fromDate and :toDate is null or c.yearMonth<=:toDate) and " +
-//            "(:yearMonth is null or c.yearMonth=:yearMonth) " +
-//            "(c.yearMonth>=:fromDate and  c.yearMonth<=:toDate) and " +
+            "(:yearMonth is null or c.yearMonth=:yearMonth) and " +
             "(-1 = :stateId or c.stateId=:stateId) and " +
             "(-1 = :districtId or c.districtId=:districtId) and " +
             "(-1 = :blockId or c.blockId=:blockId) and " +
@@ -113,6 +113,7 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             @Param("flag") final Integer flag,
             @Param("fromDate") final String fromDate,
             @Param("toDate") final String toDate,
+            @Param("yearMonth") final String year,
             @Param("stateId") final Integer stateId,
             @Param("districtId") final Integer districtId,
             @Param("blockId") final Integer blockId,

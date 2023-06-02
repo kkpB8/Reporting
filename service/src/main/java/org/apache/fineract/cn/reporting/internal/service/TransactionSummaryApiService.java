@@ -292,21 +292,30 @@ toDate1,
         return voTransactionSummaryList;
     }
     public List<TransactionSummary> fetchShgTransactionsSummaryList(Integer geographicalFlag, Integer flag,
-                                                                    String fromDate, String toDate,  Integer stateId,
+                                                                    String fromDate, String toDate, String yearMonth,Integer stateId,
                                                                     Integer districtId, Integer blockId, Integer panchayatId, Integer villageId,
                                                                     BigInteger shgId, BigInteger voId, BigInteger clfId) {
       String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
       String fromDate1 = null;
       String toDate1 = null;
-      if(geographicalFlag == null) {
-          geographicalFlag = -1;
-      }
-      if(flag == null){
-          flag = -1;
-      }
-        if (fromDate == null && toDate == null) {
+      String year = null;
+        if(geographicalFlag == null) {
+            geographicalFlag = -1;
+        }
+        if(flag == null){
+            flag = -1;
+        }
+        if (fromDate.equals("") && toDate.equals("")) {
             fromDate1 = "1970-01";
             toDate1 = toDate2;
+        }else {
+            fromDate1 = fromDate;
+            toDate1 = toDate;
+        }
+        if(yearMonth.equals("")) {
+            year = null;
+        } else {
+            year = yearMonth;
         }
       if(stateId == null){
           stateId = -1;
@@ -336,9 +345,29 @@ toDate1,
         List<TransactionSummaryEntity> transactionSummaryEntityList;
             transactionSummaryEntityList = transactionSummaryRepository.
                     findByFilter2(geographicalFlag, flag, fromDate1,
-                            toDate1, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
+                            toDate1, year, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
         transactionSummaryEntityList.forEach(transactionSummaryEntity ->
         {
+            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+                transactionSummaryEntity.setShgActivated(transactionSummaryEntity.getShgActivated());
+            }else {
+                transactionSummaryEntity.setShgActivated(0);
+            }
+            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+                transactionSummaryEntity.setVoActivated(transactionSummaryEntity.getVoActivated());
+            }else {
+                transactionSummaryEntity.setVoActivated(0);
+            }
+            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+                transactionSummaryEntity.setClfActivated(transactionSummaryEntity.getClfActivated());
+            }else {
+                transactionSummaryEntity.setClfActivated(0);
+            }
+            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+                transactionSummaryEntity.setMemActivated(transactionSummaryEntity.getMemActivated());
+            }else {
+                transactionSummaryEntity.setMemActivated(0);
+            }
             TransactionSummary transactionSummary = CommonApiMapper.map(transactionSummaryEntity);
             transactionSummaryList.add(transactionSummary);
         });
