@@ -24,6 +24,7 @@ import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.RequestLoanShgReport;
 import org.apache.fineract.cn.reporting.api.domain.ResponseForVoSaving;
 import org.apache.fineract.cn.reporting.api.domain.ResponseLoanShgReport;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.service.LoanReportService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -34,7 +35,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/loanReport")
-public class LoanApiRestController {
+public class LoanApiRestController extends BaseController {
     private final Logger logger;
     private final LoanReportService loanReportService;
 
@@ -46,9 +47,9 @@ public class LoanApiRestController {
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @PostMapping("/shg-loan")
-    public ResponseEntity<List<ResponseLoanShgReport>> getShgLoan(@RequestBody RequestLoanShgReport requestLoanShgReport) {
-        return ResponseEntity.ok(loanReportService.getshgLoanReport(requestLoanShgReport.getStateId(),requestLoanShgReport.getDistrictId(),requestLoanShgReport.getBlockId(),requestLoanShgReport.getPanchayatId(),requestLoanShgReport.getVillageId(),requestLoanShgReport.getFromDate(),requestLoanShgReport.getToDate(),requestLoanShgReport.getShgId(),requestLoanShgReport.getVoId(),requestLoanShgReport.getClfId(),requestLoanShgReport.getGeoGraphicalLevel()));
+    public ResponseEntity<GlobalApiResponse<List<ResponseLoanShgReport>>> getShgLoan(@RequestBody RequestLoanShgReport requestLoanShgReport) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.loanReportService.getshgLoanReport(requestLoanShgReport.getStateId(),requestLoanShgReport.getDistrictId(),requestLoanShgReport.getBlockId(),requestLoanShgReport.getPanchayatId(),requestLoanShgReport.getVillageId(),requestLoanShgReport.getFromDate(),requestLoanShgReport.getToDate(),requestLoanShgReport.getShgId(),requestLoanShgReport.getVoId(),requestLoanShgReport.getClfId(),requestLoanShgReport.getGeoGraphicalLevel())));
     }
-
 
 }
