@@ -1,26 +1,9 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
 package org.apache.fineract.cn.reporting.rest;
 import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.TblSummaryApiService;
@@ -35,19 +18,18 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 @RestController
 @RequestMapping("/apiSummary")
-public class TblSummaryApiRestController {
+public class TblSummaryApiRestController extends  BaseController{
     private final Logger logger;
     private final TblSummaryApiService tblSummaryApiService;
 
 
     @Autowired
     public TblSummaryApiRestController(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
-                                 final TblSummaryApiService tblSummaryApiService) {
+                                       final TblSummaryApiService tblSummaryApiService) {
         super();
         this.logger = logger;
         this.tblSummaryApiService = tblSummaryApiService;
     }
-
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
@@ -58,8 +40,8 @@ public class TblSummaryApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<TblSummaryResponse>> gettblsummarydata(@RequestBody TblSummaryRequest request,
-                                                               HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<TblSummaryResponse>>> gettblsummarydata(@RequestBody TblSummaryRequest request,
+                                                                                  HttpServletRequest headerRequest) {
 
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -82,9 +64,9 @@ public class TblSummaryApiRestController {
         String vo=request.getVo();
         String shg=request.getShg();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.tblSummaryApiService.gettbl_summarydata(reportName,locationType,dateTo
-                        ,dateFrom,stateId, districtId, blockId,panchayatId,villageId,bankTypeId,bankType,bankCode,branchCode,clf,vo,shg, tenantIdentifier));
+                        ,dateFrom,stateId, districtId, blockId,panchayatId,villageId,bankTypeId,bankType,bankCode,branchCode,clf,vo,shg, tenantIdentifier)));
     }
 
 }

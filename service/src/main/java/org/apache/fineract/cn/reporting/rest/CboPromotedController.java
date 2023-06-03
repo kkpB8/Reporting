@@ -23,6 +23,7 @@ import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.CboPromotedResponse;
 import org.apache.fineract.cn.reporting.api.domain.Cbo_PromotedRequest;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.CboPromotedApiService;
@@ -38,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 @RestController
 @RequestMapping("/cbo")
-public class CboPromotedController {
+public class CboPromotedController extends BaseController {
     private final Logger logger;
     private final CboPromotedApiService cboPromotedApiService;
 
@@ -61,8 +62,8 @@ public class CboPromotedController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<CboPromotedResponse>> getGeoData(@RequestBody Cbo_PromotedRequest request,
-                                                         HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<CboPromotedResponse>>> getGeoData(@RequestBody Cbo_PromotedRequest request,
+                                                                           HttpServletRequest headerRequest) {
         if (headerRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -74,8 +75,8 @@ public class CboPromotedController {
         String did=request.getDid();
         String bid=request.getBid();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.cboPromotedApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.cboPromotedApiService.getGeoData(loctype,dto,dfrom,sid,did,bid,tenantIdentifier)));
     }
 
 

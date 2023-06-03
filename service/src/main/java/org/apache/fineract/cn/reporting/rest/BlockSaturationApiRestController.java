@@ -25,6 +25,7 @@ import org.apache.fineract.cn.reporting.api.domain.BlockSaturationRequest;
 import org.apache.fineract.cn.reporting.api.domain.BlockSaturationResponse;
 import org.apache.fineract.cn.reporting.api.domain.ShgByEachTypeRequest;
 import org.apache.fineract.cn.reporting.api.domain.ShgByEachTypeResponse;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.BlockSaturationApiService;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 @RestController
 @RequestMapping("/block")
-    public class BlockSaturationApiRestController {
+    public class BlockSaturationApiRestController extends  BaseController {
         private final Logger logger;
         private final BlockSaturationApiService blockSaturationApiService;
 
@@ -62,8 +63,8 @@ import java.util.Map;
     )
     public
     @ResponseBody
-    ResponseEntity<List<BlockSaturationResponse>> getBlockSaturationeData(@RequestBody BlockSaturationRequest request,
-                                                                          HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<BlockSaturationResponse>>> getBlockSaturationeData(@RequestBody BlockSaturationRequest request,
+                                                                                            HttpServletRequest headerRequest) {
         if (headerRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -74,7 +75,7 @@ import java.util.Map;
         String state_id = request.getState_id();
         String district_id = request.getDistrict_id();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.blockSaturationApiService.getBlockSaturationData(location_type, date_to, date_from, state_id, district_id, tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.blockSaturationApiService.getBlockSaturationData(location_type, date_to, date_from, state_id, district_id, tenantIdentifier)));
     }
 }

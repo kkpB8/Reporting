@@ -22,6 +22,7 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.GeographicalCoverageApiService;
@@ -38,7 +39,7 @@ import java.util.List;
 import java.util.Map;
 @RestController
 @RequestMapping("/leader")
-public class LeaderEducationApiRestController {
+public class LeaderEducationApiRestController extends BaseController{
 
 
         private final Logger logger;
@@ -61,8 +62,8 @@ public class LeaderEducationApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<LeaderEducationResponse>> getLeaderEducationData(@RequestBody LeaderEducationRequest request,
-                                                                         HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<LeaderEducationResponse>>> getLeaderEducationData(@RequestBody LeaderEducationRequest request,
+                                                                                           HttpServletRequest headerRequest) {
 
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -75,8 +76,8 @@ public class LeaderEducationApiRestController {
         String district_id = request.getDistrict_id();
         String block_id = request.getBlock_id();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.leaderEducationApiService.getLeaderEducationData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.leaderEducationApiService.getLeaderEducationData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
     }
 
         @Permittable(value= AcceptedTokenType.GUEST)
@@ -88,7 +89,7 @@ public class LeaderEducationApiRestController {
         )
         public
         @ResponseBody
-        ResponseEntity<List<LeaderLiveliHoodResponse>> getLeaderData(@RequestBody LeaderLiveliHoodRequest request,
+        ResponseEntity<GlobalApiResponse<List<LeaderLiveliHoodResponse>>> getLeaderData(@RequestBody LeaderLiveliHoodRequest request,
                                                                      HttpServletRequest headerRequest) {
 
             if(headerRequest.getHeader("X-Tenant-Identifier")==null){
@@ -102,8 +103,8 @@ public class LeaderEducationApiRestController {
             String district_id = request.getDistrict_id();
             String block_id = request.getBlock_id();
             String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-            return ResponseEntity.ok(
-                    this.leaderEducationApiService.getLeaderData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.leaderEducationApiService.getLeaderData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
         }
 
     }

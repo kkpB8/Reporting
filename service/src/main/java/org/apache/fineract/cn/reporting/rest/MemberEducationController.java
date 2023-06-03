@@ -25,6 +25,7 @@ import org.apache.fineract.cn.reporting.api.domain.InactiveCbosRequest;
 import org.apache.fineract.cn.reporting.api.domain.InactiveCbosResponse;
 import org.apache.fineract.cn.reporting.api.domain.MemberEducationReponse;
 import org.apache.fineract.cn.reporting.api.domain.MemberEducationRequest;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.InactiveCboServiceClass;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 @RestController
 @RequestMapping("/member")
-public class MemberEducationController {
+public class MemberEducationController extends BaseController{
     private final Logger logger;
     private final MemberEducationService memberEducationService;
 
@@ -64,8 +65,8 @@ public class MemberEducationController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<MemberEducationReponse>> getGeoData(@RequestBody MemberEducationRequest request,
-                                                            HttpServletRequest headerRequest) {
+    ResponseEntity<GlobalApiResponse<List<MemberEducationReponse>>> getGeoData(@RequestBody MemberEducationRequest request,
+                                                                              HttpServletRequest headerRequest) {
         if(headerRequest.getHeader("X-Tenant-Identifier")==null){
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -75,7 +76,7 @@ public class MemberEducationController {
         String dfrom =request.getDistrict_id();
         String sid=request.getBlock_id();
         String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.memberEducationService.getmembereducation(loctype,dto,dfrom,sid,tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.memberEducationService.getmembereducation(loctype,dto,dfrom,sid,tenantIdentifier)));
     }
 }

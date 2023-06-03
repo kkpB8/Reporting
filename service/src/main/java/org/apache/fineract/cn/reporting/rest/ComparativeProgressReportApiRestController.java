@@ -25,6 +25,7 @@ import org.apache.fineract.cn.reporting.api.domain.ClfSubCommityRequest;
 import org.apache.fineract.cn.reporting.api.domain.ClfSubCommityResponse;
 import org.apache.fineract.cn.reporting.api.domain.ComparativeProgressReportRequest;
 import org.apache.fineract.cn.reporting.api.domain.ComparativeProgressReportResponse;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.ComparativeProgressReportApiService;
@@ -41,7 +42,7 @@ import java.util.List;
 import java.util.Map;
 @RestController
 @RequestMapping("/comparative")
-public class ComparativeProgressReportApiRestController {
+public class ComparativeProgressReportApiRestController extends BaseController {
 
         private final Logger logger;
         private final ComparativeProgressReportApiService comparativeProgressReportApiService;
@@ -63,8 +64,8 @@ public class ComparativeProgressReportApiRestController {
         )
         public
         @ResponseBody
-        ResponseEntity<List<ComparativeProgressReportResponse>> getCompReData(@RequestBody ComparativeProgressReportRequest request,
-                                                                              HttpServletRequest headerRequest) {
+        ResponseEntity<GlobalApiResponse<List<ComparativeProgressReportResponse>>> getCompReData(@RequestBody ComparativeProgressReportRequest request,
+                                                                                                HttpServletRequest headerRequest) {
             if(headerRequest.getHeader("X-Tenant-Identifier")==null){
                 this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
                 throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
@@ -76,8 +77,8 @@ public class ComparativeProgressReportApiRestController {
             String district_id = request.getDistrict_id();
             String block_id = request.getBlock_id();
             String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
-            return ResponseEntity.ok(
-                    this.comparativeProgressReportApiService.getCompReData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.comparativeProgressReportApiService.getCompReData(location_type,date_to,date_from, state_id, district_id, block_id, tenantIdentifier)));
         }
 
     }
