@@ -105,6 +105,14 @@ class CustomGlobalExceptionHandler  {
     error.setStatus((HttpStatus.BAD_REQUEST.value()));
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
   }
+
+  @ExceptionHandler(value = RuntimeExceptions.class)
+  public ResponseEntity<CustomErrorResponse> RuntimeExceptions(RuntimeExceptions e) {
+    CustomErrorResponse error = new CustomErrorResponse(CustomStatus.REQUEST_REJECTED_OR_BAD_REQUEST_CODE,e.getMessage());
+    error.setTimestamp(LocalDateTime.now().toString());
+    error.setStatus((HttpStatus.BAD_REQUEST.value()));
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
   @ExceptionHandler(value = DatabaseOperationError.class)
   public ResponseEntity<CustomErrorResponse> BadRequest(DatabaseOperationError e) {
     CustomErrorResponse error = new CustomErrorResponse("715",e.getMessage());
