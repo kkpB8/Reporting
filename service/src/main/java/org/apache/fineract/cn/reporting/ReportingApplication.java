@@ -28,6 +28,7 @@ public class ReportingApplication {
     super();
   }
 
+
   public static void main(String[] args) {
     SpringApplication.run(ReportingConfiguration.class, args);
   }
