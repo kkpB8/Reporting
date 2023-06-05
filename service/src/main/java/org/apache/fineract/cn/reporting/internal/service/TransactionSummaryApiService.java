@@ -291,6 +291,8 @@ toDate1,
         });
         return voTransactionSummaryList;
     }
+
+
     public List<TransactionSummary> fetchShgTransactionsSummaryList(Integer geographicalFlag, Integer flag,
                                                                     String fromDate, String toDate, String yearMonth,Integer stateId,
                                                                     Integer districtId, Integer blockId, Integer panchayatId, Integer villageId,

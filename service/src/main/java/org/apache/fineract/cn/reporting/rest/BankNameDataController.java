@@ -25,6 +25,7 @@ import org.apache.fineract.cn.reporting.api.domain.BankBranchNameResponse;
 import org.apache.fineract.cn.reporting.api.domain.BankNameDataResponse;
 import org.apache.fineract.cn.reporting.api.domain.BankWiseCboAccountRequest;
 import org.apache.fineract.cn.reporting.api.domain.BankWiseCboAccountResponse;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.Error.RequestInputMissing;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.apache.fineract.cn.reporting.internal.service.BankAccountDetailsApiService;
@@ -41,7 +42,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/Bankfilter")
-public class BankNameDataController {
+public class BankNameDataController extends  BaseController {
     private final Logger logger;
     private final BankNameDataService bankNameDataService;
 
@@ -63,14 +64,14 @@ public class BankNameDataController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<BankNameDataResponse>> getBanknamedata(HttpServletRequest httpServletRequest) {
+    ResponseEntity<GlobalApiResponse<List<BankNameDataResponse>>> getBanknamedata(HttpServletRequest httpServletRequest) {
         if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
         String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.bankNameDataService.getBankNameData(tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.bankNameDataService.getBankNameData(tenantIdentifier)));
     }
 
 
@@ -83,14 +84,14 @@ public class BankNameDataController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<BankBranchNameResponse>> getBankbranchnamedata(@RequestParam String bank_code, @RequestParam String stateId, HttpServletRequest httpServletRequest) {
+    ResponseEntity<GlobalApiResponse<List<BankBranchNameResponse>>> getBankbranchnamedata(@RequestParam String bank_code, @RequestParam String stateId, HttpServletRequest httpServletRequest) {
         if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
             this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
             throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
         }
 //        String bank_code = httpServletRequest.getHeader("bank_code");
         String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
-        return ResponseEntity.ok(
-                this.bankNameDataService.getBankBranchNameData(bank_code,stateId,tenantIdentifier));
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.bankNameDataService.getBankBranchNameData(bank_code,stateId,tenantIdentifier)));
     }
 }
