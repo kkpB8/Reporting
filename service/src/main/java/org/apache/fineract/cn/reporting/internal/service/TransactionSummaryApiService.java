@@ -407,4 +407,7 @@ toDate1,
     public List<SummaryTransactionSubReportsResponse> fetchSubReportsList(Integer villageId, Integer voId, String tenantIdentifier) {
         return pgFunctionProcedureService.fn_summarytrasanction_sub_reports(villageId, voId, tenantIdentifier);
     }
+    public List<ShgsSavingResponse> getShgSaving(String tenantIdentifier) {
+        return pgFunctionProcedureService.fn_shg_hh_progress(tenantIdentifier);
+    }
 }

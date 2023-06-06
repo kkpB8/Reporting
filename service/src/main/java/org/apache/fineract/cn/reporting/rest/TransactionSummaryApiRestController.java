@@ -194,4 +194,20 @@ public class TransactionSummaryApiRestController extends  BaseController{
     return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
             this.transactionSummaryApiService.fetchSubReportsList(villageId, voId, tenantIdentifier)));
   }
+  @Permittable(value= AcceptedTokenType.GUEST)
+  @RequestMapping(
+          value = "/shg-saving",
+          method = RequestMethod.GET,
+          consumes = MediaType.ALL_VALUE,
+          produces = MediaType.APPLICATION_JSON_VALUE
+  )
+  public ResponseEntity<GlobalApiResponse<List<ShgsSavingResponse>>> getShgSaving(HttpServletRequest httpServletRequest) {
+    if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
+      this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+      throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+    }
+    String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+
+    return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200", this.transactionSummaryApiService.getShgSaving(tenantIdentifier)));
+  }
 }
