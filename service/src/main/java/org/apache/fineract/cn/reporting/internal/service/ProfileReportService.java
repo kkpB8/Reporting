@@ -87,6 +87,9 @@ public class ProfileReportService<profileReportEntity> {
         return profileReportResponseList;
     }
     public List<ResponseMissionUnitLevel> fetchStateWiseMissionLevelReportList(Integer stateId) {
+        if(stateId == null || stateId==0){
+            stateId=-1;
+        }
         List<ResponseMissionUnitLevel> responseMissionUnitLevelList = new ArrayList<>();
     List<Object[]> objectList =objectList = profileReportRepository.fetchStateWiseMissionLevelReport(stateId);
        /* try {*/

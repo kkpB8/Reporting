@@ -3,9 +3,9 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
-import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
+import org.apache.fineract.cn.reporting.internal.Error.BadRequestError;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
-import org.apache.fineract.cn.reporting.internal.repository.BranchDetEntity;
 import org.apache.fineract.cn.reporting.internal.service.BankBranchCbosApiService;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/bank")
 
-public class BankBranchCbosApiRestController {
+public class BankBranchCbosApiRestController extends  BaseController{
     private final Logger logger;
     private final BankBranchCbosApiService bankBranchCbosApiService;
 
@@ -39,21 +39,25 @@ public class BankBranchCbosApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBankBranchCbos>> fetchBankBranchList(@RequestParam("geographicalFlag") Integer geographicalFlag,
-                                                                     @RequestParam("fromDate") String fromDate,
-                                                                     @RequestParam("toDate") String toDate,
-                                                                     @RequestParam("stateId") Integer stateId,
-                                                                     @RequestParam("districtId") Integer districtId,
-                                                                     @RequestParam("blockId") Integer blockId,
-                                                                     @RequestParam("bankId") Integer bankId,
-                                                                     @RequestParam("branchId") Integer branchId) {
+    ResponseEntity<GlobalApiResponse<List<ResponseBankBranchCbos>>> fetchBankBranchList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                                        @RequestParam("fromDate") String fromDate,
+                                                                                        @RequestParam("toDate") String toDate,
+                                                                                        @RequestParam("stateId") Integer stateId,
+                                                                                        @RequestParam("districtId") Integer districtId,
+                                                                                        @RequestParam("blockId") Integer blockId,
+                                                                                        @RequestParam("bankId") Integer bankId,
+                                                                                        @RequestParam("branchId") Integer branchId) {
         if (geographicalFlag != null) {
-            return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBankBranchList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, bankId, branchId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.bankBranchCbosApiService.fetchBankBranchList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, bankId, branchId)));
+
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
         }
+
     }
+    // geographicalFlagErrors
+
 
     @Permittable(value = AcceptedTokenType.GUEST)
     @RequestMapping(
@@ -64,13 +68,14 @@ public class BankBranchCbosApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBankDeatils>> fetchBankList( @RequestParam(value = "geographicalFlag", defaultValue = "1") int geographicalFlag,
-                                                             @RequestParam("stateId") Integer stateId) {
+    ResponseEntity<GlobalApiResponse<List<ResponseBankDeatils>>> fetchBankList( @RequestParam(value = "geographicalFlag", defaultValue = "1") int geographicalFlag,
+                                                                                @RequestParam("stateId") Integer stateId) {
         if (stateId != null) {
-            return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBank(geographicalFlag, stateId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.bankBranchCbosApiService.fetchBank(geographicalFlag, stateId)));
+
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_STATE_ID_MSG);
         }
     }
 
@@ -83,15 +88,15 @@ public class BankBranchCbosApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBranchDet>> fetchBranchList(
+    ResponseEntity<GlobalApiResponse<List<ResponseBranchDet>>> fetchBranchList(
             @RequestParam(value = "geographicalFlag",defaultValue = "2") int geographicalFlag,
             @RequestParam("stateId") Integer stateId,
             @RequestParam("bankId") Integer bankId){
         if (bankId != null) {
-            return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBranchList(geographicalFlag, stateId, bankId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.bankBranchCbosApiService.fetchBranchList(geographicalFlag, stateId, bankId)));
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_BANK_ID_MSG);
         }
     }
 
@@ -106,20 +111,20 @@ public class BankBranchCbosApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseBankWiseCbo>> fetchBankWiseCboList(@RequestParam("geographicalFlag") Integer geographicalFlag,
-                                                                   @RequestParam("fromDate") String fromDate,
-                                                                   @RequestParam("toDate") String toDate,
-                                                                   @RequestParam("stateId") Integer stateId,
-                                                                   @RequestParam("districtId") Integer districtId,
-                                                                   @RequestParam("blockId") Integer blockId,
-                                                                   @RequestParam("bankTypeId") Integer bankTypeId,
-                                                                   @RequestParam("bankId") Integer bankId,
-                                                                   @RequestParam("branchId") Integer branchId) {
+    ResponseEntity<GlobalApiResponse<List<ResponseBankWiseCbo>>> fetchBankWiseCboList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                                      @RequestParam("fromDate") String fromDate,
+                                                                                      @RequestParam("toDate") String toDate,
+                                                                                      @RequestParam("stateId") Integer stateId,
+                                                                                      @RequestParam("districtId") Integer districtId,
+                                                                                      @RequestParam("blockId") Integer blockId,
+                                                                                      @RequestParam("bankTypeId") Integer bankTypeId,
+                                                                                      @RequestParam("bankId") Integer bankId,
+                                                                                      @RequestParam("branchId") Integer branchId) {
         if (geographicalFlag != null) {
-            return ResponseEntity.ok(
-                    this.bankBranchCbosApiService.fetchBankWiseCboList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId,bankTypeId, bankId,  branchId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.bankBranchCbosApiService.fetchBankWiseCboList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId,bankTypeId, bankId,  branchId)));
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
         }
     }
 }

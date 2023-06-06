@@ -161,6 +161,10 @@ public class TransactionSummary {
     private Integer shgAtten50p70p3;
     private Integer shgAtten70p90p3;
     private Integer shgAtten90p3;
+    private Integer shgActivated;
+    private Integer voActivated;
+    private Integer clfActivated;
+    private Integer memActivated;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1246,5 +1250,36 @@ public class TransactionSummary {
         this.shgSave90 = shgSave90;
     }
 
+    public Integer getShgActivated() {
+        return shgActivated;
+    }
+
+    public void setShgActivated(Integer shgActivated) {
+        this.shgActivated = shgActivated;
+    }
+
+    public Integer getVoActivated() {
+        return voActivated;
+    }
+
+    public void setVoActivated(Integer voActivated) {
+        this.voActivated = voActivated;
+    }
+
+    public Integer getClfActivated() {
+        return clfActivated;
+    }
+
+    public void setClfActivated(Integer clfActivated) {
+        this.clfActivated = clfActivated;
+    }
+
+    public Integer getMemActivated() {
+        return memActivated;
+    }
+
+    public void setMemActivated(Integer memActivated) {
+        this.memActivated = memActivated;
+    }
 }
 

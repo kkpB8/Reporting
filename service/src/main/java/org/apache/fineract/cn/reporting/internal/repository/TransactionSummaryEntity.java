@@ -307,6 +307,14 @@ public class TransactionSummaryEntity {
     private Integer shgAtten70p90p3;
     @Column(name = "shg_atten_90p_3")
     private Integer shgAtten90p3;
+    @Column(name = "shg_activated")
+    private Integer shgActivated;
+    @Column(name = "vo_activated")
+    private Integer voActivated;
+    @Column(name = "clf_activated")
+    private Integer clfActivated;
+    @Column(name = "mem_activated")
+    private Integer memActivated;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1396,6 +1404,38 @@ public class TransactionSummaryEntity {
 
     public void setMeetingFrequency(Short meetingFrequency) {
         this.meetingFrequency = meetingFrequency;
+    }
+
+    public Integer getShgActivated() {
+        return shgActivated;
+    }
+
+    public void setShgActivated(Integer shgActivated) {
+        this.shgActivated = shgActivated;
+    }
+
+    public Integer getVoActivated() {
+        return voActivated;
+    }
+
+    public void setVoActivated(Integer voActivated) {
+        this.voActivated = voActivated;
+    }
+
+    public Integer getClfActivated() {
+        return clfActivated;
+    }
+
+    public void setClfActivated(Integer clfActivated) {
+        this.clfActivated = clfActivated;
+    }
+
+    public Integer getMemActivated() {
+        return memActivated;
+    }
+
+    public void setMemActivated(Integer memActivated) {
+        this.memActivated = memActivated;
     }
 }
 
