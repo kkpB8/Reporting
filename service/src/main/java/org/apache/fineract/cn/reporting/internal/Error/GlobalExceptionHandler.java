@@ -140,5 +140,6 @@ class CustomGlobalExceptionHandler  {
     error.setTimestamp(LocalDateTime.now().toString());
     error.setStatus((HttpStatus.BAD_REQUEST.value()));
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+
   }
 }
