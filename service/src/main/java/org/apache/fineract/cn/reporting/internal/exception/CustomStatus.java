@@ -149,5 +149,7 @@ public interface CustomStatus {
 
 
     String BAD_REQUEST_CODE = "400";
+
+
 }
 
