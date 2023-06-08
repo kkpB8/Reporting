@@ -291,14 +291,15 @@ toDate1,
         });
         return voTransactionSummaryList;
     }
+
     public List<TransactionSummary> fetchShgTransactionsSummaryList(Integer geographicalFlag, Integer flag,
                                                                     String fromDate, String toDate, String yearMonth,Integer stateId,
                                                                     Integer districtId, Integer blockId, Integer panchayatId, Integer villageId,
                                                                     BigInteger shgId, BigInteger voId, BigInteger clfId) {
-      String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
-      String fromDate1 = null;
-      String toDate1 = null;
-      String year = null;
+        String toDate2 = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM"));
+        String fromDate1 = null;
+        String toDate1 = null;
+        String year = null;
         if(geographicalFlag == null) {
             geographicalFlag = -1;
         }
@@ -317,53 +318,53 @@ toDate1,
         } else {
             year = yearMonth;
         }
-      if(stateId == null){
-          stateId = -1;
-      }
-      if(districtId == null){
-          districtId = -1;
-      }
-      if(blockId == null){
-          blockId = -1;
-      }
-      if(panchayatId == null){
-          panchayatId = -1;
-      }
-      if (villageId == null){
-          villageId = -1;
-      }
-      if(shgId == null){
-          shgId = new BigInteger("-1");
-      }
-      if(voId == null){
-          voId = new BigInteger("-1");
-      }
-      if(clfId == null){
-          clfId = new BigInteger("-1");
-      }
+        if(stateId == null){
+            stateId = -1;
+        }
+        if(districtId == null){
+            districtId = -1;
+        }
+        if(blockId == null){
+            blockId = -1;
+        }
+        if(panchayatId == null){
+            panchayatId = -1;
+        }
+        if (villageId == null){
+            villageId = -1;
+        }
+        if(shgId == null){
+            shgId = new BigInteger("-1");
+        }
+        if(voId == null){
+            voId = new BigInteger("-1");
+        }
+        if(clfId == null){
+            clfId = new BigInteger("-1");
+        }
         List<TransactionSummary> transactionSummaryList = new ArrayList<TransactionSummary>();
         List<TransactionSummaryEntity> transactionSummaryEntityList;
-            transactionSummaryEntityList = transactionSummaryRepository.
-                    findByFilter2(geographicalFlag, flag, fromDate1,
-                            toDate1, year, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
+        transactionSummaryEntityList = transactionSummaryRepository.
+                findByFilter2(geographicalFlag, flag, fromDate1,
+                        toDate1, year, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
         transactionSummaryEntityList.forEach(transactionSummaryEntity ->
         {
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setShgActivated(transactionSummaryEntity.getShgActivated());
             }else {
                 transactionSummaryEntity.setShgActivated(0);
             }
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setVoActivated(transactionSummaryEntity.getVoActivated());
             }else {
                 transactionSummaryEntity.setVoActivated(0);
             }
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setClfActivated(transactionSummaryEntity.getClfActivated());
             }else {
                 transactionSummaryEntity.setClfActivated(0);
             }
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setMemActivated(transactionSummaryEntity.getMemActivated());
             }else {
                 transactionSummaryEntity.setMemActivated(0);
