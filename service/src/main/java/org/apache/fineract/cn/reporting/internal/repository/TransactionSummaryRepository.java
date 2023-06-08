@@ -132,6 +132,4 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             "and (vm.village_id=?1) " +
             "group by vm.village_id,um.user_name")
     List<Object[]> fetchByVillageId(Integer villageId);
-
-
 }
