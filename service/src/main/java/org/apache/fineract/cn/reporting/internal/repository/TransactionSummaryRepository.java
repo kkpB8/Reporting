@@ -98,7 +98,8 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
     @Query("FROM TransactionSummaryEntity c WHERE " +
             "(c.geographicalLevel=:geoGraphicalLevel) and " +
             "(c.flag=:flag) and " +
-            "(:fromDate is null  or c.yearMonth>=:fromDate and :toDate is null or c.yearMonth<=:toDate) and " +
+//            "(:fromDate is null  or c.yearMonth>=:fromDate and :toDate is null or c.yearMonth<=:toDate) and " +
+            "(c.yearMonth>=:fromDate and  c.yearMonth<=:toDate) and " +
             "(:yearMonth is null or c.yearMonth=:yearMonth) and " +
             "(-1 = :stateId or c.stateId=:stateId) and " +
             "(-1 = :districtId or c.districtId=:districtId) and " +
@@ -123,7 +124,6 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             @Param("voId") final BigInteger voId,
             @Param("clfId") final BigInteger clfId
     );
-
     @Query(nativeQuery = true,value = "select  um.user_name B_K_Name,CAST(vm.village_id as int) village_id ,CAST(count(shg_id) as int) SHGsMapped, " +
             "CAST(count(CASE WHEN to_char(sp.updated_date,'YYYY-MM')='2023-04' then shg_id end) as int) as shgUpdated from village_master vm inner join shg_profile sp on vm.village_id=sp.village_id " +
             "inner join public.users_master um on " +
@@ -132,5 +132,4 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             "and (vm.village_id=?1) " +
             "group by vm.village_id,um.user_name")
     List<Object[]> fetchByVillageId(Integer villageId);
-
 }

@@ -21,6 +21,7 @@ package org.apache.fineract.cn.reporting.internal.Error;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
@@ -124,6 +125,18 @@ class CustomGlobalExceptionHandler  {
   @ExceptionHandler(value = BadRequestError.class)
   public ResponseEntity<CustomErrorResponse> BadRequest2(BadRequestError e) {
     CustomErrorResponse error = new CustomErrorResponse("900",e.getMessage());
+    error.setTimestamp(LocalDateTime.now().toString());
+    error.setStatus((HttpStatus.BAD_REQUEST.value()));
+    return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+  }
+
+  @ExceptionHandler(value = Exception.class)
+  @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+  public ResponseEntity<CustomErrorResponse> exception(Exception e) {
+    int startIndex = e.getMessage().indexOf("'") + 1;
+    int endIndex = e.getMessage().indexOf("'", startIndex);
+    String value = e.getMessage().substring(startIndex, endIndex);
+    CustomErrorResponse error = new CustomErrorResponse(CustomStatus.BAD_REQUEST_CODE,value+" must not be null.");
     error.setTimestamp(LocalDateTime.now().toString());
     error.setStatus((HttpStatus.BAD_REQUEST.value()));
     return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);

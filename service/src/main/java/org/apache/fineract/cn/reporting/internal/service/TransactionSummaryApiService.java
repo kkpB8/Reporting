@@ -350,22 +350,22 @@ toDate1,
                             toDate1, year, stateId, districtId, blockId, panchayatId, villageId, shgId, voId, clfId);
         transactionSummaryEntityList.forEach(transactionSummaryEntity ->
         {
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setShgActivated(transactionSummaryEntity.getShgActivated());
             }else {
                 transactionSummaryEntity.setShgActivated(0);
             }
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setVoActivated(transactionSummaryEntity.getVoActivated());
             }else {
                 transactionSummaryEntity.setVoActivated(0);
             }
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setClfActivated(transactionSummaryEntity.getClfActivated());
             }else {
                 transactionSummaryEntity.setClfActivated(0);
             }
-            if(transactionSummaryEntity.getYearMonth().equals(toDate)){
+            if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setMemActivated(transactionSummaryEntity.getMemActivated());
             }else {
                 transactionSummaryEntity.setMemActivated(0);
@@ -406,5 +406,8 @@ toDate1,
     }
     public List<SummaryTransactionSubReportsResponse> fetchSubReportsList(Integer villageId, Integer voId, String tenantIdentifier) {
         return pgFunctionProcedureService.fn_summarytrasanction_sub_reports(villageId, voId, tenantIdentifier);
+    }
+    public List<ShgsSavingResponse> getShgSaving(String tenantIdentifier) {
+        return pgFunctionProcedureService.fn_shg_hh_progress(tenantIdentifier);
     }
 }
