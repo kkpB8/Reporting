@@ -339,6 +339,8 @@ public class SocialMobalizationEntity {
     private Integer shgLastDay;
     @Column(name = "mem_last_day")
     private Integer memLastDay;
+    @Column(name = "updated_date")
+    private String updatedDate;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -1610,6 +1612,13 @@ public class SocialMobalizationEntity {
 
     public void setMemLastDay(Integer memLastDay) {
         this.memLastDay = memLastDay;
+    }
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
 

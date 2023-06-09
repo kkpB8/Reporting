@@ -176,6 +176,7 @@ public class ResponseSocialMobilization {
     private Integer shgMemOtherMonth;
     private Integer shgLastDay;
     private Integer memLastDay;
+    private String updatedDate;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -1423,5 +1424,13 @@ public Integer getShgApprovedMonth() {
 
     public void setMemLastDay(Integer memLastDay) {
         this.memLastDay = memLastDay;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
