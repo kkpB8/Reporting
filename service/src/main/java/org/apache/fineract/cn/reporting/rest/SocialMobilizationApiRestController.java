@@ -5,7 +5,8 @@ import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
-import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
+import org.apache.fineract.cn.reporting.internal.Error.BadRequestError;
+import org.apache.fineract.cn.reporting.internal.Error.GlobalApiResponse;
 import org.apache.fineract.cn.reporting.internal.exception.CustomStatus;
 
 import org.apache.fineract.cn.reporting.internal.service.ServiceSocialMobilization;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/socialMobilization")
-public class SocialMobilizationApiRestController {
+public class SocialMobilizationApiRestController  extends  BaseController{
 
     private final Logger logger;
     private final ServiceSocialMobilization serviceSocialMobilization;
@@ -32,23 +33,23 @@ public class SocialMobilizationApiRestController {
         this.serviceSocialMobilization = serviceSocialMobilization;
     }
 
-//    @Permittable(value= AcceptedTokenType.GUEST)
-//    @RequestMapping(
-//            value = "/social-mobilization",
-//            method = RequestMethod.POST,
-//            consumes = MediaType.ALL_VALUE,
-//            produces = MediaType.APPLICATION_JSON_VALUE
-//    )
-//    public
-//    @ResponseBody
-//    ResponseEntity<List<ResponseSocialMobilization>> fetchShgInitiationsList(@RequestBody RequestSocialMobilization requestSocialMobilization) {
-//        if ((requestSocialMobilization.getGeographicalFlag() != null) && (requestSocialMobilization.getFromDate() != null) && (requestSocialMobilization.getToDate()!=null)) {
-//            return ResponseEntity.ok(
-//                    this.serviceSocialMobilization.fetchShgInitiationsList(requestSocialMobilization));
-//        } else {
-//            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
-//        }
-//    }
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/social-mobilization",
+            method = RequestMethod.POST,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseSocialMobilization>>> fetchShgInitiationsList(@RequestBody RequestSocialMobilization requestSocialMobilization) {
+        if ((requestSocialMobilization.getGeographicalFlag() != null) && (requestSocialMobilization.getFromDate() != null) && (requestSocialMobilization.getToDate()!=null)) {
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.serviceSocialMobilization.fetchShgInitiationsList(requestSocialMobilization)));
+        } else {
+            throw new BadRequestError(CustomStatus.INVALID_GEO_FLAG_MSG);
+        }
+    }
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(
             value = "/social-mobilization-update",
@@ -58,19 +59,19 @@ public class SocialMobilizationApiRestController {
     )
     public
     @ResponseBody
-    ResponseEntity<List<ResponseSocialMobilization>> fetchShgInitiationList(@RequestParam("geographicalFlag") Integer geographicalFlag,
-                                                                            @RequestParam("fromDate") String fromDate,
-                                                                            @RequestParam("toDate") String toDate,
-                                                                            @RequestParam("stateId") Integer stateId,
-                                                                            @RequestParam("districtId") Integer districtId,
-                                                                            @RequestParam("blockId") Integer blockId,
-                                                                            @RequestParam("panchayatId") Integer panchayatId,
-                                                                            @RequestParam("villageId") Integer villageId) {
+    ResponseEntity<GlobalApiResponse<List<ResponseSocialMobilization>>> fetchShgInitiationList(@RequestParam("geographicalFlag") Integer geographicalFlag,
+                                                                                               @RequestParam("fromDate") String fromDate,
+                                                                                               @RequestParam("toDate") String toDate,
+                                                                                               @RequestParam("stateId") Integer stateId,
+                                                                                               @RequestParam("districtId") Integer districtId,
+                                                                                               @RequestParam("blockId") Integer blockId,
+                                                                                               @RequestParam("panchayatId") Integer panchayatId,
+                                                                                               @RequestParam("villageId") Integer villageId) {
         if (geographicalFlag != null) {
-            return ResponseEntity.ok(
-                    this.serviceSocialMobilization.fetchShgInitiationList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId));
+            return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                    this.serviceSocialMobilization.fetchShgInitiationList(geographicalFlag, fromDate, toDate, stateId, districtId, blockId, panchayatId, villageId)));
         } else {
-            throw new RecordNotFoundException(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG);
+            throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAG_MSG);
         }
     }
 }

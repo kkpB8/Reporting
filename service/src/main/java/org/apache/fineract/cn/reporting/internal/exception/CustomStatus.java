@@ -125,14 +125,28 @@ public interface CustomStatus {
     String FUND_INSERT_FAILED = "insert fund entry Failed!";
     String FUND_RECORD_DELETED_SUCCESS = "Fund record deleted successfully";
     String LOAN_RECORD_DELETED_FAILED = "Fund record delete failed";
-
     String REMOVE_REPORTING_EXCEPTION = "Cannot delete this reporting.Make sure this reporting is last reporting and belongs to this CLF";
-
-
     String NO_MATCH_FOUND_FOR_INPUT = "No match found for given input";
     String FLAGOPEN = "o";
     String FLAGCLOSE = "c";
     String NO_RECORD_FOUND = "No record found";
-
     String WRONG_MORATORIUM = "Moratorium should be less than Number of Installments";
+
+
+
+    String INVALID_GEOGRAPHICAL_FLAG = "654";
+    String INVALID_GEOGRAPHICAL_FLAG_CODE = "657";
+    String INVALID_STATE_ID = "655";
+    String INVALID_STATE_ID_MSG = "Invalid state id. Please send state id";
+    String INVALID_BANK_ID = "656";
+    String INVALID_BANK_ID_MSG = "Invalid bank id. Please send bank id.";
+    String TOKEN_ALREADY_FOUND_CODE ="609";
+    String TOKEN_ALREADY_FOUND_MSG ="You already have a valid token. If your token is lost, you can force Login";
+    String INVALID_GEO_FLAG_MSG = "Invalid geographical flag, from date and to date. ";
+    String INVALID_GEOGRAPHICAL_FLAG_MSG = "Invalid geographical flag. please send geographical flag ";
+    String INVALID_GEOGRAPHICAL_FLAG_MSGS = "Invalid geographical flag, please send valid geographical flag";
+    String INVALID_GEOGRAPHICAL_FLAGS_MSG = "Invalid geographical flag, please send valid geographical flag ";
+
+
 }
+
