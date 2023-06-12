@@ -174,43 +174,9 @@ public class ResponseSocialMobilization {
     private Integer memActivated;
     private Integer shgOtherMonth;
     private Integer shgMemOtherMonth;
-//    private Integer intBlockZero3sat;
-//    private Integer intBlockThree6Sat;
-//    private Integer intBlockSix10Sat;
-//    private Integer intBlockMore10Sat;
-
-//    public Integer getIntBlockZero3sat() {
-//        return intBlockZero3sat;
-//    }
-//
-//    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
-//        this.intBlockZero3sat = intBlockZero3sat;
-//    }
-//
-//    public Integer getIntBlockThree6Sat() {
-//        return intBlockThree6Sat;
-//    }
-//
-//    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
-//        this.intBlockThree6Sat = intBlockThree6Sat;
-//    }
-//
-//    public Integer getIntBlockSix10Sat() {
-//        return intBlockSix10Sat;
-//    }
-//
-//    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
-//        this.intBlockSix10Sat = intBlockSix10Sat;
-//    }
-//
-//    public Integer getIntBlockMore10Sat() {
-//        return intBlockMore10Sat;
-//    }
-//
-//    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
-//        this.intBlockMore10Sat = intBlockMore10Sat;
-//    }
-
+    private Integer shgLastDay;
+    private Integer memLastDay;
+    private String updatedDate;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -1442,5 +1408,29 @@ public Integer getShgApprovedMonth() {
 
     public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
         this.shgMemOtherMonth = shgMemOtherMonth;
+    }
+
+    public Integer getShgLastDay() {
+        return shgLastDay;
+    }
+
+    public void setShgLastDay(Integer shgLastDay) {
+        this.shgLastDay = shgLastDay;
+    }
+
+    public Integer getMemLastDay() {
+        return memLastDay;
+    }
+
+    public void setMemLastDay(Integer memLastDay) {
+        this.memLastDay = memLastDay;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

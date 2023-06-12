@@ -334,47 +334,13 @@ public class SocialMobalizationEntity {
     private Integer shgOtherMonth;
     @Column(name = "shg_mem_other_month")
     private Integer shgMemOtherMonth;
-//    @Column(name = "int_block_zero_3_sat")
-//    private Integer intBlockZero3sat;
-//    @Column(name = "int_block_three_6_sat")
-//    private Integer intBlockThree6Sat;
-//    @Column(name = "int_block_six_10_sat")
-//    private Integer intBlockSix10Sat;
-//    @Column(name = "int_block_more_10_sat")
-//    private Integer intBlockMore10Sat;
 
-//    public Integer getIntBlockZero3sat() {
-//        return intBlockZero3sat;
-//    }
-//
-//    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
-//        this.intBlockZero3sat = intBlockZero3sat;
-//    }
-//
-//    public Integer getIntBlockThree6Sat() {
-//        return intBlockThree6Sat;
-//    }
-//
-//    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
-//        this.intBlockThree6Sat = intBlockThree6Sat;
-//    }
-//
-//    public Integer getIntBlockSix10Sat() {
-//        return intBlockSix10Sat;
-//    }
-//
-//    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
-//        this.intBlockSix10Sat = intBlockSix10Sat;
-//    }
-//
-//    public Integer getIntBlockMore10Sat() {
-//        return intBlockMore10Sat;
-//    }
-//
-//    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
-//        this.intBlockMore10Sat = intBlockMore10Sat;
-//    }
-
+    @Column(name = "shg_last_day")
+    private Integer shgLastDay;
+    @Column(name = "mem_last_day")
+    private Integer memLastDay;
+    @Column(name = "updated_date")
+    private String updatedDate;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -1630,6 +1596,29 @@ public class SocialMobalizationEntity {
 
     public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
         this.shgMemOtherMonth = shgMemOtherMonth;
+    }
+
+    public Integer getShgLastDay() {
+        return shgLastDay;
+    }
+
+    public void setShgLastDay(Integer shgLastDay) {
+        this.shgLastDay = shgLastDay;
+    }
+
+    public Integer getMemLastDay() {
+        return memLastDay;
+    }
+
+    public void setMemLastDay(Integer memLastDay) {
+        this.memLastDay = memLastDay;
+    }
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
 
