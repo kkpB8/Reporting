@@ -148,5 +148,6 @@ public interface CustomStatus {
     String INVALID_GEOGRAPHICAL_FLAGS_MSG = "Invalid geographical flag, please send valid geographical flag ";
 
 
+    String BAD_REQUEST_CODE = "400";
 }
 
