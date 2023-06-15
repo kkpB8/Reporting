@@ -373,6 +373,7 @@ toDate1,
         });
         return transactionSummaryList;
     }
+
     public List<ShgMeetingResponse> fetchBranchList(Integer villageId) {
         List<ShgMeetingResponse> shgMeetingResponseList = new ArrayList<>();
         if(villageId == null){
