@@ -1,7 +1,7 @@
 package org.apache.fineract.cn.reporting.internal.Error;
 import config.ResponseStatus;
-
 import java.io.Serializable;
+
 public class GlobalApiResponse <T> implements Serializable {
 
     public String responseCode;
