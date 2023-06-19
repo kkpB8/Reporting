@@ -20,6 +20,7 @@ public class ResponseBankWiseCbo {
     private String bankName;
     private String branchName;
     private String yearMonth;
+    private String updatedDate;
     public Integer getDistrictId() {
         return districtId;
     }
@@ -170,5 +171,13 @@ public class ResponseBankWiseCbo {
 
     public void setBranchName(String branchName) {
         this.branchName = branchName;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

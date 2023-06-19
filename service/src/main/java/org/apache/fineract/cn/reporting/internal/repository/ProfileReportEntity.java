@@ -160,11 +160,8 @@ public class ProfileReportEntity {
  private Integer clfShg;
  @Column(name="clf_ec")
  private Integer clfEc;
-
-
-
-
-
+ @Column(name = "updated_date")
+ private String updatedDate;
  public Integer getGeographicalFlag() {
   return geographicalFlag;
  }
@@ -684,5 +681,13 @@ public class ProfileReportEntity {
 
  public void setClfEc(Integer clfEc) {
   this.clfEc = clfEc;
+ }
+
+ public String getUpdatedDate() {
+  return updatedDate;
+ }
+
+ public void setUpdatedDate(String updatedDate) {
+  this.updatedDate = updatedDate;
  }
 }
