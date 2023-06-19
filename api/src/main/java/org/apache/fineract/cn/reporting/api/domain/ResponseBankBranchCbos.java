@@ -18,6 +18,7 @@ public class ResponseBankBranchCbos {
     private Integer voBank;
     private Integer clfBank;
     private String yearMonth;
+    private String updatedDate;
 
     public String getYearMonth() {
         return yearMonth;
@@ -153,6 +154,14 @@ public class ResponseBankBranchCbos {
 
     public void setClfBank(Integer clfBank) {
         this.clfBank = clfBank;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
 

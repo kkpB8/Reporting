@@ -341,6 +341,10 @@ public class SocialMobalizationEntity {
     private Integer memLastDay;
     @Column(name = "updated_date")
     private String updatedDate;
+    @Column(name = "shg_formed")
+    private Integer shgFormed;
+    @Column(name = "shg_members")
+    private Integer shgMembers;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -1619,6 +1623,22 @@ public class SocialMobalizationEntity {
 
     public void setUpdatedDate(String updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public Integer getShgFormed() {
+        return shgFormed;
+    }
+
+    public void setShgFormed(Integer shgFormed) {
+        this.shgFormed = shgFormed;
+    }
+
+    public Integer getShgMembers() {
+        return shgMembers;
+    }
+
+    public void setShgMembers(Integer shgMembers) {
+        this.shgMembers = shgMembers;
     }
 }
 

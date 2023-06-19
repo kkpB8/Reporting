@@ -177,6 +177,8 @@ public class ResponseSocialMobilization {
     private Integer shgLastDay;
     private Integer memLastDay;
     private String updatedDate;
+    private Integer shgFormed;
+    private Integer shgMembers;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -1432,5 +1434,21 @@ public Integer getShgApprovedMonth() {
 
     public void setUpdatedDate(String updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    public Integer getShgFormed() {
+        return shgFormed;
+    }
+
+    public void setShgFormed(Integer shgFormed) {
+        this.shgFormed = shgFormed;
+    }
+
+    public Integer getShgMembers() {
+        return shgMembers;
+    }
+
+    public void setShgMembers(Integer shgMembers) {
+        this.shgMembers = shgMembers;
     }
 }

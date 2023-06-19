@@ -351,12 +351,14 @@ toDate1,
         {
             if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setShgActivated(transactionSummaryEntity.getShgActivated());
-            }else {
-                transactionSummaryEntity.setShgActivated(0);
             }
+//            else {
+//                transactionSummaryEntity.setShgActivated(0);
+//            }
             if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setVoActivated(transactionSummaryEntity.getVoActivated());
-            }else {
+            }
+            else {
                 transactionSummaryEntity.setVoActivated(0);
             }
             if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
@@ -366,9 +368,10 @@ toDate1,
             }
             if(transactionSummaryEntity.getYearMonth().equals(toDate) || transactionSummaryEntity.getYearMonth().equals(yearMonth)){
                 transactionSummaryEntity.setMemActivated(transactionSummaryEntity.getMemActivated());
-            }else {
-                transactionSummaryEntity.setMemActivated(0);
             }
+//            else {
+//                transactionSummaryEntity.setMemActivated(0);
+//            }
             TransactionSummary transactionSummary = CommonApiMapper.map(transactionSummaryEntity);
             transactionSummaryList.add(transactionSummary);
         });
