@@ -62,6 +62,8 @@ public class MeetingApiRestEntity {
 
         @Column(name = "shg_other_month")
         private Integer shgOtherMonth;
+        @Column(name = "updated_date")
+        private String updatedDate;
         public Integer getShgOtherMonth() {
                 return shgOtherMonth;
         }
@@ -253,5 +255,13 @@ public class MeetingApiRestEntity {
 
         public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
                 this.shgMemOtherMonth = shgMemOtherMonth;
+        }
+
+        public String getUpdatedDate() {
+                return updatedDate;
+        }
+
+        public void setUpdatedDate(String updatedDate) {
+                this.updatedDate = updatedDate;
         }
 }

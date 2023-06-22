@@ -153,16 +153,14 @@ public class ProfileReportEntity {
  private Integer voCountMigrated;
  @Column(name = "clf_count_migrated")
  private Integer clfCountMigrated;
-
  @Column(name="vo_ec")
  private Integer voEc;
  @Column(name="clf_shg")
  private Integer clfShg;
  @Column(name="clf_ec")
  private Integer clfEc;
-
-
-
+ @Column(name = "updated_date")
+ private String updatedDate;
 
 
  public Integer getGeographicalFlag() {
@@ -684,5 +682,13 @@ public class ProfileReportEntity {
 
  public void setClfEc(Integer clfEc) {
   this.clfEc = clfEc;
+ }
+
+ public String getUpdatedDate() {
+  return updatedDate;
+ }
+
+ public void setUpdatedDate(String updatedDate) {
+  this.updatedDate = updatedDate;
  }
 }

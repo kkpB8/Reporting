@@ -1278,4 +1278,38 @@ public class PGFunctionProcedureService {
         }
         return summaryTransactionSubReportsResponsesList;
     }
+
+    public List<ShgsSavingResponse> fn_shg_hh_progress(String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<ShgsSavingResponse> shgsSavingResponseList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_shg_hh_progress()}");
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ShgsSavingResponse shgsSavingResponse = new ShgsSavingResponse();
+                shgsSavingResponse.setShgTillMarch2023(rs.getInt("shg_till_march2023"));
+                shgsSavingResponse.setMemTillMarch2023(rs.getInt("mem_till_march2023"));
+                shgsSavingResponse.setShgApril2023toTilldate(rs.getInt("shg_april2023_to_tilldate"));
+                shgsSavingResponse.setMemApril2023toTilldate(rs.getInt("mem_april2023_to_tilldate"));
+                shgsSavingResponse.setShgCurrentMonth(rs.getInt("shg_current_month"));
+                shgsSavingResponse.setMemCurrentMonth(rs.getInt("mem_current_month"));
+                shgsSavingResponse.setShgPreviousMonth(rs.getInt("shg_previous_month"));
+                shgsSavingResponse.setMemPreviousMonth(rs.getInt("mem_previous_month"));
+                shgsSavingResponse.setShgLastday(rs.getInt("shg_lastday"));
+                shgsSavingResponse.setMemLastday(rs.getInt("mem_lastday"));
+                shgsSavingResponse.setMemDailyAverage(rs.getInt("mem_dailyaverage"));
+                shgsSavingResponseList.add(shgsSavingResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_shg_hh_progress() Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_shg_hh_progress() Failed!");
+        }
+        return shgsSavingResponseList;
+    }
 }

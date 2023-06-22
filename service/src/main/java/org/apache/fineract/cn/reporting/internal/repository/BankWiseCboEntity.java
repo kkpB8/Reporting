@@ -46,7 +46,8 @@ public class BankWiseCboEntity {
     private Integer clfBank;
     @Column(name = "year_month")
     private String yearMonth;
-
+    @Column(name = "updated_date")
+    private String updatedDate;
 
     public BigInteger getId() {
         return id;
@@ -190,5 +191,13 @@ public class BankWiseCboEntity {
 
     public void setBlockName(String blockName) {
         this.blockName = blockName;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
