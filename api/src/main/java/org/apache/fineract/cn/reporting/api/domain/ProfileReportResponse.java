@@ -149,6 +149,7 @@ public class ProfileReportResponse {
 
     private Integer clfEc;
 
+    private String updatedDate;
 
     public Integer getGeographicalFlag() {
         return geographicalFlag;
@@ -660,5 +661,13 @@ public class ProfileReportResponse {
 
     public void setClfEc(Integer clfEc) {
         this.clfEc = clfEc;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }

@@ -47,7 +47,8 @@ public class BankBranchCbosEntity {
         private Integer clfBank;
         @Column(name = "year_month")
         private String yearMonth;
-
+        @Column(name = "updated_date")
+    private String updatedDate;
         public BigInteger getId() {
             return id;
         }
@@ -191,4 +192,12 @@ public class BankBranchCbosEntity {
         public void setYearMonth(String yearMonth) {
             this.yearMonth = yearMonth;
         }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
+    }
 }
