@@ -205,7 +205,11 @@ public class ResponseSocialMobilization {
     private Integer incompleteMemDue5MemNic;
     private Integer incompleteShgDue5MemLok;
     private Integer incompleteMemDue5MemLok;
-
+    private Integer stateProjectReviwed;
+    private Integer ngoNoncooptedReviwed;
+    private Integer otherReviwed;
+    private Integer allmemCount;
+    private Integer allShgCount;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -1804,5 +1808,45 @@ public class ResponseSocialMobilization {
 
     public void setIncompleteMemDue5MemLok(Integer incompleteMemDue5MemLok) {
         this.incompleteMemDue5MemLok = incompleteMemDue5MemLok;
+    }
+
+    public Integer getStateProjectReviwed() {
+        return stateProjectReviwed;
+    }
+
+    public void setStateProjectReviwed(Integer stateProjectReviwed) {
+        this.stateProjectReviwed = stateProjectReviwed;
+    }
+
+    public Integer getNgoNoncooptedReviwed() {
+        return ngoNoncooptedReviwed;
+    }
+
+    public void setNgoNoncooptedReviwed(Integer ngoNoncooptedReviwed) {
+        this.ngoNoncooptedReviwed = ngoNoncooptedReviwed;
+    }
+
+    public Integer getOtherReviwed() {
+        return otherReviwed;
+    }
+
+    public void setOtherReviwed(Integer otherReviwed) {
+        this.otherReviwed = otherReviwed;
+    }
+
+    public Integer getAllmemCount() {
+        return allmemCount;
+    }
+
+    public void setAllmemCount(Integer allmemCount) {
+        this.allmemCount = allmemCount;
+    }
+
+    public Integer getAllShgCount() {
+        return allShgCount;
+    }
+
+    public void setAllShgCount(Integer allShgCount) {
+        this.allShgCount = allShgCount;
     }
 }

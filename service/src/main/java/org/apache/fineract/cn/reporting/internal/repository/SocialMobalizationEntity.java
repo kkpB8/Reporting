@@ -425,6 +425,16 @@ public class SocialMobalizationEntity {
     private Integer incompleteShgDue5MemLok;
     @Column(name = "incomplete_mem_due_5_mem_lok")
     private Integer incompleteMemDue5MemLok;
+    @Column(name = "state_project_reviwed")
+    private Integer stateProjectReviwed;
+    @Column(name = "ngo_noncoopted_reviwed")
+    private Integer ngoNoncooptedReviwed;
+    @Column(name = "other_reviwed")
+    private Integer otherReviwed;
+    @Column(name = "allmem_count")
+    private Integer allmemCount;
+    @Column(name = "allshg_count")
+    private Integer allShgCount;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -2027,6 +2037,46 @@ public class SocialMobalizationEntity {
 
     public void setIncompleteMemDue5MemLok(Integer incompleteMemDue5MemLok) {
         this.incompleteMemDue5MemLok = incompleteMemDue5MemLok;
+    }
+
+    public Integer getStateProjectReviwed() {
+        return stateProjectReviwed;
+    }
+
+    public void setStateProjectReviwed(Integer stateProjectReviwed) {
+        this.stateProjectReviwed = stateProjectReviwed;
+    }
+
+    public Integer getNgoNoncooptedReviwed() {
+        return ngoNoncooptedReviwed;
+    }
+
+    public void setNgoNoncooptedReviwed(Integer ngoNoncooptedReviwed) {
+        this.ngoNoncooptedReviwed = ngoNoncooptedReviwed;
+    }
+
+    public Integer getOtherReviwed() {
+        return otherReviwed;
+    }
+
+    public void setOtherReviwed(Integer otherReviwed) {
+        this.otherReviwed = otherReviwed;
+    }
+
+    public Integer getAllmemCount() {
+        return allmemCount;
+    }
+
+    public void setAllmemCount(Integer allmemCount) {
+        this.allmemCount = allmemCount;
+    }
+
+    public Integer getAllShgCount() {
+        return allShgCount;
+    }
+
+    public void setAllShgCount(Integer allShgCount) {
+        this.allShgCount = allShgCount;
     }
 }
 
