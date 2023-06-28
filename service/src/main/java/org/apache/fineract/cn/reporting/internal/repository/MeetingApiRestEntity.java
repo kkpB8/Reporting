@@ -4,7 +4,8 @@ import javax.persistence.*;
 import java.math.BigInteger;
 @Entity
 @Cacheable(value = false)
-@Table(name = "tbl_summary")
+//@Table(name = "tbl_summary")
+@Table(name = "public.view_summary")
 public class MeetingApiRestEntity {
 
         @Id
@@ -62,8 +63,8 @@ public class MeetingApiRestEntity {
 
         @Column(name = "shg_other_month")
         private Integer shgOtherMonth;
-        @Column(name = "updated_date")
-        private String updatedDate;
+//        @Column(name = "updated_date")
+//        private String updatedDate;
         public Integer getShgOtherMonth() {
                 return shgOtherMonth;
         }
@@ -257,11 +258,11 @@ public class MeetingApiRestEntity {
                 this.shgMemOtherMonth = shgMemOtherMonth;
         }
 
-        public String getUpdatedDate() {
-                return updatedDate;
-        }
-
-        public void setUpdatedDate(String updatedDate) {
-                this.updatedDate = updatedDate;
-        }
+//        public String getUpdatedDate() {
+//                return updatedDate;
+//        }
+//
+//        public void setUpdatedDate(String updatedDate) {
+//                this.updatedDate = updatedDate;
+//        }
 }
