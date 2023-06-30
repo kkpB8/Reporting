@@ -6,8 +6,8 @@ import java.math.BigInteger;
 @Entity
 @Cacheable(value = false)
 @Table(name = "tbl_summary")
+//@Table(name = "lokos.tbl_summary")
 public class SocialMobalizationEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -110,15 +110,15 @@ public class SocialMobalizationEntity {
     private Integer otherEduMem;
     @Column(name = "shgwithbankaccount")
     private Integer shgWithBankAccount;
-//    @Column(name = "shgwithoutbankaccount")
+    //    @Column(name = "shgwithoutbankaccount")
 //    private Integer shgWithoutBankAccount;
     @Column(name = "vowithbankaccount")
     private Integer voWithBankAccount;
-//    @Column(name = "vowithoutbankaccount")
+    //    @Column(name = "vowithoutbankaccount")
 //    private Integer voWithoutBankAccount;
     @Column(name = "clfwithbankaccount")
     private Integer clfWithBankAccount;
-//    @Column(name = "clfwithoutbankaccount")
+    //    @Column(name = "clfwithoutbankaccount")
 //    private Integer clfWithoutBankAccount;
     @Column(name = "shgbankacount1")
     private Integer shgBankAcount1;
@@ -293,15 +293,6 @@ public class SocialMobalizationEntity {
 
     @Column(name = "mem_others")
     private Integer memOthers;
-//    @Column(name = "int_block_zero_3")
-//    private Integer intBlock0to3;
-//    @Column(name = "int_block_three_6")
-//    private Integer intBlock3to6;
-//    @Column(name = "int_block_six_10")
-//    private Integer intBlock6to10;
-//
-//    @Column(name = "int_block_more_10")
-//    private Integer intBlockMore10;
     @Column(name = "is_saturated")
     private Integer isSaturated;
     @Column(name = "shg_obc_month")
@@ -334,47 +325,120 @@ public class SocialMobalizationEntity {
     private Integer shgOtherMonth;
     @Column(name = "shg_mem_other_month")
     private Integer shgMemOtherMonth;
-//    @Column(name = "int_block_zero_3_sat")
-//    private Integer intBlockZero3sat;
-//    @Column(name = "int_block_three_6_sat")
-//    private Integer intBlockThree6Sat;
-//    @Column(name = "int_block_six_10_sat")
-//    private Integer intBlockSix10Sat;
-//    @Column(name = "int_block_more_10_sat")
-//    private Integer intBlockMore10Sat;
-
-//    public Integer getIntBlockZero3sat() {
-//        return intBlockZero3sat;
-//    }
-//
-//    public void setIntBlockZero3sat(Integer intBlockZero3sat) {
-//        this.intBlockZero3sat = intBlockZero3sat;
-//    }
-//
-//    public Integer getIntBlockThree6Sat() {
-//        return intBlockThree6Sat;
-//    }
-//
-//    public void setIntBlockThree6Sat(Integer intBlockThree6Sat) {
-//        this.intBlockThree6Sat = intBlockThree6Sat;
-//    }
-//
-//    public Integer getIntBlockSix10Sat() {
-//        return intBlockSix10Sat;
-//    }
-//
-//    public void setIntBlockSix10Sat(Integer intBlockSix10Sat) {
-//        this.intBlockSix10Sat = intBlockSix10Sat;
-//    }
-//
-//    public Integer getIntBlockMore10Sat() {
-//        return intBlockMore10Sat;
-//    }
-//
-//    public void setIntBlockMore10Sat(Integer intBlockMore10Sat) {
-//        this.intBlockMore10Sat = intBlockMore10Sat;
-//    }
-
+    @Column(name = "shg_last_day")
+    private Integer shgLastDay;
+    @Column(name = "mem_last_day")
+    private Integer memLastDay;
+    @Column(name = "updated_date")
+    private String updatedDate;
+    @Column(name = "shg_formed")
+    private Integer shgFormed;
+    @Column(name = "shg_members")
+    private Integer shgMembers;
+    @Column(name = "shg_tot")
+    private Integer shgTot;
+    @Column(name = "approved_nic_shg_bpm")
+    private Integer approvedNicShgBpm;
+    @Column(name = "pending_nic_shg_bpm")
+    private Integer pendingNicShgBpm;
+    @Column(name = "rejected_nic_shg_bpm")
+    private Integer rejectedNicShgBpm;
+    @Column(name = "lokos_shg")
+    private Integer lokosShg;
+    @Column(name = "approved_lokos_shg_bpm")
+    private Integer approvedLokosShgBpm;
+    @Column(name = "pending_lokos_shg_bpm")
+    private Integer pendingLokosShgBpm;
+    @Column(name = "rejected_lokos_shg_bpm")
+    private Integer rejectedLokosShgBpm;
+    @Column(name = "nic_mem")
+    private Integer nicMem;
+    @Column(name = "approve_nic_mem")
+    private Integer approveNicMem;
+    @Column(name = "pending_nic_mem")
+    private Integer pendingNicMem;
+    @Column(name = "rejected_nic_mem")
+    private Integer rejectedNicMem;
+    @Column(name = "lokos_mem")
+    private Integer lokosMem;
+    @Column(name = "approve_lokos_mem")
+    private Integer approveLokosMem;
+    @Column(name = "pending_lokos_mem")
+    private Integer pendingLokosMem;
+    @Column(name = "rejected_lokos_mem")
+    private Integer rejectedLokosMem;
+    @Column(name = "nrlm_promoted_by")
+    private Integer nrlmPromotedBy;
+    @Column(name = "state_project_promoted_by")
+    private Integer stateProjectPromotedBy;
+    @Column(name = "ngo_promoted_by")
+    private Integer ngoPromotedBy;
+    @Column(name = "sgsy_promoted_by")
+    private Integer sgsyPromotedBy;
+    @Column(name = "other_promoted_by")
+    private Integer otherPromotedBy;
+    @Column(name = "state_project_coopted")
+    private Integer stateProjectCoopted;
+    @Column(name = "state_project_noncoopted")
+    private Integer stateProjectNoncoopted;
+    @Column(name = "ngo_coopted")
+    private Integer ngoCoopted;
+    @Column(name = "ngo_noncoopted")
+    private Integer ngoNoncoopted;
+    @Column(name = "other_coopted")
+    private Integer otherCoopted;
+    @Column(name = "other_noncoopted")
+    private Integer otherNoncoopted;
+    @Column(name = "allshgwithbankaccount")
+    private Integer allShgwithBankAccount;
+    @Column(name = "allshgwithbankaccount_mem")
+    private Integer allShgwithBankAccountMem;
+    @Column(name = "allshg_without_mig")
+    private Integer allShgWithoutMig;
+    @Column(name = "allmem_without_mig")
+    private Integer allMemWithoutMig;
+    @Column(name = "allshg_without_lokos")
+    private Integer allShgWithoutLokos;
+    @Column(name = "allmem_without_lokos")
+    private Integer allMemWithoutLokos;
+    @Column(name = "allshg_active")
+    private Integer allShgActive;
+    @Column(name = "allmem_active")
+    private Integer allMemActive;
+    @Column(name = "allshg_inactive_mig")
+    private Integer allShgInactiveMig;
+    @Column(name = "allmem_inactive_mig")
+    private Integer allMemInactiveMig;
+    @Column(name = "allshg_inactive_lokos")
+    private Integer allShgInactiveLokos;
+    @Column(name = "allmem_inactive_lokos")
+    private Integer allMemInactiveLokos;
+    @Column(name = "complete_shg_nic_lokos")
+    private Integer completeShgNicLokos;
+    @Column(name = "complete_mem_nic_lokos")
+    private Integer completeMemNicLokos;
+    @Column(name = "incomplete_shg_due_5_mem_nic")
+    private Integer incompleteShgDue5MemNic;
+    @Column(name = "incomplete_mem_due_5_mem_nic")
+    private Integer incompleteMemDue5MemNic;
+    @Column(name = "incomplete_shg_due_5_mem_lok")
+    private Integer incompleteShgDue5MemLok;
+    @Column(name = "incomplete_mem_due_5_mem_lok")
+    private Integer incompleteMemDue5MemLok;
+    @Column(name = "state_project_reviwed")
+    private Integer stateProjectReviwed;
+    @Column(name = "ngo_noncoopted_reviwed")
+    private Integer ngoNoncooptedReviwed;
+    @Column(name = "other_reviwed")
+    private Integer otherReviwed;
+    @Column(name = "allmem_count")
+    private Integer allmemCount;
+    @Column(name = "allshg_count")
+    private Integer allShgCount;
+    @Column(name = "all_shg_formed_month")
+    private Integer allShgFormedMonth;
+    @Column(name = "all_shg_members_joined_month")
+    private Integer allShgMembersJoinedMonth;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -491,38 +555,6 @@ public class SocialMobalizationEntity {
         return id;
     }
 
-//    public Integer getIntBlock0to3() {
-//        return intBlock0to3;
-//    }
-//
-//    public void setIntBlock0to3(Integer intBlock0to3) {
-//        this.intBlock0to3 = intBlock0to3;
-//    }
-//
-//    public Integer getIntBlock3to6() {
-//        return intBlock3to6;
-//    }
-//
-//    public void setIntBlock3to6(Integer intBlock3to6) {
-//        this.intBlock3to6 = intBlock3to6;
-//    }
-//
-//    public Integer getIntBlock6to10() {
-//        return intBlock6to10;
-//    }
-//
-//    public void setIntBlock6to10(Integer intBlock6to10) {
-//        this.intBlock6to10 = intBlock6to10;
-//    }
-//
-//    public Integer getIntBlockMore10() {
-//        return intBlockMore10;
-//    }
-//
-//    public void setIntBlockMore10(Integer intBlockMore10) {
-//        this.intBlockMore10 = intBlockMore10;
-//    }
-
     public Integer getMemWages() {
         return memWages;
     }
@@ -586,35 +618,15 @@ public class SocialMobalizationEntity {
     public void setShgLeaderOther(Integer shgLeaderOther) {
         this.shgLeaderOther = shgLeaderOther;
     }
-
-//    @Column(name = "")
-//    private Integer shgAggregation;
-//    @Column(name = "")
-//    private Integer shgOther;
-//    public Integer getShgAggregation() {
-//        return shgAggregation;
-//    }
-//
-//    public void setShgAggregation(Integer shgAggregation) {
-//        this.shgAggregation = shgAggregation;
-//    }
-//
-//    public Integer getShgOther() {
-//        return shgOther;
-//    }
-
-//    public void setShgOther(Integer shgOther) {
-//        this.shgOther = shgOther;
-//    }
     public Integer getShgMem() {
-    return shgMem;
-}
+        return shgMem;
+    }
     public void setShgMem(Integer shgMem) {
         this.shgMem = shgMem;
     }
     public Integer getShgApprovedMonth() {
-    return shgApprovedMonth;
-}
+        return shgApprovedMonth;
+    }
 
     public void setShgApprovedMonth(Integer shgApprovedMonth) {
         this.shgApprovedMonth = shgApprovedMonth;
@@ -1630,6 +1642,461 @@ public class SocialMobalizationEntity {
 
     public void setShgMemOtherMonth(Integer shgMemOtherMonth) {
         this.shgMemOtherMonth = shgMemOtherMonth;
+    }
+
+    public Integer getShgLastDay() {
+        return shgLastDay;
+    }
+
+    public void setShgLastDay(Integer shgLastDay) {
+        this.shgLastDay = shgLastDay;
+    }
+
+    public Integer getMemLastDay() {
+        return memLastDay;
+    }
+
+    public void setMemLastDay(Integer memLastDay) {
+        this.memLastDay = memLastDay;
+    }
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
+    public Integer getShgFormed() {
+        return shgFormed;
+    }
+
+    public void setShgFormed(Integer shgFormed) {
+        this.shgFormed = shgFormed;
+    }
+
+    public Integer getShgMembers() {
+        return shgMembers;
+    }
+
+    public void setShgMembers(Integer shgMembers) {
+        this.shgMembers = shgMembers;
+    }
+
+    public Integer getShgTot() {
+        return shgTot;
+    }
+
+    public void setShgTot(Integer shgTot) {
+        this.shgTot = shgTot;
+    }
+
+    public Integer getApprovedNicShgBpm() {
+        return approvedNicShgBpm;
+    }
+
+    public void setApprovedNicShgBpm(Integer approvedNicShgBpm) {
+        this.approvedNicShgBpm = approvedNicShgBpm;
+    }
+
+    public Integer getPendingNicShgBpm() {
+        return pendingNicShgBpm;
+    }
+
+    public void setPendingNicShgBpm(Integer pendingNicShgBpm) {
+        this.pendingNicShgBpm = pendingNicShgBpm;
+    }
+
+    public Integer getRejectedNicShgBpm() {
+        return rejectedNicShgBpm;
+    }
+
+    public void setRejectedNicShgBpm(Integer rejectedNicShgBpm) {
+        this.rejectedNicShgBpm = rejectedNicShgBpm;
+    }
+
+    public Integer getLokosShg() {
+        return lokosShg;
+    }
+
+    public void setLokosShg(Integer lokosShg) {
+        this.lokosShg = lokosShg;
+    }
+
+    public Integer getApprovedLokosShgBpm() {
+        return approvedLokosShgBpm;
+    }
+
+    public void setApprovedLokosShgBpm(Integer approvedLokosShgBpm) {
+        this.approvedLokosShgBpm = approvedLokosShgBpm;
+    }
+
+    public Integer getPendingLokosShgBpm() {
+        return pendingLokosShgBpm;
+    }
+
+    public void setPendingLokosShgBpm(Integer pendingLokosShgBpm) {
+        this.pendingLokosShgBpm = pendingLokosShgBpm;
+    }
+
+    public Integer getRejectedLokosShgBpm() {
+        return rejectedLokosShgBpm;
+    }
+
+    public void setRejectedLokosShgBpm(Integer rejectedLokosShgBpm) {
+        this.rejectedLokosShgBpm = rejectedLokosShgBpm;
+    }
+
+    public Integer getNicMem() {
+        return nicMem;
+    }
+
+    public void setNicMem(Integer nicMem) {
+        this.nicMem = nicMem;
+    }
+
+    public Integer getApproveNicMem() {
+        return approveNicMem;
+    }
+
+    public void setApproveNicMem(Integer approveNicMem) {
+        this.approveNicMem = approveNicMem;
+    }
+
+    public Integer getPendingNicMem() {
+        return pendingNicMem;
+    }
+
+    public void setPendingNicMem(Integer pendingNicMem) {
+        this.pendingNicMem = pendingNicMem;
+    }
+
+    public Integer getRejectedNicMem() {
+        return rejectedNicMem;
+    }
+
+    public void setRejectedNicMem(Integer rejectedNicMem) {
+        this.rejectedNicMem = rejectedNicMem;
+    }
+
+    public Integer getLokosMem() {
+        return lokosMem;
+    }
+
+    public void setLokosMem(Integer lokosMem) {
+        this.lokosMem = lokosMem;
+    }
+
+    public Integer getApproveLokosMem() {
+        return approveLokosMem;
+    }
+
+    public void setApproveLokosMem(Integer approveLokosMem) {
+        this.approveLokosMem = approveLokosMem;
+    }
+
+    public Integer getPendingLokosMem() {
+        return pendingLokosMem;
+    }
+
+    public void setPendingLokosMem(Integer pendingLokosMem) {
+        this.pendingLokosMem = pendingLokosMem;
+    }
+
+    public Integer getRejectedLokosMem() {
+        return rejectedLokosMem;
+    }
+
+    public void setRejectedLokosMem(Integer rejectedLokosMem) {
+        this.rejectedLokosMem = rejectedLokosMem;
+    }
+
+    public Integer getNrlmPromotedBy() {
+        return nrlmPromotedBy;
+    }
+
+    public void setNrlmPromotedBy(Integer nrlmPromotedBy) {
+        this.nrlmPromotedBy = nrlmPromotedBy;
+    }
+
+    public Integer getStateProjectPromotedBy() {
+        return stateProjectPromotedBy;
+    }
+
+    public void setStateProjectPromotedBy(Integer stateProjectPromotedBy) {
+        this.stateProjectPromotedBy = stateProjectPromotedBy;
+    }
+
+    public Integer getNgoPromotedBy() {
+        return ngoPromotedBy;
+    }
+
+    public void setNgoPromotedBy(Integer ngoPromotedBy) {
+        this.ngoPromotedBy = ngoPromotedBy;
+    }
+
+    public Integer getSgsyPromotedBy() {
+        return sgsyPromotedBy;
+    }
+
+    public void setSgsyPromotedBy(Integer sgsyPromotedBy) {
+        this.sgsyPromotedBy = sgsyPromotedBy;
+    }
+
+    public Integer getOtherPromotedBy() {
+        return otherPromotedBy;
+    }
+
+    public void setOtherPromotedBy(Integer otherPromotedBy) {
+        this.otherPromotedBy = otherPromotedBy;
+    }
+
+    public Integer getStateProjectCoopted() {
+        return stateProjectCoopted;
+    }
+
+    public void setStateProjectCoopted(Integer stateProjectCoopted) {
+        this.stateProjectCoopted = stateProjectCoopted;
+    }
+
+    public Integer getStateProjectNoncoopted() {
+        return stateProjectNoncoopted;
+    }
+
+    public void setStateProjectNoncoopted(Integer stateProjectNoncoopted) {
+        this.stateProjectNoncoopted = stateProjectNoncoopted;
+    }
+
+    public Integer getNgoCoopted() {
+        return ngoCoopted;
+    }
+
+    public void setNgoCoopted(Integer ngoCoopted) {
+        this.ngoCoopted = ngoCoopted;
+    }
+
+    public Integer getNgoNoncoopted() {
+        return ngoNoncoopted;
+    }
+
+    public void setNgoNoncoopted(Integer ngoNoncoopted) {
+        this.ngoNoncoopted = ngoNoncoopted;
+    }
+
+    public Integer getOtherCoopted() {
+        return otherCoopted;
+    }
+
+    public void setOtherCoopted(Integer otherCoopted) {
+        this.otherCoopted = otherCoopted;
+    }
+
+    public Integer getOtherNoncoopted() {
+        return otherNoncoopted;
+    }
+
+    public void setOtherNoncoopted(Integer otherNoncoopted) {
+        this.otherNoncoopted = otherNoncoopted;
+    }
+
+    public Integer getAllShgwithBankAccount() {
+        return allShgwithBankAccount;
+    }
+
+    public void setAllShgwithBankAccount(Integer allShgwithBankAccount) {
+        this.allShgwithBankAccount = allShgwithBankAccount;
+    }
+
+    public Integer getAllShgwithBankAccountMem() {
+        return allShgwithBankAccountMem;
+    }
+
+    public void setAllShgwithBankAccountMem(Integer allShgwithBankAccountMem) {
+        this.allShgwithBankAccountMem = allShgwithBankAccountMem;
+    }
+
+    public Integer getAllShgWithoutMig() {
+        return allShgWithoutMig;
+    }
+
+    public void setAllShgWithoutMig(Integer allShgWithoutMig) {
+        this.allShgWithoutMig = allShgWithoutMig;
+    }
+
+    public Integer getAllMemWithoutMig() {
+        return allMemWithoutMig;
+    }
+
+    public void setAllMemWithoutMig(Integer allMemWithoutMig) {
+        this.allMemWithoutMig = allMemWithoutMig;
+    }
+
+    public Integer getAllShgWithoutLokos() {
+        return allShgWithoutLokos;
+    }
+
+    public void setAllShgWithoutLokos(Integer allShgWithoutLokos) {
+        this.allShgWithoutLokos = allShgWithoutLokos;
+    }
+
+    public Integer getAllMemWithoutLokos() {
+        return allMemWithoutLokos;
+    }
+
+    public void setAllMemWithoutLokos(Integer allMemWithoutLokos) {
+        this.allMemWithoutLokos = allMemWithoutLokos;
+    }
+
+    public Integer getAllShgActive() {
+        return allShgActive;
+    }
+
+    public void setAllShgActive(Integer allShgActive) {
+        this.allShgActive = allShgActive;
+    }
+
+    public Integer getAllMemActive() {
+        return allMemActive;
+    }
+
+    public void setAllMemActive(Integer allMemActive) {
+        this.allMemActive = allMemActive;
+    }
+
+    public Integer getAllShgInactiveMig() {
+        return allShgInactiveMig;
+    }
+
+    public void setAllShgInactiveMig(Integer allShgInactiveMig) {
+        this.allShgInactiveMig = allShgInactiveMig;
+    }
+
+    public Integer getAllMemInactiveMig() {
+        return allMemInactiveMig;
+    }
+
+    public void setAllMemInactiveMig(Integer allMemInactiveMig) {
+        this.allMemInactiveMig = allMemInactiveMig;
+    }
+
+    public Integer getAllShgInactiveLokos() {
+        return allShgInactiveLokos;
+    }
+
+    public void setAllShgInactiveLokos(Integer allShgInactiveLokos) {
+        this.allShgInactiveLokos = allShgInactiveLokos;
+    }
+
+    public Integer getAllMemInactiveLokos() {
+        return allMemInactiveLokos;
+    }
+
+    public void setAllMemInactiveLokos(Integer allMemInactiveLokos) {
+        this.allMemInactiveLokos = allMemInactiveLokos;
+    }
+
+    public Integer getCompleteShgNicLokos() {
+        return completeShgNicLokos;
+    }
+
+    public void setCompleteShgNicLokos(Integer completeShgNicLokos) {
+        this.completeShgNicLokos = completeShgNicLokos;
+    }
+
+    public Integer getCompleteMemNicLokos() {
+        return completeMemNicLokos;
+    }
+
+    public void setCompleteMemNicLokos(Integer completeMemNicLokos) {
+        this.completeMemNicLokos = completeMemNicLokos;
+    }
+
+    public Integer getIncompleteShgDue5MemNic() {
+        return incompleteShgDue5MemNic;
+    }
+
+    public void setIncompleteShgDue5MemNic(Integer incompleteShgDue5MemNic) {
+        this.incompleteShgDue5MemNic = incompleteShgDue5MemNic;
+    }
+
+    public Integer getIncompleteMemDue5MemNic() {
+        return incompleteMemDue5MemNic;
+    }
+
+    public void setIncompleteMemDue5MemNic(Integer incompleteMemDue5MemNic) {
+        this.incompleteMemDue5MemNic = incompleteMemDue5MemNic;
+    }
+
+    public Integer getIncompleteShgDue5MemLok() {
+        return incompleteShgDue5MemLok;
+    }
+
+    public void setIncompleteShgDue5MemLok(Integer incompleteShgDue5MemLok) {
+        this.incompleteShgDue5MemLok = incompleteShgDue5MemLok;
+    }
+
+    public Integer getIncompleteMemDue5MemLok() {
+        return incompleteMemDue5MemLok;
+    }
+
+    public void setIncompleteMemDue5MemLok(Integer incompleteMemDue5MemLok) {
+        this.incompleteMemDue5MemLok = incompleteMemDue5MemLok;
+    }
+
+    public Integer getStateProjectReviwed() {
+        return stateProjectReviwed;
+    }
+
+    public void setStateProjectReviwed(Integer stateProjectReviwed) {
+        this.stateProjectReviwed = stateProjectReviwed;
+    }
+
+    public Integer getNgoNoncooptedReviwed() {
+        return ngoNoncooptedReviwed;
+    }
+
+    public void setNgoNoncooptedReviwed(Integer ngoNoncooptedReviwed) {
+        this.ngoNoncooptedReviwed = ngoNoncooptedReviwed;
+    }
+
+    public Integer getOtherReviwed() {
+        return otherReviwed;
+    }
+
+    public void setOtherReviwed(Integer otherReviwed) {
+        this.otherReviwed = otherReviwed;
+    }
+
+    public Integer getAllmemCount() {
+        return allmemCount;
+    }
+
+    public void setAllmemCount(Integer allmemCount) {
+        this.allmemCount = allmemCount;
+    }
+
+    public Integer getAllShgCount() {
+        return allShgCount;
+    }
+
+    public void setAllShgCount(Integer allShgCount) {
+        this.allShgCount = allShgCount;
+    }
+
+    public Integer getAllShgFormedMonth() {
+        return allShgFormedMonth;
+    }
+
+    public void setAllShgFormedMonth(Integer allShgFormedMonth) {
+        this.allShgFormedMonth = allShgFormedMonth;
+    }
+
+    public Integer getAllShgMembersJoinedMonth() {
+        return allShgMembersJoinedMonth;
+    }
+
+    public void setAllShgMembersJoinedMonth(Integer allShgMembersJoinedMonth) {
+        this.allShgMembersJoinedMonth = allShgMembersJoinedMonth;
     }
 }
 
