@@ -315,6 +315,24 @@ public class TransactionSummaryEntity {
     private Integer clfActivated;
     @Column(name = "mem_activated")
     private Integer memActivated;
+    @Column(name = "tot_district_mtgstarted")
+    private Integer totDistrictMtgStarted;
+    @Column(name = "tot_block_mtgstarted")
+    private Integer totBlockMtgStarted;
+    @Column(name = "tot_pnhc_mtgstarted")
+    private Integer totpnhcMtgStarted;
+    @Column(name = "tot_vill_mtgstarted")
+    private Integer totvillMtgStarted;
+    @Column(name = "tot_district_mtgstarted_vo")
+    private Integer totDistrictMtgStartedVo;
+    @Column(name = "tot_block_mtgstarted_vo")
+    private Integer totBlockMtgStartedVo;
+    @Column(name = "tot_pnhc_mtgstarted_vo")
+    private Integer totPnhcMtgStartedVo;
+    @Column(name = "tot_district_mtgstarted_clf")
+    private Integer totDistrictMtgStartedclf;
+    @Column(name = "tot_block_mtgstarted_clf")
+    private Integer totBlockMtgStartedClf;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1436,6 +1454,78 @@ public class TransactionSummaryEntity {
 
     public void setMemActivated(Integer memActivated) {
         this.memActivated = memActivated;
+    }
+
+    public Integer getTotDistrictMtgStarted() {
+        return totDistrictMtgStarted;
+    }
+
+    public void setTotDistrictMtgStarted(Integer totDistrictMtgStarted) {
+        this.totDistrictMtgStarted = totDistrictMtgStarted;
+    }
+
+    public Integer getTotBlockMtgStarted() {
+        return totBlockMtgStarted;
+    }
+
+    public void setTotBlockMtgStarted(Integer totBlockMtgStarted) {
+        this.totBlockMtgStarted = totBlockMtgStarted;
+    }
+
+    public Integer getTotpnhcMtgStarted() {
+        return totpnhcMtgStarted;
+    }
+
+    public void setTotpnhcMtgStarted(Integer totpnhcMtgStarted) {
+        this.totpnhcMtgStarted = totpnhcMtgStarted;
+    }
+
+    public Integer getTotvillMtgStarted() {
+        return totvillMtgStarted;
+    }
+
+    public void setTotvillMtgStarted(Integer totvillMtgStarted) {
+        this.totvillMtgStarted = totvillMtgStarted;
+    }
+
+    public Integer getTotDistrictMtgStartedVo() {
+        return totDistrictMtgStartedVo;
+    }
+
+    public void setTotDistrictMtgStartedVo(Integer totDistrictMtgStartedVo) {
+        this.totDistrictMtgStartedVo = totDistrictMtgStartedVo;
+    }
+
+    public Integer getTotBlockMtgStartedVo() {
+        return totBlockMtgStartedVo;
+    }
+
+    public void setTotBlockMtgStartedVo(Integer totBlockMtgStartedVo) {
+        this.totBlockMtgStartedVo = totBlockMtgStartedVo;
+    }
+
+    public Integer getTotPnhcMtgStartedVo() {
+        return totPnhcMtgStartedVo;
+    }
+
+    public void setTotPnhcMtgStartedVo(Integer totPnhcMtgStartedVo) {
+        this.totPnhcMtgStartedVo = totPnhcMtgStartedVo;
+    }
+
+    public Integer getTotDistrictMtgStartedclf() {
+        return totDistrictMtgStartedclf;
+    }
+
+    public void setTotDistrictMtgStartedclf(Integer totDistrictMtgStartedclf) {
+        this.totDistrictMtgStartedclf = totDistrictMtgStartedclf;
+    }
+
+    public Integer getTotBlockMtgStartedClf() {
+        return totBlockMtgStartedClf;
+    }
+
+    public void setTotBlockMtgStartedClf(Integer totBlockMtgStartedClf) {
+        this.totBlockMtgStartedClf = totBlockMtgStartedClf;
     }
 }
 

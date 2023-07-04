@@ -79,7 +79,8 @@ public class ProfileReportEntity {
  private Integer clfMapped;
  @Column(name = "clf_unmapped")
  private Integer clfUnmapped;
- @Column(name = "shg_approved")
+// @Column(name = "shg_approved")
+ @Column(name = "shg_activated")
  private Integer shgApproved;
  @Column(name = "shg_activation_pending")
  private Integer shgActivationPending;
