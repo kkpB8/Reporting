@@ -155,6 +155,16 @@ public class ServiceSocialMobilization {
             }else {
                 socialMobalizationEntity.setMemActivated(0);
             }
+            if(socialMobalizationEntity.getYearMonth().equals(finalToDate)){
+                socialMobalizationEntity.setShgLastDay(socialMobalizationEntity.getShgLastDay());
+            } else {
+                socialMobalizationEntity.setShgLastDay(0);
+            }
+            if(socialMobalizationEntity.getYearMonth().equals(finalToDate)){
+                socialMobalizationEntity.setMemLastDay(socialMobalizationEntity.getMemLastDay());
+            } else {
+                socialMobalizationEntity.setMemLastDay(0);
+            }
             ResponseSocialMobilization responseSocialMobilization = CommonApiMapper.map(socialMobalizationEntity);
             responseSocialMobilizationList.add(responseSocialMobilization);
         });
