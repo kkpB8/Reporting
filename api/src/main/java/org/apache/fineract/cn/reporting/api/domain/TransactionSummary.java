@@ -174,6 +174,10 @@ public class TransactionSummary {
     private Integer totPnhcMtgStartedVo;
     private Integer totDistrictMtgStartedclf;
     private Integer totBlockMtgStartedClf;
+    private Integer totalDistrict;
+    private Integer totalBlock;
+    private Integer totalGp;
+    private Integer totalVillage;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1361,6 +1365,38 @@ public class TransactionSummary {
 
     public void setTotBlockMtgStartedClf(Integer totBlockMtgStartedClf) {
         this.totBlockMtgStartedClf = totBlockMtgStartedClf;
+    }
+
+    public Integer getTotalDistrict() {
+        return totalDistrict;
+    }
+
+    public void setTotalDistrict(Integer totalDistrict) {
+        this.totalDistrict = totalDistrict;
+    }
+
+    public Integer getTotalBlock() {
+        return totalBlock;
+    }
+
+    public void setTotalBlock(Integer totalBlock) {
+        this.totalBlock = totalBlock;
+    }
+
+    public Integer getTotalGp() {
+        return totalGp;
+    }
+
+    public void setTotalGp(Integer totalGp) {
+        this.totalGp = totalGp;
+    }
+
+    public Integer getTotalVillage() {
+        return totalVillage;
+    }
+
+    public void setTotalVillage(Integer totalVillage) {
+        this.totalVillage = totalVillage;
     }
 }
 

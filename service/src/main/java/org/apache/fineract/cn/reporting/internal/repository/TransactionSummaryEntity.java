@@ -333,6 +333,14 @@ public class TransactionSummaryEntity {
     private Integer totDistrictMtgStartedclf;
     @Column(name = "tot_block_mtgstarted_clf")
     private Integer totBlockMtgStartedClf;
+    @Column(name = "totaldistrict")
+    private Integer totalDistrict;
+    @Column(name = "totalblock")
+    private Integer totalBlock;
+    @Column(name = "totalgp")
+    private Integer totalGp;
+    @Column(name = "totalvillage")
+    private Integer totalVillage;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1526,6 +1534,38 @@ public class TransactionSummaryEntity {
 
     public void setTotBlockMtgStartedClf(Integer totBlockMtgStartedClf) {
         this.totBlockMtgStartedClf = totBlockMtgStartedClf;
+    }
+
+    public Integer getTotalDistrict() {
+        return totalDistrict;
+    }
+
+    public void setTotalDistrict(Integer totalDistrict) {
+        this.totalDistrict = totalDistrict;
+    }
+
+    public Integer getTotalBlock() {
+        return totalBlock;
+    }
+
+    public void setTotalBlock(Integer totalBlock) {
+        this.totalBlock = totalBlock;
+    }
+
+    public Integer getTotalGp() {
+        return totalGp;
+    }
+
+    public void setTotalGp(Integer totalGp) {
+        this.totalGp = totalGp;
+    }
+
+    public Integer getTotalVillage() {
+        return totalVillage;
+    }
+
+    public void setTotalVillage(Integer totalVillage) {
+        this.totalVillage = totalVillage;
     }
 }
 
