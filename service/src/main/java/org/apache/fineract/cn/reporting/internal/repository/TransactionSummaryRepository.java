@@ -124,13 +124,14 @@ public interface TransactionSummaryRepository extends JpaRepository<TransactionS
             @Param("clfId") final BigInteger clfId
     );
 
-    @Query(nativeQuery = true,value = "select  um.user_name B_K_Name,CAST(vm.village_id as int) village_id ,CAST(count(shg_id) as int) SHGsMapped, " +
-            "CAST(count(CASE WHEN to_char(sp.updated_date,'YYYY-MM')='2023-04' then shg_id end) as int) as shgUpdated from village_master vm inner join shg_profile sp on vm.village_id=sp.village_id " +
-            "inner join public.users_master um on " +
-            "um.user_id=sp.user_id " +
-            "where sp.status=1 and sp.is_active='true' and activation_status=2 and sp.user_id is not null " +
-            "and (vm.village_id=?1) " +
-            "group by vm.village_id,um.user_name")
+    @Query(nativeQuery = true,value = "select  um.user_name B_K_Name,CAST(vm.village_id as int) village_id ,CAST(count(shg_id) as int) SHGsMapped,      " +
+            " CAST(count(CASE WHEN to_char(sp.updated_date,'YYYY-MM')='2023-07' then shg_id end) as int) as shgUpdated    " +
+            " from village_master vm inner join shg_profile sp on vm.village_id=sp.village_id   " +
+            "inner join public.users_master um on     " +
+            "um.user_id=sp.user_id  and um.status='1'   " +
+            "where sp.status=1 and sp.is_active='true' and activation_status=2 and sp.user_id is not null  " +
+            "            and (vm.village_id=?1)  " +
+            "group by vm.village_id,um.user_name ")
     List<Object[]> fetchByVillageId(Integer villageId);
 
 }
