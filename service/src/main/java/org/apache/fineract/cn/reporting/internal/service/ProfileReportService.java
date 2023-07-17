@@ -146,9 +146,9 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[14] != null) {
                     responseMissionUnitLevel.setBlockThematicUser(new BigInteger(object[14].toString()));
                 }
-                if (object[15] != null){
-                    responseMissionUnitLevel.setUpdatedDate(object[15].toString());
-                }
+//                if (object[15] != null){
+//                    responseMissionUnitLevel.setUpdatedDate(object[15].toString());
+//                }
                 responseMissionUnitLevelList.add(responseMissionUnitLevel);
             }
         }else{
@@ -207,9 +207,9 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[12] != null) {
                     responseMissionUnitLevel.setDistrictId(new Integer (object[12].toString()));
                 }
-                if (object[13] != null) {
-                    responseMissionUnitLevel.setUpdatedDate(object[13].toString());
-                }
+//                if (object[13] != null) {
+//                    responseMissionUnitLevel.setUpdatedDate(object[13].toString());
+//                }
                 responseMissionUnitLevelList.add(responseMissionUnitLevel);
             }
         }else{
@@ -260,9 +260,9 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[4] != null) {
                     responseMissionUnitLevel.setBlockId(new Integer(object[4].toString()));
                 }
-                if (object[11] != null) {
-                    responseMissionUnitLevel.setUpdatedDate(object[11].toString());
-                }
+//                if (object[11] != null) {
+//                    responseMissionUnitLevel.setUpdatedDate(object[11].toString());
+//                }
                 responseMissionUnitLevelList.add(responseMissionUnitLevel);
             }
         }else{
@@ -314,9 +314,9 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[9] != null) {
                     responseBs.setIntBlockMore10sat(new Integer (object[9].toString()));
                 }
-                if (object[10] != null) {
-                    responseBs.setUpdatedDate(object[10].toString());
-                }
+//                if (object[10] != null) {
+//                    responseBs.setUpdatedDate(object[10].toString());
+//                }
                 responseBsList.add(responseBs);
             }
         }else{
@@ -376,9 +376,9 @@ public class ProfileReportService<profileReportEntity> {
                 if (object[11] != null) {
                     responseBs.setIntBlockMore10sat(new Integer (object[11].toString()));
                 }
-                if (object[12] != null) {
-                    responseBs.setUpdatedDate(object[12].toString());
-                }
+//                if (object[12] != null) {
+//                    responseBs.setUpdatedDate(object[12].toString());
+//                }
                 responseBsList.add(responseBs);
             }
         }else{

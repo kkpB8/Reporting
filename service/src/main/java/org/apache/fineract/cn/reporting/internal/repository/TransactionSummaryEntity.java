@@ -341,6 +341,8 @@ public class TransactionSummaryEntity {
     private Integer totalGp;
     @Column(name = "totalvillage")
     private Integer totalVillage;
+    @Column(name = "updated_date")
+    private String updatedDate;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1566,6 +1568,14 @@ public class TransactionSummaryEntity {
 
     public void setTotalVillage(Integer totalVillage) {
         this.totalVillage = totalVillage;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
 
