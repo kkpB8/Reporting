@@ -55,7 +55,7 @@ public class ResponseMissionUnitLevel {
     private BigInteger blockManager;
 
     private BigInteger blockThematicUser;
-    private String updatedDate;
+//    private String updatedDate;
     public String getState() {
         return state;
     }
@@ -192,11 +192,11 @@ public class ResponseMissionUnitLevel {
         this.blockThematicUser = blockThematicUser;
     }
 
-    public String getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(String updatedDate) {
-        this.updatedDate = updatedDate;
-    }
+//    public String getUpdatedDate() {
+//        return updatedDate;
+//    }
+//
+//    public void setUpdatedDate(String updatedDate) {
+//        this.updatedDate = updatedDate;
+//    }
 }

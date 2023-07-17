@@ -178,6 +178,7 @@ public class TransactionSummary {
     private Integer totalBlock;
     private Integer totalGp;
     private Integer totalVillage;
+    private String updatedDate;
     public Integer getShgAtten50p1() {
         return shgAtten50p1;
     }
@@ -1397,6 +1398,14 @@ public class TransactionSummary {
 
     public void setTotalVillage(Integer totalVillage) {
         this.totalVillage = totalVillage;
+    }
+
+    public String getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(String updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
 
