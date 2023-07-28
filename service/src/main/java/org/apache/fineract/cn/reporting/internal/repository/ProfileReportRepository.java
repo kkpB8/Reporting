@@ -83,7 +83,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "COUNT(CASE WHEN  age_block >10  THEN age_block end) as int_block_more_10, " +
             "COALESCE(SUM(CASE WHEN  age_block > 10 THEN is_saturated end),0) int_block_more_10_sat " +
 //            ", current_timestamp updated_date " +
-            "from tbl_summary where  year_month = ?1 and (?2 = -1 or state_id = ?2) and geographical_flag = 3  " +
+            "from reports.tbl_summary where  year_month = ?1 and (?2 = -1 or state_id = ?2) and geographical_flag = 3  " +
             "group by state_id, state_name, updated_date")
     List<Object[]> fetchBS(String yearMonth, Integer stateId);
     @Query(nativeQuery = true, value = "select state_id,state_name ,district_id,district_name,  " +
@@ -96,7 +96,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "COUNT(CASE WHEN  age_block >10  THEN age_block end) as int_block_more_10,  " +
             "COALESCE(SUM(CASE WHEN  age_block > 10 THEN is_saturated end),0) int_block_more_10_sat " +
 //            ", updated_date as updateddate " +
-            "from tbl_summary where  year_month= ?1 and (?2 = -1 or state_id = ?2) and (?3 = -1 or district_id = ?3) and geographical_flag = 3  " +
+            "from reports.tbl_summary where  year_month= ?1 and (?2 = -1 or state_id = ?2) and (?3 = -1 or district_id = ?3) and geographical_flag = 3  " +
             "group by state_id,state_name,district_id,district_name, updated_date")
     List<Object[]> fetchBSlist(String yearMonth, Integer stateId, Integer districtId);
 }
