@@ -439,6 +439,8 @@ public class SocialMobalizationEntity {
     private Integer allShgFormedMonth;
     @Column(name = "all_shg_members_joined_month")
     private Integer allShgMembersJoinedMonth;
+    @Column(name = "total_shg_mem")
+    private Integer totalShgMem;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -2097,6 +2099,14 @@ public class SocialMobalizationEntity {
 
     public void setAllShgMembersJoinedMonth(Integer allShgMembersJoinedMonth) {
         this.allShgMembersJoinedMonth = allShgMembersJoinedMonth;
+    }
+
+    public Integer getTotalShgMem() {
+        return totalShgMem;
+    }
+
+    public void setTotalShgMem(Integer totalShgMem) {
+        this.totalShgMem = totalShgMem;
     }
 }
 

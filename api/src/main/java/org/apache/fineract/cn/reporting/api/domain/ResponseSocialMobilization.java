@@ -212,6 +212,7 @@ public class ResponseSocialMobilization {
     private Integer allShgCount;
     private Integer allShgFormedMonth;
     private Integer allShgMembersJoinedMonth;
+    private Integer totalShgMem;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -1866,5 +1867,13 @@ public class ResponseSocialMobilization {
 
     public void setAllShgMembersJoinedMonth(Integer allShgMembersJoinedMonth) {
         this.allShgMembersJoinedMonth = allShgMembersJoinedMonth;
+    }
+
+    public Integer getTotalShgMem() {
+        return totalShgMem;
+    }
+
+    public void setTotalShgMem(Integer totalShgMem) {
+        this.totalShgMem = totalShgMem;
     }
 }
