@@ -107,4 +107,139 @@ public class ProfileReportApiRestController extends  BaseController{
             throw new BadRequestError(CustomStatus.INVALID_GEOGRAPHICAL_FLAGS_MSG);
         }
     }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/summaryReport",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseSummaryReportsDetail>>> getSummaryReportDetails(@RequestParam(value="stateId",required=false) final Integer stateId,
+                                                                                                  @RequestParam(value="districtId",required=false) final String districtId,
+                                                                                                  @RequestParam(value="blockId",required=false) final String blockId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getSummaryReportDetail(stateId,districtId,blockId)));
+    }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/shgDetails",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseShgDetails>>> getShgDetails(@RequestParam(value="stateId") final Integer stateId,
+                                                                              @RequestParam(value="districtId",required=false) final Integer districtId,
+                                                                              @RequestParam(value="blockId") final Integer blockId,
+                                                                              @RequestParam(value="villageId",required=false) final Integer villageId,
+                                                                              @RequestParam(value="panchayatId",required=false) final Integer panchayatId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getShgDetail(stateId,districtId,blockId,villageId,panchayatId)));
+    }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/memberDetails",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseMemberDetails>>> getMemberDetails(@RequestParam(value="stateId") final Integer stateId,
+                                                                                    @RequestParam(value="districtId",required=false) final Integer districtId,
+                                                                                    @RequestParam(value="blockId") final Integer blockId,
+                                                                                    @RequestParam(value="panchayatId",required=false) final Integer panchayatId,
+                                                                                    @RequestParam(value="villageId",required=false) final Integer villageId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getMemberDetail(stateId,districtId,blockId,panchayatId,villageId)));
+    }
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/getUserConsolidate",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseUserConsolidate>>> getUserConsolidate(@RequestParam(value="stateId",required=false) final Integer stateId,
+                                                                                        @RequestParam(value="districtId",required=false) final String districtId,
+                                                                                        @RequestParam(value="blockId",required=false) final String blockId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getUserConsolidateData(stateId,districtId,blockId)));
+    }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/voDetails",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseVODetails>>> getVODetails(@RequestParam(value="stateId") final Integer stateId,
+                                                                            @RequestParam(value="districtId",required=false) final Integer districtId,
+                                                                            @RequestParam(value="blockId") final Integer blockId,
+                                                                            @RequestParam(value="panchayatId",required=false) final Integer panchayatId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getVODetail(stateId,districtId,blockId,panchayatId)));
+    }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/clfDetails",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseClfDetails>>> getClfDetails(@RequestParam(value="stateId") final Integer stateId,
+                                                                              @RequestParam(value="districtId",required=false) final Integer districtId,
+                                                                              @RequestParam(value="blockId") final Integer blockId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getClfDetail(stateId,districtId,blockId)));
+    }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/userBKDetails",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseUserBKDetails>>> getUserBKDetails(@RequestParam(value="stateId") final Integer stateId,
+                                                                                    @RequestParam(value="districtId",required=false) final String districtId,
+                                                                                    @RequestParam(value="blockId") final String blockId,
+                                                                                    @RequestParam(value="panchayatId",required=false) final String panchayatId,
+                                                                                    @RequestParam(value="villageId",required=false) final String villageId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getUserBKDetails(stateId,districtId,blockId,panchayatId,villageId)));
+    }
+
+    @Permittable(value= AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/userBPMDetails",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseUserBPMDetails>>> getUserBPMDetails(@RequestParam(value="stateId") final Integer stateId,
+                                                                                      @RequestParam(value="districtId",required=false) final String districtId,
+                                                                                      @RequestParam(value="blockId") final String blockId) {
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getUserBPMDetails(stateId,districtId,blockId)));
+    }
+
 }
