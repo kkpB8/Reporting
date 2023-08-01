@@ -104,8 +104,8 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             // "d.district_name_en as District, "+
             // "b.block_name_en as Block, "+
             "c.category_name as TypeofCBO, "+
-            "count(CASE WHEN u.role_status=1 then u end ) as NoofBookkeepers,  "+
-            "count(sp)+count(fp)+count(fp1) as NoofMappedBookkeepers,  "+
+            "count(distinct CASE WHEN u.role_status=1 then u end ) as NoofBookkeepers,  "+
+            "count(distinct sp.uid) +count(fp)+count(fp1) as NoofMappedBookkeepers,  "+
             "((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+(COALESCE(tfp1.total_clf,0))) as TotalCBOCount, "+
             "(SUM(COALESCE(sp.shg_count,0))+SUM(COALESCE(fp.vo_count,0))+SUM(COALESCE(fp1.clf_count,0))) as CBOMappedCount, "+
             "case when ((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+(COALESCE(tfp1.total_clf,0)))>0  then round((((SUM(COALESCE(sp.shg_count,0))+SUM(COALESCE(fp.vo_count,0))+SUM(COALESCE(fp1.clf_count,0)))*100)/((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+(COALESCE(tfp1.total_clf,0))))::numeric,2) else 0 end "+
@@ -138,20 +138,19 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "inner join state_master s on s.state_id=u.state_id::int  "+
             "inner join district_master d on d.district_id::varchar=u.district_id "+
             "inner join block_master b on b.block_id::varchar=u.block_id "+
-            "left join (select sp.user_id,count(case when is_locked!=0 then sp.user_id end )as shg_count,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  "+
+            "left join (select sp.user_id,case when sp.is_locked!=0 then sp.user_id end  uid,count(case when is_locked!=0 then sp.user_id end )as shg_count,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  "+
             "sum(case when approve_status=2 then 1 else 0 end)shg_approved,sum(case when approve_status=1 then 1 else 0 end)shg_pending,  "+
             "sum(case when uploaded_by is null then 1 else 0 end)shg_verification_pending,sum(case when is_verified in (3,9) then 1 else 0 end)shg_verified, "+
-            "sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and is_edited!=1 "+
-            "and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_approved_bm, "+
-            "sum(case when uploaded_by is not null  and approve_status=3 and is_edited!=1 and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_rejected_bm, "+
-            "sum(case when (approve_status=1 or is_edited=1) and is_locked!=0 then 1 else 0 end) shg_pending_bm, "+
-            "sum(case when uploaded_by is null and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_pending_bk, "+
-            "sum(case when uploaded_by is not null and is_locked=0  then 1 else 0 end) shg_incomplete_bk, "+
+            "sum(case when  sp.activation_status=2 and sp.user_id is not null and sp.approve_status=2   and sp.is_locked!=0 then 1 else 0 end) shg_approved_bm , "+
+            "            sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=3   and sp.is_locked!=0 then 1 else 0 end) shg_rejected_bm ,  "+
+            "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=1   and sp.is_locked!=0 then 1 else 0 end) shg_pending_bm , "+
+            "sum(case when  approve_status=1   then 1 else 0 end) shg_pending_bk, "+
+            "sum(case when  is_locked=0   then 1 else 0 end) shg_incomplete_bk, "+
             "sum(case when nic_shg_code is not null and sp.is_locked!=0 then 1 else 0 end) shg_mapped_migrated, "+
             "sum(case when nic_shg_code is null and sp.is_locked!=0  then 1 else 0 end) shg_mapped_new "+
             "from shg_profile sp "+
             "inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null  "+
-            "where is_active=true  group by sp.user_id) sp  "+
+            "where is_active=true  group by sp.user_id,is_locked) sp  "+
             "on sp.user_id=u.user_id and u.role_id='310' "+
             "left join (select user_id,count(*)as vo_count, "+
             "sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and user_id is not null then 1 else 0 end) vo_approved_bm, "+
@@ -198,8 +197,8 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "d.district_name_en as District, "+
             //"b.block_name_en as Block, "+
             "c.category_name as TypeofCBO, "+
-            "count(CASE WHEN u.role_status=1 then u end ) as NoofBookkeepers ,  "+
-            "count(sp)+count(fp)+count(fp1) as NoofMappedBookkeepers,  "+
+            "count(distinct CASE WHEN u.role_status=1 then u end ) as NoofBookkeepers ,  "+
+            "count(distinct sp.uid) +count(fp)+count(fp1) as NoofMappedBookkeepers,  "+
             "((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+(COALESCE(tfp1.total_clf,0))) as TotalCBOCount, "+
             "(SUM(COALESCE(sp.shg_count,0))+SUM(COALESCE(fp.vo_count,0))+SUM(COALESCE(fp1.clf_count,0))) as CBOMappedCount, "+
             "case when ((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+(COALESCE(tfp1.total_clf,0)))>0 then "+
@@ -233,19 +232,18 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "inner join state_master s on s.state_id=u.state_id::int  "+
             "inner join district_master d on d.district_id::varchar=u.district_id "+
             "inner join block_master b on b.block_id::varchar=u.block_id "+
-            "left join (select sp.user_id,count(case when is_locked!=0 then sp.user_id end )as shg_count ,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  "+
+            "left join (select sp.user_id,case when sp.is_locked!=0 then sp.user_id end  uid ,count(case when is_locked!=0 then sp.user_id end )as shg_count ,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  "+
             "sum(case when approve_status=2 then 1 else 0 end)shg_approved,sum(case when approve_status=1 then 1 else 0 end)shg_pending,  "+
             "sum(case when uploaded_by is null then 1 else 0 end)shg_verification_pending,sum(case when is_verified in (3,9) then 1 else 0 end)shg_verified, "+
-            "sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and is_edited!=1  "+
-            "and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_approved_bm , "+
-            "sum(case when uploaded_by is not null  and approve_status=3 and is_edited!=1 and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_rejected_bm , "+
-            "sum(case when (approve_status=1 or is_edited=1) and is_locked!=0 then 1 else 0 end) shg_pending_bm , "+
-            "sum(case when uploaded_by is null and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_pending_bk, "+
-            "sum(case when uploaded_by is not null and is_locked=0  then 1 else 0 end) shg_incomplete_bk, "+
+            "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=2   and sp.is_locked!=0 then 1 else 0 end) shg_approved_bm , "+
+            "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=3   and sp.is_locked!=0 then 1 else 0 end) shg_rejected_bm , "+
+            "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=1   and sp.is_locked!=0 then 1 else 0 end) shg_pending_bm , "+
+            "sum(case when approve_status=1  then 1 else 0 end) shg_pending_bk, "+
+            "sum(case when is_locked=0 then 1 else 0 end) shg_incomplete_bk, "+
             "sum(case when nic_shg_code is not null and is_locked!=0 then 1 else 0 end) shg_mapped_migrated, "+
             "sum(case when nic_shg_code is null and is_locked!=0 then 1 else 0 end) shg_mapped_new "+
             "from shg_profile sp inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null "+
-            "where is_active=true  group by sp.user_id) sp  "+
+            "where is_active=true  group by sp.user_id , is_locked ) sp  "+
             "on sp.user_id=u.user_id and u.role_id='310' "+
             "left join (select user_id,count(*) as vo_count, "+
             "sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and user_id is not null then 1 else 0 end) vo_approved_bm, "+
@@ -289,7 +287,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
     List<Object[]> getSummaryReportDistrictDetails(String blockId, String districtId, Integer stateId);
 
     @Query(nativeQuery = true,value = "select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block,  " +
-            " c.category_name as TypeofCBO, count(CASE WHEN u.role_status=1 then u end ) as NoofBookkeepers ,  count(sp)+count(fp)+count(fp1)  " +
+            " c.category_name as TypeofCBO, count(distinct CASE WHEN u.role_status=1 then u end ) as NoofBookkeepers ,  count(distinct sp.uid)+count(fp)+count(fp1)  " +
             " as NoofMappedBookkeepers,  ((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0)) " +
             " +(COALESCE(tfp1.total_clf,0))) as TotalCBOCount, (SUM(COALESCE(sp.shg_count,0))+ " +
             " SUM(COALESCE(fp.vo_count,0))+SUM(COALESCE(fp1.clf_count,0))) as CBOMappedCount,  " +
@@ -307,13 +305,12 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             " sum(COALESCE(clf_pending_bk,0)) as CBOspendingwithBookkeeper, sum(COALESCE(shg_incomplete_bk,0))+sum(COALESCE(vo_incomplete_bk,0))+sum(COALESCE(clf_incomplete_bk,0)) as IncompleteCBOs, case when (SUM(COALESCE(sp.shg_count,0))+SUM(COALESCE(fp.vo_count,0))+SUM(COALESCE(fp1.clf_count,0)))>0 then  round((((sum(COALESCE(shg_approved_bm,0))+sum(COALESCE(vo_approved_bm,0))+sum(COALESCE(clf_approved_bm,0)))*100) /(SUM(COALESCE(sp.shg_count,0))+SUM(COALESCE(fp.vo_count,0))+SUM(COALESCE(fp1.clf_count,0))))::numeric,2) else 0 end PercentageApprovedMapped, case when ((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+ (COALESCE(tfp1.total_clf,0)))>0 then round((((sum(COALESCE(shg_approved_bm,0))+sum(COALESCE(vo_approved_bm,0))+ sum(COALESCE (clf_approved_bm,0)))*100)/((COALESCE(tsp.total_shg,0))+(COALESCE(tfp.total_vo,0))+ (COALESCE(tfp1.total_clf,0))))::numeric,2) else 0 end PercentageApprovedOverall   from user_role_rights_map u inner join user_category c on c.category_id=u.category_id  inner join users_master usm on usm.user_id=u.user_id  inner join state_master s on s.state_id=u.state_id::int  inner join district_master d on d.district_id::varchar=u.district_id inner join block_master b on b.block_id::varchar=u.block_id  " +
             "  left join (select user_id,count(*)as clf_count, sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and user_id is not null then 1 else 0 end) clf_approved_bm, sum(case when uploaded_by is not null  and approve_status=3 and user_id is not null then 1 else 0 end) clf_rejected_bm, sum(case when approve_status=1 then 1 else 0 end) clf_pending_bm, sum(case when uploaded_by is null and user_id is not null then 1 else 0 end) clf_pending_bk, sum(case when approve_status is null then 1 else 0 end) clf_incomplete_bk, sum(case when vo_nic_code is not null then 1 else 0 end) clf_mapped_migrated, sum(case when vo_nic_code is null then 1 else 0 end) clf_mapped_new from federation_profile where is_active=true and cbo_type=2  group by user_id) fp1  on fp1.user_id=u.user_id and u.role_id='510' " +
             " left join (select user_id,count(*)as vo_count, sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and user_id is not null then 1 else 0 end) vo_approved_bm, sum(case when uploaded_by is not null  and approve_status=3 and user_id is not null then 1 else 0 end) vo_rejected_bm, sum(case when approve_status=1 then 1 else 0 end) vo_pending_bm, sum(case when uploaded_by is null and user_id is not null then 1 else 0 end) vo_pending_bk, sum(case when approve_status is null then 1 else 0 end) vo_incomplete_bk, sum(case when vo_nic_code is not null then 1 else 0 end) vo_mapped_migrated, sum(case when vo_nic_code is null then 1 else 0 end) vo_mapped_new from federation_profile where is_active=true and cbo_type=1  group by user_id) fp  on fp.user_id=u.user_id and u.role_id='410'  " +
-            " left join (select sp.user_id,count(case when is_locked!=0 then sp.user_id end )as shg_count,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  sum(case when approve_status=2 then 1 else 0 end)shg_approved,sum(case when approve_status=1 then 1 else 0 end)shg_pending,  sum(case when uploaded_by is null then 1 else 0 end)shg_verification_pending,sum(case when is_verified in (3,9) then 1 else 0 end)shg_verified, sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and is_edited!=1 " +
-            " and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_approved_bm ,sum(case when uploaded_by is not null  and approve_status=3 and is_edited!=1 and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_rejected_bm , sum(case when (approve_status=1 or is_edited=1) and is_locked!=0 then 1 else 0 end) shg_pending_bm , sum(case when uploaded_by is null and is_locked!=0 and sp.user_id is not null then 1 else 0 end) shg_pending_bk, " +
-            " sum(case when uploaded_by is not null and is_locked=0  then 1 else 0 end) shg_incomplete_bk, " +
+            " left join (select sp.user_id,case when sp.is_locked!=0 then sp.user_id end  uid , count(case when is_locked!=0 then sp.user_id end )as shg_count,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  sum(case when approve_status=2 then 1 else 0 end)shg_approved,sum(case when approve_status=1 then 1 else 0 end)shg_pending,  sum(case when uploaded_by is null then 1 else 0 end)shg_verification_pending,sum(case when is_verified in (3,9) then 1 else 0 end)shg_verified, sum(case when  sp.activation_status=2 and sp.user_id is not null and sp.approve_status=2   and sp.is_locked!=0 then 1 else 0 end) shg_approved_bm ,sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=3   and sp.is_locked!=0 then 1 else 0 end) shg_rejected_bm , sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=1   and sp.is_locked!=0 then 1 else 0 end) shg_pending_bm , sum(case when approve_status=1 then 1 else 0 end) shg_pending_bk, " +
+            " sum(case when is_locked=0  then 1 else 0 end) shg_incomplete_bk, " +
             " sum(case when nic_shg_code is not null and is_locked!=0 then 1 else 0 end) shg_mapped_migrated, " +
             " sum(case when nic_shg_code is null and is_locked!=0 then 1 else 0 end) shg_mapped_new from shg_profile sp " +
             " inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null  " +
-            " where sp.is_active=true  and sp.is_locked!=0  group by sp.user_id) sp  on sp.user_id=u.user_id and u.role_id='310'  " +
+            " where sp.is_active=true   group by sp.user_id , is_locked) sp  on sp.user_id=u.user_id and u.role_id='310'  " +
             " left join (select COUNT(*) as total_shg from shg_profile sp  inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null " +
             " where sp.is_locked!=0 and sp.is_active=true and ( ?1 is null or block_id::varchar= ?1)  "+
             " and ( ?2 is null or district_id::varchar= ?2) and (?3 =- 1 or state_id::int=?3)  " +

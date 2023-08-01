@@ -1,5 +1,6 @@
 package org.apache.fineract.cn.reporting.api.domain;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class ResponseSummaryReportsDetail {
@@ -19,7 +20,7 @@ public class ResponseSummaryReportsDetail {
 
     private Integer cBOMappedCount ;
 
-    private Integer cBOMappedPercentage;
+    private String cBOMappedPercentage;
 
     private Integer cBOsMappedMigrated;
 
@@ -36,9 +37,9 @@ public class ResponseSummaryReportsDetail {
 
 
 
-    private Integer percentageApprovedOverall;
+    private String percentageApprovedOverall;
 
-    private Integer percentageApprovedMapped;
+    private String percentageApprovedMapped;
 
     public String getState() {
         return state;
@@ -104,13 +105,13 @@ public class ResponseSummaryReportsDetail {
         this.cBOMappedCount = cBOMappedCount;
     }
 
-    public Integer getcBOMappedPercentage() {
-        return cBOMappedPercentage;
-    }
+//    public Integer getcBOMappedPercentage() {
+//        return cBOMappedPercentage;
+//    }
 
-    public void setcBOMappedPercentage(Integer cBOMappedPercentage) {
-        this.cBOMappedPercentage = cBOMappedPercentage;
-    }
+//    public void setcBOMappedPercentage(Float cBOMappedPercentage) {
+//        this.cBOMappedPercentage = cBOMappedPercentage;
+//    }
 
     public Integer getcBOsMappedMigrated() {
         return cBOsMappedMigrated;
@@ -160,19 +161,19 @@ public class ResponseSummaryReportsDetail {
         this.CBOsPendingwithBookkeeper = CBOsPendingwithBookkeeper;
     }
 
-    public Integer getPercentageApprovedOverall() {
+    public String getPercentageApprovedOverall() {
         return percentageApprovedOverall;
     }
 
-    public void setPercentageApprovedOverall(Integer percentageApprovedOverall) {
+    public void setPercentageApprovedOverall(String percentageApprovedOverall) {
         this.percentageApprovedOverall = percentageApprovedOverall;
     }
 
-    public Integer getPercentageApprovedMapped() {
+    public String getPercentageApprovedMapped() {
         return percentageApprovedMapped;
     }
 
-    public void setPercentageApprovedMapped(Integer percentageApprovedMapped) {
+    public void setPercentageApprovedMapped(String percentageApprovedMapped) {
         this.percentageApprovedMapped = percentageApprovedMapped;
     }
 
@@ -182,6 +183,17 @@ public class ResponseSummaryReportsDetail {
 
     public void setIncompleteCBOs(Integer incompleteCBOs) {
         this.incompleteCBOs = incompleteCBOs;
+    }
+
+    public void setcBOMappedPercentage(float floatValue) {
+    }
+
+    public String getcBOMappedPercentage() {
+        return cBOMappedPercentage;
+    }
+
+    public void setcBOMappedPercentage(String cBOMappedPercentage) {
+        this.cBOMappedPercentage = cBOMappedPercentage;
     }
 }
 
