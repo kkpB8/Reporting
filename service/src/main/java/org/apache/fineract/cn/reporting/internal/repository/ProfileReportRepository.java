@@ -145,7 +145,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "            sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=3   and sp.is_locked!=0 then 1 else 0 end) shg_rejected_bm ,  "+
             "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=1   and sp.is_locked!=0 then 1 else 0 end) shg_pending_bm , "+
             "sum(case when  approve_status=1   then 1 else 0 end) shg_pending_bk, "+
-            "sum(case when  is_locked=0   then 1 else 0 end) shg_incomplete_bk, "+
+            "sum(case when  is_locked=0 and is_complete=0  then 1 else 0 end) shg_incomplete_bk, "+
             "sum(case when nic_shg_code is not null and sp.is_locked!=0 then 1 else 0 end) shg_mapped_migrated, "+
             "sum(case when nic_shg_code is null and sp.is_locked!=0  then 1 else 0 end) shg_mapped_new "+
             "from shg_profile sp "+
@@ -239,7 +239,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=3   and sp.is_locked!=0 then 1 else 0 end) shg_rejected_bm , "+
             "sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=1   and sp.is_locked!=0 then 1 else 0 end) shg_pending_bm , "+
             "sum(case when approve_status=1  then 1 else 0 end) shg_pending_bk, "+
-            "sum(case when is_locked=0 then 1 else 0 end) shg_incomplete_bk, "+
+            "sum(case when is_locked=0  and is_complete=0 then 1 else 0 end) shg_incomplete_bk, "+
             "sum(case when nic_shg_code is not null and is_locked!=0 then 1 else 0 end) shg_mapped_migrated, "+
             "sum(case when nic_shg_code is null and is_locked!=0 then 1 else 0 end) shg_mapped_new "+
             "from shg_profile sp inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null "+
@@ -306,7 +306,7 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "  left join (select user_id,count(*)as clf_count, sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and user_id is not null then 1 else 0 end) clf_approved_bm, sum(case when uploaded_by is not null  and approve_status=3 and user_id is not null then 1 else 0 end) clf_rejected_bm, sum(case when approve_status=1 then 1 else 0 end) clf_pending_bm, sum(case when uploaded_by is null and user_id is not null then 1 else 0 end) clf_pending_bk, sum(case when approve_status is null then 1 else 0 end) clf_incomplete_bk, sum(case when vo_nic_code is not null then 1 else 0 end) clf_mapped_migrated, sum(case when vo_nic_code is null then 1 else 0 end) clf_mapped_new from federation_profile where is_active=true and cbo_type=2  group by user_id) fp1  on fp1.user_id=u.user_id and u.role_id='510' " +
             " left join (select user_id,count(*)as vo_count, sum(case when uploaded_by is not null and activation_status=2 and approve_status=2 and user_id is not null then 1 else 0 end) vo_approved_bm, sum(case when uploaded_by is not null  and approve_status=3 and user_id is not null then 1 else 0 end) vo_rejected_bm, sum(case when approve_status=1 then 1 else 0 end) vo_pending_bm, sum(case when uploaded_by is null and user_id is not null then 1 else 0 end) vo_pending_bk, sum(case when approve_status is null then 1 else 0 end) vo_incomplete_bk, sum(case when vo_nic_code is not null then 1 else 0 end) vo_mapped_migrated, sum(case when vo_nic_code is null then 1 else 0 end) vo_mapped_new from federation_profile where is_active=true and cbo_type=1  group by user_id) fp  on fp.user_id=u.user_id and u.role_id='410'  " +
             " left join (select sp.user_id,case when sp.is_locked!=0 then sp.user_id end  uid , count(case when is_locked!=0 then sp.user_id end )as shg_count,sum(case when activation_status=2 then 1 else 0 end)shg_activated,  sum(case when approve_status=2 then 1 else 0 end)shg_approved,sum(case when approve_status=1 then 1 else 0 end)shg_pending,  sum(case when uploaded_by is null then 1 else 0 end)shg_verification_pending,sum(case when is_verified in (3,9) then 1 else 0 end)shg_verified, sum(case when  sp.activation_status=2 and sp.user_id is not null and sp.approve_status=2   and sp.is_locked!=0 then 1 else 0 end) shg_approved_bm ,sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=3   and sp.is_locked!=0 then 1 else 0 end) shg_rejected_bm , sum(case when sp.activation_status=2 and sp.user_id is not null and sp.approve_status=1   and sp.is_locked!=0 then 1 else 0 end) shg_pending_bm , sum(case when approve_status=1 then 1 else 0 end) shg_pending_bk, " +
-            " sum(case when is_locked=0  then 1 else 0 end) shg_incomplete_bk, " +
+            " sum(case when is_locked=0  and is_complete=0 then 1 else 0 end) shg_incomplete_bk, " +
             " sum(case when nic_shg_code is not null and is_locked!=0 then 1 else 0 end) shg_mapped_migrated, " +
             " sum(case when nic_shg_code is null and is_locked!=0 then 1 else 0 end) shg_mapped_new from shg_profile sp " +
             " inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null  " +
