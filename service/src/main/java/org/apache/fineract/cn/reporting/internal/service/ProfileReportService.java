@@ -30,6 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -426,8 +427,8 @@ public class ProfileReportService<profileReportEntity> {
                         responseSummaryReport1.setcBOMappedCount(((Number) summaryReport[7]).intValue());
                     }
                     if (summaryReport[8] != null) {
-                        Float x = ((Number) summaryReport[8]).floatValue();
-                        responseSummaryReport1.setcBOMappedPercentage(Math.round(x));
+//                        Float x = ((Number) summaryReport[8]).floatValue();
+                        responseSummaryReport1.setcBOMappedPercentage(summaryReport[8].toString());
                     }
                     if (summaryReport[9] != null) {
                         responseSummaryReport1.setcBOsMappedMigrated(((Number) summaryReport[9]).intValue());
@@ -451,12 +452,12 @@ public class ProfileReportService<profileReportEntity> {
                         responseSummaryReport1.setIncompleteCBOs(((Number) summaryReport[15]).intValue());
                     }
                     if (summaryReport[16] != null) {
-                        Float x = ((Number) summaryReport[16]).floatValue();
-                        responseSummaryReport1.setPercentageApprovedMapped(Math.round(x));
+//                        Float x = ((Number) summaryReport[16]).floatValue();
+                        responseSummaryReport1.setPercentageApprovedMapped(summaryReport[16].toString());
                     }
                     if (summaryReport[17] != null) {
-                        Float x = ((Number) summaryReport[17]).floatValue();
-                        responseSummaryReport1.setPercentageApprovedOverall(Math.round(x));
+//                        Float x = ((Number) summaryReport[17]).floatValue();
+                        responseSummaryReport1.setPercentageApprovedOverall(summaryReport[17].toString());
                     }
                     responseSummaryReportList.add(responseSummaryReport1);
                 }
@@ -489,8 +490,7 @@ public class ProfileReportService<profileReportEntity> {
                         responseSummaryReport1.setcBOMappedCount(((Number) summaryReport[5]).intValue());
                     }
                     if (summaryReport[6] != null) {
-                        Float x = ((Number) summaryReport[6]).floatValue();
-                        responseSummaryReport1.setcBOMappedPercentage(Math.round(x));
+                        responseSummaryReport1.setcBOMappedPercentage(summaryReport[6].toString());
                     }
                     if (summaryReport[7] != null) {
                         responseSummaryReport1.setcBOsMappedMigrated(((Number) summaryReport[7]).intValue());
@@ -514,12 +514,10 @@ public class ProfileReportService<profileReportEntity> {
                         responseSummaryReport1.setIncompleteCBOs(((Number) summaryReport[13]).intValue());
                     }
                     if (summaryReport[14] != null) {
-                        Float x = ((Number) summaryReport[14]).floatValue();
-                        responseSummaryReport1.setPercentageApprovedMapped(Math.round(x));
+                        responseSummaryReport1.setPercentageApprovedMapped(summaryReport[14].toString());
                     }
                     if (summaryReport[15] != null) {
-                        Float x = ((Number) summaryReport[15]).floatValue();
-                        responseSummaryReport1.setPercentageApprovedOverall(Math.round(x));
+                        responseSummaryReport1.setPercentageApprovedOverall(summaryReport[15].toString());
                     }
                     responseSummaryReportList.add(responseSummaryReport1);
                 }
@@ -555,8 +553,7 @@ public class ProfileReportService<profileReportEntity> {
                         responseSummaryReport1.setcBOMappedCount(((Number) summaryReport[6]).intValue());
                     }
                     if (summaryReport[7] != null) {
-                        Float x = ((Number) summaryReport[7]).floatValue();
-                        responseSummaryReport1.setcBOMappedPercentage(Math.round(x));
+                        responseSummaryReport1.setcBOMappedPercentage(summaryReport[7].toString());
                     }
                     if (summaryReport[8] != null) {
                         responseSummaryReport1.setcBOsMappedMigrated(((Number) summaryReport[8]).intValue());
@@ -580,12 +577,10 @@ public class ProfileReportService<profileReportEntity> {
                         responseSummaryReport1.setIncompleteCBOs(((Number) summaryReport[14]).intValue());
                     }
                     if (summaryReport[15] != null) {
-                        Float x = ((Number) summaryReport[15]).floatValue();
-                        responseSummaryReport1.setPercentageApprovedMapped(Math.round(x));
+                        responseSummaryReport1.setPercentageApprovedMapped(summaryReport[15].toString());
                     }
                     if (summaryReport[16] != null) {
-                        Float x = ((Number) summaryReport[16]).floatValue();
-                        responseSummaryReport1.setPercentageApprovedOverall(Math.round(x));
+                        responseSummaryReport1.setPercentageApprovedOverall(summaryReport[16].toString());
                     }
 
                     responseSummaryReportList.add(responseSummaryReport1);
