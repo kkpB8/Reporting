@@ -19,6 +19,7 @@
 package org.apache.fineract.cn.reporting.internal.service;
 
 
+import jnr.ffi.annotations.In;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
 import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
@@ -39,13 +40,15 @@ import java.util.List;
 public class ProfileReportService<profileReportEntity> {
     private final Logger logger;
     private final ProfileReportRepository profileReportRepository;
-
+    private final PGFunctionProcedureService pgFunctionProcedureService;
     @Autowired
     public ProfileReportService(@Qualifier(ServiceConstants.LOGGER_NAME) final Logger logger,
-                                final ProfileReportRepository profileReportRepository) {
+                                final ProfileReportRepository profileReportRepository,
+                                final PGFunctionProcedureService pgFunctionProcedureService) {
         super();
         this.logger = logger;
         this.profileReportRepository = profileReportRepository;
+        this.pgFunctionProcedureService = pgFunctionProcedureService;
 
     }
 
@@ -748,7 +751,7 @@ public class ProfileReportService<profileReportEntity> {
                     responseUserConsolidate1.setUserRoleName(userConsolidate[1].toString());
                 }
                 if (userConsolidate[2] != null) {
-                    responseUserConsolidate1.setCount((Long) (userConsolidate[2]));
+                    responseUserConsolidate1.setCount((Integer) (userConsolidate[2]));
                 }
                 responseUserConsolidateList.add(responseUserConsolidate1);
             }
@@ -975,4 +978,10 @@ public class ProfileReportService<profileReportEntity> {
         return responseUserBPMDetailsList;
     }
 
+    public List<ProgressiveResponse> getProgressiveReport(String geographicalFlag, String stateId, String districtId, String blockId, String tenantIdentifier) {
+        return pgFunctionProcedureService.functionProgressiveReport(geographicalFlag, stateId, districtId, blockId, tenantIdentifier);
+    }
+    public List<ResponseUserConsolidate> getConsolidateData(String geographicalFlag, String stateId, String districtId, String blockId, String tenantIdentifier) {
+        return pgFunctionProcedureService.functionConsolidateData(geographicalFlag, stateId, districtId, blockId, tenantIdentifier);
+    }
 }
