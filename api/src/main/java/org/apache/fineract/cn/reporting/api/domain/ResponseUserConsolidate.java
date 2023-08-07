@@ -5,7 +5,7 @@ public class ResponseUserConsolidate {
 
     private String userRoleName;
 
-    private Long count;
+    private Integer count;
 
     public String getState() {
         return state;
@@ -23,11 +23,19 @@ public class ResponseUserConsolidate {
         this.userRoleName = userRoleName;
     }
 
-    public Long getCount() {
+//    public Long getCount() {
+//        return count;
+//    }
+//
+//    public void setCount(Long count) {
+//        this.count = count;
+//    }
+
+    public Integer getCount() {
         return count;
     }
 
-    public void setCount(Long count) {
+    public void setCount(Integer count) {
         this.count = count;
     }
 }

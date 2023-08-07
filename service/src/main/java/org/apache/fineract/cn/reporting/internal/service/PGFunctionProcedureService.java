@@ -1312,4 +1312,78 @@ public class PGFunctionProcedureService {
         }
         return shgsSavingResponseList;
     }
+
+    public List<ProgressiveResponse> functionProgressiveReport(String geographicalFlag, String stateId, String districtId,String blockId,String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<ProgressiveResponse> progressiveResponseList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_progressreport_realtime (?,?,?,?)}");
+            stmt.setString(1, geographicalFlag);
+            stmt.setString(2, stateId);
+            stmt.setString(3, districtId);
+            stmt.setString(4, blockId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ProgressiveResponse progressiveResponse =new ProgressiveResponse();
+                progressiveResponse.setState(rs.getString("state_name"));
+                progressiveResponse.setDistrict(rs.getString("district_name"));
+                progressiveResponse.setBlock(rs.getString("block_name"));
+                progressiveResponse.setTypeOfCbo(rs.getString("typeofcbo"));;
+                progressiveResponse.setTotalNoOfBookKeepers(rs.getInt("noofbookkeepers"));
+                progressiveResponse.setNoOfBookkeepersWithMappedCBO(rs.getInt("noofmappedbookkeepers"));
+                progressiveResponse.setTotalCBOCount(rs.getInt("totalcbocount"));
+                progressiveResponse.setcBOMappedCount(rs.getInt("cbomappedcount"));
+                progressiveResponse.setcBOMappedPercentage(rs.getString("cbomappedpercentage"));
+                progressiveResponse.setcBOsMappedMigrated(rs.getInt("cbosmappedmigrated"));
+                progressiveResponse.setNewCBOsMapped(rs.getInt("newcbosmapped"));
+                progressiveResponse.setcBOsApprovedbyBM(rs.getInt("cbosapprovedbybm"));
+                progressiveResponse.setcBOsRejectedbyBM(rs.getInt("cbosrejectedbybm"));
+                progressiveResponse.setCBOsPendingwithBM(rs.getInt("cbospendingwithbm"));
+                progressiveResponse.setCBOsPendingwithBookkeeper(rs.getInt("cbospendingwithbookkeeper"));
+                progressiveResponse.setIncompleteCBOs(rs.getInt("incompletecbos"));
+                progressiveResponse.setPercentageApprovedMapped(rs.getString("percentageapprovedmapped"));
+                progressiveResponse.setPercentageApprovedOverall(rs.getString("percentageapprovedoverall"));
+                progressiveResponseList.add(progressiveResponse);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_progressreport_realtime (?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_progressreport_realtime (?,?,?,?) Failed!");
+        }
+        return progressiveResponseList;
+    }
+    public List<ResponseUserConsolidate> functionConsolidateData(String geographicalFlag, String stateId, String districtId,String blockId,String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<ResponseUserConsolidate> responseUserConsolidateList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_progressreport_realtime_user (?,?,?,?)}");
+            stmt.setString(1, geographicalFlag);
+            stmt.setString(2, stateId);
+            stmt.setString(3, districtId);
+            stmt.setString(4, blockId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ResponseUserConsolidate responseUserConsolidate =new ResponseUserConsolidate();
+                responseUserConsolidate.setState(rs.getString("state_name"));
+                responseUserConsolidate.setUserRoleName(rs.getString("userrolename"));
+                responseUserConsolidate.setCount(rs.getInt("svl_cnt"));;
+                responseUserConsolidateList.add(responseUserConsolidate);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Procedure fn_progressreport_realtime_user(?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Procedure fn_progressreport_realtime_user(?,?,?,?) Failed!");
+        }
+        return responseUserConsolidateList;
+    }
 }

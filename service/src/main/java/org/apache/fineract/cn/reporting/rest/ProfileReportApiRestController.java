@@ -1,5 +1,6 @@
 package org.apache.fineract.cn.reporting.rest;
 
+import jnr.ffi.annotations.In;
 import org.apache.fineract.cn.anubis.annotation.AcceptedTokenType;
 import org.apache.fineract.cn.anubis.annotation.Permittable;
 import org.apache.fineract.cn.reporting.ServiceConstants;
@@ -15,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -242,4 +244,49 @@ public class ProfileReportApiRestController extends  BaseController{
                 this.profileReportService.getUserBPMDetails(stateId,districtId,blockId)));
     }
 
+    @Permittable(value = AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/progressive-report",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ProgressiveResponse>>> getProgressiveReport(@RequestParam String geographicalFlag,
+                                                                                          @RequestParam String stateId,
+                                                                                          @RequestParam String districtId,
+                                                                                          @RequestParam String blockId,
+                                                                                          HttpServletRequest httpServletRequest) {
+        if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
+            this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+            throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+        }
+        String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getProgressiveReport(geographicalFlag,stateId, districtId, blockId, tenantIdentifier)));
+    }
+
+    @Permittable(value = AcceptedTokenType.GUEST)
+    @RequestMapping(
+            value = "/user-report",
+            method = RequestMethod.GET,
+            consumes = MediaType.ALL_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public
+    @ResponseBody
+    ResponseEntity<GlobalApiResponse<List<ResponseUserConsolidate>>> getConsolidateData(@RequestParam String geographicalFlag,
+                                                                                       @RequestParam String stateId,
+                                                                                       @RequestParam String districtId,
+                                                                                       @RequestParam String blockId,
+                                                                                       HttpServletRequest httpServletRequest) {
+        if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
+            this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+            throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+        }
+        String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+                this.profileReportService.getConsolidateData(geographicalFlag,stateId, districtId, blockId, tenantIdentifier)));
+    }
 }
