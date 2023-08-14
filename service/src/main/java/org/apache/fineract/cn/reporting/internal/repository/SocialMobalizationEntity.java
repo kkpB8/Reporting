@@ -521,6 +521,32 @@ public class SocialMobalizationEntity {
     private Integer approvedLokClfVoShgBpm;
     @Column(name = "rejected_lok_clfvoshg_bpm")
     private Integer rejectedLokClfVoShgBpm;
+    @Column(name = "mem_manrega")
+    private Integer memManrega;
+    @Column(name = "mem_pmay")
+    private Integer memPmay;
+    @Column(name = "mem_secc")
+    private Integer memSecc;
+    @Column(name = "vo_under_nrlm")
+    private Integer voUnderNrlm;
+    @Column(name = "vo_shg_under_nrlm")
+    private Integer voShgUnderNrlm;
+    @Column(name = "vo_under_state_project")
+    private Integer voUnderStateProject;
+    @Column(name = "vo_shg_under_state_project")
+    private Integer voShgUnderStateProject;
+    @Column(name = "clf_nrlm")
+    private Integer clfNrlm;
+    @Column(name = "clf_vo_nrlm")
+    private Integer clfVoNrlm;
+    @Column(name = "clf_vo_shg_nrlm")
+    private Integer clfVoShgNrlm;
+    @Column(name = "clf_state_project")
+    private Integer clfStateProject;
+    @Column(name = "clf_vo_state_project")
+    private Integer clfVoStateProject;
+    @Column(name = "clf_vo_shg_state_project")
+    private Integer clfVoShgStateProject;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -2507,6 +2533,110 @@ public class SocialMobalizationEntity {
 
     public void setRejectedLokClfVoShgBpm(Integer rejectedLokClfVoShgBpm) {
         this.rejectedLokClfVoShgBpm = rejectedLokClfVoShgBpm;
+    }
+
+    public Integer getMemManrega() {
+        return memManrega;
+    }
+
+    public void setMemManrega(Integer memManrega) {
+        this.memManrega = memManrega;
+    }
+
+    public Integer getMemPmay() {
+        return memPmay;
+    }
+
+    public void setMemPmay(Integer memPmay) {
+        this.memPmay = memPmay;
+    }
+
+    public Integer getMemSecc() {
+        return memSecc;
+    }
+
+    public void setMemSecc(Integer memSecc) {
+        this.memSecc = memSecc;
+    }
+
+    public Integer getVoUnderNrlm() {
+        return voUnderNrlm;
+    }
+
+    public void setVoUnderNrlm(Integer voUnderNrlm) {
+        this.voUnderNrlm = voUnderNrlm;
+    }
+
+    public Integer getVoShgUnderNrlm() {
+        return voShgUnderNrlm;
+    }
+
+    public void setVoShgUnderNrlm(Integer voShgUnderNrlm) {
+        this.voShgUnderNrlm = voShgUnderNrlm;
+    }
+
+    public Integer getVoUnderStateProject() {
+        return voUnderStateProject;
+    }
+
+    public void setVoUnderStateProject(Integer voUnderStateProject) {
+        this.voUnderStateProject = voUnderStateProject;
+    }
+
+    public Integer getVoShgUnderStateProject() {
+        return voShgUnderStateProject;
+    }
+
+    public void setVoShgUnderStateProject(Integer voShgUnderStateProject) {
+        this.voShgUnderStateProject = voShgUnderStateProject;
+    }
+
+    public Integer getClfNrlm() {
+        return clfNrlm;
+    }
+
+    public void setClfNrlm(Integer clfNrlm) {
+        this.clfNrlm = clfNrlm;
+    }
+
+    public Integer getClfVoNrlm() {
+        return clfVoNrlm;
+    }
+
+    public void setClfVoNrlm(Integer clfVoNrlm) {
+        this.clfVoNrlm = clfVoNrlm;
+    }
+
+    public Integer getClfVoShgNrlm() {
+        return clfVoShgNrlm;
+    }
+
+    public void setClfVoShgNrlm(Integer clfVoShgNrlm) {
+        this.clfVoShgNrlm = clfVoShgNrlm;
+    }
+
+    public Integer getClfStateProject() {
+        return clfStateProject;
+    }
+
+    public void setClfStateProject(Integer clfStateProject) {
+        this.clfStateProject = clfStateProject;
+    }
+
+    public Integer getClfVoStateProject() {
+        return clfVoStateProject;
+    }
+
+    public void setClfVoStateProject(Integer clfVoStateProject) {
+        this.clfVoStateProject = clfVoStateProject;
+    }
+
+    public Integer getClfVoShgStateProject() {
+        return clfVoShgStateProject;
+    }
+
+    public void setClfVoShgStateProject(Integer clfVoShgStateProject) {
+        this.clfVoShgStateProject = clfVoShgStateProject;
     }
 }
 

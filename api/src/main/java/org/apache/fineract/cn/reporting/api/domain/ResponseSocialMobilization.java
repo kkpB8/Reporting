@@ -1,5 +1,7 @@
 package org.apache.fineract.cn.reporting.api.domain;
 
+import javax.persistence.Column;
+
 public class ResponseSocialMobilization {
 
     private Integer totalRuralHouseholds;
@@ -250,6 +252,19 @@ public class ResponseSocialMobilization {
     private Integer pendingLokClfVoShgBpm;
     private Integer approvedLokClfVoShgBpm;
     private Integer rejectedLokClfVoShgBpm;
+    private Integer memManrega;
+    private Integer memPmay;
+    private Integer memSecc;
+    private Integer voUnderNrlm;
+    private Integer voShgUnderNrlm;
+    private Integer voUnderStateProject;
+    private Integer voShgUnderStateProject;
+    private Integer clfNrlm;
+    private Integer clfVoNrlm;
+    private Integer clfVoShgNrlm;
+    private Integer clfStateProject;
+    private Integer clfVoStateProject;
+    private Integer clfVoShgStateProject;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -2232,5 +2247,109 @@ public class ResponseSocialMobilization {
 
     public void setRejectedLokClfVoShgBpm(Integer rejectedLokClfVoShgBpm) {
         this.rejectedLokClfVoShgBpm = rejectedLokClfVoShgBpm;
+    }
+
+    public Integer getMemManrega() {
+        return memManrega;
+    }
+
+    public void setMemManrega(Integer memManrega) {
+        this.memManrega = memManrega;
+    }
+
+    public Integer getMemPmay() {
+        return memPmay;
+    }
+
+    public void setMemPmay(Integer memPmay) {
+        this.memPmay = memPmay;
+    }
+
+    public Integer getMemSecc() {
+        return memSecc;
+    }
+
+    public void setMemSecc(Integer memSecc) {
+        this.memSecc = memSecc;
+    }
+
+    public Integer getVoUnderNrlm() {
+        return voUnderNrlm;
+    }
+
+    public void setVoUnderNrlm(Integer voUnderNrlm) {
+        this.voUnderNrlm = voUnderNrlm;
+    }
+
+    public Integer getVoShgUnderNrlm() {
+        return voShgUnderNrlm;
+    }
+
+    public void setVoShgUnderNrlm(Integer voShgUnderNrlm) {
+        this.voShgUnderNrlm = voShgUnderNrlm;
+    }
+
+    public Integer getVoUnderStateProject() {
+        return voUnderStateProject;
+    }
+
+    public void setVoUnderStateProject(Integer voUnderStateProject) {
+        this.voUnderStateProject = voUnderStateProject;
+    }
+
+    public Integer getVoShgUnderStateProject() {
+        return voShgUnderStateProject;
+    }
+
+    public void setVoShgUnderStateProject(Integer voShgUnderStateProject) {
+        this.voShgUnderStateProject = voShgUnderStateProject;
+    }
+
+    public Integer getClfNrlm() {
+        return clfNrlm;
+    }
+
+    public void setClfNrlm(Integer clfNrlm) {
+        this.clfNrlm = clfNrlm;
+    }
+
+    public Integer getClfVoNrlm() {
+        return clfVoNrlm;
+    }
+
+    public void setClfVoNrlm(Integer clfVoNrlm) {
+        this.clfVoNrlm = clfVoNrlm;
+    }
+
+    public Integer getClfVoShgNrlm() {
+        return clfVoShgNrlm;
+    }
+
+    public void setClfVoShgNrlm(Integer clfVoShgNrlm) {
+        this.clfVoShgNrlm = clfVoShgNrlm;
+    }
+
+    public Integer getClfStateProject() {
+        return clfStateProject;
+    }
+
+    public void setClfStateProject(Integer clfStateProject) {
+        this.clfStateProject = clfStateProject;
+    }
+
+    public Integer getClfVoStateProject() {
+        return clfVoStateProject;
+    }
+
+    public void setClfVoStateProject(Integer clfVoStateProject) {
+        this.clfVoStateProject = clfVoStateProject;
+    }
+
+    public Integer getClfVoShgStateProject() {
+        return clfVoShgStateProject;
+    }
+
+    public void setClfVoShgStateProject(Integer clfVoShgStateProject) {
+        this.clfVoShgStateProject = clfVoShgStateProject;
     }
 }
