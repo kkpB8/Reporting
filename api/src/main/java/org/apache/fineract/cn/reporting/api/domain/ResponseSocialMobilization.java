@@ -1,7 +1,6 @@
 package org.apache.fineract.cn.reporting.api.domain;
 
 import javax.persistence.Column;
-import java.math.BigInteger;
 
 public class ResponseSocialMobilization {
 
@@ -213,6 +212,59 @@ public class ResponseSocialMobilization {
     private Integer allShgFormedMonth;
     private Integer allShgMembersJoinedMonth;
     private Integer totalShgMem;
+    private Integer voMig;
+    private Integer voShgMig;
+    private Integer pendingNicVoBpm;
+    private Integer approvedNicVoBpm;
+    private Integer rejectedNicVoBpm;
+    private Integer voLokos;
+    private Integer voShgLokos;
+    private Integer pendingLokVoBpm;
+    private Integer approvedLokVoBpm;
+    private Integer rejectedLokVoBpm;
+    private Integer clfMig;
+    private Integer clfVoMig;
+    private Integer clfShgMig;
+    private Integer pendingNicClfBpm;
+    private Integer approvedNicClfBpm;
+    private Integer rejectedNicClfBpm;
+    private Integer clfLokos;
+    private Integer clfVoLokos;
+    private Integer clfShgLokos;
+    private Integer pendingLokClfBpm;
+    private Integer approvedLokClfBpm;
+    private Integer rejectedLokClfBpm;
+    private Integer pendingNicVoshgBpm;
+    private Integer approvedNicVoshgBpm;
+    private Integer rejectedNicVoshgBpm;
+    private Integer pendingLokVoshgBpm;
+    private Integer approvedLokVoshgBpm;
+    private Integer rejectedLokVoshgBpm;
+    private Integer pendingNicClfVoBpm;
+    private Integer approvedNicClfVoBpm;
+    private Integer rejectedNicClfVoBpm;
+    private Integer pendingNicClfVoShgBpm;
+    private Integer approvedNicClfVoShgBpm;
+    private Integer rejectedNicClfVoShgBpm;
+    private Integer pendingLokClfVoBpm;
+    private Integer approvedLokClfVoBpm;
+    private Integer rejectedLokClfVoBpm;
+    private Integer pendingLokClfVoShgBpm;
+    private Integer approvedLokClfVoShgBpm;
+    private Integer rejectedLokClfVoShgBpm;
+    private Integer memManrega;
+    private Integer memPmay;
+    private Integer memSecc;
+    private Integer voUnderNrlm;
+    private Integer voShgUnderNrlm;
+    private Integer voUnderStateProject;
+    private Integer voShgUnderStateProject;
+    private Integer clfNrlm;
+    private Integer clfVoNrlm;
+    private Integer clfVoShgNrlm;
+    private Integer clfStateProject;
+    private Integer clfVoStateProject;
+    private Integer clfVoShgStateProject;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -1875,5 +1927,429 @@ public class ResponseSocialMobilization {
 
     public void setTotalShgMem(Integer totalShgMem) {
         this.totalShgMem = totalShgMem;
+    }
+
+    public Integer getVoMig() {
+        return voMig;
+    }
+
+    public void setVoMig(Integer voMig) {
+        this.voMig = voMig;
+    }
+
+    public Integer getVoShgMig() {
+        return voShgMig;
+    }
+
+    public void setVoShgMig(Integer voShgMig) {
+        this.voShgMig = voShgMig;
+    }
+
+    public Integer getPendingNicVoBpm() {
+        return pendingNicVoBpm;
+    }
+
+    public void setPendingNicVoBpm(Integer pendingNicVoBpm) {
+        this.pendingNicVoBpm = pendingNicVoBpm;
+    }
+
+    public Integer getApprovedNicVoBpm() {
+        return approvedNicVoBpm;
+    }
+
+    public void setApprovedNicVoBpm(Integer approvedNicVoBpm) {
+        this.approvedNicVoBpm = approvedNicVoBpm;
+    }
+
+    public Integer getRejectedNicVoBpm() {
+        return rejectedNicVoBpm;
+    }
+
+    public void setRejectedNicVoBpm(Integer rejectedNicVoBpm) {
+        this.rejectedNicVoBpm = rejectedNicVoBpm;
+    }
+
+    public Integer getVoLokos() {
+        return voLokos;
+    }
+
+    public void setVoLokos(Integer voLokos) {
+        this.voLokos = voLokos;
+    }
+
+    public Integer getVoShgLokos() {
+        return voShgLokos;
+    }
+
+    public void setVoShgLokos(Integer voShgLokos) {
+        this.voShgLokos = voShgLokos;
+    }
+
+    public Integer getPendingLokVoBpm() {
+        return pendingLokVoBpm;
+    }
+
+    public void setPendingLokVoBpm(Integer pendingLokVoBpm) {
+        this.pendingLokVoBpm = pendingLokVoBpm;
+    }
+
+    public Integer getApprovedLokVoBpm() {
+        return approvedLokVoBpm;
+    }
+
+    public void setApprovedLokVoBpm(Integer approvedLokVoBpm) {
+        this.approvedLokVoBpm = approvedLokVoBpm;
+    }
+
+    public Integer getRejectedLokVoBpm() {
+        return rejectedLokVoBpm;
+    }
+
+    public void setRejectedLokVoBpm(Integer rejectedLokVoBpm) {
+        this.rejectedLokVoBpm = rejectedLokVoBpm;
+    }
+
+    public Integer getClfMig() {
+        return clfMig;
+    }
+
+    public void setClfMig(Integer clfMig) {
+        this.clfMig = clfMig;
+    }
+
+    public Integer getClfVoMig() {
+        return clfVoMig;
+    }
+
+    public void setClfVoMig(Integer clfVoMig) {
+        this.clfVoMig = clfVoMig;
+    }
+
+    public Integer getClfShgMig() {
+        return clfShgMig;
+    }
+
+    public void setClfShgMig(Integer clfShgMig) {
+        this.clfShgMig = clfShgMig;
+    }
+
+    public Integer getPendingNicClfBpm() {
+        return pendingNicClfBpm;
+    }
+
+    public void setPendingNicClfBpm(Integer pendingNicClfBpm) {
+        this.pendingNicClfBpm = pendingNicClfBpm;
+    }
+
+    public Integer getApprovedNicClfBpm() {
+        return approvedNicClfBpm;
+    }
+
+    public void setApprovedNicClfBpm(Integer approvedNicClfBpm) {
+        this.approvedNicClfBpm = approvedNicClfBpm;
+    }
+
+    public Integer getRejectedNicClfBpm() {
+        return rejectedNicClfBpm;
+    }
+
+    public void setRejectedNicClfBpm(Integer rejectedNicClfBpm) {
+        this.rejectedNicClfBpm = rejectedNicClfBpm;
+    }
+
+    public Integer getClfLokos() {
+        return clfLokos;
+    }
+
+    public void setClfLokos(Integer clfLokos) {
+        this.clfLokos = clfLokos;
+    }
+
+    public Integer getClfVoLokos() {
+        return clfVoLokos;
+    }
+
+    public void setClfVoLokos(Integer clfVoLokos) {
+        this.clfVoLokos = clfVoLokos;
+    }
+
+    public Integer getClfShgLokos() {
+        return clfShgLokos;
+    }
+
+    public void setClfShgLokos(Integer clfShgLokos) {
+        this.clfShgLokos = clfShgLokos;
+    }
+
+    public Integer getPendingLokClfBpm() {
+        return pendingLokClfBpm;
+    }
+
+    public void setPendingLokClfBpm(Integer pendingLokClfBpm) {
+        this.pendingLokClfBpm = pendingLokClfBpm;
+    }
+
+    public Integer getApprovedLokClfBpm() {
+        return approvedLokClfBpm;
+    }
+
+    public void setApprovedLokClfBpm(Integer approvedLokClfBpm) {
+        this.approvedLokClfBpm = approvedLokClfBpm;
+    }
+
+    public Integer getRejectedLokClfBpm() {
+        return rejectedLokClfBpm;
+    }
+
+    public void setRejectedLokClfBpm(Integer rejectedLokClfBpm) {
+        this.rejectedLokClfBpm = rejectedLokClfBpm;
+    }
+
+    public Integer getPendingNicVoshgBpm() {
+        return pendingNicVoshgBpm;
+    }
+
+    public void setPendingNicVoshgBpm(Integer pendingNicVoshgBpm) {
+        this.pendingNicVoshgBpm = pendingNicVoshgBpm;
+    }
+
+    public Integer getApprovedNicVoshgBpm() {
+        return approvedNicVoshgBpm;
+    }
+
+    public void setApprovedNicVoshgBpm(Integer approvedNicVoshgBpm) {
+        this.approvedNicVoshgBpm = approvedNicVoshgBpm;
+    }
+
+    public Integer getRejectedNicVoshgBpm() {
+        return rejectedNicVoshgBpm;
+    }
+
+    public void setRejectedNicVoshgBpm(Integer rejectedNicVoshgBpm) {
+        this.rejectedNicVoshgBpm = rejectedNicVoshgBpm;
+    }
+
+    public Integer getPendingLokVoshgBpm() {
+        return pendingLokVoshgBpm;
+    }
+
+    public void setPendingLokVoshgBpm(Integer pendingLokVoshgBpm) {
+        this.pendingLokVoshgBpm = pendingLokVoshgBpm;
+    }
+
+    public Integer getApprovedLokVoshgBpm() {
+        return approvedLokVoshgBpm;
+    }
+
+    public void setApprovedLokVoshgBpm(Integer approvedLokVoshgBpm) {
+        this.approvedLokVoshgBpm = approvedLokVoshgBpm;
+    }
+
+    public Integer getRejectedLokVoshgBpm() {
+        return rejectedLokVoshgBpm;
+    }
+
+    public void setRejectedLokVoshgBpm(Integer rejectedLokVoshgBpm) {
+        this.rejectedLokVoshgBpm = rejectedLokVoshgBpm;
+    }
+
+    public Integer getPendingNicClfVoBpm() {
+        return pendingNicClfVoBpm;
+    }
+
+    public void setPendingNicClfVoBpm(Integer pendingNicClfVoBpm) {
+        this.pendingNicClfVoBpm = pendingNicClfVoBpm;
+    }
+
+    public Integer getApprovedNicClfVoBpm() {
+        return approvedNicClfVoBpm;
+    }
+
+    public void setApprovedNicClfVoBpm(Integer approvedNicClfVoBpm) {
+        this.approvedNicClfVoBpm = approvedNicClfVoBpm;
+    }
+
+    public Integer getRejectedNicClfVoBpm() {
+        return rejectedNicClfVoBpm;
+    }
+
+    public void setRejectedNicClfVoBpm(Integer rejectedNicClfVoBpm) {
+        this.rejectedNicClfVoBpm = rejectedNicClfVoBpm;
+    }
+
+    public Integer getPendingNicClfVoShgBpm() {
+        return pendingNicClfVoShgBpm;
+    }
+
+    public void setPendingNicClfVoShgBpm(Integer pendingNicClfVoShgBpm) {
+        this.pendingNicClfVoShgBpm = pendingNicClfVoShgBpm;
+    }
+
+    public Integer getApprovedNicClfVoShgBpm() {
+        return approvedNicClfVoShgBpm;
+    }
+
+    public void setApprovedNicClfVoShgBpm(Integer approvedNicClfVoShgBpm) {
+        this.approvedNicClfVoShgBpm = approvedNicClfVoShgBpm;
+    }
+
+    public Integer getRejectedNicClfVoShgBpm() {
+        return rejectedNicClfVoShgBpm;
+    }
+
+    public void setRejectedNicClfVoShgBpm(Integer rejectedNicClfVoShgBpm) {
+        this.rejectedNicClfVoShgBpm = rejectedNicClfVoShgBpm;
+    }
+
+    public Integer getPendingLokClfVoBpm() {
+        return pendingLokClfVoBpm;
+    }
+
+    public void setPendingLokClfVoBpm(Integer pendingLokClfVoBpm) {
+        this.pendingLokClfVoBpm = pendingLokClfVoBpm;
+    }
+
+    public Integer getApprovedLokClfVoBpm() {
+        return approvedLokClfVoBpm;
+    }
+
+    public void setApprovedLokClfVoBpm(Integer approvedLokClfVoBpm) {
+        this.approvedLokClfVoBpm = approvedLokClfVoBpm;
+    }
+
+    public Integer getRejectedLokClfVoBpm() {
+        return rejectedLokClfVoBpm;
+    }
+
+    public void setRejectedLokClfVoBpm(Integer rejectedLokClfVoBpm) {
+        this.rejectedLokClfVoBpm = rejectedLokClfVoBpm;
+    }
+
+    public Integer getPendingLokClfVoShgBpm() {
+        return pendingLokClfVoShgBpm;
+    }
+
+    public void setPendingLokClfVoShgBpm(Integer pendingLokClfVoShgBpm) {
+        this.pendingLokClfVoShgBpm = pendingLokClfVoShgBpm;
+    }
+
+    public Integer getApprovedLokClfVoShgBpm() {
+        return approvedLokClfVoShgBpm;
+    }
+
+    public void setApprovedLokClfVoShgBpm(Integer approvedLokClfVoShgBpm) {
+        this.approvedLokClfVoShgBpm = approvedLokClfVoShgBpm;
+    }
+
+    public Integer getRejectedLokClfVoShgBpm() {
+        return rejectedLokClfVoShgBpm;
+    }
+
+    public void setRejectedLokClfVoShgBpm(Integer rejectedLokClfVoShgBpm) {
+        this.rejectedLokClfVoShgBpm = rejectedLokClfVoShgBpm;
+    }
+
+    public Integer getMemManrega() {
+        return memManrega;
+    }
+
+    public void setMemManrega(Integer memManrega) {
+        this.memManrega = memManrega;
+    }
+
+    public Integer getMemPmay() {
+        return memPmay;
+    }
+
+    public void setMemPmay(Integer memPmay) {
+        this.memPmay = memPmay;
+    }
+
+    public Integer getMemSecc() {
+        return memSecc;
+    }
+
+    public void setMemSecc(Integer memSecc) {
+        this.memSecc = memSecc;
+    }
+
+    public Integer getVoUnderNrlm() {
+        return voUnderNrlm;
+    }
+
+    public void setVoUnderNrlm(Integer voUnderNrlm) {
+        this.voUnderNrlm = voUnderNrlm;
+    }
+
+    public Integer getVoShgUnderNrlm() {
+        return voShgUnderNrlm;
+    }
+
+    public void setVoShgUnderNrlm(Integer voShgUnderNrlm) {
+        this.voShgUnderNrlm = voShgUnderNrlm;
+    }
+
+    public Integer getVoUnderStateProject() {
+        return voUnderStateProject;
+    }
+
+    public void setVoUnderStateProject(Integer voUnderStateProject) {
+        this.voUnderStateProject = voUnderStateProject;
+    }
+
+    public Integer getVoShgUnderStateProject() {
+        return voShgUnderStateProject;
+    }
+
+    public void setVoShgUnderStateProject(Integer voShgUnderStateProject) {
+        this.voShgUnderStateProject = voShgUnderStateProject;
+    }
+
+    public Integer getClfNrlm() {
+        return clfNrlm;
+    }
+
+    public void setClfNrlm(Integer clfNrlm) {
+        this.clfNrlm = clfNrlm;
+    }
+
+    public Integer getClfVoNrlm() {
+        return clfVoNrlm;
+    }
+
+    public void setClfVoNrlm(Integer clfVoNrlm) {
+        this.clfVoNrlm = clfVoNrlm;
+    }
+
+    public Integer getClfVoShgNrlm() {
+        return clfVoShgNrlm;
+    }
+
+    public void setClfVoShgNrlm(Integer clfVoShgNrlm) {
+        this.clfVoShgNrlm = clfVoShgNrlm;
+    }
+
+    public Integer getClfStateProject() {
+        return clfStateProject;
+    }
+
+    public void setClfStateProject(Integer clfStateProject) {
+        this.clfStateProject = clfStateProject;
+    }
+
+    public Integer getClfVoStateProject() {
+        return clfVoStateProject;
+    }
+
+    public void setClfVoStateProject(Integer clfVoStateProject) {
+        this.clfVoStateProject = clfVoStateProject;
+    }
+
+    public Integer getClfVoShgStateProject() {
+        return clfVoShgStateProject;
+    }
+
+    public void setClfVoShgStateProject(Integer clfVoShgStateProject) {
+        this.clfVoShgStateProject = clfVoShgStateProject;
     }
 }
