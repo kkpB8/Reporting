@@ -265,6 +265,36 @@ public class ResponseSocialMobilization {
     private Integer clfStateProject;
     private Integer clfVoStateProject;
     private Integer clfVoShgStateProject;
+    private Integer incompleteVoDue5ShgMig;
+    private Integer incompleteVoShgDue5ShgMig;
+    private Integer incompleteVoDue5ShgLokos;
+    private Integer incompleteVoShgDue5ShgLokos;
+    private Integer allVoInactiveMig;
+    private Integer allVoShgInactiveMig;
+    private Integer allVoInactiveLokos;
+    private Integer allVoShgInactiveLokos;
+    private Integer voMigWithoutBank;
+    private Integer voShgMigWithoutBank;
+    private Integer voLokosWithoutBank;
+    private Integer voShgLokosWithoutBank;
+    private Integer incompleteClfDue3VoMig;
+    private Integer incompleteClfVoDue3VoMig;
+    private Integer incompleteClfShgDue3VoMig;
+    private Integer incompleteClfDue3VoLokos;
+    private Integer incompleteClfVoDue3VoLokos;
+    private Integer incompleteClfShgDue3VoLokos;
+    private Integer allIncClfMig;
+    private Integer allIncClfVoMig;
+    private Integer allIncClfShgMig;
+    private Integer allIncClfLokos;
+    private Integer allIncClfVoLokos;
+    private Integer allIncClfShgLokos;
+    private Integer clfMigWithoutBank;
+    private Integer clfVoMigWithoutBank;
+    private Integer clfShgMigWithoutBank;
+    private Integer clfLokosWithoutBank;
+    private Integer clfVoLokosWithoutBank;
+    private Integer clfShgLokosWithoutBank;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -2351,5 +2381,245 @@ public class ResponseSocialMobilization {
 
     public void setClfVoShgStateProject(Integer clfVoShgStateProject) {
         this.clfVoShgStateProject = clfVoShgStateProject;
+    }
+
+    public Integer getIncompleteVoDue5ShgMig() {
+        return incompleteVoDue5ShgMig;
+    }
+
+    public void setIncompleteVoDue5ShgMig(Integer incompleteVoDue5ShgMig) {
+        this.incompleteVoDue5ShgMig = incompleteVoDue5ShgMig;
+    }
+
+    public Integer getIncompleteVoShgDue5ShgMig() {
+        return incompleteVoShgDue5ShgMig;
+    }
+
+    public void setIncompleteVoShgDue5ShgMig(Integer incompleteVoShgDue5ShgMig) {
+        this.incompleteVoShgDue5ShgMig = incompleteVoShgDue5ShgMig;
+    }
+
+    public Integer getIncompleteVoDue5ShgLokos() {
+        return incompleteVoDue5ShgLokos;
+    }
+
+    public void setIncompleteVoDue5ShgLokos(Integer incompleteVoDue5ShgLokos) {
+        this.incompleteVoDue5ShgLokos = incompleteVoDue5ShgLokos;
+    }
+
+    public Integer getIncompleteVoShgDue5ShgLokos() {
+        return incompleteVoShgDue5ShgLokos;
+    }
+
+    public void setIncompleteVoShgDue5ShgLokos(Integer incompleteVoShgDue5ShgLokos) {
+        this.incompleteVoShgDue5ShgLokos = incompleteVoShgDue5ShgLokos;
+    }
+
+    public Integer getAllVoInactiveMig() {
+        return allVoInactiveMig;
+    }
+
+    public void setAllVoInactiveMig(Integer allVoInactiveMig) {
+        this.allVoInactiveMig = allVoInactiveMig;
+    }
+
+    public Integer getAllVoShgInactiveMig() {
+        return allVoShgInactiveMig;
+    }
+
+    public void setAllVoShgInactiveMig(Integer allVoShgInactiveMig) {
+        this.allVoShgInactiveMig = allVoShgInactiveMig;
+    }
+
+    public Integer getAllVoInactiveLokos() {
+        return allVoInactiveLokos;
+    }
+
+    public void setAllVoInactiveLokos(Integer allVoInactiveLokos) {
+        this.allVoInactiveLokos = allVoInactiveLokos;
+    }
+
+    public Integer getAllVoShgInactiveLokos() {
+        return allVoShgInactiveLokos;
+    }
+
+    public void setAllVoShgInactiveLokos(Integer allVoShgInactiveLokos) {
+        this.allVoShgInactiveLokos = allVoShgInactiveLokos;
+    }
+
+    public Integer getVoMigWithoutBank() {
+        return voMigWithoutBank;
+    }
+
+    public void setVoMigWithoutBank(Integer voMigWithoutBank) {
+        this.voMigWithoutBank = voMigWithoutBank;
+    }
+
+    public Integer getVoShgMigWithoutBank() {
+        return voShgMigWithoutBank;
+    }
+
+    public void setVoShgMigWithoutBank(Integer voShgMigWithoutBank) {
+        this.voShgMigWithoutBank = voShgMigWithoutBank;
+    }
+
+    public Integer getVoLokosWithoutBank() {
+        return voLokosWithoutBank;
+    }
+
+    public void setVoLokosWithoutBank(Integer voLokosWithoutBank) {
+        this.voLokosWithoutBank = voLokosWithoutBank;
+    }
+
+    public Integer getVoShgLokosWithoutBank() {
+        return voShgLokosWithoutBank;
+    }
+
+    public void setVoShgLokosWithoutBank(Integer voShgLokosWithoutBank) {
+        this.voShgLokosWithoutBank = voShgLokosWithoutBank;
+    }
+
+    public Integer getIncompleteClfDue3VoMig() {
+        return incompleteClfDue3VoMig;
+    }
+
+    public void setIncompleteClfDue3VoMig(Integer incompleteClfDue3VoMig) {
+        this.incompleteClfDue3VoMig = incompleteClfDue3VoMig;
+    }
+
+    public Integer getIncompleteClfVoDue3VoMig() {
+        return incompleteClfVoDue3VoMig;
+    }
+
+    public void setIncompleteClfVoDue3VoMig(Integer incompleteClfVoDue3VoMig) {
+        this.incompleteClfVoDue3VoMig = incompleteClfVoDue3VoMig;
+    }
+
+    public Integer getIncompleteClfShgDue3VoMig() {
+        return incompleteClfShgDue3VoMig;
+    }
+
+    public void setIncompleteClfShgDue3VoMig(Integer incompleteClfShgDue3VoMig) {
+        this.incompleteClfShgDue3VoMig = incompleteClfShgDue3VoMig;
+    }
+
+    public Integer getIncompleteClfDue3VoLokos() {
+        return incompleteClfDue3VoLokos;
+    }
+
+    public void setIncompleteClfDue3VoLokos(Integer incompleteClfDue3VoLokos) {
+        this.incompleteClfDue3VoLokos = incompleteClfDue3VoLokos;
+    }
+
+    public Integer getIncompleteClfVoDue3VoLokos() {
+        return incompleteClfVoDue3VoLokos;
+    }
+
+    public void setIncompleteClfVoDue3VoLokos(Integer incompleteClfVoDue3VoLokos) {
+        this.incompleteClfVoDue3VoLokos = incompleteClfVoDue3VoLokos;
+    }
+
+    public Integer getIncompleteClfShgDue3VoLokos() {
+        return incompleteClfShgDue3VoLokos;
+    }
+
+    public void setIncompleteClfShgDue3VoLokos(Integer incompleteClfShgDue3VoLokos) {
+        this.incompleteClfShgDue3VoLokos = incompleteClfShgDue3VoLokos;
+    }
+
+    public Integer getAllIncClfMig() {
+        return allIncClfMig;
+    }
+
+    public void setAllIncClfMig(Integer allIncClfMig) {
+        this.allIncClfMig = allIncClfMig;
+    }
+
+    public Integer getAllIncClfVoMig() {
+        return allIncClfVoMig;
+    }
+
+    public void setAllIncClfVoMig(Integer allIncClfVoMig) {
+        this.allIncClfVoMig = allIncClfVoMig;
+    }
+
+    public Integer getAllIncClfShgMig() {
+        return allIncClfShgMig;
+    }
+
+    public void setAllIncClfShgMig(Integer allIncClfShgMig) {
+        this.allIncClfShgMig = allIncClfShgMig;
+    }
+
+    public Integer getAllIncClfLokos() {
+        return allIncClfLokos;
+    }
+
+    public void setAllIncClfLokos(Integer allIncClfLokos) {
+        this.allIncClfLokos = allIncClfLokos;
+    }
+
+    public Integer getAllIncClfVoLokos() {
+        return allIncClfVoLokos;
+    }
+
+    public void setAllIncClfVoLokos(Integer allIncClfVoLokos) {
+        this.allIncClfVoLokos = allIncClfVoLokos;
+    }
+
+    public Integer getAllIncClfShgLokos() {
+        return allIncClfShgLokos;
+    }
+
+    public void setAllIncClfShgLokos(Integer allIncClfShgLokos) {
+        this.allIncClfShgLokos = allIncClfShgLokos;
+    }
+
+    public Integer getClfMigWithoutBank() {
+        return clfMigWithoutBank;
+    }
+
+    public void setClfMigWithoutBank(Integer clfMigWithoutBank) {
+        this.clfMigWithoutBank = clfMigWithoutBank;
+    }
+
+    public Integer getClfVoMigWithoutBank() {
+        return clfVoMigWithoutBank;
+    }
+
+    public void setClfVoMigWithoutBank(Integer clfVoMigWithoutBank) {
+        this.clfVoMigWithoutBank = clfVoMigWithoutBank;
+    }
+
+    public Integer getClfShgMigWithoutBank() {
+        return clfShgMigWithoutBank;
+    }
+
+    public void setClfShgMigWithoutBank(Integer clfShgMigWithoutBank) {
+        this.clfShgMigWithoutBank = clfShgMigWithoutBank;
+    }
+
+    public Integer getClfLokosWithoutBank() {
+        return clfLokosWithoutBank;
+    }
+
+    public void setClfLokosWithoutBank(Integer clfLokosWithoutBank) {
+        this.clfLokosWithoutBank = clfLokosWithoutBank;
+    }
+
+    public Integer getClfVoLokosWithoutBank() {
+        return clfVoLokosWithoutBank;
+    }
+
+    public void setClfVoLokosWithoutBank(Integer clfVoLokosWithoutBank) {
+        this.clfVoLokosWithoutBank = clfVoLokosWithoutBank;
+    }
+
+    public Integer getClfShgLokosWithoutBank() {
+        return clfShgLokosWithoutBank;
+    }
+
+    public void setClfShgLokosWithoutBank(Integer clfShgLokosWithoutBank) {
+        this.clfShgLokosWithoutBank = clfShgLokosWithoutBank;
     }
 }
