@@ -623,6 +623,8 @@ public class SocialMobalizationEntity {
     private Integer memAge61to70;
     @Column(name = "mem_age_70")
     private Integer memAge70;
+    @Column(name = "mem_age_null")
+    private Integer memAgeNull;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -3009,6 +3011,14 @@ public class SocialMobalizationEntity {
 
     public void setMemAge70(Integer memAge70) {
         this.memAge70 = memAge70;
+    }
+
+    public Integer getMemAgeNull() {
+        return memAgeNull;
+    }
+
+    public void setMemAgeNull(Integer memAgeNull) {
+        this.memAgeNull = memAgeNull;
     }
 }
 

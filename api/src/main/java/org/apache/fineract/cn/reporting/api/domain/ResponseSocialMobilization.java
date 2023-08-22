@@ -302,6 +302,7 @@ public class ResponseSocialMobilization {
     private Integer menAge51to60;
     private Integer memAge61to70;
     private Integer memAge70;
+    private Integer memAgeNull;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -2684,5 +2685,13 @@ public class ResponseSocialMobilization {
 
     public void setMemAge70(Integer memAge70) {
         this.memAge70 = memAge70;
+    }
+
+    public Integer getMemAgeNull() {
+        return memAgeNull;
+    }
+
+    public void setMemAgeNull(Integer memAgeNull) {
+        this.memAgeNull = memAgeNull;
     }
 }
