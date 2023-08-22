@@ -295,6 +295,13 @@ public class ResponseSocialMobilization {
     private Integer clfLokosWithoutBank;
     private Integer clfVoLokosWithoutBank;
     private Integer clfShgLokosWithoutBank;
+    private Integer memAge18;
+    private Integer memAge18to25;
+    private Integer memAge26to40;
+    private Integer memAge41to50;
+    private Integer menAge51to60;
+    private Integer memAge61to70;
+    private Integer memAge70;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -2621,5 +2628,61 @@ public class ResponseSocialMobilization {
 
     public void setClfShgLokosWithoutBank(Integer clfShgLokosWithoutBank) {
         this.clfShgLokosWithoutBank = clfShgLokosWithoutBank;
+    }
+
+    public Integer getMemAge18() {
+        return memAge18;
+    }
+
+    public void setMemAge18(Integer memAge18) {
+        this.memAge18 = memAge18;
+    }
+
+    public Integer getMemAge18to25() {
+        return memAge18to25;
+    }
+
+    public void setMemAge18to25(Integer memAge18to25) {
+        this.memAge18to25 = memAge18to25;
+    }
+
+    public Integer getMemAge26to40() {
+        return memAge26to40;
+    }
+
+    public void setMemAge26to40(Integer memAge26to40) {
+        this.memAge26to40 = memAge26to40;
+    }
+
+    public Integer getMemAge41to50() {
+        return memAge41to50;
+    }
+
+    public void setMemAge41to50(Integer memAge41to50) {
+        this.memAge41to50 = memAge41to50;
+    }
+
+    public Integer getMenAge51to60() {
+        return menAge51to60;
+    }
+
+    public void setMenAge51to60(Integer menAge51to60) {
+        this.menAge51to60 = menAge51to60;
+    }
+
+    public Integer getMemAge61to70() {
+        return memAge61to70;
+    }
+
+    public void setMemAge61to70(Integer memAge61to70) {
+        this.memAge61to70 = memAge61to70;
+    }
+
+    public Integer getMemAge70() {
+        return memAge70;
+    }
+
+    public void setMemAge70(Integer memAge70) {
+        this.memAge70 = memAge70;
     }
 }
