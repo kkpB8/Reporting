@@ -6,7 +6,7 @@ import java.math.BigInteger;
 @Entity
 @Cacheable(value = false)
 @Table(name = "reports.tbl_summary")
-//@Table(name = "lokos.tbl_summary")
+//@Table(name = "tbl_summary")
 public class SocialMobalizationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -441,6 +441,188 @@ public class SocialMobalizationEntity {
     private Integer allShgMembersJoinedMonth;
     @Column(name = "total_shg_mem")
     private Integer totalShgMem;
+    @Column(name = "vo_mig")
+    private Integer voMig;
+    @Column(name = "vo_shg_mig")
+    private Integer voShgMig;
+    @Column(name = "pending_nic_vo_bpm")
+    private Integer pendingNicVoBpm;
+    @Column(name = "approved_nic_vo_bpm")
+    private Integer approvedNicVoBpm;
+    @Column(name = "rejected_nic_vo_bpm")
+    private Integer rejectedNicVoBpm;
+    @Column(name = "vo_lokos")
+    private Integer voLokos;
+    @Column(name = "vo_shg_lokos")
+    private Integer voShgLokos;
+    @Column(name = "pending_lok_vo_bpm")
+    private Integer pendingLokVoBpm;
+    @Column(name = "approved_lok_vo_bpm")
+    private Integer approvedLokVoBpm;
+    @Column(name = "rejected_lok_vo_bpm")
+    private Integer rejectedLokVoBpm;
+    @Column(name = "clf_mig")
+    private Integer clfMig;
+    @Column(name = "clf_vo_mig")
+    private Integer clfVoMig;
+    @Column(name = "clf_shg_mig")
+    private Integer clfShgMig;
+    @Column(name = "pending_nic_clf_bpm")
+    private Integer pendingNicClfBpm;
+    @Column(name = "approved_nic_clf_bpm")
+    private Integer approvedNicClfBpm;
+    @Column(name = "rejected_nic_clf_bpm")
+    private Integer rejectedNicClfBpm;
+    @Column(name = "clf_lokos")
+    private Integer clfLokos;
+    @Column(name = "clf_vo_lokos")
+    private Integer clfVoLokos;
+    @Column(name = "clf_shg_lokos")
+    private Integer clfShgLokos;
+    @Column(name = "pending_lok_clf_bpm")
+    private Integer pendingLokClfBpm;
+    @Column(name = "approved_lok_clf_bpm")
+    private Integer approvedLokClfBpm;
+    @Column(name = "rejected_lok_clf_bpm")
+    private Integer rejectedLokClfBpm;
+    @Column(name = "pending_nic_voshg_bpm")
+    private Integer pendingNicVoshgBpm;
+    @Column(name = "approved_nic_voshg_bpm")
+    private Integer approvedNicVoshgBpm;
+    @Column(name = "rejected_nic_voshg_bpm")
+    private Integer rejectedNicVoshgBpm;
+    @Column(name = "pending_lok_voshg_bpm")
+    private Integer pendingLokVoshgBpm;
+    @Column(name = "approved_lok_voshg_bpm")
+    private Integer approvedLokVoshgBpm;
+    @Column(name = "rejected_lok_voshg_bpm")
+    private Integer rejectedLokVoshgBpm;
+    @Column(name = "pending_nic_clfvo_bpm")
+    private Integer pendingNicClfVoBpm;
+    @Column(name = "approved_nic_clfvo_bpm")
+    private Integer approvedNicClfVoBpm;
+    @Column(name = "rejected_nic_clfvo_bpm")
+    private Integer rejectedNicClfVoBpm;
+    @Column(name = "pending_nic_clfvoshg_bpm")
+    private Integer pendingNicClfVoShgBpm;
+    @Column(name = "approved_nic_clfvoshg_bpm")
+    private Integer approvedNicClfVoShgBpm;
+    @Column(name = "rejected_nic_clfvoshg_bpm")
+    private Integer rejectedNicClfVoShgBpm;
+    @Column(name = "pending_lok_clfvo_bpm")
+    private Integer pendingLokClfVoBpm;
+    @Column(name = "approved_lok_clfvo_bpm")
+    private Integer approvedLokClfVoBpm;
+    @Column(name = "rejected_lok_clfvo_bpm")
+    private Integer rejectedLokClfVoBpm;
+    @Column(name = "pending_lok_clfvoshg_bpm")
+    private Integer pendingLokClfVoShgBpm;
+    @Column(name = "approved_lok_clfvoshg_bpm")
+    private Integer approvedLokClfVoShgBpm;
+    @Column(name = "rejected_lok_clfvoshg_bpm")
+    private Integer rejectedLokClfVoShgBpm;
+    @Column(name = "mem_manrega")
+    private Integer memManrega;
+    @Column(name = "mem_pmay")
+    private Integer memPmay;
+    @Column(name = "mem_secc")
+    private Integer memSecc;
+    @Column(name = "vo_under_nrlm")
+    private Integer voUnderNrlm;
+    @Column(name = "vo_shg_under_nrlm")
+    private Integer voShgUnderNrlm;
+    @Column(name = "vo_under_state_project")
+    private Integer voUnderStateProject;
+    @Column(name = "vo_shg_under_state_project")
+    private Integer voShgUnderStateProject;
+    @Column(name = "clf_nrlm")
+    private Integer clfNrlm;
+    @Column(name = "clf_vo_nrlm")
+    private Integer clfVoNrlm;
+    @Column(name = "clf_vo_shg_nrlm")
+    private Integer clfVoShgNrlm;
+    @Column(name = "clf_state_project")
+    private Integer clfStateProject;
+    @Column(name = "clf_vo_state_project")
+    private Integer clfVoStateProject;
+    @Column(name = "clf_vo_shg_state_project")
+    private Integer clfVoShgStateProject;
+    @Column(name = "INCOMPLETE_VO_DUE_5_SHG_MIG")
+    private Integer incompleteVoDue5ShgMig;
+    @Column(name = "INCOMPLETE_VO_SHG_DUE_5_SHG_MIG")
+    private Integer incompleteVoShgDue5ShgMig;
+    @Column(name = "INCOMPLETE_VO_DUE_5_SHG_LOKOS")
+    private Integer incompleteVoDue5ShgLokos;
+    @Column(name = "INCOMPLETE_VO_SHG_DUE_5_SHG_LOKOS")
+    private Integer incompleteVoShgDue5ShgLokos;
+    @Column(name = "allvo_inactive_mig")
+    private Integer allVoInactiveMig;
+    @Column(name = "allvo_shg_inactive_mig")
+    private Integer allVoShgInactiveMig;
+    @Column(name = "allvo_inactive_lokos")
+    private Integer allVoInactiveLokos;
+    @Column(name = "allvo_shg_inactive_lokos")
+    private Integer allVoShgInactiveLokos;
+    @Column(name = "vo_mig_without_bank")
+    private Integer voMigWithoutBank;
+    @Column(name = "vo_shg_mig_without_bank")
+    private Integer voShgMigWithoutBank;
+    @Column(name = "vo_lokos_without_bank")
+    private Integer voLokosWithoutBank;
+    @Column(name = "vo_shg_lokos_without_bank")
+    private Integer voShgLokosWithoutBank;
+    @Column(name = "INCOMPLETE_CLF_DUE_3_VO_MIG")
+    private Integer incompleteClfDue3VoMig;
+    @Column(name = "INCOMPLETE_CLF_VO_DUE_3_VO_MIG")
+    private Integer incompleteClfVoDue3VoMig;
+    @Column(name = "INCOMPLETE_CLF_SHG_DUE_3_VO_MIG")
+    private Integer incompleteClfShgDue3VoMig;
+    @Column(name = "INCOMPLETE_CLF_DUE_3_VO_LOKOS")
+    private Integer incompleteClfDue3VoLokos;
+    @Column(name = "INCOMPLETE_CLF_VO_DUE_3_VO_LOKOS")
+    private Integer incompleteClfVoDue3VoLokos;
+    @Column(name = "INCOMPLETE_CLF_SHG_DUE_3_VO_LOKOS")
+    private Integer incompleteClfShgDue3VoLokos;
+    @Column(name = "all_inc_clf_mig")
+    private Integer allIncClfMig;
+    @Column(name = "all_inc_clf_vo_mig")
+    private Integer allIncClfVoMig;
+    @Column(name = "all_inc_clf_shg_mig")
+    private Integer allIncClfShgMig;
+    @Column(name = "all_inc_clf_lokos")
+    private Integer allIncClfLokos;
+    @Column(name = "all_inc_clf_vo_lokos")
+    private Integer allIncClfVoLokos;
+    @Column(name = "all_inc_clf_shg_lokos")
+    private Integer allIncClfShgLokos;
+    @Column(name = "clf_mig_without_bank")
+    private Integer clfMigWithoutBank;
+    @Column(name = "clf_vo_mig_without_bank")
+    private Integer clfVoMigWithoutBank;
+    @Column(name = "clf_shg_mig_without_bank")
+    private Integer clfShgMigWithoutBank;
+    @Column(name = "clf_lokos_without_bank")
+    private Integer clfLokosWithoutBank;
+    @Column(name = "clf_vo_lokos_without_bank")
+    private Integer clfVoLokosWithoutBank;
+    @Column(name = "clf_shg_lokos_without_bank")
+    private Integer clfShgLokosWithoutBank;
+    @Column(name = "mem_age_18")
+    private Integer memAge18;
+    @Column(name = "mem_age_18_25")
+    private Integer memAge18to25;
+    @Column(name = "mem_age_26_40")
+    private Integer memAge26to40;
+    @Column(name = "mem_age_41_50")
+    private Integer memAge41to50;
+    @Column(name = "mem_age_51_60")
+    private Integer menAge51to60;
+    @Column(name = "mem_age_61_70")
+    private Integer memAge61to70;
+    @Column(name = "mem_age_70")
+    private Integer memAge70;
+    @Column(name = "mem_age_null")
+    private Integer memAgeNull;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -2107,6 +2289,734 @@ public class SocialMobalizationEntity {
 
     public void setTotalShgMem(Integer totalShgMem) {
         this.totalShgMem = totalShgMem;
+    }
+
+    public Integer getVoMig() {
+        return voMig;
+    }
+
+    public void setVoMig(Integer voMig) {
+        this.voMig = voMig;
+    }
+
+    public Integer getVoShgMig() {
+        return voShgMig;
+    }
+
+    public void setVoShgMig(Integer voShgMig) {
+        this.voShgMig = voShgMig;
+    }
+
+    public Integer getPendingNicVoBpm() {
+        return pendingNicVoBpm;
+    }
+
+    public void setPendingNicVoBpm(Integer pendingNicVoBpm) {
+        this.pendingNicVoBpm = pendingNicVoBpm;
+    }
+
+    public Integer getApprovedNicVoBpm() {
+        return approvedNicVoBpm;
+    }
+
+    public void setApprovedNicVoBpm(Integer approvedNicVoBpm) {
+        this.approvedNicVoBpm = approvedNicVoBpm;
+    }
+
+    public Integer getRejectedNicVoBpm() {
+        return rejectedNicVoBpm;
+    }
+
+    public void setRejectedNicVoBpm(Integer rejectedNicVoBpm) {
+        this.rejectedNicVoBpm = rejectedNicVoBpm;
+    }
+
+    public Integer getVoLokos() {
+        return voLokos;
+    }
+
+    public void setVoLokos(Integer voLokos) {
+        this.voLokos = voLokos;
+    }
+
+    public Integer getVoShgLokos() {
+        return voShgLokos;
+    }
+
+    public void setVoShgLokos(Integer voShgLokos) {
+        this.voShgLokos = voShgLokos;
+    }
+
+    public Integer getPendingLokVoBpm() {
+        return pendingLokVoBpm;
+    }
+
+    public void setPendingLokVoBpm(Integer pendingLokVoBpm) {
+        this.pendingLokVoBpm = pendingLokVoBpm;
+    }
+
+    public Integer getApprovedLokVoBpm() {
+        return approvedLokVoBpm;
+    }
+
+    public void setApprovedLokVoBpm(Integer approvedLokVoBpm) {
+        this.approvedLokVoBpm = approvedLokVoBpm;
+    }
+
+    public Integer getRejectedLokVoBpm() {
+        return rejectedLokVoBpm;
+    }
+
+    public void setRejectedLokVoBpm(Integer rejectedLokVoBpm) {
+        this.rejectedLokVoBpm = rejectedLokVoBpm;
+    }
+
+    public Integer getClfMig() {
+        return clfMig;
+    }
+
+    public void setClfMig(Integer clfMig) {
+        this.clfMig = clfMig;
+    }
+
+    public Integer getClfVoMig() {
+        return clfVoMig;
+    }
+
+    public void setClfVoMig(Integer clfVoMig) {
+        this.clfVoMig = clfVoMig;
+    }
+
+    public Integer getClfShgMig() {
+        return clfShgMig;
+    }
+
+    public void setClfShgMig(Integer clfShgMig) {
+        this.clfShgMig = clfShgMig;
+    }
+
+    public Integer getPendingNicClfBpm() {
+        return pendingNicClfBpm;
+    }
+
+    public void setPendingNicClfBpm(Integer pendingNicClfBpm) {
+        this.pendingNicClfBpm = pendingNicClfBpm;
+    }
+
+    public Integer getApprovedNicClfBpm() {
+        return approvedNicClfBpm;
+    }
+
+    public void setApprovedNicClfBpm(Integer approvedNicClfBpm) {
+        this.approvedNicClfBpm = approvedNicClfBpm;
+    }
+
+    public Integer getRejectedNicClfBpm() {
+        return rejectedNicClfBpm;
+    }
+
+    public void setRejectedNicClfBpm(Integer rejectedNicClfBpm) {
+        this.rejectedNicClfBpm = rejectedNicClfBpm;
+    }
+
+    public Integer getClfLokos() {
+        return clfLokos;
+    }
+
+    public void setClfLokos(Integer clfLokos) {
+        this.clfLokos = clfLokos;
+    }
+
+    public Integer getClfVoLokos() {
+        return clfVoLokos;
+    }
+
+    public void setClfVoLokos(Integer clfVoLokos) {
+        this.clfVoLokos = clfVoLokos;
+    }
+
+    public Integer getClfShgLokos() {
+        return clfShgLokos;
+    }
+
+    public void setClfShgLokos(Integer clfShgLokos) {
+        this.clfShgLokos = clfShgLokos;
+    }
+
+    public Integer getPendingLokClfBpm() {
+        return pendingLokClfBpm;
+    }
+
+    public void setPendingLokClfBpm(Integer pendingLokClfBpm) {
+        this.pendingLokClfBpm = pendingLokClfBpm;
+    }
+
+    public Integer getApprovedLokClfBpm() {
+        return approvedLokClfBpm;
+    }
+
+    public void setApprovedLokClfBpm(Integer approvedLokClfBpm) {
+        this.approvedLokClfBpm = approvedLokClfBpm;
+    }
+
+    public Integer getRejectedLokClfBpm() {
+        return rejectedLokClfBpm;
+    }
+
+    public void setRejectedLokClfBpm(Integer rejectedLokClfBpm) {
+        this.rejectedLokClfBpm = rejectedLokClfBpm;
+    }
+
+    public Integer getPendingNicVoshgBpm() {
+        return pendingNicVoshgBpm;
+    }
+
+    public void setPendingNicVoshgBpm(Integer pendingNicVoshgBpm) {
+        this.pendingNicVoshgBpm = pendingNicVoshgBpm;
+    }
+
+    public Integer getApprovedNicVoshgBpm() {
+        return approvedNicVoshgBpm;
+    }
+
+    public void setApprovedNicVoshgBpm(Integer approvedNicVoshgBpm) {
+        this.approvedNicVoshgBpm = approvedNicVoshgBpm;
+    }
+
+    public Integer getRejectedNicVoshgBpm() {
+        return rejectedNicVoshgBpm;
+    }
+
+    public void setRejectedNicVoshgBpm(Integer rejectedNicVoshgBpm) {
+        this.rejectedNicVoshgBpm = rejectedNicVoshgBpm;
+    }
+
+    public Integer getPendingLokVoshgBpm() {
+        return pendingLokVoshgBpm;
+    }
+
+    public void setPendingLokVoshgBpm(Integer pendingLokVoshgBpm) {
+        this.pendingLokVoshgBpm = pendingLokVoshgBpm;
+    }
+
+    public Integer getApprovedLokVoshgBpm() {
+        return approvedLokVoshgBpm;
+    }
+
+    public void setApprovedLokVoshgBpm(Integer approvedLokVoshgBpm) {
+        this.approvedLokVoshgBpm = approvedLokVoshgBpm;
+    }
+
+    public Integer getRejectedLokVoshgBpm() {
+        return rejectedLokVoshgBpm;
+    }
+
+    public void setRejectedLokVoshgBpm(Integer rejectedLokVoshgBpm) {
+        this.rejectedLokVoshgBpm = rejectedLokVoshgBpm;
+    }
+
+    public Integer getPendingNicClfVoBpm() {
+        return pendingNicClfVoBpm;
+    }
+
+    public void setPendingNicClfVoBpm(Integer pendingNicClfVoBpm) {
+        this.pendingNicClfVoBpm = pendingNicClfVoBpm;
+    }
+
+    public Integer getApprovedNicClfVoBpm() {
+        return approvedNicClfVoBpm;
+    }
+
+    public void setApprovedNicClfVoBpm(Integer approvedNicClfVoBpm) {
+        this.approvedNicClfVoBpm = approvedNicClfVoBpm;
+    }
+
+    public Integer getRejectedNicClfVoBpm() {
+        return rejectedNicClfVoBpm;
+    }
+
+    public void setRejectedNicClfVoBpm(Integer rejectedNicClfVoBpm) {
+        this.rejectedNicClfVoBpm = rejectedNicClfVoBpm;
+    }
+
+    public Integer getPendingNicClfVoShgBpm() {
+        return pendingNicClfVoShgBpm;
+    }
+
+    public void setPendingNicClfVoShgBpm(Integer pendingNicClfVoShgBpm) {
+        this.pendingNicClfVoShgBpm = pendingNicClfVoShgBpm;
+    }
+
+    public Integer getApprovedNicClfVoShgBpm() {
+        return approvedNicClfVoShgBpm;
+    }
+
+    public void setApprovedNicClfVoShgBpm(Integer approvedNicClfVoShgBpm) {
+        this.approvedNicClfVoShgBpm = approvedNicClfVoShgBpm;
+    }
+
+    public Integer getRejectedNicClfVoShgBpm() {
+        return rejectedNicClfVoShgBpm;
+    }
+
+    public void setRejectedNicClfVoShgBpm(Integer rejectedNicClfVoShgBpm) {
+        this.rejectedNicClfVoShgBpm = rejectedNicClfVoShgBpm;
+    }
+
+    public Integer getPendingLokClfVoBpm() {
+        return pendingLokClfVoBpm;
+    }
+
+    public void setPendingLokClfVoBpm(Integer pendingLokClfVoBpm) {
+        this.pendingLokClfVoBpm = pendingLokClfVoBpm;
+    }
+
+    public Integer getApprovedLokClfVoBpm() {
+        return approvedLokClfVoBpm;
+    }
+
+    public void setApprovedLokClfVoBpm(Integer approvedLokClfVoBpm) {
+        this.approvedLokClfVoBpm = approvedLokClfVoBpm;
+    }
+
+    public Integer getRejectedLokClfVoBpm() {
+        return rejectedLokClfVoBpm;
+    }
+
+    public void setRejectedLokClfVoBpm(Integer rejectedLokClfVoBpm) {
+        this.rejectedLokClfVoBpm = rejectedLokClfVoBpm;
+    }
+
+    public Integer getPendingLokClfVoShgBpm() {
+        return pendingLokClfVoShgBpm;
+    }
+
+    public void setPendingLokClfVoShgBpm(Integer pendingLokClfVoShgBpm) {
+        this.pendingLokClfVoShgBpm = pendingLokClfVoShgBpm;
+    }
+
+    public Integer getApprovedLokClfVoShgBpm() {
+        return approvedLokClfVoShgBpm;
+    }
+
+    public void setApprovedLokClfVoShgBpm(Integer approvedLokClfVoShgBpm) {
+        this.approvedLokClfVoShgBpm = approvedLokClfVoShgBpm;
+    }
+
+    public Integer getRejectedLokClfVoShgBpm() {
+        return rejectedLokClfVoShgBpm;
+    }
+
+    public void setRejectedLokClfVoShgBpm(Integer rejectedLokClfVoShgBpm) {
+        this.rejectedLokClfVoShgBpm = rejectedLokClfVoShgBpm;
+    }
+
+    public Integer getMemManrega() {
+        return memManrega;
+    }
+
+    public void setMemManrega(Integer memManrega) {
+        this.memManrega = memManrega;
+    }
+
+    public Integer getMemPmay() {
+        return memPmay;
+    }
+
+    public void setMemPmay(Integer memPmay) {
+        this.memPmay = memPmay;
+    }
+
+    public Integer getMemSecc() {
+        return memSecc;
+    }
+
+    public void setMemSecc(Integer memSecc) {
+        this.memSecc = memSecc;
+    }
+
+    public Integer getVoUnderNrlm() {
+        return voUnderNrlm;
+    }
+
+    public void setVoUnderNrlm(Integer voUnderNrlm) {
+        this.voUnderNrlm = voUnderNrlm;
+    }
+
+    public Integer getVoShgUnderNrlm() {
+        return voShgUnderNrlm;
+    }
+
+    public void setVoShgUnderNrlm(Integer voShgUnderNrlm) {
+        this.voShgUnderNrlm = voShgUnderNrlm;
+    }
+
+    public Integer getVoUnderStateProject() {
+        return voUnderStateProject;
+    }
+
+    public void setVoUnderStateProject(Integer voUnderStateProject) {
+        this.voUnderStateProject = voUnderStateProject;
+    }
+
+    public Integer getVoShgUnderStateProject() {
+        return voShgUnderStateProject;
+    }
+
+    public void setVoShgUnderStateProject(Integer voShgUnderStateProject) {
+        this.voShgUnderStateProject = voShgUnderStateProject;
+    }
+
+    public Integer getClfNrlm() {
+        return clfNrlm;
+    }
+
+    public void setClfNrlm(Integer clfNrlm) {
+        this.clfNrlm = clfNrlm;
+    }
+
+    public Integer getClfVoNrlm() {
+        return clfVoNrlm;
+    }
+
+    public void setClfVoNrlm(Integer clfVoNrlm) {
+        this.clfVoNrlm = clfVoNrlm;
+    }
+
+    public Integer getClfVoShgNrlm() {
+        return clfVoShgNrlm;
+    }
+
+    public void setClfVoShgNrlm(Integer clfVoShgNrlm) {
+        this.clfVoShgNrlm = clfVoShgNrlm;
+    }
+
+    public Integer getClfStateProject() {
+        return clfStateProject;
+    }
+
+    public void setClfStateProject(Integer clfStateProject) {
+        this.clfStateProject = clfStateProject;
+    }
+
+    public Integer getClfVoStateProject() {
+        return clfVoStateProject;
+    }
+
+    public void setClfVoStateProject(Integer clfVoStateProject) {
+        this.clfVoStateProject = clfVoStateProject;
+    }
+
+    public Integer getClfVoShgStateProject() {
+        return clfVoShgStateProject;
+    }
+
+    public void setClfVoShgStateProject(Integer clfVoShgStateProject) {
+        this.clfVoShgStateProject = clfVoShgStateProject;
+    }
+
+    public Integer getIncompleteVoDue5ShgMig() {
+        return incompleteVoDue5ShgMig;
+    }
+
+    public void setIncompleteVoDue5ShgMig(Integer incompleteVoDue5ShgMig) {
+        this.incompleteVoDue5ShgMig = incompleteVoDue5ShgMig;
+    }
+
+    public Integer getIncompleteVoShgDue5ShgMig() {
+        return incompleteVoShgDue5ShgMig;
+    }
+
+    public void setIncompleteVoShgDue5ShgMig(Integer incompleteVoShgDue5ShgMig) {
+        this.incompleteVoShgDue5ShgMig = incompleteVoShgDue5ShgMig;
+    }
+
+    public Integer getIncompleteVoDue5ShgLokos() {
+        return incompleteVoDue5ShgLokos;
+    }
+
+    public void setIncompleteVoDue5ShgLokos(Integer incompleteVoDue5ShgLokos) {
+        this.incompleteVoDue5ShgLokos = incompleteVoDue5ShgLokos;
+    }
+
+    public Integer getIncompleteVoShgDue5ShgLokos() {
+        return incompleteVoShgDue5ShgLokos;
+    }
+
+    public void setIncompleteVoShgDue5ShgLokos(Integer incompleteVoShgDue5ShgLokos) {
+        this.incompleteVoShgDue5ShgLokos = incompleteVoShgDue5ShgLokos;
+    }
+
+    public Integer getAllVoInactiveMig() {
+        return allVoInactiveMig;
+    }
+
+    public void setAllVoInactiveMig(Integer allVoInactiveMig) {
+        this.allVoInactiveMig = allVoInactiveMig;
+    }
+
+    public Integer getAllVoShgInactiveMig() {
+        return allVoShgInactiveMig;
+    }
+
+    public void setAllVoShgInactiveMig(Integer allVoShgInactiveMig) {
+        this.allVoShgInactiveMig = allVoShgInactiveMig;
+    }
+
+    public Integer getAllVoInactiveLokos() {
+        return allVoInactiveLokos;
+    }
+
+    public void setAllVoInactiveLokos(Integer allVoInactiveLokos) {
+        this.allVoInactiveLokos = allVoInactiveLokos;
+    }
+
+    public Integer getAllVoShgInactiveLokos() {
+        return allVoShgInactiveLokos;
+    }
+
+    public void setAllVoShgInactiveLokos(Integer allVoShgInactiveLokos) {
+        this.allVoShgInactiveLokos = allVoShgInactiveLokos;
+    }
+
+    public Integer getVoMigWithoutBank() {
+        return voMigWithoutBank;
+    }
+
+    public void setVoMigWithoutBank(Integer voMigWithoutBank) {
+        this.voMigWithoutBank = voMigWithoutBank;
+    }
+
+    public Integer getVoShgMigWithoutBank() {
+        return voShgMigWithoutBank;
+    }
+
+    public void setVoShgMigWithoutBank(Integer voShgMigWithoutBank) {
+        this.voShgMigWithoutBank = voShgMigWithoutBank;
+    }
+
+    public Integer getVoLokosWithoutBank() {
+        return voLokosWithoutBank;
+    }
+
+    public void setVoLokosWithoutBank(Integer voLokosWithoutBank) {
+        this.voLokosWithoutBank = voLokosWithoutBank;
+    }
+
+    public Integer getVoShgLokosWithoutBank() {
+        return voShgLokosWithoutBank;
+    }
+
+    public void setVoShgLokosWithoutBank(Integer voShgLokosWithoutBank) {
+        this.voShgLokosWithoutBank = voShgLokosWithoutBank;
+    }
+
+    public Integer getIncompleteClfDue3VoMig() {
+        return incompleteClfDue3VoMig;
+    }
+
+    public void setIncompleteClfDue3VoMig(Integer incompleteClfDue3VoMig) {
+        this.incompleteClfDue3VoMig = incompleteClfDue3VoMig;
+    }
+
+    public Integer getIncompleteClfVoDue3VoMig() {
+        return incompleteClfVoDue3VoMig;
+    }
+
+    public void setIncompleteClfVoDue3VoMig(Integer incompleteClfVoDue3VoMig) {
+        this.incompleteClfVoDue3VoMig = incompleteClfVoDue3VoMig;
+    }
+
+    public Integer getIncompleteClfShgDue3VoMig() {
+        return incompleteClfShgDue3VoMig;
+    }
+
+    public void setIncompleteClfShgDue3VoMig(Integer incompleteClfShgDue3VoMig) {
+        this.incompleteClfShgDue3VoMig = incompleteClfShgDue3VoMig;
+    }
+
+    public Integer getIncompleteClfDue3VoLokos() {
+        return incompleteClfDue3VoLokos;
+    }
+
+    public void setIncompleteClfDue3VoLokos(Integer incompleteClfDue3VoLokos) {
+        this.incompleteClfDue3VoLokos = incompleteClfDue3VoLokos;
+    }
+
+    public Integer getIncompleteClfVoDue3VoLokos() {
+        return incompleteClfVoDue3VoLokos;
+    }
+
+    public void setIncompleteClfVoDue3VoLokos(Integer incompleteClfVoDue3VoLokos) {
+        this.incompleteClfVoDue3VoLokos = incompleteClfVoDue3VoLokos;
+    }
+
+    public Integer getIncompleteClfShgDue3VoLokos() {
+        return incompleteClfShgDue3VoLokos;
+    }
+
+    public void setIncompleteClfShgDue3VoLokos(Integer incompleteClfShgDue3VoLokos) {
+        this.incompleteClfShgDue3VoLokos = incompleteClfShgDue3VoLokos;
+    }
+
+    public Integer getAllIncClfMig() {
+        return allIncClfMig;
+    }
+
+    public void setAllIncClfMig(Integer allIncClfMig) {
+        this.allIncClfMig = allIncClfMig;
+    }
+
+    public Integer getAllIncClfVoMig() {
+        return allIncClfVoMig;
+    }
+
+    public void setAllIncClfVoMig(Integer allIncClfVoMig) {
+        this.allIncClfVoMig = allIncClfVoMig;
+    }
+
+    public Integer getAllIncClfShgMig() {
+        return allIncClfShgMig;
+    }
+
+    public void setAllIncClfShgMig(Integer allIncClfShgMig) {
+        this.allIncClfShgMig = allIncClfShgMig;
+    }
+
+    public Integer getAllIncClfLokos() {
+        return allIncClfLokos;
+    }
+
+    public void setAllIncClfLokos(Integer allIncClfLokos) {
+        this.allIncClfLokos = allIncClfLokos;
+    }
+
+    public Integer getAllIncClfVoLokos() {
+        return allIncClfVoLokos;
+    }
+
+    public void setAllIncClfVoLokos(Integer allIncClfVoLokos) {
+        this.allIncClfVoLokos = allIncClfVoLokos;
+    }
+
+    public Integer getAllIncClfShgLokos() {
+        return allIncClfShgLokos;
+    }
+
+    public void setAllIncClfShgLokos(Integer allIncClfShgLokos) {
+        this.allIncClfShgLokos = allIncClfShgLokos;
+    }
+
+    public Integer getClfMigWithoutBank() {
+        return clfMigWithoutBank;
+    }
+
+    public void setClfMigWithoutBank(Integer clfMigWithoutBank) {
+        this.clfMigWithoutBank = clfMigWithoutBank;
+    }
+
+    public Integer getClfVoMigWithoutBank() {
+        return clfVoMigWithoutBank;
+    }
+
+    public void setClfVoMigWithoutBank(Integer clfVoMigWithoutBank) {
+        this.clfVoMigWithoutBank = clfVoMigWithoutBank;
+    }
+
+    public Integer getClfShgMigWithoutBank() {
+        return clfShgMigWithoutBank;
+    }
+
+    public void setClfShgMigWithoutBank(Integer clfShgMigWithoutBank) {
+        this.clfShgMigWithoutBank = clfShgMigWithoutBank;
+    }
+
+    public Integer getClfLokosWithoutBank() {
+        return clfLokosWithoutBank;
+    }
+
+    public void setClfLokosWithoutBank(Integer clfLokosWithoutBank) {
+        this.clfLokosWithoutBank = clfLokosWithoutBank;
+    }
+
+    public Integer getClfVoLokosWithoutBank() {
+        return clfVoLokosWithoutBank;
+    }
+
+    public void setClfVoLokosWithoutBank(Integer clfVoLokosWithoutBank) {
+        this.clfVoLokosWithoutBank = clfVoLokosWithoutBank;
+    }
+
+    public Integer getClfShgLokosWithoutBank() {
+        return clfShgLokosWithoutBank;
+    }
+
+    public void setClfShgLokosWithoutBank(Integer clfShgLokosWithoutBank) {
+        this.clfShgLokosWithoutBank = clfShgLokosWithoutBank;
+    }
+
+    public Integer getMemAge18() {
+        return memAge18;
+    }
+
+    public void setMemAge18(Integer memAge18) {
+        this.memAge18 = memAge18;
+    }
+
+    public Integer getMemAge18to25() {
+        return memAge18to25;
+    }
+
+    public void setMemAge18to25(Integer memAge18to25) {
+        this.memAge18to25 = memAge18to25;
+    }
+
+    public Integer getMemAge26to40() {
+        return memAge26to40;
+    }
+
+    public void setMemAge26to40(Integer memAge26to40) {
+        this.memAge26to40 = memAge26to40;
+    }
+
+    public Integer getMemAge41to50() {
+        return memAge41to50;
+    }
+
+    public void setMemAge41to50(Integer memAge41to50) {
+        this.memAge41to50 = memAge41to50;
+    }
+
+    public Integer getMenAge51to60() {
+        return menAge51to60;
+    }
+
+    public void setMenAge51to60(Integer menAge51to60) {
+        this.menAge51to60 = menAge51to60;
+    }
+
+    public Integer getMemAge61to70() {
+        return memAge61to70;
+    }
+
+    public void setMemAge61to70(Integer memAge61to70) {
+        this.memAge61to70 = memAge61to70;
+    }
+
+    public Integer getMemAge70() {
+        return memAge70;
+    }
+
+    public void setMemAge70(Integer memAge70) {
+        this.memAge70 = memAge70;
+    }
+
+    public Integer getMemAgeNull() {
+        return memAgeNull;
+    }
+
+    public void setMemAgeNull(Integer memAgeNull) {
+        this.memAgeNull = memAgeNull;
     }
 }
 
