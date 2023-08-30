@@ -625,6 +625,18 @@ public class SocialMobalizationEntity {
     private Integer memAge70;
     @Column(name = "mem_age_null")
     private Integer memAgeNull;
+    @Column(name = "totalBK_active")
+    private Integer totalBKActive;
+    @Column(name = "eBKAssiged_to_SHG_active")
+    private Integer eBKAssigedtoShgActive;
+    @Column(name = "ShgMapped_withBK_active")
+    private Integer shgMappedWithBKActive;
+    @Column(name = "totalBK_inactive")
+    private Integer totalBKInactive;
+    @Column(name = "eBKAssiged_to_SHG_inactive")
+    private Integer eBKAssigetoSHGInactive;
+    @Column(name = "ShgMapped_withBK_inactive")
+    private Integer shgMappedWithBKInactive;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -3019,6 +3031,54 @@ public class SocialMobalizationEntity {
 
     public void setMemAgeNull(Integer memAgeNull) {
         this.memAgeNull = memAgeNull;
+    }
+
+    public Integer getTotalBKActive() {
+        return totalBKActive;
+    }
+
+    public void setTotalBKActive(Integer totalBKActive) {
+        this.totalBKActive = totalBKActive;
+    }
+
+    public Integer geteBKAssigedtoShgActive() {
+        return eBKAssigedtoShgActive;
+    }
+
+    public void seteBKAssigedtoShgActive(Integer eBKAssigedtoShgActive) {
+        this.eBKAssigedtoShgActive = eBKAssigedtoShgActive;
+    }
+
+    public Integer getShgMappedWithBKActive() {
+        return shgMappedWithBKActive;
+    }
+
+    public void setShgMappedWithBKActive(Integer shgMappedWithBKActive) {
+        this.shgMappedWithBKActive = shgMappedWithBKActive;
+    }
+
+    public Integer getTotalBKInactive() {
+        return totalBKInactive;
+    }
+
+    public void setTotalBKInactive(Integer totalBKInactive) {
+        this.totalBKInactive = totalBKInactive;
+    }
+
+    public Integer geteBKAssigetoSHGInactive() {
+        return eBKAssigetoSHGInactive;
+    }
+
+    public void seteBKAssigetoSHGInactive(Integer eBKAssigetoSHGInactive) {
+        this.eBKAssigetoSHGInactive = eBKAssigetoSHGInactive;
+    }
+
+    public Integer getShgMappedWithBKInactive() {
+        return shgMappedWithBKInactive;
+    }
+
+    public void setShgMappedWithBKInactive(Integer shgMappedWithBKInactive) {
+        this.shgMappedWithBKInactive = shgMappedWithBKInactive;
     }
 }
 
