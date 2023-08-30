@@ -303,6 +303,12 @@ public class ResponseSocialMobilization {
     private Integer memAge61to70;
     private Integer memAge70;
     private Integer memAgeNull;
+    private Integer totalBKActive;
+    private Integer eBKAssigedtoShgActive;
+    private Integer shgMappedWithBKActive;
+    private Integer totalBKInactive;
+    private Integer eBKAssigetoSHGInactive;
+    private Integer shgMappedWithBKInactive;
     public Integer getTotalRuralHouseholds() {
         return totalRuralHouseholds;
     }
@@ -2693,5 +2699,53 @@ public class ResponseSocialMobilization {
 
     public void setMemAgeNull(Integer memAgeNull) {
         this.memAgeNull = memAgeNull;
+    }
+
+    public Integer getTotalBKActive() {
+        return totalBKActive;
+    }
+
+    public void setTotalBKActive(Integer totalBKActive) {
+        this.totalBKActive = totalBKActive;
+    }
+
+    public Integer geteBKAssigedtoShgActive() {
+        return eBKAssigedtoShgActive;
+    }
+
+    public void seteBKAssigedtoShgActive(Integer eBKAssigedtoShgActive) {
+        this.eBKAssigedtoShgActive = eBKAssigedtoShgActive;
+    }
+
+    public Integer getShgMappedWithBKActive() {
+        return shgMappedWithBKActive;
+    }
+
+    public void setShgMappedWithBKActive(Integer shgMappedWithBKActive) {
+        this.shgMappedWithBKActive = shgMappedWithBKActive;
+    }
+
+    public Integer getTotalBKInactive() {
+        return totalBKInactive;
+    }
+
+    public void setTotalBKInactive(Integer totalBKInactive) {
+        this.totalBKInactive = totalBKInactive;
+    }
+
+    public Integer geteBKAssigetoSHGInactive() {
+        return eBKAssigetoSHGInactive;
+    }
+
+    public void seteBKAssigetoSHGInactive(Integer eBKAssigetoSHGInactive) {
+        this.eBKAssigetoSHGInactive = eBKAssigetoSHGInactive;
+    }
+
+    public Integer getShgMappedWithBKInactive() {
+        return shgMappedWithBKInactive;
+    }
+
+    public void setShgMappedWithBKInactive(Integer shgMappedWithBKInactive) {
+        this.shgMappedWithBKInactive = shgMappedWithBKInactive;
     }
 }
