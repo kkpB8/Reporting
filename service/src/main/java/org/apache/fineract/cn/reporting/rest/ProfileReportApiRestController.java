@@ -135,13 +135,18 @@ public class ProfileReportApiRestController extends  BaseController{
     )
     public
     @ResponseBody
-    ResponseEntity<GlobalApiResponse<List<ResponseShgDetails>>> getShgDetails(@RequestParam(value="stateId") final Integer stateId,
-                                                                              @RequestParam(value="districtId",required=false) final Integer districtId,
-                                                                              @RequestParam(value="blockId") final Integer blockId,
-                                                                              @RequestParam(value="villageId",required=false) final Integer villageId,
-                                                                              @RequestParam(value="panchayatId",required=false) final Integer panchayatId) {
+    ResponseEntity<GlobalApiResponse<List<ResponseShgDetails>>> getShgDetails(@RequestParam(value="cboType") final String cboType,
+                                                                              @RequestParam(value="stateId") final String stateId,
+                                                                              @RequestParam(value="districtId") final String districtId,
+                                                                              @RequestParam(value="blockId") final String blockId,
+                                                                              HttpServletRequest headerRequest) {
+        if (headerRequest.getHeader("X-Tenant-Identifier") == null) {
+            this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+            throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+        }
+        String tenantIdentifier = headerRequest.getHeader("X-Tenant-Identifier");
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
-                this.profileReportService.getShgDetail(stateId,districtId,blockId,villageId,panchayatId)));
+                this.profileReportService.getShgDetail(cboType,stateId,districtId,blockId,tenantIdentifier)));
     }
 
     @Permittable(value= AcceptedTokenType.GUEST)
@@ -161,54 +166,67 @@ public class ProfileReportApiRestController extends  BaseController{
         return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
                 this.profileReportService.getMemberDetail(stateId,districtId,blockId,panchayatId,villageId)));
     }
-    @Permittable(value= AcceptedTokenType.GUEST)
-    @RequestMapping(
-            value = "/getUserConsolidate",
-            method = RequestMethod.GET,
-            consumes = MediaType.ALL_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public
-    @ResponseBody
-    ResponseEntity<GlobalApiResponse<List<ResponseUserConsolidate>>> getUserConsolidate(@RequestParam(value="stateId",required=false) final Integer stateId,
-                                                                                        @RequestParam(value="districtId",required=false) final String districtId,
-                                                                                        @RequestParam(value="blockId",required=false) final String blockId) {
-        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
-                this.profileReportService.getUserConsolidateData(stateId,districtId,blockId)));
-    }
+//    @Permittable(value= AcceptedTokenType.GUEST)
+//    @RequestMapping(
+//            value = "/getUserConsolidate",
+//            method = RequestMethod.GET,
+//            consumes = MediaType.ALL_VALUE,
+//            produces = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public
+//    @ResponseBody
+//    ResponseEntity<GlobalApiResponse<List<ResponseUserConsolidate>>> getUserConsolidate(@RequestParam(value="stateId",required=false) final Integer stateId,
+//                                                                                        @RequestParam(value="districtId",required=false) final String districtId,
+//                                                                                        @RequestParam(value="blockId",required=false) final String blockId) {
+//        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+//                this.profileReportService.getUserConsolidateData(stateId,districtId,blockId)));
+//    }
 
-    @Permittable(value= AcceptedTokenType.GUEST)
-    @RequestMapping(
-            value = "/voDetails",
-            method = RequestMethod.GET,
-            consumes = MediaType.ALL_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public
-    @ResponseBody
-    ResponseEntity<GlobalApiResponse<List<ResponseVODetails>>> getVODetails(@RequestParam(value="stateId") final Integer stateId,
-                                                                            @RequestParam(value="districtId",required=false) final Integer districtId,
-                                                                            @RequestParam(value="blockId") final Integer blockId,
-                                                                            @RequestParam(value="panchayatId",required=false) final Integer panchayatId) {
-        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
-                this.profileReportService.getVODetail(stateId,districtId,blockId,panchayatId)));
-    }
+//    @Permittable(value= AcceptedTokenType.GUEST)
+//    @RequestMapping(
+//            value = "/voDetails",
+//            method = RequestMethod.GET,
+//            consumes = MediaType.ALL_VALUE,
+//            produces = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public
+//    @ResponseBody
+//    ResponseEntity<GlobalApiResponse<List<ResponseVODetails>>> getVODetails(@RequestParam(value="cboType") final String cboType,
+//                                                                            @RequestParam(value="stateId") final String stateId,
+//                                                                            @RequestParam(value="districtId") final String districtId,
+//                                                                            @RequestParam(value="blockId") final String blockId,
+//                                                                            HttpServletRequest httpServletRequest) {
+//        if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
+//            this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+//            throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+//        }
+//        String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+//        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+//                this.profileReportService.getVODetail(cboType, stateId,districtId,blockId, tenantIdentifier)));
+//    }
 
-    @Permittable(value= AcceptedTokenType.GUEST)
-    @RequestMapping(
-            value = "/clfDetails",
-            method = RequestMethod.GET,
-            consumes = MediaType.ALL_VALUE,
-            produces = MediaType.APPLICATION_JSON_VALUE
-    )
-    public
-    @ResponseBody
-    ResponseEntity<GlobalApiResponse<List<ResponseClfDetails>>> getClfDetails(@RequestParam(value="stateId") final Integer stateId,
-                                                                              @RequestParam(value="districtId",required=false) final Integer districtId,
-                                                                              @RequestParam(value="blockId") final Integer blockId) {
-        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
-                this.profileReportService.getClfDetail(stateId,districtId,blockId)));
-    }
+//    @Permittable(value= AcceptedTokenType.GUEST)
+//    @RequestMapping(
+//            value = "/clfDetails",
+//            method = RequestMethod.GET,
+//            consumes = MediaType.ALL_VALUE,
+//            produces = MediaType.APPLICATION_JSON_VALUE
+//    )
+//    public
+//    @ResponseBody
+//    ResponseEntity<GlobalApiResponse<List<ResponseClfDetails>>> getClfDetails(@RequestParam(value="cboType") final String cboType,
+//                                                                              @RequestParam(value="stateId") final String stateId,
+//                                                                              @RequestParam(value="districtId") final String districtId,
+//                                                                              @RequestParam(value="blockId") final String blockId,
+//                                                                              HttpServletRequest httpServletRequest) {
+//        if (httpServletRequest.getHeader("X-Tenant-Identifier") == null) {
+//            this.logger.error(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+//            throw new RequestInputMissing(CustomStatus.REQUEST_INPUT_NOT_PRESENT_MSG + "{X-Tenant-Identifier}");
+//        }
+//        String tenantIdentifier = httpServletRequest.getHeader("X-Tenant-Identifier");
+//        return ResponseEntity.ok(getSuccessResponse("Data retrieve successfully","200",
+//                this.profileReportService.getClfDetail(cboType,stateId,districtId,blockId, tenantIdentifier)));
+//    }
 
     @Permittable(value= AcceptedTokenType.GUEST)
     @RequestMapping(

@@ -9,9 +9,9 @@ public class ResponseVODetails {
 
     private String gp;
 
-    private String village;
+//    private String village;
 
-    private Long voCode;
+    private String voCode;
 
     private String voName;
 
@@ -19,7 +19,7 @@ public class ResponseVODetails {
 
     private String userName;
 
-    private String activationStatus;
+//    private String activationStatus;
 
     private String approvedStatus;
 
@@ -59,19 +59,26 @@ public class ResponseVODetails {
         this.gp = gp;
     }
 
-    public String getVillage() {
-        return village;
-    }
+//    public String getVillage() {
+//        return village;
+//    }
+//
+//    public void setVillage(String village) {
+//        this.village = village;
+//    }
 
-    public void setVillage(String village) {
-        this.village = village;
-    }
-
-    public Long getVoCode() {
+//    public Long getVoCode() {
+//        return voCode;
+//    }
+//
+//    public void setVoCode(Long voCode) {
+//        this.voCode = voCode;
+//    }
+    public String getVoCode() {
         return voCode;
     }
 
-    public void setVoCode(Long voCode) {
+    public void setVoCode(String voCode) {
         this.voCode = voCode;
     }
 
@@ -99,13 +106,13 @@ public class ResponseVODetails {
         this.userName = userName;
     }
 
-    public String getActivationStatus() {
-        return activationStatus;
-    }
-
-    public void setActivationStatus(String activationStatus) {
-        this.activationStatus = activationStatus;
-    }
+//    public String getActivationStatus() {
+//        return activationStatus;
+//    }
+//
+//    public void setActivationStatus(String activationStatus) {
+//        this.activationStatus = activationStatus;
+//    }
 
     public String getApprovedStatus() {
         return approvedStatus;

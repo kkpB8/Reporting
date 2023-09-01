@@ -342,31 +342,31 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             " c.category_name,total_shg,total_vo,total_clf order by u.category_id::int ASC")
     List<Object[]> getSummaryReportDetails(String blockId,String district, Integer stateId);
 
-    @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, p.panchayat_name_en as GP, "+
-            " v.village_name_en as Village, "+
-            "sp.shg_code as SHGCode,sp.shg_name as SHGName, um.user_id as UserId,um.user_name as UserName,  "+
-            "CASE WHEN sp.uploaded_by is not null and sp.activation_status=2 and (sp.approve_status=2 and sp.is_edited!=1) "+
-            "and sp.user_id is not null THEN 'ApprovedbyBM'  "+
-            "WHEN sp.uploaded_by is not null and (sp.approve_status=3 and sp.is_edited!=1) and sp.user_id is not null THEN 'RejectedbyBM'  "+
-            "WHEN sp.uploaded_by is not null and (sp.approve_status=1 or sp.is_edited=1) "+
-            "and sp.is_locked!=0 and sp.user_id is not null THEN  'PendingwithBM'  "+
-            "WHEN sp.uploaded_by is null and sp.user_id is not null THEN 'PendingwithBookkeeper'  "+
-            "WHEN sp.user_id is null THEN '-' END "+
-            "as Approvedstatus,  "+
-            "CASE WHEN sp.status = 1 THEN 'Active'  "+
-            "ELSE 'Inactive' END as SHGStatus, "+
-            "CASE WHEN sp.nic_shg_code is null THEN 'Yes'  "+
-            "WHEN sp.nic_shg_code is not null THEN 'No'  "+
-            "END as IsNewSHG  "+
-            "from shg_profile sp inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null "+
-            "inner join users_master um on um.user_id=sp.user_id "+
-            "inner join state_master s on s.state_id=sp.state_id::int "+
-            "inner join district_master d on d.district_id=sp.district_id::int "+
-            "inner join block_master b on b.block_id=sp.block_id::int  "+
-            "inner join panchayat_master p on p.panchayat_id=sp.panchayat_id::int "+
-            "inner join village_master v on v.village_id=sp.village_id::int "+
-            "where sp.is_locked!=0 and sp.block_id=?1  and (?2 = -1 or sp.village_id=?2) and (?3 = -1 or sp.panchayat_id=?3) and sp.is_active=true")
-    List<Object[]> getShgDetails(Integer blockId,Integer villageId,Integer panchayatId);
+//    @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, p.panchayat_name_en as GP, "+
+//            " v.village_name_en as Village, "+
+//            "sp.shg_code as SHGCode,sp.shg_name as SHGName, um.user_id as UserId,um.user_name as UserName,  "+
+//            "CASE WHEN sp.uploaded_by is not null and sp.activation_status=2 and (sp.approve_status=2 and sp.is_edited!=1) "+
+//            "and sp.user_id is not null THEN 'ApprovedbyBM'  "+
+//            "WHEN sp.uploaded_by is not null and (sp.approve_status=3 and sp.is_edited!=1) and sp.user_id is not null THEN 'RejectedbyBM'  "+
+//            "WHEN sp.uploaded_by is not null and (sp.approve_status=1 or sp.is_edited=1) "+
+//            "and sp.is_locked!=0 and sp.user_id is not null THEN  'PendingwithBM'  "+
+//            "WHEN sp.uploaded_by is null and sp.user_id is not null THEN 'PendingwithBookkeeper'  "+
+//            "WHEN sp.user_id is null THEN '-' END "+
+//            "as Approvedstatus,  "+
+//            "CASE WHEN sp.status = 1 THEN 'Active'  "+
+//            "ELSE 'Inactive' END as SHGStatus, "+
+//            "CASE WHEN sp.nic_shg_code is null THEN 'Yes'  "+
+//            "WHEN sp.nic_shg_code is not null THEN 'No'  "+
+//            "END as IsNewSHG  "+
+//            "from shg_profile sp inner join cbo_approval_audit  caa on sp.shg_id=caa.cbo_id and caa.cbo_type=0 and caa.member_id is null "+
+//            "inner join users_master um on um.user_id=sp.user_id "+
+//            "inner join state_master s on s.state_id=sp.state_id::int "+
+//            "inner join district_master d on d.district_id=sp.district_id::int "+
+//            "inner join block_master b on b.block_id=sp.block_id::int  "+
+//            "inner join panchayat_master p on p.panchayat_id=sp.panchayat_id::int "+
+//            "inner join village_master v on v.village_id=sp.village_id::int "+
+//            "where sp.is_locked!=0 and sp.block_id=?1  and (?2 = -1 or sp.village_id=?2) and (?3 = -1 or sp.panchayat_id=?3) and sp.is_active=true")
+//    List<Object[]> getShgDetails(Integer blockId,Integer villageId,Integer panchayatId);
     @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, p.panchayat_name_en as GP, "+
             "v.village_name_en as Village, "+
             "sp.shg_code as SHGCode,sp.shg_name as SHGName,mp.member_code as MemberCode, mp.member_name  "+
@@ -387,55 +387,55 @@ public interface ProfileReportRepository extends JpaRepository<ProfileReportEnti
             "where sp.is_locked!=0 and sp.block_id=?1 and (?2 = -1 or sp.panchayat_id=?2) and(?3 = -1 or sp.village_id=?3)")
     List<Object[]> getMemberDetails( Integer blockId,Integer panchayatId,Integer villageId);
 
-    @Query(nativeQuery = true, value="select s.state_name_en as State, r.role_name as UserRoleName, count(CASE WHEN u.role_status=1 then u end ) as Count from "+
-            " user_role_rights_map u "+
-            " inner join roles_master r on r.role_id=u.role_id " +
-            " inner join users_master usm on usm.user_id=u.user_id " +
-//            "and usm.status!='0' "+
-            " inner join state_master s on s.state_id=u.state_id::int where (?1 = -1 or u.state_id::int=?1) and (?2 is null or u.district_id=?2) and (?3 is null or u.block_id=?3) and r.role_id::int<900 "+
-            " group by u.role_id,s.state_name_en,r.role_name order by u.role_id::int ASC")
-    List<Object[]> getUserConsolidateData(Integer state_id,String district_id, String block_id);
-    @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, p.panchayat_name_en as GP, "+
-            "sp.federation_code as VOCode,sp.federation_name as VOName, um.user_id as UserId,um.user_name as UserName,  "+
-            "CASE WHEN sp.uploaded_by is not null and sp.activation_status=2 and sp.approve_status=2  "+
-            "and sp.user_id is not null THEN 'ApprovedbyBM' "+
-            " WHEN sp.uploaded_by is not null and sp.approve_status=3 and sp.user_id is not null THEN 'RejectedbyBM' "+
-            "WHEN sp.uploaded_by is not null and sp.approve_status=1 and sp.user_id is not null THEN 'PendingwithBM' "+
-            "WHEN sp.uploaded_by is null and sp.user_id is not null THEN 'PendingwithBookkeeper'  "+
-            " WHEN sp.user_id is null THEN '-' END "+
-            "as Approvedstatus,  CASE WHEN sp.status = 1 THEN 'Active' "+
-            " ELSE 'Inactive' END as VOStatus,  "+
-            "CASE WHEN sp.vo_nic_code is null THEN 'Yes' "+
-            " WHEN sp.vo_nic_code is not null THEN 'No' "+
-            "END as IsNewVO from federation_profile sp "+
-            "inner join users_master um on um.user_id=sp.user_id "+
-            "inner join state_master s on s.state_id=sp.state_id::int "+
-            "inner join district_master d on d.district_id=sp.district_id::int "+
-            "inner join block_master b on b.block_id=sp.block_id::int "+
-            "inner join panchayat_master p on p.panchayat_id=sp.panchayat_id::int "+
-            "where sp.cbo_type=1 and sp.block_id=?1 and (?2 = -1 or sp.panchayat_id=?2) and sp.is_active=true")
-    List<Object[]> getVoDetails(Integer blockId,Integer panchayatId);
+//    @Query(nativeQuery = true, value="select s.state_name_en as State, r.role_name as UserRoleName, count(CASE WHEN u.role_status=1 then u end ) as Count from "+
+//            " user_role_rights_map u "+
+//            " inner join roles_master r on r.role_id=u.role_id " +
+//            " inner join users_master usm on usm.user_id=u.user_id " +
+////            "and usm.status!='0' "+
+//            " inner join state_master s on s.state_id=u.state_id::int where (?1 = -1 or u.state_id::int=?1) and (?2 is null or u.district_id=?2) and (?3 is null or u.block_id=?3) and r.role_id::int<900 "+
+//            " group by u.role_id,s.state_name_en,r.role_name order by u.role_id::int ASC")
+//    List<Object[]> getUserConsolidateData(Integer state_id,String district_id, String block_id);
+//    @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, p.panchayat_name_en as GP, "+
+//            "sp.federation_code as VOCode,sp.federation_name as VOName, um.user_id as UserId,um.user_name as UserName,  "+
+//            "CASE WHEN sp.uploaded_by is not null and sp.activation_status=2 and sp.approve_status=2  "+
+//            "and sp.user_id is not null THEN 'ApprovedbyBM' "+
+//            " WHEN sp.uploaded_by is not null and sp.approve_status=3 and sp.user_id is not null THEN 'RejectedbyBM' "+
+//            "WHEN sp.uploaded_by is not null and sp.approve_status=1 and sp.user_id is not null THEN 'PendingwithBM' "+
+//            "WHEN sp.uploaded_by is null and sp.user_id is not null THEN 'PendingwithBookkeeper'  "+
+//            " WHEN sp.user_id is null THEN '-' END "+
+//            "as Approvedstatus,  CASE WHEN sp.status = 1 THEN 'Active' "+
+//            " ELSE 'Inactive' END as VOStatus,  "+
+//            "CASE WHEN sp.vo_nic_code is null THEN 'Yes' "+
+//            " WHEN sp.vo_nic_code is not null THEN 'No' "+
+//            "END as IsNewVO from federation_profile sp "+
+//            "inner join users_master um on um.user_id=sp.user_id "+
+//            "inner join state_master s on s.state_id=sp.state_id::int "+
+//            "inner join district_master d on d.district_id=sp.district_id::int "+
+//            "inner join block_master b on b.block_id=sp.block_id::int "+
+//            "inner join panchayat_master p on p.panchayat_id=sp.panchayat_id::int "+
+//            "where sp.cbo_type=1 and sp.block_id=?1 and (?2 = -1 or sp.panchayat_id=?2) and sp.is_active=true")
+//    List<Object[]> getVoDetails(Integer blockId,Integer panchayatId);
 
-    @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, "+
-            "sp.federation_code as CLFCode,sp.federation_name as CLFName, um.user_id as UserId,um.user_name as UserName,  "+
-            "CASE WHEN sp.uploaded_by is not null and sp.activation_status=2 and sp.approve_status=2 "+
-            "and sp.user_id is not null THEN 'ApprovedbyBM'   "+
-            "WHEN sp.uploaded_by is not null and sp.approve_status=3 and sp.user_id is not null THEN 'RejectedbyBM'  "+
-            "WHEN sp.uploaded_by is not null and sp.approve_status=1 and sp.user_id is not null THEN 'PendingwithBM'  "+
-            "WHEN sp.uploaded_by is null and sp.user_id is not null THEN 'PendingwithBookkeeper'   "+
-            "WHEN sp.user_id is null THEN '-' END  "+
-            "as Approvedstatus,  "+
-            "CASE WHEN sp.status = 1 THEN 'Active'  "+
-            "ELSE 'Inactive' END as CLFStatus,  "+
-            "CASE WHEN sp.vo_nic_code is null THEN 'Yes' "+
-            "WHEN sp.vo_nic_code is not null THEN 'No' "+
-            "END as IsNewCLF from federation_profile sp  "+
-            "inner join users_master um on um.user_id=sp.user_id "+
-            "inner join state_master s on s.state_id=sp.state_id::int "+
-            "inner join district_master d on d.district_id=sp.district_id::int "+
-            "inner join block_master b on b.block_id=sp.block_id::int "+
-            "where sp.cbo_type=2 and sp.block_id=?1 and sp.is_active=true")
-    List<Object[]> getClfDetails(Integer blockId);
+//    @Query(nativeQuery = true, value="select s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, "+
+//            "sp.federation_code as CLFCode,sp.federation_name as CLFName, um.user_id as UserId,um.user_name as UserName,  "+
+//            "CASE WHEN sp.uploaded_by is not null and sp.activation_status=2 and sp.approve_status=2 "+
+//            "and sp.user_id is not null THEN 'ApprovedbyBM'   "+
+//            "WHEN sp.uploaded_by is not null and sp.approve_status=3 and sp.user_id is not null THEN 'RejectedbyBM'  "+
+//            "WHEN sp.uploaded_by is not null and sp.approve_status=1 and sp.user_id is not null THEN 'PendingwithBM'  "+
+//            "WHEN sp.uploaded_by is null and sp.user_id is not null THEN 'PendingwithBookkeeper'   "+
+//            "WHEN sp.user_id is null THEN '-' END  "+
+//            "as Approvedstatus,  "+
+//            "CASE WHEN sp.status = 1 THEN 'Active'  "+
+//            "ELSE 'Inactive' END as CLFStatus,  "+
+//            "CASE WHEN sp.vo_nic_code is null THEN 'Yes' "+
+//            "WHEN sp.vo_nic_code is not null THEN 'No' "+
+//            "END as IsNewCLF from federation_profile sp  "+
+//            "inner join users_master um on um.user_id=sp.user_id "+
+//            "inner join state_master s on s.state_id=sp.state_id::int "+
+//            "inner join district_master d on d.district_id=sp.district_id::int "+
+//            "inner join block_master b on b.block_id=sp.block_id::int "+
+//            "where sp.cbo_type=2 and sp.block_id=?1 and sp.is_active=true")
+//    List<Object[]> getClfDetails(Integer blockId);
     @Query(nativeQuery = true, value="select "+
             "s.state_name_en as State, d.district_name_en as District, b.block_name_en as Block, panchayat_name  as GP,village_name as Village,"+
             "um.user_id as UserId,um.user_name as UserName, r.role_name as UserRoleName ,"+

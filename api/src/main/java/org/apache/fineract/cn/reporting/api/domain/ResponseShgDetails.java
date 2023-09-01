@@ -15,18 +15,25 @@ public class ResponseShgDetails {
 
     private String shgName;
 
+    private String voCode;
+    private String voName;
+    private String clfCode;
+    private String clfName;
     private String userId;
 
     private String userName;
 
-    private String activationStatus;
+//    private String activationStatus;
 
     private String approvedStatus;
 
     private String shgStatus;
 
     private String isNewShg;
-
+    private String voStatus;
+    private String isNewVo;
+    private String clfStatus;
+    private String isNewClf;
     public String getState() {
         return state;
     }
@@ -83,6 +90,38 @@ public class ResponseShgDetails {
         this.shgName = shgName;
     }
 
+    public String getVoCode() {
+        return voCode;
+    }
+
+    public void setVoCode(String voCode) {
+        this.voCode = voCode;
+    }
+
+    public String getVoName() {
+        return voName;
+    }
+
+    public void setVoName(String voName) {
+        this.voName = voName;
+    }
+
+    public String getClfCode() {
+        return clfCode;
+    }
+
+    public void setClfCode(String clfCode) {
+        this.clfCode = clfCode;
+    }
+
+    public String getClfName() {
+        return clfName;
+    }
+
+    public void setClfName(String clfName) {
+        this.clfName = clfName;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -99,13 +138,13 @@ public class ResponseShgDetails {
         this.userName = userName;
     }
 
-    public String getActivationStatus() {
-        return activationStatus;
-    }
-
-    public void setActivationStatus(String activationStatus) {
-        this.activationStatus = activationStatus;
-    }
+//    public String getActivationStatus() {
+//        return activationStatus;
+//    }
+//
+//    public void setActivationStatus(String activationStatus) {
+//        this.activationStatus = activationStatus;
+//    }
 
     public String getApprovedStatus() {
         return approvedStatus;
@@ -129,5 +168,37 @@ public class ResponseShgDetails {
 
     public void setIsNewShg(String isNewShg) {
         this.isNewShg = isNewShg;
+    }
+
+    public String getVoStatus() {
+        return voStatus;
+    }
+
+    public void setVoStatus(String voStatus) {
+        this.voStatus = voStatus;
+    }
+
+    public String getIsNewVo() {
+        return isNewVo;
+    }
+
+    public void setIsNewVo(String isNewVo) {
+        this.isNewVo = isNewVo;
+    }
+
+    public String getClfStatus() {
+        return clfStatus;
+    }
+
+    public void setClfStatus(String clfStatus) {
+        this.clfStatus = clfStatus;
+    }
+
+    public String getIsNewClf() {
+        return isNewClf;
+    }
+
+    public void setIsNewClf(String isNewClf) {
+        this.isNewClf = isNewClf;
     }
 }

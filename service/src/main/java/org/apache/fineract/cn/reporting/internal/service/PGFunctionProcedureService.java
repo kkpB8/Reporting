@@ -1386,4 +1386,124 @@ public class PGFunctionProcedureService {
         }
         return responseUserConsolidateList;
     }
+
+    public List<ResponseShgDetails> functionCboDownloads(String cboType, String stateId, String districtId,String blockId,String db_name) {
+        Connection con;
+        CallableStatement stmt = null;
+        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+        List<ResponseShgDetails> responseShgDetailsList = new ArrayList<>();
+        try {
+            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+            logger.info("Connected to the PostgreSQL server successfully.");
+            stmt = con.prepareCall("{call fn_cbo_downloads (?,?,?,?)}");
+            stmt.setString(1, cboType);
+            stmt.setString(2, stateId);
+            stmt.setString(3, districtId);
+            stmt.setString(4, blockId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ResponseShgDetails responseShgDetails =new ResponseShgDetails();
+                responseShgDetails.setState(rs.getString("state"));
+                responseShgDetails.setDistrict(rs.getString("district"));
+                responseShgDetails.setBlock(rs.getString("block"));
+                responseShgDetails.setGp(rs.getString("gp"));
+                responseShgDetails.setVillage(rs.getString("village"));
+                responseShgDetails.setShgCode(rs.getString("shgcode"));
+                responseShgDetails.setShgName(rs.getString("shgname"));
+                responseShgDetails.setVoCode(rs.getString("vocode"));
+                responseShgDetails.setVoName(rs.getString("voname"));
+                responseShgDetails.setClfCode(rs.getString("clfcode"));
+                responseShgDetails.setClfName(rs.getString("clfname"));
+                responseShgDetails.setUserId(rs.getString("userid"));
+                responseShgDetails.setUserName(rs.getString("username"));
+                responseShgDetails.setApprovedStatus(rs.getString("approvedstatus"));
+                responseShgDetails.setShgStatus(rs.getString("shgstatus"));
+                responseShgDetails.setIsNewShg(rs.getString("isnewshg"));
+                responseShgDetails.setVoStatus(rs.getString("vostatus"));
+                responseShgDetails.setIsNewVo(rs.getString("isnewvo"));
+                responseShgDetails.setClfStatus(rs.getString("clfstatus"));
+                responseShgDetails.setIsNewClf(rs.getString("isnewclf"));
+                responseShgDetailsList.add(responseShgDetails);
+            }
+            stmt.close();
+            con.close();
+        } catch (SQLException e) {
+            logger.info("Call Function fn_cbo_downloads (?,?,?,?) Failed!", e.getMessage());
+            throw new DatabaseOperationError("Call Function fn_cbo_dowloads(?,?,?,?) Failed!");
+        }
+        return responseShgDetailsList;
+    }
+//    public List<ResponseVODetails> getVoDetails(String cboType, String stateId, String districtId,String blockId,String db_name) {
+//        Connection con;
+//        CallableStatement stmt = null;
+//        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+//        List<ResponseVODetails> responseVODetailsList = new ArrayList<>();
+//        try {
+//            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+//            logger.info("Connected to the PostgreSQL server successfully.");
+//            stmt = con.prepareCall("{call fn_cbo_downloads_vo (?,?,?,?)}");
+//            stmt.setString(1, cboType);
+//            stmt.setString(2, stateId);
+//            stmt.setString(3, districtId);
+//            stmt.setString(4, blockId);
+//            ResultSet rs = stmt.executeQuery();
+//            while (rs.next()) {
+//                ResponseVODetails responseVODetails =new ResponseVODetails();
+//                responseVODetails.setState(rs.getString("state"));
+//                responseVODetails.setDistrict(rs.getString("district"));
+//                responseVODetails.setBlock(rs.getString("block"));
+//                responseVODetails.setGp(rs.getString("gp"));
+//                responseVODetails.setVoCode(rs.getString("vocode"));
+//                responseVODetails.setVoName(rs.getString("voname"));
+//                responseVODetails.setUserId(rs.getString("userid"));
+//                responseVODetails.setUserName(rs.getString("username"));
+//                responseVODetails.setApprovedStatus(rs.getString("approvedstatus"));
+//                responseVODetails.setVoStatus(rs.getString("vostatus"));
+//                responseVODetails.setIsNewVo(rs.getString("isnewvo"));
+//                responseVODetailsList.add(responseVODetails);
+//            }
+//            stmt.close();
+//            con.close();
+//        } catch (SQLException e) {
+//            logger.info("Call Function fn_cbo_downloads_vo (?,?,?,?) Failed!", e.getMessage());
+//            throw new DatabaseOperationError("Call Function fn_cbo_downloads_vo (?,?,?,?) Failed!");
+//        }
+//        return responseVODetailsList;
+//    }
+//    public List<ResponseClfDetails> getClfDetails(String cboType, String stateId, String districtId,String blockId,String db_name) {
+//        Connection con;
+//        CallableStatement stmt = null;
+//        String url_sp = "jdbc:postgresql://" + host + ":" + port + "/" + db_name;
+//        List<ResponseClfDetails> responseClfDetailsList = new ArrayList<>();
+//        try {
+//            con = DriverManager.getConnection(url_sp, user_sp, password_sp);
+//            logger.info("Connected to the PostgreSQL server successfully.");
+//            stmt = con.prepareCall("{call fn_cbo_downloads_clf (?,?,?,?)}");
+//            stmt.setString(1, cboType);
+//            stmt.setString(2, stateId);
+//            stmt.setString(3, districtId);
+//            stmt.setString(4, blockId);
+//            ResultSet rs = stmt.executeQuery();
+//            while (rs.next()) {
+//                ResponseClfDetails responseClfDetails = new ResponseClfDetails();
+//                responseClfDetails.setState(rs.getString("state"));
+//                responseClfDetails.setDistrict(rs.getString("district"));
+//                responseClfDetails.setBlock(rs.getString("block"));
+//                responseClfDetails.setClfCode(rs.getString("clfcode"));
+//                responseClfDetails.setClfName(rs.getString("clfname"));
+//                responseClfDetails.setUserId(rs.getString("userid"));
+//                responseClfDetails.setUserName(rs.getString("username"));
+//                responseClfDetails.setApprovedStatus(rs.getString("approvedstatus"));
+//                responseClfDetails.setClfStatus(rs.getString("clfstatus"));
+//                responseClfDetails.setIsNewClf(rs.getString("isnewclf"));
+//                responseClfDetailsList.add(responseClfDetails);
+//            }
+//            stmt.close();
+//            con.close();
+//        } catch (SQLException e) {
+//            logger.info("Call Function fn_cbo_downloads_vo (?,?,?,?) Failed!", e.getMessage());
+//            throw new DatabaseOperationError("Call Function fn_cbo_downloads_vo (?,?,?,?) Failed!");
+//        }
+//        return responseClfDetailsList;
+//    }
 }
