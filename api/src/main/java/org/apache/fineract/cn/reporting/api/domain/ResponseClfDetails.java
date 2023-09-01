@@ -8,11 +8,11 @@ public class ResponseClfDetails {
 
     private String block;
 
-    private String gp;
+//    private String gp;
 
-    private String village;
+//    private String village;
 
-    private Long clfCode;
+    private String clfCode;
 
     private String clfName;
 
@@ -20,12 +20,12 @@ public class ResponseClfDetails {
 
     private String userName;
 
-    private String activationStatus;
+//    private String activationStatus;
 
     private String approvedStatus;
 
-    private String voStatus;
-
+//    private String voStatus;
+    private String clfStatus;
     private String isNewClf;
 
     public String getState() {
@@ -52,28 +52,44 @@ public class ResponseClfDetails {
         this.block = block;
     }
 
-    public String getGp() {
-        return gp;
-    }
+//    public String getGp() {
+//        return gp;
+//    }
+//
+//    public void setGp(String gp) {
+//        this.gp = gp;
+//    }
+//
+//    public String getVillage() {
+//        return village;
+//    }
+//
+//    public void setVillage(String village) {
+//        this.village = village;
+//    }
 
-    public void setGp(String gp) {
-        this.gp = gp;
-    }
+//    public Long getClfCode() {
+//        return clfCode;
+//    }
+//
+//    public void setClfCode(Long clfCode) {
+//        this.clfCode = clfCode;
+//    }
 
-    public String getVillage() {
-        return village;
-    }
-
-    public void setVillage(String village) {
-        this.village = village;
-    }
-
-    public Long getClfCode() {
+    public String getClfCode() {
         return clfCode;
     }
 
-    public void setClfCode(Long clfCode) {
+    public void setClfCode(String clfCode) {
         this.clfCode = clfCode;
+    }
+
+    public String getClfStatus() {
+        return clfStatus;
+    }
+
+    public void setClfStatus(String clfStatus) {
+        this.clfStatus = clfStatus;
     }
 
     public String getClfName() {
@@ -100,13 +116,13 @@ public class ResponseClfDetails {
         this.userName = userName;
     }
 
-    public String getActivationStatus() {
-        return activationStatus;
-    }
-
-    public void setActivationStatus(String activationStatus) {
-        this.activationStatus = activationStatus;
-    }
+//    public String getActivationStatus() {
+//        return activationStatus;
+//    }
+//
+//    public void setActivationStatus(String activationStatus) {
+//        this.activationStatus = activationStatus;
+//    }
 
     public String getApprovedStatus() {
         return approvedStatus;
@@ -116,13 +132,13 @@ public class ResponseClfDetails {
         this.approvedStatus = approvedStatus;
     }
 
-    public String getVoStatus() {
-        return voStatus;
-    }
-
-    public void setVoStatus(String voStatus) {
-        this.voStatus = voStatus;
-    }
+//    public String getVoStatus() {
+//        return voStatus;
+//    }
+//
+//    public void setVoStatus(String voStatus) {
+//        this.voStatus = voStatus;
+//    }
 
     public String getIsNewClf() {
         return isNewClf;

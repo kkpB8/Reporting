@@ -19,7 +19,6 @@
 package org.apache.fineract.cn.reporting.internal.service;
 
 
-import jnr.ffi.annotations.In;
 import org.apache.fineract.cn.reporting.ServiceConstants;
 import org.apache.fineract.cn.reporting.api.domain.*;
 import org.apache.fineract.cn.reporting.internal.Error.RecordNotFoundException;
@@ -31,7 +30,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -594,70 +592,72 @@ public class ProfileReportService<profileReportEntity> {
         }
         return responseSummaryReportList;
     }
-
-    public List<ResponseShgDetails> getShgDetail(Integer stateId,Integer districtId,Integer blockId,Integer villageId,Integer panchayatId) {
-        List<ResponseShgDetails> responseShgDetailsList = new ArrayList<>();
-        List<Object[]> shgDetailsList;
-        if(stateId == null){
-            stateId = -1;
-        }
-        if(districtId == null){
-            districtId = -1;
-        }if(blockId == null){
-            blockId =-1;
-        }if(villageId == null){
-            villageId =-1;
-        }
-        if(panchayatId == null){
-            panchayatId =-1;
-        }
-        shgDetailsList = profileReportRepository.getShgDetails(blockId,villageId,panchayatId);
-        if (shgDetailsList != null && shgDetailsList.size() >0) {
-            for (Object[] shgDetails : shgDetailsList) {
-                ResponseShgDetails responseShgDetails1 = new ResponseShgDetails();
-                if (shgDetails[0] != null) {
-                    responseShgDetails1.setState(shgDetails[0].toString());
-                }
-                if (shgDetails[1] != null) {
-                    responseShgDetails1.setDistrict(shgDetails[1].toString());
-                }
-                if (shgDetails[2] != null) {
-                    responseShgDetails1.setBlock(shgDetails[2].toString());
-                }
-                if (shgDetails[3] != null) {
-                    responseShgDetails1.setGp(shgDetails[3].toString());
-                }
-                if (shgDetails[4] != null) {
-                    responseShgDetails1.setVillage(shgDetails[4].toString());
-                }
-                if (shgDetails[5] != null) {
-                    responseShgDetails1.setShgCode(shgDetails[5].toString());
-                }
-                if (shgDetails[6] != null) {
-                    responseShgDetails1.setShgName(shgDetails[6].toString());
-                }
-                if (shgDetails[7] != null) {
-                    responseShgDetails1.setUserId(shgDetails[7].toString());
-                }
-                if (shgDetails[8] != null) {
-                    responseShgDetails1.setUserName(shgDetails[8].toString());
-                }
-                if (shgDetails[9] != null) {
-                    responseShgDetails1.setApprovedStatus(shgDetails[9].toString());
-                }
-                if (shgDetails[10] != null) {
-                    responseShgDetails1.setShgStatus(shgDetails[10].toString());
-                }
-                if (shgDetails[11] != null) {
-                    responseShgDetails1.setIsNewShg(shgDetails[11].toString());
-                }
-                responseShgDetailsList.add(responseShgDetails1);
-            }
-        }else{
-            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
-        }
-        return responseShgDetailsList;
+    public List<ResponseShgDetails> getShgDetail(String cboType, String stateId, String districtId, String blockId, String tenantIdentifier) {
+        return pgFunctionProcedureService.functionCboDownloads(cboType, stateId, districtId, blockId, tenantIdentifier);
     }
+//    public List<ResponseShgDetails> getShgDetail(Integer stateId,Integer districtId,Integer blockId,Integer villageId,Integer panchayatId) {
+//        List<ResponseShgDetails> responseShgDetailsList = new ArrayList<>();
+//        List<Object[]> shgDetailsList;
+//        if(stateId == null){
+//            stateId = -1;
+//        }
+//        if(districtId == null){
+//            districtId = -1;
+//        }if(blockId == null){
+//            blockId =-1;
+//        }if(villageId == null){
+//            villageId =-1;
+//        }
+//        if(panchayatId == null){
+//            panchayatId =-1;
+//        }
+//        shgDetailsList = profileReportRepository.getShgDetails(blockId,villageId,panchayatId);
+//        if (shgDetailsList != null && shgDetailsList.size() >0) {
+//            for (Object[] shgDetails : shgDetailsList) {
+//                ResponseShgDetails responseShgDetails1 = new ResponseShgDetails();
+//                if (shgDetails[0] != null) {
+//                    responseShgDetails1.setState(shgDetails[0].toString());
+//                }
+//                if (shgDetails[1] != null) {
+//                    responseShgDetails1.setDistrict(shgDetails[1].toString());
+//                }
+//                if (shgDetails[2] != null) {
+//                    responseShgDetails1.setBlock(shgDetails[2].toString());
+//                }
+//                if (shgDetails[3] != null) {
+//                    responseShgDetails1.setGp(shgDetails[3].toString());
+//                }
+//                if (shgDetails[4] != null) {
+//                    responseShgDetails1.setVillage(shgDetails[4].toString());
+//                }
+//                if (shgDetails[5] != null) {
+//                    responseShgDetails1.setShgCode(shgDetails[5].toString());
+//                }
+//                if (shgDetails[6] != null) {
+//                    responseShgDetails1.setShgName(shgDetails[6].toString());
+//                }
+//                if (shgDetails[7] != null) {
+//                    responseShgDetails1.setUserId(shgDetails[7].toString());
+//                }
+//                if (shgDetails[8] != null) {
+//                    responseShgDetails1.setUserName(shgDetails[8].toString());
+//                }
+//                if (shgDetails[9] != null) {
+//                    responseShgDetails1.setApprovedStatus(shgDetails[9].toString());
+//                }
+//                if (shgDetails[10] != null) {
+//                    responseShgDetails1.setShgStatus(shgDetails[10].toString());
+//                }
+//                if (shgDetails[11] != null) {
+//                    responseShgDetails1.setIsNewShg(shgDetails[11].toString());
+//                }
+//                responseShgDetailsList.add(responseShgDetails1);
+//            }
+//        }else{
+//            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
+//        }
+//        return responseShgDetailsList;
+//    }
 
     public List<ResponseMemberDetails> getMemberDetail(Integer stateId,Integer districtId, Integer blockId,Integer panchayatId,Integer villageId) {
         List<ResponseMemberDetails> responseMemberDetailsList = new ArrayList<>();
@@ -729,152 +729,158 @@ public class ProfileReportService<profileReportEntity> {
         return responseMemberDetailsList;
     }
 
-    public List<ResponseUserConsolidate> getUserConsolidateData(Integer stateId,String districtId,String blockId) {
-        List<ResponseUserConsolidate> responseUserConsolidateList = new ArrayList<>();
-        List<Object[]> userConsolidateDataList;
-        if(stateId == null){
-            stateId = -1;
-        }
-        if(districtId == null){
-            districtId = null;
-        }if(blockId == null){
-            blockId =null;
-        }
-        userConsolidateDataList = profileReportRepository.getUserConsolidateData(stateId,districtId,blockId);
-        if (userConsolidateDataList != null && userConsolidateDataList.size() >0) {
-            for (Object[] userConsolidate : userConsolidateDataList) {
-                ResponseUserConsolidate responseUserConsolidate1 = new ResponseUserConsolidate();
-                if (userConsolidate[0] != null) {
-                    responseUserConsolidate1.setState(userConsolidate[0].toString());
-                }
-                if (userConsolidate[1] != null) {
-                    responseUserConsolidate1.setUserRoleName(userConsolidate[1].toString());
-                }
-                if (userConsolidate[2] != null) {
-                    responseUserConsolidate1.setCount((Integer) (userConsolidate[2]));
-                }
-                responseUserConsolidateList.add(responseUserConsolidate1);
-            }
+//    public List<ResponseUserConsolidate> getUserConsolidateData(Integer stateId,String districtId,String blockId) {
+//        List<ResponseUserConsolidate> responseUserConsolidateList = new ArrayList<>();
+//        List<Object[]> userConsolidateDataList;
+//        if(stateId == null){
+//            stateId = -1;
+//        }
+//        if(districtId == null){
+//            districtId = null;
+//        }if(blockId == null){
+//            blockId =null;
+//        }
+//        userConsolidateDataList = profileReportRepository.getUserConsolidateData(stateId,districtId,blockId);
+//        if (userConsolidateDataList != null && userConsolidateDataList.size() >0) {
+//            for (Object[] userConsolidate : userConsolidateDataList) {
+//                ResponseUserConsolidate responseUserConsolidate1 = new ResponseUserConsolidate();
+//                if (userConsolidate[0] != null) {
+//                    responseUserConsolidate1.setState(userConsolidate[0].toString());
+//                }
+//                if (userConsolidate[1] != null) {
+//                    responseUserConsolidate1.setUserRoleName(userConsolidate[1].toString());
+//                }
+//                if (userConsolidate[2] != null) {
+//                    responseUserConsolidate1.setCount((Integer) (userConsolidate[2]));
+//                }
+//                responseUserConsolidateList.add(responseUserConsolidate1);
+//            }
+//
+//        }else{
+//            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
+//        }
+//        return responseUserConsolidateList;
+//    }
 
-        }else{
-            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
-        }
-        return responseUserConsolidateList;
-    }
-    public List<ResponseVODetails> getVODetail(Integer stateId,Integer districtId,Integer blockId,Integer panchayatId) {
-        List<ResponseVODetails> responseVoDetailsList = new ArrayList<>();
-        List<Object[]> voDetailsList;
+//    public List<ResponseVODetails> getVODetail(String cboType,String stateId,String districtId,String blockId,String tenantIdentifier) {
+//        return pgFunctionProcedureService.getVoDetails(cboType, stateId, districtId, blockId, tenantIdentifier);
+//    }
+//    public List<ResponseVODetails> getVODetail(Integer stateId,Integer districtId,Integer blockId,Integer panchayatId) {
+//        List<ResponseVODetails> responseVoDetailsList = new ArrayList<>();
+//        List<Object[]> voDetailsList;
+//
+//        if(stateId == null){
+//            stateId = -1;
+//        } if(districtId == null){
+//            districtId = -1;
+//        }if(blockId == null){
+//            blockId =-1;
+//        }if(panchayatId == null){
+//            panchayatId =-1;
+//        }
+//        voDetailsList = profileReportRepository.getVoDetails(blockId,panchayatId);
+//        if (voDetailsList != null && voDetailsList.size() >0) {
+//            for (Object[] voDetails : voDetailsList) {
+//                ResponseVODetails responseVODetails1 = new ResponseVODetails();
+//                if (voDetails[0] != null) {
+//                    responseVODetails1.setState(voDetails[0].toString());
+//                }
+//                if (voDetails[1] != null) {
+//                    responseVODetails1.setDistrict(voDetails[1].toString());
+//                }
+//                if (voDetails[2] != null) {
+//                    responseVODetails1.setBlock(voDetails[2].toString());
+//                }
+//                if (voDetails[3] != null) {
+//                    responseVODetails1.setGp(voDetails[3].toString());
+//                }
+//                if (voDetails[4] != null) {
+//                    responseVODetails1.setVoCode(Long.parseLong((String) voDetails[4]));
+//                }
+//                if (voDetails[5] != null) {
+//                    responseVODetails1.setVoName(voDetails[5].toString());
+//                }
+//                if (voDetails[6] != null) {
+//                    responseVODetails1.setUserId(voDetails[6].toString());
+//                }
+//                if (voDetails[7] != null) {
+//                    responseVODetails1.setUserName(voDetails[7].toString());
+//                }
+//                if (voDetails[8] != null) {
+//                    responseVODetails1.setApprovedStatus(voDetails[8].toString());
+//                }
+//                if (voDetails[9] != null) {
+//                    responseVODetails1.setVoStatus(voDetails[9].toString());
+//                }
+//                if (voDetails[10] != null) {
+//                    responseVODetails1.setIsNewVo(voDetails[10].toString());
+//                }
+//                responseVoDetailsList.add(responseVODetails1);
+//            }
+//        }else{
+//            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
+//        }
+//        return responseVoDetailsList;
+//    }
 
-        if(stateId == null){
-            stateId = -1;
-        } if(districtId == null){
-            districtId = -1;
-        }if(blockId == null){
-            blockId =-1;
-        }if(panchayatId == null){
-            panchayatId =-1;
-        }
-        voDetailsList = profileReportRepository.getVoDetails(blockId,panchayatId);
-        if (voDetailsList != null && voDetailsList.size() >0) {
-            for (Object[] voDetails : voDetailsList) {
-                ResponseVODetails responseVODetails1 = new ResponseVODetails();
-                if (voDetails[0] != null) {
-                    responseVODetails1.setState(voDetails[0].toString());
-                }
-                if (voDetails[1] != null) {
-                    responseVODetails1.setDistrict(voDetails[1].toString());
-                }
-                if (voDetails[2] != null) {
-                    responseVODetails1.setBlock(voDetails[2].toString());
-                }
-                if (voDetails[3] != null) {
-                    responseVODetails1.setGp(voDetails[3].toString());
-                }
-                if (voDetails[4] != null) {
-                    responseVODetails1.setVoCode(Long.parseLong((String) voDetails[4]));
-                }
-                if (voDetails[5] != null) {
-                    responseVODetails1.setVoName(voDetails[5].toString());
-                }
-                if (voDetails[6] != null) {
-                    responseVODetails1.setUserId(voDetails[6].toString());
-                }
-                if (voDetails[7] != null) {
-                    responseVODetails1.setUserName(voDetails[7].toString());
-                }
-                if (voDetails[8] != null) {
-                    responseVODetails1.setApprovedStatus(voDetails[8].toString());
-                }
-                if (voDetails[9] != null) {
-                    responseVODetails1.setVoStatus(voDetails[9].toString());
-                }
-                if (voDetails[10] != null) {
-                    responseVODetails1.setIsNewVo(voDetails[10].toString());
-                }
-                responseVoDetailsList.add(responseVODetails1);
-            }
-        }else{
-            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
-        }
-        return responseVoDetailsList;
-    }
-
-
-    public List<ResponseClfDetails> getClfDetail(Integer stateId,Integer districtId,Integer blockId) {
-        List<ResponseClfDetails> responseClfDetailsList = new ArrayList<>();
-        List<Object[]> clfDetailsList;
-        if(stateId == null){
-            stateId = -1;
-        }
-        if(districtId == null){
-            districtId = -1;
-        }if(blockId == null){
-            blockId =-1;
-        }
-        clfDetailsList = profileReportRepository.getClfDetails(blockId);
-        if (clfDetailsList != null && clfDetailsList.size() > 0) {
-            for (Object[] clfDetails : clfDetailsList) {
-                ResponseClfDetails responseClfDetails1 = new ResponseClfDetails();
-                if (clfDetails[0] != null) {
-                    responseClfDetails1.setState(clfDetails[0].toString());
-                }
-                if (clfDetails[1] != null) {
-                    responseClfDetails1.setDistrict(clfDetails[1].toString());
-                }
-                if (clfDetails[2] != null) {
-                    responseClfDetails1.setBlock(clfDetails[2].toString());
-                }
-                if (clfDetails[3] != null) {
-                    responseClfDetails1.setClfCode((Long.parseLong((String)clfDetails[3])));
-                }
-                if (clfDetails[4] != null) {
-                    responseClfDetails1.setClfName(clfDetails[4].toString());
-                }
-                if (clfDetails[5] != null) {
-                    responseClfDetails1.setUserId(clfDetails[5].toString());
-                }
-                if (clfDetails[6] != null) {
-                    responseClfDetails1.setUserName(clfDetails[6].toString());
-                }
-                /*if (clfDetails[7] != null) {
-                    responseClfDetails1.setActivationStatus(clfDetails[7].toString());
-                }*/
-                if (clfDetails[7] != null) {
-                    responseClfDetails1.setApprovedStatus(clfDetails[7].toString());
-                }
-                if (clfDetails[8] != null) {
-                    responseClfDetails1.setVoStatus(clfDetails[8].toString());
-                }
-                if (clfDetails[9] != null) {
-                    responseClfDetails1.setIsNewClf(clfDetails[9].toString());
-                }
-                responseClfDetailsList.add(responseClfDetails1);
-            }
-        }else{
-            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
-        }
-        return responseClfDetailsList;
-    }
+//    public List<ResponseClfDetails> getClfDetail(String cboType, String stateId,String districtId,String blockId, String tenantIdentifier) {
+//        return pgFunctionProcedureService.getClfDetails(cboType, stateId, districtId, blockId, tenantIdentifier);
+//    }
+//    public List<ResponseClfDetails> getClfDetail(Integer stateId,Integer districtId,Integer blockId) {
+//        List<ResponseClfDetails> responseClfDetailsList = new ArrayList<>();
+//        List<Object[]> clfDetailsList;
+//        if(stateId == null){
+//            stateId = -1;
+//        }
+//        if(districtId == null){
+//            districtId = -1;
+//        }if(blockId == null){
+//            blockId =-1;
+//        }
+//        clfDetailsList = profileReportRepository.getClfDetails(blockId);
+//        if (clfDetailsList != null && clfDetailsList.size() > 0) {
+//            for (Object[] clfDetails : clfDetailsList) {
+//                ResponseClfDetails responseClfDetails1 = new ResponseClfDetails();
+//                if (clfDetails[0] != null) {
+//                    responseClfDetails1.setState(clfDetails[0].toString());
+//                }
+//                if (clfDetails[1] != null) {
+//                    responseClfDetails1.setDistrict(clfDetails[1].toString());
+//                }
+//                if (clfDetails[2] != null) {
+//                    responseClfDetails1.setBlock(clfDetails[2].toString());
+//                }
+//                if (clfDetails[3] != null) {
+//                    responseClfDetails1.setClfCode((Long.parseLong((String)clfDetails[3])));
+//                }
+//                if (clfDetails[4] != null) {
+//                    responseClfDetails1.setClfName(clfDetails[4].toString());
+//                }
+//                if (clfDetails[5] != null) {
+//                    responseClfDetails1.setUserId(clfDetails[5].toString());
+//                }
+//                if (clfDetails[6] != null) {
+//                    responseClfDetails1.setUserName(clfDetails[6].toString());
+//                }
+//                /*if (clfDetails[7] != null) {
+//                    responseClfDetails1.setActivationStatus(clfDetails[7].toString());
+//                }*/
+//                if (clfDetails[7] != null) {
+//                    responseClfDetails1.setApprovedStatus(clfDetails[7].toString());
+//                }
+//                if (clfDetails[8] != null) {
+//                    responseClfDetails1.setVoStatus(clfDetails[8].toString());
+//                }
+//                if (clfDetails[9] != null) {
+//                    responseClfDetails1.setIsNewClf(clfDetails[9].toString());
+//                }
+//                responseClfDetailsList.add(responseClfDetails1);
+//            }
+//        }else{
+//            throw new RecordNotFoundException(CustomStatus.NOT_FOUND_MSG);
+//        }
+//        return responseClfDetailsList;
+//    }
 
     public List<ResponseUserBKDetails> getUserBKDetails(Integer stateId,String districtId,String blockId,String panchayatId, String villageId) {
         List<ResponseUserBKDetails> responseUserBKDetailsList = new ArrayList<>();
