@@ -637,6 +637,30 @@ public class SocialMobalizationEntity {
     private Integer eBKAssigetoSHGInactive;
     @Column(name = "ShgMapped_withBK_inactive")
     private Integer shgMappedWithBKInactive;
+    @Column(name = "no_of_clf_bk_active")
+    private Integer noOfClfBKActive;
+    @Column(name = "clf_assigned_active")
+    private Integer clfAssignedActive;
+    @Column(name = "clf_mapped_active")
+    private Integer clfMappedActive;
+    @Column(name = "no_of_clf_bk_inactive")
+    private Integer noOfClfBKInactive;
+    @Column(name = "clf_assigned_inactive")
+    private Integer clfAssignedInactive;
+    @Column(name = "clf_mapped_inactive")
+    private Integer clfMappedInactive;
+    @Column(name = "no_of_vo_bk_active")
+    private Integer noOfVOBKActive;
+    @Column(name = "vo_assigned_active")
+    private Integer voAssignedActive;
+    @Column(name = "vo_mapped_active")
+    private Integer voMappedActive;
+    @Column(name = "no_of_vo_bk_inactive")
+    private Integer noOfVoBkInactive;
+    @Column(name = "vo_assigned_inactive")
+    private Integer voAssignedIactive;
+    @Column(name = "vo_mapped_inactive")
+    private Integer voMappedInactive;
     public Integer getMemActivated() {
         return memActivated;
     }
@@ -3079,6 +3103,102 @@ public class SocialMobalizationEntity {
 
     public void setShgMappedWithBKInactive(Integer shgMappedWithBKInactive) {
         this.shgMappedWithBKInactive = shgMappedWithBKInactive;
+    }
+
+    public Integer getNoOfClfBKActive() {
+        return noOfClfBKActive;
+    }
+
+    public void setNoOfClfBKActive(Integer noOfClfBKActive) {
+        this.noOfClfBKActive = noOfClfBKActive;
+    }
+
+    public Integer getClfAssignedActive() {
+        return clfAssignedActive;
+    }
+
+    public void setClfAssignedActive(Integer clfAssignedActive) {
+        this.clfAssignedActive = clfAssignedActive;
+    }
+
+    public Integer getClfMappedActive() {
+        return clfMappedActive;
+    }
+
+    public void setClfMappedActive(Integer clfMappedActive) {
+        this.clfMappedActive = clfMappedActive;
+    }
+
+    public Integer getNoOfClfBKInactive() {
+        return noOfClfBKInactive;
+    }
+
+    public void setNoOfClfBKInactive(Integer noOfClfBKInactive) {
+        this.noOfClfBKInactive = noOfClfBKInactive;
+    }
+
+    public Integer getClfAssignedInactive() {
+        return clfAssignedInactive;
+    }
+
+    public void setClfAssignedInactive(Integer clfAssignedInactive) {
+        this.clfAssignedInactive = clfAssignedInactive;
+    }
+
+    public Integer getClfMappedInactive() {
+        return clfMappedInactive;
+    }
+
+    public void setClfMappedInactive(Integer clfMappedInactive) {
+        this.clfMappedInactive = clfMappedInactive;
+    }
+
+    public Integer getNoOfVOBKActive() {
+        return noOfVOBKActive;
+    }
+
+    public void setNoOfVOBKActive(Integer noOfVOBKActive) {
+        this.noOfVOBKActive = noOfVOBKActive;
+    }
+
+    public Integer getVoAssignedActive() {
+        return voAssignedActive;
+    }
+
+    public void setVoAssignedActive(Integer voAssignedActive) {
+        this.voAssignedActive = voAssignedActive;
+    }
+
+    public Integer getVoMappedActive() {
+        return voMappedActive;
+    }
+
+    public void setVoMappedActive(Integer voMappedActive) {
+        this.voMappedActive = voMappedActive;
+    }
+
+    public Integer getNoOfVoBkInactive() {
+        return noOfVoBkInactive;
+    }
+
+    public void setNoOfVoBkInactive(Integer noOfVoBkInactive) {
+        this.noOfVoBkInactive = noOfVoBkInactive;
+    }
+
+    public Integer getVoAssignedIactive() {
+        return voAssignedIactive;
+    }
+
+    public void setVoAssignedIactive(Integer voAssignedIactive) {
+        this.voAssignedIactive = voAssignedIactive;
+    }
+
+    public Integer getVoMappedInactive() {
+        return voMappedInactive;
+    }
+
+    public void setVoMappedInactive(Integer voMappedInactive) {
+        this.voMappedInactive = voMappedInactive;
     }
 }
 
