@@ -7,8 +7,8 @@ import java.math.BigInteger;
 
 @Entity
 @Cacheable(value = false)
-@Table(name = "tbl_summary")
-//@Table(name = "lokos.tbl_summary")
+@Table(name = "reports.tbl_summary")
+//@Table(name = "tbl_summary")
 public class SocialMobalizationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -3056,6 +3056,7 @@ public class SocialMobalizationEntity {
     public void setMemAgeNull(Integer memAgeNull) {
         this.memAgeNull = memAgeNull;
     }
+<<<<<<< HEAD
 
     public Integer getTotalBKActive() {
         return totalBKActive;

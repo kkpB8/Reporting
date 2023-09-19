@@ -2713,6 +2713,7 @@ public class ResponseSocialMobilization {
         this.memAgeNull = memAgeNull;
     }
 
+
     public Integer getTotalBKActive() {
         return totalBKActive;
     }
