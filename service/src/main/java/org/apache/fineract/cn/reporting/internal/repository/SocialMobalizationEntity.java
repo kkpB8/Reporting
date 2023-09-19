@@ -3056,7 +3056,6 @@ public class SocialMobalizationEntity {
     public void setMemAgeNull(Integer memAgeNull) {
         this.memAgeNull = memAgeNull;
     }
-<<<<<<< HEAD
 
     public Integer getTotalBKActive() {
         return totalBKActive;
