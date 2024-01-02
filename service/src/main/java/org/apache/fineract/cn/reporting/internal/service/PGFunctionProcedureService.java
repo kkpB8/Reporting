@@ -1423,6 +1423,11 @@ public class PGFunctionProcedureService {
                 responseShgDetails.setIsNewVo(rs.getString("isnewvo"));
                 responseShgDetails.setClfStatus(rs.getString("clfstatus"));
                 responseShgDetails.setIsNewClf(rs.getString("isnewclf"));
+                responseShgDetails.setCboMobileNo(rs.getString("mobile_number"));
+                responseShgDetails.setMemberCode(rs.getString("membercode"));
+                responseShgDetails.setMemberName(rs.getString("membername"));
+                responseShgDetails.setMemberStatus(rs.getString("memberstatus"));
+                responseShgDetails.setIsNewMember(rs.getString("isnewmember"));
                 responseShgDetailsList.add(responseShgDetails);
             }
             stmt.close();

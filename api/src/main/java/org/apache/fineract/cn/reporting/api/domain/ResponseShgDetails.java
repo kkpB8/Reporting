@@ -34,6 +34,11 @@ public class ResponseShgDetails {
     private String isNewVo;
     private String clfStatus;
     private String isNewClf;
+    private String cboMobileNo;
+    private String memberCode;
+    private String memberName;
+    private String memberStatus;
+    private String isNewMember;
     public String getState() {
         return state;
     }
@@ -200,5 +205,45 @@ public class ResponseShgDetails {
 
     public void setIsNewClf(String isNewClf) {
         this.isNewClf = isNewClf;
+    }
+
+    public String getCboMobileNo() {
+        return cboMobileNo;
+    }
+
+    public void setCboMobileNo(String cboMobileNo) {
+        this.cboMobileNo = cboMobileNo;
+    }
+
+    public String getMemberCode() {
+        return memberCode;
+    }
+
+    public void setMemberCode(String memberCode) {
+        this.memberCode = memberCode;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public String getMemberStatus() {
+        return memberStatus;
+    }
+
+    public void setMemberStatus(String memberStatus) {
+        this.memberStatus = memberStatus;
+    }
+
+    public String getIsNewMember() {
+        return isNewMember;
+    }
+
+    public void setIsNewMember(String isNewMember) {
+        this.isNewMember = isNewMember;
     }
 }

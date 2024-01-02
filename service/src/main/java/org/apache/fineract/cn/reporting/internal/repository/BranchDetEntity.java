@@ -4,7 +4,7 @@ import java.math.BigInteger;
 import java.sql.Timestamp;
 @Entity
 @Cacheable(value = false)
-@Table(name = "tbl_summary_banks")
+@Table(name = "reports.tbl_summary_banks")
 public class BranchDetEntity {
 
     @Id

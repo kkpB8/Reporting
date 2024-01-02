@@ -24,7 +24,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Cacheable(value = false)
-@Table(name = "tbl_summary")
+@Table(name = "reports.tbl_summary")
 public class ProfileReportEntity {
 
  @Id
@@ -162,7 +162,6 @@ public class ProfileReportEntity {
  private Integer clfEc;
  @Column(name = "updated_date")
  private String updatedDate;
-
 
  public Integer getGeographicalFlag() {
   return geographicalFlag;
